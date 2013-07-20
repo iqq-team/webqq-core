@@ -99,7 +99,8 @@ public class QQEncryptor {
 	}
 
 	/**
-	 * 获取好友列表时计算的HASH参数 v2012.07.20更新 感谢IQQ群里面的@枫叶(953884102)提供
+	 * 获取好友列表时计算的HASH参数 v2012.07.20更新 
+	 * 感谢IQQ群里面的@枫叶(953884102)提供
 	 * 
 	 * @param uin
 	 *            当前登录用户UIN
@@ -110,19 +111,19 @@ public class QQEncryptor {
 	public static String hash3(String uin, String ptwebqq) {
 		String i = ptwebqq;
 		String b = uin;
-		int[] a = new int[i.length()];
+		long[] a = new long[i.length()];
 		char[] iString = i.toCharArray();
 		for (int s = 0; s < i.length(); s++) {
 			a[s % 4] ^= (int) iString[s];
 		}
 		String[] j = { "EC", "OK" };
-		int[] d = new int[4];
-		d[0] = Integer.parseInt(b) >> 24 & 255 ^ (int) j[0].toCharArray()[0];
-		d[1] = Integer.parseInt(b) >> 16 & 255 ^ (int) j[0].toCharArray()[1];
-		d[2] = Integer.parseInt(b) >> 8 & 255 ^ (int) j[1].toCharArray()[0];
-		d[3] = Integer.parseInt(b) & 255 ^ (int) j[1].toCharArray()[1];
+		long[] d = new long[4];
+		d[0] = Long.parseLong(b) >> 24 & 255 ^ (long) j[0].toCharArray()[0];
+		d[1] = Long.parseLong(b) >> 16 & 255 ^ (long) j[0].toCharArray()[1];
+		d[2] = Long.parseLong(b) >> 8 & 255 ^ (long) j[1].toCharArray()[0];
+		d[3] = Long.parseLong(b) & 255 ^ (long) j[1].toCharArray()[1];
 
-		int[] k = new int[8];
+		long[] k = new long[8];
 		for (int s = 0; s < 8; s++)
 			k[s] = s % 2 == 0 ? a[s >> 1] : d[s >> 1];
 		String[] aa = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A",
@@ -130,8 +131,8 @@ public class QQEncryptor {
 
 		String dd = "";
 		for (int s = 0; s < k.length; s++) {
-			dd += aa[k[s] >> 4 & 15];
-			dd += aa[k[s] & 15];
+			dd += aa[(int) (k[s] >> 4 & 15)];
+			dd += aa[(int) (k[s] & 15)];
 		}
 		return dd;
 	}
