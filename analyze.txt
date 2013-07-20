@@ -1,0 +1,89 @@
+发送消息：
+	URL：http://d.web2.qq.com/channel/send_buddy_msg2
+	文字  r: {"to":2741929222,"face":0,"content":"[\"1111\",\"\\n【提示：此用户正在使用Q+ Web：http://web.qq.com/】\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ff0000\"}]]","msg_id":21870001,"clientid":"15187160","psessionid":"8368046764001e636f6e6e7365727665725f77656271714031302e3133332e34312e32303200005cc800001ed5026e04002aafd23f6d0000000a403466504264704e6c356d00000028fb97b2bcd6916c828d5822beedc597ae7fe1e933852e4081c7efd32b9c999841acaa2fc4ad66d51f"}
+	文字和表情 r:{"to":2741929222,"face":0,"content":"[\"123\",[\"face\",1],\"456\",[\"face\",51],\"\\n\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ff0000\"}]]","msg_id":21870002,"clientid":"15187160","psessionid":"8368046764001e636f6e6e7365727665725f77656271714031302e3133332e34312e32303200005cc800001ed5026e04002aafd23f6d0000000a403466504264704e6c356d00000028fb97b2bcd6916c828d5822beedc597ae7fe1e933852e4081c7efd32b9c999841acaa2fc4ad66d51f"}
+	文字、表情和图片 r:{"to":2741929222,"face":0,"content":"[\"2222\",[\"face\",14],\"222\",[\"offpic\",\"/27d736df-2a59-4007-8701-7218bc70898d\",\"Beaver.bmp\",14173],\"123\\n\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ff0000\"}]]","msg_id":21870003,"clientid":"15187160","psessionid":"8368046764001e636f6e6e7365727665725f77656271714031302e3133332e34312e32303200005cc800001ed5026e04002aafd23f6d0000000a403466504264704e6c356d00000028fb97b2bcd6916c828d5822beedc597ae7fe1e933852e4081c7efd32b9c999841acaa2fc4ad66d51f"}
+	
+	群消息：r:{"group_uin":1531183022,"content":"[\"1122\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[1,1,1],\"color\":\"ffcc99\"}]]","msg_id":55790002,"clientid":"77579311","psessionid":"8368046764001e636f6e6e7365727665725f77656271714031302e3133332e34312e3230320000674900001ed9026e04002aafd23f6d0000000a403466504264704e6c356d00000028ed805d27c40816cd9ad8bc42fb78ac79afd9df4440c77ddf430b93add96e1a6a63e24ae03d3f1516"}
+	
+	图片上传：
+		URL: http://weboffline.ftn.qq.com/ftn_access/upload_offline_pic?time=1361752435983
+
+	"content":"[\"1111\",\"\\n【提示：此用户正在使用Q+ Web：http://web.qq.com/】\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ff0000\"}]]"
+		array 0: "1111"
+		array 1: "\\n【提示：此用户正在使用Q+ Web：http://web.qq.com/】\"
+		array 2: [\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ff0000\"}]
+			......
+		array *: ["face",3]
+		array *: [\"offpic\",\"/27d736df-2a59-4007-8701-7218bc70898d\",\"Beaver.bmp\",14173]
+	
+	
+接收消息：
+	文字：{"retcode":0,"result":[{"poll_type":"message","value":{"msg_id":5596,"from_uin":2741929222,"to_uin":1070772010,"msg_id2":906644,"msg_type":9,"reply_ip":176882138,"time":1361752621,"content":[["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}],"123 "]}}]}
+	文字和表情: {"retcode":0,"result":[{"poll_type":"message","value":{"msg_id":5597,"from_uin":2741929222,"to_uin":1070772010,"msg_id2":900140,"msg_type":9,"reply_ip":176882141,"time":1361752693,"content":[["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}],"123",["face",1],"2343",["face",3]," "]}}]}
+	文字、表情和图片: {"retcode":0,"result":[{"poll_type":"message","value":{"msg_id":5598,"from_uin":2741929222,"to_uin":1070772010,"msg_id2":795504,"msg_type":9,"reply_ip":176882162,"time":1361752760,"content":[["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}],"1222",["face",1],"222",["offpic",{"success":1,"file_path":"/7acccf74-0fcd-4bbd-b885-03a5cc2f7507"}],"331",["face",111]," "]}}]}
+	群：{"retcode":0,"result":[{"poll_type":"group_message","value":{"msg_id":13893,"from_uin":1531183022,"to_uin":1070772010,"msg_id2":873821,"msg_type":43,"reply_ip":176621995,"group_code":908614624,"send_uin":2741929222,"seq":5761,"time":1361756252,"info_seq":164158750,"content":[["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}],"\u6211\u4E5F\u662F\uFF0C\u4E86\u89E3\u5F97\u4E0D\u591A "]}}]}
+	
+	"content":[["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}],"123 "]
+		array 0: ["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}]
+		array 1: "123 "
+			......
+		array *: ["face",3]
+		array *: ["offpic",{"success":1,"file_path":"/7acccf74-0fcd-4bbd-b885-03a5cc2f7507"}]
+
+Entity:
+	Font, Text, Face, Picture
+
+图片上传：
+返回：{"retcode":0, "result":"OK", "progress":100, "filesize":14173, "fileid":"1", "filename":"Beaver.bmp", "filepath":"/27d736df-2a59-4007-8701-7218bc70898d"}
+请求：		
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="callback"
+
+parent.EQQ.Model.ChatMsg.callbackSendPic
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="locallangid"
+
+2052
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="clientversion"
+
+1409
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="uin"
+
+1070772010
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="skey"
+
+@4fPBdpNl5
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="appid"
+
+1002101
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="peeruin"
+
+593023668
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="file"; filename="Beaver.bmp"
+Content-Type: image/bmp
+
+
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="fileid"
+
+1
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="vfwebqq"
+
+fb97b2bcd6916c828d5822beedc597ae7fe1e933852e4081c7efd32b9c999841acaa2fc4ad66d51f
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="senderviplevel"
+
+0
+------WebKitFormBoundaryj3P206QtBMSSesgJ
+Content-Disposition: form-data; name="reciverviplevel"
+
+0
+------WebKitFormBoundaryj3P206QtBMSSesgJ--
