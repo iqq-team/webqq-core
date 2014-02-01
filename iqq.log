@@ -1,0 +1,1068 @@
+2014-02-01 22:36:08,078 [QQActorDispatcher] [iqq.im.actor.ThreadActorDispatcher] [DEBUG] - QQActorDispatcher enter action loop...
+2014-02-01 22:36:09,404 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 >> GET /cgi-bin/login?daid=164&target=self&style=5&mibao_css=m_webqq&appid=1003903&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&f_url=loginerroralert&strong_login=1&login_state=10&t=20130723001 HTTP/1.1
+2014-02-01 22:36:09,420 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:09,430 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:09,431 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 >> Host: ui.ptlogin2.qq.com
+2014-02-01 22:36:09,432 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 >> Connection: Keep-Alive
+2014-02-01 22:36:11,034 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << HTTP/1.1 200 OK
+2014-02-01 22:36:11,035 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Server: nginx/0.7.67
+2014-02-01 22:36:11,037 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Date: Sat, 01 Feb 2014 14:36:10 GMT
+2014-02-01 22:36:11,038 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Content-Type: text/html
+2014-02-01 22:36:11,038 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Connection: close
+2014-02-01 22:36:11,038 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << P3P: CP="CAO PSA OUR"
+2014-02-01 22:36:11,039 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Cache-Control: max-age=86400
+2014-02-01 22:36:11,039 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Set-Cookie: login_param=daid%3D164%26target%3Dself%26style%3D5%26mibao_css%3Dm_webqq%26appid%3D1003903%26enable_qlogin%3D0%26no_verifyimg%3D1%26s_url%3Dhttp%253A%252F%252Fweb2.qq.com%252Floginproxy.html%26f_url%3Dloginerroralert%26strong_login%3D1%26login_state%3D10%26t%3D20130723001; PATH=/; DOMAIN=ui.ptlogin2.qq.com;
+2014-02-01 22:36:11,039 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Set-Cookie: uikey=efeb4210549de3b499a0da638d22845f1be7d0da717199aa6dda8d33576f5462; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:11,040 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Set-Cookie: pt_user_id=12109822790346278071; EXPIRES=Tue, 30-Jan-2024 14:36:10 GMT; PATH=/; DOMAIN=ui.ptlogin2.qq.com;
+2014-02-01 22:36:11,040 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Set-Cookie: ptui_identifier=000D71331CE171EC5912F3E2C9BD5125EA16796A8C8B612479B738CC; PATH=/; DOMAIN=ui.ptlogin2.qq.com;
+2014-02-01 22:36:11,040 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Last-Modified: Wed, 22 Jan 2014 01:30:00 GMT
+2014-02-01 22:36:11,041 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-1 << Content-Length: 31978
+2014-02-01 22:36:11,045 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=login_param, value=daid%3D164%26target%3Dself%26style%3D5%26mibao_css%3Dm_webqq%26appid%3D1003903%26enable_qlogin%3D0%26no_verifyimg%3D1%26s_url%3Dhttp%253A%252F%252Fweb2.qq.com%252Floginproxy.html%26f_url%3Dloginerroralert%26strong_login%3D1%26login_state%3D10%26t%3D20130723001, domain=ui.ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:11,046 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=uikey, value=efeb4210549de3b499a0da638d22845f1be7d0da717199aa6dda8d33576f5462, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:11,046 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=pt_user_id, value=12109822790346278071, domain=ui.ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:11,047 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptui_identifier, value=000D71331CE171EC5912F3E2C9BD5125EA16796A8C8B612479B738CC, domain=ui.ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:11,129 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/html
+2014-02-01 22:36:11,130 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script type="text/javascript">var g_begTime=new Date();</script>
+
+<style type="text/css">
+u{text-decoration:none;white-space:nowrap;}
+*{font-family:Tahoma,Verdana,Arial,Helvetica,sans-serif;font-size:12px;}body{margin:0;padding:0;background:#F6F6F6;}form{margin:0;padding:0;}img{border:0 none;}a{text-decoration:none;}em{font-style:normal;}.clearer{clear:both;display:block;font-size:1px;height:1px;margin:0;padding:0;}.signin{width:360px;margin:0 auto;float:none;padding:0;}.signin .subcolumn01 .middle{float:left;width:296px;height:40px;}.signin .subcolumn01 .middle span{line-height:40px;color:#000;font-weight:bold;font-size:14px;padding-left:4em;}.signin .subcolumn02{width:356px;overflow:hidden;zoom:1;padding-bottom:10px;}.strong-login .signin .subcolumn02{padding-top:20px;}.signin .subcolumn02 .signin-area{padding:1px 17px;margin:0 0 0 40px;}.signin .subcolumn02 .signin-area-bg{float:left;width:296px;}.signin .subcolumn02 .signin-area-bg .padder{margin:8px 0 0;}.signin .subcolumn02 .signin-area-bg .padder .sign-input{margin:14px 0 0 0;}.signin .subcolumn02 .signin-area-bg .padder span.title{width:60px;height:20px;margin-right:5px;_margin-top:2px;text-indent:-999em;float:left;background:url("/style.ssl/5/images/login_btn.png") no-repeat;}.signin .subcolumn02 .signin-area-bg .padder span.account{background-position:0 -36px;}.signin .subcolumn02 .signin-area-bg .padder span.password{background-position:-60px -36px;}.signin .subcolumn02 .signin-area-bg .padder span.code{background-position:-120px -36px;}.signin .subcolumn02 .signin-area-bg .padder span.input{display:block;}.signin .subcolumn02 .signin-area-bg .padder span.input a{margin-left:7px;text-decoration:underline;color:#3472a3;}.signin .subcolumn02 .signin-area-bg .padder span.expand{padding-left:5.9em;-moz-user-select:none;-khtml-user-select:none;width:200px;}*:lang(en) .signin .subcolumn02 .signin-area-bg .padder span.expand{margin-left:-7px;}.signin .subcolumn02 .signin-area-bg .padder .input01{width:170px;border:1px #ccc solid;color:#868686;font-size:16px;padding:2px;-moz-border-radius:10px;-webkit-border-radius:10px;-khtml-border-radius:10px;-border-radius:10px;outline:none;}.signin .subcolumn02 .signin-area-bg .padder .validate{color:#808080;margin:0;}.valcode .pic{padding:5px 0 0 68px;}.valcode .pic img{width:130px;height:53px;}.signin .subcolumn03{clear:both;}.strong-login .signin .subcolumn03{margin:10px 0;}.signin .subcolumn03 .left{float:left;}.signin .subcolumn03 .middle{float:left;}.signin .subcolumn03 .middle .middle-padder{float:left;padding:15px 0 0 55px;}.signin .subcolumn03 .middle .signin-btn{background:url("/style.ssl/5/images/login_btn.png") no-repeat -111px 0;width:111px;height:36px;border:0;text-align:center;line-height:20px;color:#0C4E7C;cursor:pointer;margin-left:14px;}.signin .subcolumn03 .middle .signin2{float:left;margin-left:0;}.signin .subcolumn03 .middle .signup-btn{background:url("/style.ssl/5/images/login_btn.png") no-repeat 0 0;width:111px;height:36px;display:block;border:0;text-align:center;line-height:20px;color:#0C4E7C;cursor:pointer;outline:none;float:left;}.signin .subcolumn03 .right{float:left;}.signin.yui-panel,.signin.yui-panel .hd,.signin.yui-panel .bd,.signin.yui-panel .ft{margin:0;padding:0;border:none;background:none;}.signin.yui-panel .hd{font-weight:normal;}.signin-area-bg .expand{display:block;width:16em;margin-left:55px;}.middle-padder{width:280px;}.middle-padder span{float:left;}.valcode{padding:2px 0 0 0;}.valcode a{color:#3472a3;text-decoration:underline;}.valcode .expand{padding:10px 0;float:left;}.bottom-padder{clear:both;text-align:center;padding:6px 0;width:356px;}.bottom-padder a{color:#3472A3;margin:10px;text-decoration:underline;}.verify_text{padding:3px 0 0 68px;}.err_m{display:none;color:#f00;}.signin-extend{margin:8px 0 0 58px;}.webqq-checkbox{font-size:12px;line-height:2;float:left;margin-right:20px;}.webqq-checkbox span{width:20px;height:20px;float:left;cursor:pointer;background:url("/style.ssl/5/images/ptlogin.gif") no-repeat scroll -40px -16px transparent;}.webqq-checkbox .checked{background-position:-60px -16px;}.login-state-trigger{cursor:pointer;display:block;float:left;height:16px;overflow:hidden;width:120px;margin:4px 0 0 0;}.login-state-trigger2{margin:10px 0 0 20px;}.login-state-down{background:url("/style.ssl/5/images/ptlogin.gif") no-repeat scroll 0 -22px transparent;float:left;height:6px;margin-top:5px;overflow:hidden;text-indent:-999em;width:7px;}.login-state-show{float:left;height:14px;overflow:hidden;text-indent:-999em;width:14px;margin:1px 4px 0 0;}.login-state-txt{float:left;margin-left:5px;>line-height:18px!important;}.login-state .callme{background:url("/style.ssl/5/images/ptlogin.png") -72px 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") -72px 0 no-repeat;}.login-state .online{background:url("/style.ssl/5/images/ptlogin.png") 0 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") 0 0 no-repeat;}.login-state .away{background:url("/style.ssl/5/images/ptlogin.png") -18px 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") -18px 0 no-repeat;}.login-state .busy{background:url("/style.ssl/5/images/ptlogin.png") -36px 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") -36px 0 no-repeat;}.login-state .silent{background:url("/style.ssl/5/images/ptlogin.png") -108px 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") -108px 0 no-repeat;}.login-state .hidden{background:url("/style.ssl/5/images/ptlogin.png") -54px 0 no-repeat;_background:url("/style.ssl/5/images/ptlogin.gif") -54px 0 no-repeat;}.statePanel{position:absolute;right:57px;top:20px;z-index:10;margin:0;border-width:1px;border-style:solid;border-color:#ccc #6a6a6a #666 #cdcdcd;padding:0;width:100px;height:133px;overflow:hidden;background:white;font-size:12px;line-height:1.5;display:none;}.statePanel .statePanel_li{display:block;float:left;margin:0;padding:3px 0;width:100px;height:16px;line-height:16px;overflow:hidden;zoom:1;cursor:pointer;}.stateSelect_icon{float:left;margin:2px 0 0 5px;width:14px;height:14px;overflow:hidden;}.stateSelect_text{margin:0 0 0 22px;}
+
+
+.main{
+background-color:#ffffff;
+}
+
+
+</style>
+<script type="text/javascript">
+//错误上报
+
+(function(){
+	window.onerror = function(msg,url,line){
+		//https不上报
+		if(/^https/.test(window.location)){
+			return;
+		}
+		var t = document.createElement('img');
+		var e_info=encodeURIComponent(msg+'|_|'+url+'|_|'+line+'|_|'+window.navigator.userAgent);
+		t.src = 'http://badjs.qq.com/cgi-bin/js_report?bid=110&mid=195279&msg='+e_info+'&v='+Math.random();
+		t=null;
+	}
+})();
+////////////////////////////
+var str_uintip = "QQ号码/手机/邮箱";
+var str_passtip = "密码";
+var str_codetip = "验证码";
+var str_no_uin = "您还没有输入帐号！";
+var str_no_pwd = "您还没有输入密码！";
+var str_no_vcode = "您还没有输入验证码！";
+var str_inv_uin = "请输入正确的QQ帐号！";
+var str_inv_vcode = "请输入完整的验证码！";
+var str_correct_vcode = "请输入正确的验证码！";
+var str_net_error = "网络或服务器出错，请稍后再试！";
+var str_input_error = "您的输入有误，请稍后重试！";
+var str_switch_qlogin = "切换到快速登录模式";
+var str_switch_normal = "使用其他号码登录";
+var str_qlogin_no_uin = "系统检测到您机器上QQ未启动或已被锁定。请您先登录QQ或解锁后再使用本功能。";
+var str_qlogin_other_err  = "快速登录失败，请您返回重试或切换到普通登录模式。";
+var str_qlogin_select_offline = "您所选择号码对应的QQ已经失效，请检查该号码对应的QQ是否已经被关闭。";
+var str_qlogining = "正在登录中，请稍候……";
+var str_yjfk = "意见反馈";
+//参数只能为数字的
+var g_version=encodeURIComponent("201401220930");
+var g_pt_version=encodeURIComponent("10067");//发布版本号
+var g_qtarget=encodeURIComponent("-1");
+var isLoadVC = false;
+var g_appid =encodeURIComponent("1003903");
+var g_uin = 0;
+var g_domain = encodeURIComponent("qq.com");
+var g_target = encodeURIComponent("_self");
+var g_https = true;
+var g_low_login=encodeURIComponent("0");
+var g_login_sig=encodeURIComponent("jmREQCowHNz-c8rX2IXQzeuLTwj5QLkTTXbIB4BzPkCcKTdmWV2fGe1YuP5spDYc"); //安全参数
+var g_daid=encodeURIComponent("164");//业务隔离id
+var g_regmaster=encodeURIComponent("");//双登录态
+var g_forget="http://ptlogin2.qq.com/ptui_forgetpwd";
+
+var g_href="https\x3A\x2F\x2Fui.ptlogin2.qq.com\x2Fcgi-bin\x2Flogin\x3Fdaid\x3D164\x26target\x3Dself\x26style\x3D5\x26mibao_css\x3Dm_webqq\x26appid\x3D1003903\x26enable_qlogin\x3D0\x26no_verifyimg\x3D1\x26s_url\x3Dhttp\x253A\x252F\x252Fweb2.qq.com\x252Floginproxy.html\x26f_url\x3Dloginerroralert\x26strong_login\x3D1\x26login_state\x3D10\x26t\x3D20130723001";
+var g_param = "";
+var g_css = encodeURIComponent("");
+var g_ptcss = encodeURIComponent("");
+var g_jumpname = encodeURIComponent("");
+var g_mibao_css=encodeURIComponent("m_webqq");//密保页面css
+var g_style=encodeURIComponent("5");//模版类型 (传到iframe参数)
+
+if(g_style==5||g_style==16){
+	//webqq 不降域
+}else{
+	document.domain="qq.com";	
+}
+var g_t="QQ号码/手机/邮箱";
+var g_lang="2052";
+str_uintip="QQ号码/手机/邮箱";
+
+function $(A){return document.getElementById(A)}var preload={needSize:"",isIpad:false,init:function(){var A=navigator.userAgent.toLowerCase();preload.isIpad=/ipad/i.test(A);preload.needSize=preload.getQuery("ptsize")},getQuery:function(B){var A=window.location.search.match(new RegExp("(?:/?|&)"+B+"=([^&]*)(?:&|$)"));return !A?"":unescape(A[1])}};preload.init();var isAbleSubmit=false;function ptui_notifySize(D){try{obj=$(D);if(obj){width=1;height=1;if(obj.offsetWidth>0){width=obj.offsetWidth}if(obj.offsetHeight>0){height=obj.offsetHeight}var B=window.location.hostname.replace(/ui\.ptlogin2\./i,"");var A=new Date();A.setTime(A.getTime()+5*1000);if(preload.needSize){document.cookie="pt_size="+width+"-"+height+";domain="+B+";path=/;expires="+A.toGMTString()}try{if(typeof window.postMessage!="undefined"){window.parent.postMessage("pt_size="+width+"-"+height,"*")}}catch(C){}if(parent.ptlogin2_onResize){parent.ptlogin2_onResize(width,height);window.scroll(0,10)}else{frameElement.width=width;frameElement.style.width=width+"px";frameElement.height=height;frameElement.style.height=height+"px";frameElement.style.visibility="hidden";frameElement.style.visibility="visible"}}}catch(C){}}var g_time={};var g_connectTime=0;var g_responseStartTime=0;var g_responseEndTime=0;(function(){try{if(performance.timing.connectStart&&performance.timing.connectStart!=0){g_connectTime=performance.timing.connectStart}if(performance.timing.responseStart&&performance.timing.responseStart!=0){g_responseStartTime=performance.timing.responseStart}if(performance.timing.responseEnd&&performance.timing.responseEnd!=0){g_responseEndTime=performance.timing.responseEnd}}catch(A){g_connectTime=0;g_responseStartTime=0;g_responseEndTime=0}})();g_time.time0=g_connectTime;g_time.time1=g_responseStartTime;g_time.time2=g_responseEndTime;g_time.time3=g_begTime;var np_clock=0;var nptxsso=null;var has_checkNPPlugin=false;function checkNPPlugin(){var A=10;np_clock=window.setInterval(function(){if(typeof nptxsso.InitPVANoST=="function"||A==0){window.clearInterval(np_clock);if(typeof nptxsso.InitPVANoST=="function"){onSelectLoad()}}else{A--}},200)}function suportActive(){var A=true;try{if(window.ActiveXObject||window.ActiveXObject.prototype){A=true}else{A=false}}catch(B){A=false}return A}function ptui_check_qlogin(){try{g_time.time20=new Date();var E=0;if(suportActive()){var D=new ActiveXObject("SSOAxCtrlForPTLogin.SSOForPTLogin2");var G=D.CreateTXSSOData();D.InitSSOFPTCtrl(0,G);var F=D.CreateTXSSOData();var A=D.DoOperation(2,F);var B=A.GetArray("PTALIST");E=B.GetSize()}else{if(navigator.mimeTypes["application/nptxsso"]){if(!nptxsso){nptxsso=document.createElement("embed");nptxsso.type="application/nptxsso";nptxsso.style.width="0px";nptxsso.style.height="0px";document.body.appendChild(nptxsso)}if(typeof nptxsso.InitPVANoST!="function"){if(!has_checkNPPlugin){checkNPPlugin();has_checkNPPlugin=true}}var C=nptxsso.InitPVANoST();if(C){E=nptxsso.GetPVACount()}}}g_time.time21=new Date()}catch(H){return 0}return E}var xuiFrame=false;var curXui=false;var reloadweb=false;var q_clock;function qlogin_check(){q_clock=setInterval(B,200);var A=50;document.cookie="ptui_qstatus=1;domain=ptlogin2."+g_domain+"path=/";function B(){if(A==0){switchpage()}if(document.cookie.indexOf("ptui_qstatus=2")>-1){clearInterval(q_clock);if(!g_time.time23){g_time.time23=new Date();var C={};C["5"]=g_time.time21-g_time.time20;C["6"]=g_time.time23-g_time.time22;if(typeof (ptui_speedReport)=="function"){ptui_speedReport(C)}}}if(document.cookie.indexOf("ptui_qstatus=3")>-1){clearInterval(q_clock);switchpage()}A--}}function loadxui(B){if(xuiFrame){$("qlogin").style.display="block";return }else{var I=1;if(g_jumpname!=""){if(g_qtarget!=-1){I=parseInt(g_qtarget)}}else{switch(g_target){case"_self":I=0;break;case"_top":I=1;break;case"_parent":I=2;break;default:I=1}}var F=(g_jumpname==""||g_jumpname=="jump")?encodeURIComponent("u1="+encodeURIComponent(document.forms[0].u1.value)):"";var A=window.g_daid;var H=window.g_appid;var D=window.g_regmaster;var C=(/^(https)+/g.test(window.location)?"https":"http")+"://xui.ptlogin2."+g_domain+"/cgi-bin/q"+g_href.substring(g_href.indexOf("/cgi-bin/")+9,g_href.indexOf("?"))+"?domain="+g_domain+"&lang="+g_lang+"&qtarget="+I+"&jumpname="+g_jumpname+"&ptcss="+g_ptcss+"&param="+encodeURIComponent((g_param?encodeURIComponent(g_param):F))+"&css="+g_css+"&mibao_css="+window.g_mibao_css+"&low_login="+window.g_low_login+"&ptui_version="+window.g_pt_version+"&appid="+H+(A?"&daid="+A:"")+(D?"&regmaster="+D:"");var G=$("qlogin");var E=156+28*((B>5?5:B)-1);if(preload.getQuery("low_login")==1){E+=20}g_time.time22=new Date();G.innerHTML='<iframe id="xui" name="xui" allowtransparency="true" scrolling="no" frameborder="0" width="100%" height="'+E+'" src="'+C+'">';G.style.display="block";$("web_login").style.display="none";curXui=true;xuiFrame=true;qlogin_check()}}function switchpage(){var A=$("err_m");A?A.style.display="none":"";if(curXui){$("web_login").style.display="block";$("qlogin").style.display="none";$("switch").innerHTML='<a style="cursor:pointer;" onclick="switchpage();">'+str_switch_qlogin+"</a>";ptui_notifySize("login");if(typeof (ptui_initFocus)!="undefined"){ptui_initFocus(document.forms[0])}curXui=false;clearInterval(q_clock)}else{$("qlogin").style.display="block";$("web_login").style.display="none";$("switch").innerHTML='<a style="cursor:pointer;" onclick="switchpage();">'+str_switch_normal+"</a>";curXui=true;qlogin_check();ptui_notifySize("login")}$("err_m").style.display="none"}function ptui_onUserFocus(C,A){if(preload.isIpad){return }var B=$(C);if(str_uintip==B.value){B.value=""}B.style.color=A}function ptui_onUserBlue(C,A){if(preload.isIpad){return }var B=$(C);if(""==B.value){B.value=str_uintip;B.style.color=A}}function pluginBegin(){};
+function loadweblogin(){
+	if(typeof(ptui_setUinColor)=='undefined'){
+		reloadweb = true;
+		return;
+	}
+	ptui_setUinColor('u', '#000000', '#cccccc');
+	$("loginform").verifycode.value="";
+}
+function onSelectLoad(){
+	var uNum=0;
+	if (document.cookie.toLowerCase().indexOf("pt_qlogincode=5")>-1||(window.location.href).toLowerCase().indexOf("enable_qlogin=0")>-1||window.template==6){uNum=0;}else{uNum = ptui_check_qlogin();}
+	if (uNum > 0) {
+		loadxui(uNum);
+		$('label_unable_tips').innerHTML = '';
+		$('switch').innerHTML = '<a style="cursor:pointer;" onclick="switchpage();">使用其他号码登录</a>';
+		$('switch').style.display = 'block';
+		return;
+	}else{
+		loadweblogin();
+		$('label_unable_tips').innerHTML = '';
+		$('switch').style.display = 'none';			
+	}
+
+	ptui_notifySize("login");	
+}
+function onPrePageLoad(){
+	var login_form = $("loginform");
+		
+	$("login_button").disabled=false;
+	ptui_setDefUin(login_form, "");
+	g_time.time5=new Date();
+	webLoginReport();	
+	ptui_notifySize("login");
+	if(!curXui){ptui_initFocus(login_form);}
+}
+</script>
+
+<title>weblogin</title>
+</head>
+<body onload="onPageLoad()" onclick="onBodyClick()" class="strong-login">
+<div class="signin" id="login">
+<div id="qlogin" style="display:none" >
+  <div id="qlogin_select" style="display:none" class="list_name">
+      <p id="qlogin_select_tip"></p>
+      <div id="list_uin" style="margin:0;">
+      </div>
+      <div style="padding-left:32px; padding-top:20px;">  
+       <input type="button" id="loginbtn" value="" class="btn_select" onclick="onQloginSelect()"/>
+      </div>
+       <div id="qlogin_loading" class="linemid"></div>
+      <br />   
+  </div>    
+  
+   <div  class="lineright"><a href="javascript:switchPage(true, true)" id="label_switch_normal">使用其他号码登录</a></div>
+</div>
+<form id="loginform" autocomplete="off" name="loginform" action="http://ptlogin2.qq.com/login" method="post" 
+onsubmit="onFormSubmit(this);return false;" onreset="return onFormReset(loginform)" target="_self" style="margin:0px;">
+	<div class="subcolumn01">
+	</div>
+	<div class="subcolumn02">
+		<div class="banner">
+		</div>
+		<div class="signin-area">
+			<div class="signin-area-bg">
+				<div class="padder">
+                	<div id="err_m" class="err_m"></div>
+					<div class="sign-input"><span class="title account">帐　号：</span><span class="input"><input autocomplete="on" name="u" id="u" type="text" style="ime-mode:disabled"  class="input01"  tabindex="1" value="QQ号码或Email帐号" onfocus="if (value =='QQ号码或Email帐号'){value =''}" onblur="if (value ==''){value='QQ号码或Email帐号';}" /></span></div>
+					<div class="sign-input"><span class="title password">密　码：</span><span class="input"><input name="p" id="p" maxlength="16"  type="password" class="input01" tabindex="2" onfocus="check();"/></span></div>
+					<div class="clearer"></div>
+					
+					
+					<div id="verifyinput" class="valcode" style="display:none;">
+					
+					<div class="sign-input"><span class="title code">验证码：</span><span class="input"><input autocomplete="off" id="verifycode" name="verifycode" type="text" style="ime-mode:disabled" class="input01 validate" value="" tabindex="3" maxLength="5"/></span></div>
+					
+					<div class="verify_text" id="verifytip">输入下图中的字符，不区分大小写</div>
+                    <div class="pic" id="verifyshow">
+                        <img id=imgVerify width='130' height='53' onload='imgLoadReport()'>
+						<a id="changeimg_link" href="javascript:ptui_changeImg('qq.com', 1002101, true);">换一张</a>
+					</div>		
+				</div>
+                
+			</div>
+		  </div>
+		</div>
+		<div class="clearer"></div>
+		
+        <div class="subcolumn03">
+            <div class="left">
+	            <div class="middle">
+	                <div class="middle-padder">
+	                	<div class="logins">
+	                		<input type="hidden" name="webqq_type" value="10" id="webqq_type" />
+	                		<input type="hidden" name="remember_uin" value="1" id="remember_uin" />
+							<input type="hidden" name="login2qq" value="1" id="login2qq" />
+							<input type="submit" class="signin-btn signin2" value="" tabindex="6" id="login_button"/>
+							<div id="loginState" class="login-state-trigger login-state-trigger2 login-state" title="选择在线状态" onclick="onLoginStateChanged(this,event);return false;">
+								<div id="loginStateShow" class="login-state-show online">状态</div>
+								<div class="login-state-down">下</div>
+								<div class="login-state-txt" id="login2qq_state_txt">在线</div>
+							</div>
+						</div>
+	                </div>
+	            </div>
+            	<div class="right"></div>
+	    		<div class="clearer"></div>
+			</div>
+		</div>
+		
+   </div>
+   <div class="lineright" id="label_unable_tips" style="display:none;" ><a href="javascript:onClickQLogin()" id="label_switch_qlogin" style="display:none;"></a><span id="label_qlogin_tips" style="line-height:18px;"></div>
+    <input type="hidden" name="aid" value="1003903" />
+<input type="hidden" name="u1" value="http://web2.qq.com/loginproxy.html" />
+<input type="hidden" name="fp" value="loginerroralert" />
+<input type="hidden" name="h" value="1" />
+<input type="hidden" name="ptredirect" value="0" />
+<input type="hidden" name="ptlang" value="2052" />
+<input type="hidden" name="daid" value="164" />
+
+    <input type="hidden" name="from_ui" value="1" />
+    <input type="hidden" name="pttype" value="1" />
+ 	<input type="hidden" name="dumy" value="" />
+  </form>
+</div>
+<ul id="loginStatePanel" class="statePanel login-state" style="display:none;">
+	<li state="online" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(10);"><div class="stateSelect_icon online"></div><div class="stateSelect_text">我在线上</div></li>
+	<li state="callme" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(60);"><div class="stateSelect_icon callme"></div><div class="stateSelect_text">Q我吧</div></li>
+	<li state="away" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(30);"><div class="stateSelect_icon away"></div><div class="stateSelect_text">离开</div></li>
+	<li state="busy" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(50);"><div class="stateSelect_icon busy"></div><div class="stateSelect_text">忙碌</div></li>
+	<li state="silent" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(70);"><div class="stateSelect_icon silent"></div><div class="stateSelect_text">请勿打扰</div></li>
+	<li state="hidden" class="statePanel_li" onmouseover="onStateItemMouseOver(this);" onmouseout="onStateItemMouseOut(this);" onclick="onStateItemClick(40);"><div class="stateSelect_icon hidden"></div><div class="stateSelect_text">隐身</div></li>
+</ul>
+<!--4-->
+</body>
+
+<script type="text/javascript">g_time.time4=new Date();
+function onSelectLoad(){}
+function onPrePageLoad()
+{
+	//10:'online',20:'offline',30:'away',40:'hidden',50:'busy',60:'callme',70:'silent'
+	ptui_setDefUin(document.getElementById("loginform"), "");	
+	var rememCookie = getRememCookie();
+	var checkObj = document.getElementById("remember_uin");
+	if ((rememCookie&0x04) == 0){
+		checkObj.checked=true;
+		onClickRemember(checkObj, 0x01, false);
+	}
+	rememCookie = getRememCookie();
+	if ((rememCookie&0x01) != 0){
+		checkObj.checked = true;
+	}else {
+		checkObj.checked = false;
+	};
+	var getQueryValue = function (url, key) {
+	    var reg = new RegExp(
+	                        "(^|&|\\?|#)" 
+	                        + (key).replace(new RegExp("([.*+?^=!:\x24{}()|[\\]\/\\\\])", "g"), '\\\x241')
+	                        + "=([^&]*)(&|\x24)", 
+	                    "");
+	    var match = url.match(reg);
+	    if (match) {
+	        return match[2];
+	    }
+	    
+	    return null;
+    };
+    var login_state = getQueryValue(window.location.search,"login_state");
+    if(login_state){
+	    var dom = document.getElementById("loginStateShow");
+		var input = document.getElementById("webqq_type");
+		var txt = document.getElementById("login2qq_state_txt");
+		dom.className = "login-state-show " + code2state(login_state);
+		txt.innerHTML = code2text(login_state);
+		input.value = login_state;
+    }
+	
+	
+	
+	
+	ptui_notifySize('login');
+}
+function getRememCookie(){
+	var iCookieVal = 0;
+	var cookieVal = pt.cookie.get("ptui_check_rem_uin");
+	if (cookieVal!="" && cookieVal!=null){
+		iCookieVal = parseInt(cookieVal);
+	}
+	return iCookieVal;
+}
+function setRememCookie(val)
+{
+	var mytime = new Date();
+	mytime.setHours(mytime.getHours() + 24*30);	//配置只保持一个月有效
+	pt.cookie.set('ptui_check_rem_uin', val, mytime, '/', 'ui.ptlogin2.qq.com');
+}
+function onClickRemember(obj,flag, bReverse){
+	var iCookieVal = getRememCookie();
+	var bSet = obj.checked;
+	if (bReverse) bSet = !bSet;
+	if (bSet) iCookieVal |= flag;else iCookieVal &= ~(flag);	
+	iCookieVal|=4;	
+	setRememCookie(iCookieVal);
+	return true;
+}
+function onFormSubmit(form)
+{
+	if (form.remember_uin.checked){
+		return ptui_onLoginEx(form, "qq.com")
+	}else{				
+		var myDate=new Date();
+		myDate.setFullYear(1971,1,1);
+		pt.cookie.set("ptui_loginuin",  "", myDate, '/', 'ui.ptlogin2.qq.com');
+		return ptui_onLogin(form);
+	}
+}
+function onPageLoad(){
+	try{ptui_initFocus(document.getElementById("loginform"))}catch(e){}
+	if(document.getElementById("u").value!="QQ号码或Email帐号" && document.getElementById("u").value!=""){
+		if(document.getElementById("p").value==""){
+			document.getElementById("p").focus();
+		}else{
+			if(vcode){
+				vcode.focus();
+			}else{
+				document.getElementById("submitbtn").focus();
+			}
+		}
+	}else{
+		document.getElementById("u").focus();
+	}
+	g_time.time5=new Date();
+	webLoginReport();
+}
+function getLogin2QQCookie(){
+	var iCookieVal = 0;
+	var cookieVal = pt.cookie.get("ptui_login_2_qq");
+	if (cookieVal!="" && cookieVal!=null){
+		iCookieVal = parseInt(cookieVal);
+	}
+	return iCookieVal;
+}
+function setLogin2QQCookie(val)
+{
+	var mytime = new Date();
+	mytime.setHours(mytime.getHours() + 24*30);	//配置只保持一个月有效
+	pt.cookie.set('ptui_login_2_qq', val, mytime, '/', 'ui.ptlogin2.qq.com');
+}
+function setLoginStateCookie(val)
+{
+	var mytime = new Date();
+	mytime.setHours(mytime.getHours() + 24*30);	//配置只保持一个月有效
+	pt.cookie.set('ptui_login_state', val, mytime, '/', 'ui.ptlogin2.qq.com');
+}
+function getLoginStateCookie(){
+	var iCookieVal = 0;
+	var cookieVal = pt.cookie.get("ptui_login_state");
+	if (cookieVal!="" && cookieVal!=null){
+		iCookieVal = parseInt(cookieVal);
+	}
+	return iCookieVal;
+}
+function code2state(code){
+	var map = {10:'online',20:'offline',30:'away',40:'hidden',50:'busy',60:'callme',70:'silent'};
+	return map[code] || 'online';
+}
+function code2text(code){
+	var map = {10:'我在线上',20:'离线',30:'离开',40:'隐身',50:'忙碌',60:'Q我吧',70:'请勿打扰'};
+	return map[code] || '我在线上';
+}
+function onClickLoginCheckBox(){
+	var input = document.getElementById("login2qq");
+	var checkbox = document.getElementById("login2qq_checkbox");
+	if(input.value == 1){
+		input.value = 0;	
+		checkbox.className = "";
+	}else{
+		input.value = 1;
+		checkbox.className = "checked";
+	}
+	setLogin2QQCookie(input.value);
+}
+function onLoginStateChanged(trigger, event){
+    var getScrollLeft = function(el) {
+    	var scrollLeft;
+    	if(el){
+    		scrollLeft = el.scrollLeft;
+    	}else{
+    		scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+    	}
+        return scrollLeft || 0;
+    };
+    var getScrollTop = function(el) {
+        var scrollTop;
+    	if(el){
+    		scrollTop = el.scrollTop;
+    	}else{
+    		scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    	}
+        return scrollTop || 0;
+    };
+	var getClientXY = function(el) {
+		var _t = 0,
+			_l = 0;
+		var isIE = !-[1,];
+		if (el) {
+			//这里只检查document不够严谨, 在el被侵染置换(jQuery做了这么恶心的事情)
+			//的情况下, el.getBoundingClientRect() 调用回挂掉
+			if (document.documentElement.getBoundingClientRect && el.getBoundingClientRect) { // 顶IE的这个属性，获取对象到可视范围的距离。
+				//现在firefox3，chrome2，opera9.63都支持这个属性。
+				var box = {left:0,top:0,right:0,bottom:0};//
+				try{
+					box=el.getBoundingClientRect();
+				}catch(ex){
+					return [0,0];
+				}
+				var oDoc = el.ownerDocument;
+				
+				var _fix = isIE ? 2 : 0; //修正ie和firefox之间的2像素差异
+				
+				_t = box.top - _fix + getScrollTop(oDoc);
+				_l = box.left - _fix + getScrollLeft(oDoc);
+			} else {//这里只有safari执行。
+				while (el.offsetParent) {
+					_t += el.offsetTop;
+					_l += el.offsetLeft;
+					el = el.offsetParent;
+				}
+			}
+		}
+		return [_l, _t];
+	};
+	
+	var panel = document.getElementById("loginStatePanel");
+	if(panel.style.display === "none"){
+		var xy = getClientXY(trigger);
+		panel.style.left = xy[0] + "px";
+		panel.style.top = (xy[1] - 135) + "px";
+		panel.style.display = "block";
+	}else{
+		panel.style.display = "none";
+	}
+	stopPropagation(event);
+}
+function onBodyClick(){
+	var panel = document.getElementById("loginStatePanel");
+	panel.style.display = "none";
+	typeof pt != "undefined"?pt.action[0]++:"";
+}
+function stopPropagation(evt){
+	var e=(evt)?evt:window.event; 
+	if (window.event) { 
+		e.cancelBubble=true; 
+	} else { 
+		e.stopPropagation(); 
+	} 
+}
+function onStateItemMouseOver(trigger){
+	trigger.style.backgroundColor = "#cbe7fc";
+}
+function onStateItemMouseOut(trigger){
+	trigger.style.backgroundColor = "transparent";
+}
+function onStateItemClick(state){
+	var dom = document.getElementById("loginStateShow");
+	var input = document.getElementById("webqq_type");
+	var txt = document.getElementById("login2qq_state_txt");
+	dom.className = "login-state-show " + code2state(state);
+	input.value = state;
+	txt.innerHTML = code2text(state);
+	//setLoginStateCookie(state);
+}
+document.getElementById("login_button").value="";
+</script>
+<script>onSelectLoad();</script>
+<script type="text/javascript" src="../js/10067/comm.js?ptui_identifier=000DCF98926A5662DCE1F7C82EC10AE6DCD3F1043AA8A7C7853A2E78"></script>
+<script type="text/javascript">
+function cleanCache(f){
+	var t=document.createElement("iframe");
+	if(f.split("#").length == 3) f = f.substring(0,f.lastIndexOf("#"));
+	t.src = f;
+	t.style.display = "none";
+	document.body.appendChild(t);
+}
+function loadScript(src,callback) {   
+	var tag = document.createElement("script");
+	tag.onload = tag.onreadystatechange = function() {
+	if ( !this.readyState ||this.readyState === "loaded" || this.readyState === "complete") {
+			if(typeof callback=="function"){
+					callback();
+			}
+		tag.onload = tag.onreadystatechange = null;
+	}
+	};
+	tag.onerror=function(){
+		tag.onerror=null;
+		callback();
+	}			
+	tag.src = src;
+	document.getElementsByTagName("head")[0].appendChild(tag);
+};
+//comm.js拉去失败
+if(typeof(ptuiCB)=="undefined"){
+	var imgAttr2 = new Image();
+	imgAttr2.src = location.protocol+"//ui.ptlogin2.qq.com/cgi-bin/report?id=85289&union=256039";
+	var serverJsPath="../js/"+window.g_pt_version+"/comm.js?max_age=604800&ptui_identifier=000DCF98926A5662DCE1F7C82EC10AE6DCD3F1043AA8A7C7853A2E78";
+	loadScript(serverJsPath,function(){
+		if(typeof(ptuiCB)=="undefined"){
+			var button=document.getElementById("login_button");
+			button&&(button.disabled=true);
+			imgAttr2.src = location.protocol+"//ui.ptlogin2.qq.com/cgi-bin/report?id=299500";
+		}			    
+	});
+}
+
+onPrePageLoad();
+if(reloadweb){
+	loadweblogin();
+}
+function onPageClose(){ptui_notifyClose();}
+function ptuiV(v){
+	if (v!=window.g_pt_version){
+		cleanCache("/clearcache.html#"+location.href);	
+	}
+}
+function checkVersion(){
+	var t = document.createElement("script");
+	t.src = "/ptui_ver.js?v="+Math.random();
+	document.body.appendChild(t);
+}
+setTimeout(checkVersion,1500);
+</script>
+
+</html>
+
+
+2014-02-01 22:36:11,142 [QQActorDispatcher] [iqq.im.action.GetLoginSigAction] [INFO] - loginSig = jmREQCowHNz-c8rX2IXQzeuLTwj5QLkTTXbIB4BzPkCcKTdmWV2fGe1YuP5spDYc
+2014-02-01 22:36:16,422 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> GET /check?uin=917362009&appid=1003903&js_ver=10038&js_type=0&login_sig=jmREQCowHNz-c8rX2IXQzeuLTwj5QLkTTXbIB4BzPkCcKTdmWV2fGe1YuP5spDYc&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&r=0.5031650636342729 HTTP/1.1
+2014-02-01 22:36:16,428 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:16,429 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:16,430 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Host: ssl.ptlogin2.qq.com
+2014-02-01 22:36:16,430 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Connection: Keep-Alive
+2014-02-01 22:36:16,431 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Cookie: uikey=efeb4210549de3b499a0da638d22845f1be7d0da717199aa6dda8d33576f5462
+2014-02-01 22:36:16,432 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Cookie2: $Version=1
+2014-02-01 22:36:17,723 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << HTTP/1.1 200 OK
+2014-02-01 22:36:17,728 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Server: nginx/1.2.7
+2014-02-01 22:36:17,729 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Date: Sat, 01 Feb 2014 14:36:17 GMT
+2014-02-01 22:36:17,730 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Content-Type: application/x-javascript; charset=utf-8
+2014-02-01 22:36:17,730 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Transfer-Encoding: chunked
+2014-02-01 22:36:17,730 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Connection: keep-alive
+2014-02-01 22:36:17,731 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Pragma: No-cache
+2014-02-01 22:36:17,731 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << P3P: CP="CAO PSA OUR"
+2014-02-01 22:36:17,731 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: confirmuin=0; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,732 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptvfsession=aaab438382e7f80bd596defac2967e3e907ade0c4f5c28fa4bbfc2072ca9f249dee4524b542b6ba170356d4fb15f0705; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,732 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptisp=ctc; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,733 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=confirmuin, value=0, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,733 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptvfsession, value=aaab438382e7f80bd596defac2967e3e907ade0c4f5c28fa4bbfc2072ca9f249dee4524b542b6ba170356d4fb15f0705, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,733 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptisp, value=ctc, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,737 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/x-javascript; charset=utf-8
+2014-02-01 22:36:17,756 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> GET /login?from_ui=1&g=1&login2qq=1&pttype=1&u1=http%3A%2F%2Fweb.qq.com%2Floginproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&webqq_type=10&daid=164&dumy=&ptlang=2052&aid=1003903&h=1&login_sig=jmREQCowHNz-c8rX2IXQzeuLTwj5QLkTTXbIB4BzPkCcKTdmWV2fGe1YuP5spDYc&js_type=0&u=917362009&t=1&p=C67F7C402645148FA397BA613CF584D8&action=4-28-1632882&remember_uin=1&verifycode=%21NCV&mibao_css=m_webqq&js_ver=10038&fp=loginerroralert&ptredirect=0 HTTP/1.1
+2014-02-01 22:36:17,756 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:17,757 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:17,757 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Host: ssl.ptlogin2.qq.com
+2014-02-01 22:36:17,757 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Connection: Keep-Alive
+2014-02-01 22:36:17,758 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Cookie: confirmuin=0; ptisp=ctc; ptvfsession=aaab438382e7f80bd596defac2967e3e907ade0c4f5c28fa4bbfc2072ca9f249dee4524b542b6ba170356d4fb15f0705; uikey=efeb4210549de3b499a0da638d22845f1be7d0da717199aa6dda8d33576f5462
+2014-02-01 22:36:17,758 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 >> Cookie2: $Version=1
+2014-02-01 22:36:17,963 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << HTTP/1.1 200 OK
+2014-02-01 22:36:17,964 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Server: nginx/1.2.7
+2014-02-01 22:36:17,965 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Date: Sat, 01 Feb 2014 14:36:17 GMT
+2014-02-01 22:36:17,965 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Content-Type: application/x-javascript; charset=utf-8
+2014-02-01 22:36:17,966 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Transfer-Encoding: chunked
+2014-02-01 22:36:17,966 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Connection: keep-alive
+2014-02-01 22:36:17,967 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << P3P: CP="CAO PSA OUR"
+2014-02-01 22:36:17,967 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: pt2gguin=o0917362009; EXPIRES=Fri, 02-Jan-2020 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,967 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: uin=o0917362009; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: skey=@mwuWGQFni; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ETK=; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,969 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: superuin=o0917362009; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,969 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: superkey=cvrUrxYtMlk3xpZABxB7TWGiB*Nbprai4-IsUvGWHd0_; PATH=/; DOMAIN=ptlogin2.qq.com; HttpOnly
+2014-02-01 22:36:17,969 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: supertoken=425696360; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,970 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptisp=ctc; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,971 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: RK=S82m1+Vhco; EXPIRES=Tue, 30-Jan-2024 14:36:17 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,971 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptuserinfo=e5b9b3e587a1; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,972 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; EXPIRES=Fri, 02-Jan-2020 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,972 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptcz=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:17,972 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: airkey=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,973 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Set-Cookie: ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:17,974 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Pragma: no-cache
+2014-02-01 22:36:17,974 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-2 << Cache-Control: no-cache; must-revalidate
+2014-02-01 22:36:17,975 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=pt2gguin, value=o0917362009, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,976 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=uin, value=o0917362009, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,977 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=skey, value=@mwuWGQFni, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,977 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ETK, value=, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,978 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=superuin, value=o0917362009, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,978 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=superkey, value=cvrUrxYtMlk3xpZABxB7TWGiB*Nbprai4-IsUvGWHd0_, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,979 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=supertoken, value=425696360, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,980 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=ptisp, value=ctc, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,980 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=RK, value=S82m1+Vhco, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,980 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptuserinfo, value=e5b9b3e587a1, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:17,981 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptcz, value=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,982 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=airkey, value=, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,983 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=ptwebqq, value=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb, domain=qq.com, path=/, expired=null]
+2014-02-01 22:36:17,988 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/x-javascript; charset=utf-8
+2014-02-01 22:36:17,990 [QQActorDispatcher] [iqq.im.action.WebLoginAction] [INFO] - WebLogin: ptuiCB('0','0','http://ptlogin4.web2.qq.com/check_sig?pttype=1&uin=917362009&service=login&nodirect=0&ptsig=Xo*Qh5hG0Ysy7t68HloymVRmNCblKZnEv65lko9mXoM_&s_url=http%3A%2F%2Fweb.qq.com%2Floginproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&f_url=&ptlang=2052&ptredirect=100&aid=1003903&daid=164&j_later=0&low_login_hour=0&regmaster=0&pt_login_type=1&pt_aid=0&pt_aaid=0&pt_light=0','0','登录成功！', '平凡');
+
+2014-02-01 22:36:18,201 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> GET /check_sig?pttype=1&uin=917362009&service=login&nodirect=0&ptsig=Xo*Qh5hG0Ysy7t68HloymVRmNCblKZnEv65lko9mXoM_&s_url=http%3A%2F%2Fweb.qq.com%2Floginproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&f_url=&ptlang=2052&ptredirect=100&aid=1003903&daid=164&j_later=0&low_login_hour=0&regmaster=0&pt_login_type=1&pt_aid=0&pt_aaid=0&pt_light=0 HTTP/1.1
+2014-02-01 22:36:18,202 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:18,205 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:18,205 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> Host: ptlogin4.web2.qq.com
+2014-02-01 22:36:18,206 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> Connection: Keep-Alive
+2014-02-01 22:36:18,206 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> Cookie: RK=S82m1+Vhco; pt2gguin=o0917362009; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:18,207 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 >> Cookie2: $Version=1
+2014-02-01 22:36:18,326 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << HTTP/1.1 302 Found
+2014-02-01 22:36:18,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Date: Sat, 01 Feb 2014 14:36:18 GMT
+2014-02-01 22:36:18,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Server: Tencent Login Server/2.0.0
+2014-02-01 22:36:18,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << P3P: CP="CAO PSA OUR"
+2014-02-01 22:36:18,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: pt2gguin=o0917362009; EXPIRES=Fri, 02-Jan-2020 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: uin=o0917362009; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: skey=@mwuWGQFni; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: p_uin=o0917362009; PATH=/; DOMAIN=web2.qq.com;
+2014-02-01 22:36:18,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; PATH=/; DOMAIN=web2.qq.com;
+2014-02-01 22:36:18,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: pt4_token=05lTnxDTfS2sdpyIrmySOQ__; PATH=/; DOMAIN=web2.qq.com;
+2014-02-01 22:36:18,329 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: p_uin=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,329 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: p_skey=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,329 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Set-Cookie: pt4_token=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:18,329 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Location: http://web.qq.com/loginproxy.html?login2qq=1&webqq_type=10
+2014-02-01 22:36:18,329 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Connection: Close
+2014-02-01 22:36:18,330 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-3 << Content-Type: text/html
+2014-02-01 22:36:18,330 [I/O dispatcher 1] [iqq.im.service.ApacheHttpService$QQDefaultRedirectStrategy] [DEBUG] - Redirect requested to location 'http://web.qq.com/loginproxy.html?login2qq=1&webqq_type=10'
+2014-02-01 22:36:18,504 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> GET /loginproxy.html?login2qq=1&webqq_type=10 HTTP/1.1
+2014-02-01 22:36:18,505 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:18,505 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:18,505 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> Host: web.qq.com
+2014-02-01 22:36:18,506 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> Connection: Keep-Alive
+2014-02-01 22:36:18,506 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> Cookie: RK=S82m1+Vhco; pt2gguin=o0917362009; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:18,507 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 >> Cookie2: $Version=1
+2014-02-01 22:36:18,658 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 << HTTP/1.1 301 Moved Permanently
+2014-02-01 22:36:18,658 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 << Cache-Control: no-cache
+2014-02-01 22:36:18,659 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 << Content-length: 0
+2014-02-01 22:36:18,659 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 << Location: http://web2.qq.com/loginproxy.html?login2qq=1&webqq_type=10
+2014-02-01 22:36:18,659 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-4 << Connection: close
+2014-02-01 22:36:18,659 [I/O dispatcher 2] [iqq.im.service.ApacheHttpService$QQDefaultRedirectStrategy] [DEBUG] - Redirect requested to location 'http://web2.qq.com/loginproxy.html?login2qq=1&webqq_type=10'
+2014-02-01 22:36:18,856 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> GET /loginproxy.html?login2qq=1&webqq_type=10 HTTP/1.1
+2014-02-01 22:36:18,857 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:18,864 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:18,864 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> Host: web2.qq.com
+2014-02-01 22:36:18,865 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> Connection: Keep-Alive
+2014-02-01 22:36:18,865 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:18,865 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 >> Cookie2: $Version=1
+2014-02-01 22:36:19,034 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << HTTP/1.1 200 OK
+2014-02-01 22:36:19,035 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Server: nginx
+2014-02-01 22:36:19,035 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Date: Sat, 01 Feb 2014 14:36:18 GMT
+2014-02-01 22:36:19,035 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Content-Type: text/html
+2014-02-01 22:36:19,036 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Content-Length: 362
+2014-02-01 22:36:19,036 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Last-Modified: Thu, 26 Dec 2013 08:28:20 GMT
+2014-02-01 22:36:19,036 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Connection: close
+2014-02-01 22:36:19,036 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << ETag: "52bbe8a4-16a"
+2014-02-01 22:36:19,036 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Expires: Sat, 08 Feb 2014 14:36:18 GMT
+2014-02-01 22:36:19,037 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Cache-Control: max-age=604800
+2014-02-01 22:36:19,037 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-5 << Accept-Ranges: bytes
+2014-02-01 22:36:19,038 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/html
+2014-02-01 22:36:19,038 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>登录成功，跳转中...</title>
+</head>
+<body>
+	<div>登录成功，跳转中...</div>
+	<script>
+		document.domain="qq.com";
+		parent.alloy.portal.validatePTLoginSuccess({
+			url:document.location.href
+		});
+	</script>
+</body>
+</html>
+2014-02-01 22:36:19,039 [QQActorDispatcher] [iqq.im.action.CheckLoginSigAction] [INFO] - checkSig result:<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>登录成功，跳转中...</title>
+</head>
+<body>
+	<div>登录成功，跳转中...</div>
+	<script>
+		document.domain="qq.com";
+		parent.alloy.portal.validatePTLoginSuccess({
+			url:document.location.href
+		});
+	</script>
+</body>
+</html>
+2014-02-01 22:36:19,039 [QQActorDispatcher] [iqq.im.action.CheckLoginSigAction] [INFO] - Location:null
+2014-02-01 22:36:19,180 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> POST /channel/login2 HTTP/1.1
+2014-02-01 22:36:19,181 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:19,182 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:19,182 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Content-Length: 216
+2014-02-01 22:36:19,183 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+2014-02-01 22:36:19,183 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Host: d.web2.qq.com
+2014-02-01 22:36:19,184 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Connection: Keep-Alive
+2014-02-01 22:36:19,184 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:19,184 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 >> Cookie2: $Version=1
+2014-02-01 22:36:19,871 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << HTTP/1.1 200 OK
+2014-02-01 22:36:19,871 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << Date: Sat, 01 Feb 2014 14:36:19 GMT
+2014-02-01 22:36:19,871 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << Content-Type: text/plain; charset=utf-8
+2014-02-01 22:36:19,872 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << Content-Length: 457
+2014-02-01 22:36:19,872 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << Cache-Control: no-cache
+2014-02-01 22:36:19,872 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-6 << Connection: close
+2014-02-01 22:36:19,878 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/plain; charset=utf-8
+2014-02-01 22:36:19,878 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"uin":917362009,"cip":3029081924,"index":1075,"port":53697,"status":"online","vfwebqq":"d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f","psessionid":"8368046764001d636f6e6e7365727665725f77656271714031302e3133332e34312e383400001bd400000424026e040059d5ad366d0000000a406d7775574751466e696d00000028d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f","user_state":0,"f":0}}
+
+2014-02-01 22:36:20,013 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> GET /api/get_friend_info2?t=1391265379&tuin=917362009&code=&verifysession=&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:20,014 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,015 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,015 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,015 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Connection: Keep-Alive
+2014-02-01 22:36:20,016 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,016 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie2: $Version=1
+2014-02-01 22:36:20,112 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,112 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Server: nginx
+2014-02-01 22:36:20,112 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,112 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:20,113 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Length: 400
+2014-02-01 22:36:20,113 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Connection: keep-alive
+2014-02-01 22:36:20,259 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> POST /api/get_group_name_list_mask2 HTTP/1.1
+2014-02-01 22:36:20,261 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,261 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,261 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Content-Length: 110
+2014-02-01 22:36:20,261 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+2014-02-01 22:36:20,262 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,262 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Connection: Keep-Alive
+2014-02-01 22:36:20,262 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,262 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie2: $Version=1
+2014-02-01 22:36:20,260 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> POST /api/get_user_friends2 HTTP/1.1
+2014-02-01 22:36:20,267 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,267 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,267 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Content-Length: 172
+2014-02-01 22:36:20,268 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+2014-02-01 22:36:20,268 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,273 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Connection: Keep-Alive
+2014-02-01 22:36:20,274 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,275 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie2: $Version=1
+2014-02-01 22:36:20,329 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:20,329 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"face":522,"birthday":{"month":10,"year":1991,"day":1},"occupation":"-aaaa","phone":"-","allow":1,"college":"Internet","uin":917362009,"constel":9,"blood":1,"homepage":"aaaabbbbbb","stat":10,"vip_info":0,"country":"","city":"","personal":"无形的惩罚！","nick":"平凡","shengxiao":8,"email":"444674479@qq.com","client_type":41,"province":"","gender":"male","mobile":"-"}}
+2014-02-01 22:36:20,337 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> GET /keycgi/qqweb/group/search.do?t=1391265380&pg=1&vfcode=&c1=0&c2=0&st=0&c3=0&type=1&perpage=10&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f&all=QQ HTTP/1.1
+2014-02-01 22:36:20,337 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,338 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,338 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> Host: cgi.web2.qq.com
+2014-02-01 22:36:20,338 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> Connection: Keep-Alive
+2014-02-01 22:36:20,338 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,339 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 >> Cookie2: $Version=1
+2014-02-01 22:36:20,343 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> POST /channel/poll2 HTTP/1.1
+2014-02-01 22:36:20,343 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,343 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,343 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Content-Length: 582
+2014-02-01 22:36:20,344 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+2014-02-01 22:36:20,344 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Host: d.web2.qq.com
+2014-02-01 22:36:20,344 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Connection: Keep-Alive
+2014-02-01 22:36:20,344 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,344 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-10 >> Cookie2: $Version=1
+2014-02-01 22:36:20,440 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> GET /pt4_auth?daid=4&appid=1&auth_token=1074634585 HTTP/1.1
+2014-02-01 22:36:20,441 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,441 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,441 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> Host: ptlogin2.qq.com
+2014-02-01 22:36:20,441 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> Connection: Keep-Alive
+2014-02-01 22:36:20,442 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> Cookie: ETK=; RK=S82m1+Vhco; confirmuin=0; pt2gguin=o0917362009; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptuserinfo=e5b9b3e587a1; ptvfsession=aaab438382e7f80bd596defac2967e3e907ade0c4f5c28fa4bbfc2072ca9f249dee4524b542b6ba170356d4fb15f0705; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; superkey=cvrUrxYtMlk3xpZABxB7TWGiB*Nbprai4-IsUvGWHd0_; supertoken=425696360; superuin=o0917362009; uikey=efeb4210549de3b499a0da638d22845f1be7d0da717199aa6dda8d33576f5462; uin=o0917362009
+2014-02-01 22:36:20,442 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 >> Cookie2: $Version=1
+2014-02-01 22:36:20,536 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,536 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << Server: nginx
+2014-02-01 22:36:20,536 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,536 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:20,537 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << Content-Length: 18
+2014-02-01 22:36:20,537 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-9 << Connection: keep-alive
+2014-02-01 22:36:20,538 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:20,539 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":100110}
+2014-02-01 22:36:20,651 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,651 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Server: nginx
+2014-02-01 22:36:20,651 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,651 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:20,651 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Content-Length: 660
+2014-02-01 22:36:20,652 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Connection: keep-alive
+2014-02-01 22:36:20,653 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:20,653 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"friends":[{"flag":4,"uin":471499981,"categories":1},{"flag":4,"uin":2367836435,"categories":1},{"flag":4,"uin":3099135396,"categories":1}],"marknames":[{"uin":2776217949,"markname":"转身离开","type":0}],"categories":[{"index":1,"sort":1,"name":""},{"index":2,"sort":2,"name":"柳州英腾软件"}],"vipinfo":[{"vip_level":1,"u":471499981,"is_vip":1},{"vip_level":0,"u":2367836435,"is_vip":0},{"vip_level":0,"u":3099135396,"is_vip":0}],"info":[{"face":0,"flag":298336774,"nick":"承∮诺","uin":471499981},{"face":0,"flag":13107714,"nick":"梧桐","uin":2367836435},{"face":0,"flag":285737474,"nick":"承∮诺","uin":3099135396}]}}
+2014-02-01 22:36:20,658 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,658 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Server: nginx
+2014-02-01 22:36:20,658 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,659 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:20,659 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Length: 290
+2014-02-01 22:36:20,659 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Connection: keep-alive
+2014-02-01 22:36:20,666 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> GET /api/get_discus_list?clientid=-1604698165&t=1391265380&psessionid=8368046764001d636f6e6e7365727665725f77656271714031302e3133332e34312e383400001bd400000424026e040059d5ad366d0000000a406d7775574751466e696d00000028d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:20,672 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,673 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,673 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,673 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Connection: Keep-Alive
+2014-02-01 22:36:20,674 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,674 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie2: $Version=1
+2014-02-01 22:36:20,671 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:20,675 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"gmasklist":[{"gid":1000,"mask":0},{"gid":172897926,"mask":0},{"gid":2105270982,"mask":0}],"gnamelist":[{"flag":167772177,"name":"iQQ","gid":172897926,"code":1779519398},{"flag":1048577,"name":"iQQ核心开发区","gid":2105270982,"code":3527102789}],"gmarklist":[]}}
+2014-02-01 22:36:20,694 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> GET /api/get_group_info_ext2?t=1391265380&gcode=3527102789&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:20,694 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,694 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,694 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,694 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Connection: Keep-Alive
+2014-02-01 22:36:20,695 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,695 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 >> Cookie2: $Version=1
+2014-02-01 22:36:20,746 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Server: Tencent Login Server/2.0.0
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Pragma: no-cache
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Cache-Control: no-cache; must-revalidate
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Set-Cookie: dlock=4_1391265380_1_; PATH=/; DOMAIN=ptlogin2.qq.com;
+2014-02-01 22:36:20,747 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Connection: Close
+2014-02-01 22:36:20,748 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-11 << Content-Type: application/x-javascript; charset=utf-8
+2014-02-01 22:36:20,748 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=dlock, value=4_1391265380_1_, domain=ptlogin2.qq.com, path=/, expired=null]
+2014-02-01 22:36:20,749 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/x-javascript; charset=utf-8
+2014-02-01 22:36:20,751 [QQActorDispatcher] [iqq.im.action.GetPT4Auth] [INFO] - GetPT4Auth: http://ptlogin4.mail.qq.com/check_sig?uin=917362009&ptsig=hjdEBzt9DR8VYd-8HLxsoqjWBMlEh4UQmOITPnR42W0_&daid=4&pt_login_type=4
+2014-02-01 22:36:20,967 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << HTTP/1.1 200 OK
+2014-02-01 22:36:20,967 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Server: nginx
+2014-02-01 22:36:20,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:20,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:20,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Content-Length: 118
+2014-02-01 22:36:20,968 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Connection: keep-alive
+2014-02-01 22:36:20,969 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:20,970 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"dnamelist":[{"name":"1123","did":1520118566},{"name":"平凡、承∮诺","did":2578120372}]}}
+2014-02-01 22:36:20,972 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> GET /api/get_group_info_ext2?t=1391265380&gcode=1779519398&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:20,973 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:20,973 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:20,974 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Host: s.web2.qq.com
+2014-02-01 22:36:20,974 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Connection: Keep-Alive
+2014-02-01 22:36:20,975 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:20,980 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 >> Cookie2: $Version=1
+2014-02-01 22:36:21,026 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << HTTP/1.1 200 OK
+2014-02-01 22:36:21,027 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Server: nginx
+2014-02-01 22:36:21,027 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Date: Sat, 01 Feb 2014 14:36:20 GMT
+2014-02-01 22:36:21,027 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:21,028 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Content-Length: 1630
+2014-02-01 22:36:21,028 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-7 << Connection: keep-alive
+2014-02-01 22:36:21,031 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
+2014-02-01 22:36:21,031 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"stats":[{"client_type":41,"uin":471499981,"stat":10},{"client_type":41,"uin":917362009,"stat":10}],"minfo":[{"nick":"承∮诺","province":"","gender":"male","uin":471499981,"country":"瑞典","city":"西诺尔兰"},{"nick":"Romotc","province":"","gender":"unknown","uin":2303386663,"country":"","city":""},{"nick":"solosky","province":"北京","gender":"male","uin":3657155422,"country":"中国","city":"昌平"},{"nick":"肥包","province":"广东","gender":"male","uin":3775438412,"country":"中国","city":""},{"nick":"de意","province":"","gender":"unknown","uin":1826021245,"country":"","city":""},{"nick":"平凡","province":"","gender":"male","uin":917362009,"country":"","city":""},{"nick":"冰封雪域abc","province":"四川","gender":"male","uin":2811932061,"country":"中国","city":"成都"}],"ginfo":{"face":0,"memo":"世界上最可怕的事是，比你聪明的人却比你还努力。 ","class":31,"fingermemo":"","code":3527102789,"createtime":1313417688,"flag":1048577,"level":1,"name":"iQQ核心开发区","gid":2105270982,"owner":471499981,"members":[{"muin":471499981,"mflag":132},{"muin":2303386663,"mflag":64},{"muin":3657155422,"mflag":0},{"muin":3775438412,"mflag":128},{"muin":1826021245,"mflag":128},{"muin":917362009,"mflag":4},{"muin":2811932061,"mflag":0}],"option":2},"vipinfo":[{"vip_level":1,"u":471499981,"is_vip":1},{"vip_level":0,"u":2303386663,"is_vip":0},{"vip_level":5,"u":3657155422,"is_vip":1},{"vip_level":0,"u":3775438412,"is_vip":0},{"vip_level":0,"u":1826021245,"is_vip":0},{"vip_level":0,"u":917362009,"is_vip":0},{"vip_level":0,"u":2811932061,"is_vip":0}]}}
+2014-02-01 22:36:21,204 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> GET /check_sig?uin=917362009&ptsig=hjdEBzt9DR8VYd-8HLxsoqjWBMlEh4UQmOITPnR42W0_&daid=4&pt_login_type=4&regmaster=undefined&aid=1&s_url=http%3A%2F%2Fmail.qq.com%2Fcgi-bin%2Flogin%3Ffun%3Dpassport%26from%3Dwebqq HTTP/1.1
+2014-02-01 22:36:21,205 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:21,205 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:21,205 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> Host: ptlogin4.mail.qq.com
+2014-02-01 22:36:21,206 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> Connection: Keep-Alive
+2014-02-01 22:36:21,206 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> Cookie: RK=S82m1+Vhco; pt2gguin=o0917362009; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:21,207 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 >> Cookie2: $Version=1
+2014-02-01 22:36:21,325 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> GET /channel/get_discu_info?clientid=-1604698165&t=1391265380&psessionid=8368046764001d636f6e6e7365727665725f77656271714031302e3133332e34312e383400001bd400000424026e040059d5ad366d0000000a406d7775574751466e696d00000028d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f&did=1520118566&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:21,326 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:21,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:21,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> Host: d.web2.qq.com
+2014-02-01 22:36:21,327 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> Connection: Keep-Alive
+2014-02-01 22:36:21,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:21,328 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 >> Cookie2: $Version=1
+2014-02-01 22:36:21,474 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << HTTP/1.1 200 OK
+2014-02-01 22:36:21,475 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Server: nginx
+2014-02-01 22:36:21,475 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Date: Sat, 01 Feb 2014 14:36:21 GMT
+2014-02-01 22:36:21,475 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Content-Type: application/json;charset=utf-8
+2014-02-01 22:36:21,475 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Transfer-Encoding: chunked
+2014-02-01 22:36:21,476 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-8 << Connection: keep-alive
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << HTTP/1.1 200 OK
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << Date: Sat, 01 Feb 2014 14:36:21 GMT
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << Content-Type: text/plain; charset=utf-8
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << Content-Length: 418
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << Cache-Control: no-cache
+2014-02-01 22:36:21,737 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-13 << Connection: close
+2014-02-01 22:36:21,740 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/plain; charset=utf-8
+2014-02-01 22:36:21,740 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"info":{"did":1520118566,"discu_owner":471499981,"discu_name":"1123","info_seq":1,"mem_list":[{"mem_uin":471499981,"ruin":6208317},{"mem_uin":917362009,"ruin":917362009}]},"mem_status":[{"uin":471499981,"status":"online","client_type":41},{"uin":917362009,"status":"online","client_type":41}],"mem_info":[{"uin":471499981,"nick":"\u627F\u222E\u8BFA"},{"uin":917362009,"nick":"\u5E73\u51E1"}]}}
+
+2014-02-01 22:36:22,018 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << HTTP/1.1 302 Found
+2014-02-01 22:36:22,019 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Date: Sat, 01 Feb 2014 14:36:21 GMT
+2014-02-01 22:36:22,019 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Server: Tencent Login Server/2.0.0
+2014-02-01 22:36:22,020 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << P3P: CP="CAO PSA OUR"
+2014-02-01 22:36:22,020 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: pt2gguin=o0917362009; EXPIRES=Fri, 02-Jan-2020 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,021 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: uin=o0917362009; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,021 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: skey=@mwuWGQFni; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,023 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: p_uin=o0917362009; PATH=/; DOMAIN=mail.qq.com;
+2014-02-01 22:36:22,023 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: p_skey=gixyRVHAA31A35NDVJNmxfhi2RXVmgye4C8oSELX7wM_; PATH=/; DOMAIN=mail.qq.com;
+2014-02-01 22:36:22,026 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: pt4_token=znvnAGj0rY1tRhv2-Nsp5Q__; PATH=/; DOMAIN=mail.qq.com;
+2014-02-01 22:36:22,026 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: p_uin=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,026 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: p_skey=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,027 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Set-Cookie: pt4_token=; EXPIRES=Fri, 02-Jan-1970 00:00:00 GMT; PATH=/; DOMAIN=qq.com;
+2014-02-01 22:36:22,027 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Location: http://mail.qq.com/cgi-bin/login?fun=passport&from=webqq
+2014-02-01 22:36:22,027 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Connection: Close
+2014-02-01 22:36:22,028 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-12 << Content-Type: text/html
+2014-02-01 22:36:22,029 [I/O dispatcher 2] [iqq.im.service.ApacheHttpService$QQDefaultRedirectStrategy] [DEBUG] - Redirect requested to location 'http://mail.qq.com/cgi-bin/login?fun=passport&from=webqq'
+2014-02-01 22:36:22,058 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> GET /channel/get_discu_info?clientid=-1604698165&t=1391265380&psessionid=8368046764001d636f6e6e7365727665725f77656271714031302e3133332e34312e383400001bd400000424026e040059d5ad366d0000000a406d7775574751466e696d00000028d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f&did=2578120372&vfwebqq=d8f927a2e0bc73135b4ef12a54ffaef1ee3bfeee072b4ad881cf7bf3fdd6cca7be9183b4e7c5678f HTTP/1.1
+2014-02-01 22:36:22,059 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:22,064 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:22,064 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> Host: d.web2.qq.com
+2014-02-01 22:36:22,068 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> Connection: Keep-Alive
+2014-02-01 22:36:22,068 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> Cookie: RK=S82m1+Vhco; p_skey=eF0-XBGTCuEvQXptBC6M1yrFoZEKQ50JH8MvjDIp1d4_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=05lTnxDTfS2sdpyIrmySOQ__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:22,070 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 >> Cookie2: $Version=1
+2014-02-01 22:36:22,916 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> GET /cgi-bin/login?fun=passport&from=webqq HTTP/1.1
+2014-02-01 22:36:22,927 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:22,928 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:22,928 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> Host: mail.qq.com
+2014-02-01 22:36:22,929 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> Connection: Keep-Alive
+2014-02-01 22:36:22,932 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> Cookie: RK=S82m1+Vhco; p_skey=gixyRVHAA31A35NDVJNmxfhi2RXVmgye4C8oSELX7wM_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=znvnAGj0rY1tRhv2-Nsp5Q__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; skey=@mwuWGQFni; uin=o0917362009
+2014-02-01 22:36:22,932 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 >> Cookie2: $Version=1
+2014-02-01 22:36:23,158 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << HTTP/1.1 200 OK
+2014-02-01 22:36:23,159 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Content-Type: text/html; charset=GB18030
+2014-02-01 22:36:23,159 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Content-Length: 479
+2014-02-01 22:36:23,164 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: tinfo=1391265382.0000*; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,164 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: autologin=; Domain=mail.qq.com; Path=/; Expires=Thu, 01-Jan-1970 00:00:01 GMT
+2014-02-01 22:36:23,164 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_flag=0; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qqmail_alias=917362009@qq.com; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_domain=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_verifyimagesession=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_authimgs_id=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_sk=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,165 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: pcache=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,166 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: device=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,166 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_ssum=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,166 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_qz_key=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,166 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_lg=qm_lg; Domain=.qq.com; Path=/; Expires=Sat, 01-Feb-2014 14:36:53 GMT
+2014-02-01 22:36:23,166 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_sid=; Domain=mail.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,169 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_username=; Domain=mail.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,170 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: sid=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,170 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: sid=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,170 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_sid=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; Domain=.qq.com; Path=/
+2014-02-01 22:36:23,170 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_username=917362009; Domain=.qq.com; Path=/
+2014-02-01 22:36:23,171 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_domain=http://mail.qq.com; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,171 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: qm_ptsk=917362009&@mwuWGQFni; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,171 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: CCSHOW=0000; Domain=mail.qq.com; Path=/; Expires=Thu, 31-Jul-2014 14:36:23 GMT
+2014-02-01 22:36:23,171 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-15 << Set-Cookie: jf=; Domain=mail.qq.com; Path=/; Expires=Thu, 01-Jan-1970 00:00:01 GMT
+2014-02-01 22:36:23,172 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=tinfo, value=1391265382.0000*, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,175 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=autologin, value=, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,175 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_flag, value=0, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,176 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qqmail_alias, value=917362009@qq.com, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,176 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_domain, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,177 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_verifyimagesession, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,177 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_authimgs_id, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,178 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_sk, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,178 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=pcache, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,179 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=device, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,180 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_ssum, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,180 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_qz_key, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,181 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_lg, value=qm_lg, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,181 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_sid, value=, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,182 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_username, value=, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,182 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=sid, value=, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,183 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=sid, value=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8., domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,183 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_sid, value=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8., domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,184 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_username, value=917362009, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,184 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_domain, value=http://mail.qq.com, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,185 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_ptsk, value=917362009&@mwuWGQFni, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,185 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=CCSHOW, value=0000, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,186 [I/O dispatcher 1] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=jf, value=, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,245 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/html; charset=GB18030
+2014-02-01 22:36:23,246 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - <html><title>���ڵ�¼QQ����</title><script type="text/javascript">document.domain="mail.qq.com";</script><script>
+
+var urlHead="http://mail.qq.com/cgi-bin/";
+var targetUrl="";
+var target="";
+var mailto="";
+targetUrl = urlHead + "frame_html?sid=RRy1O_4znjPfCjxu";
+if (targetUrl == "")
+{
+targetUrl = "" != "" ? "" : "/cgi-bin/loginpage";
+}
+if (targetUrl.indexOf("?") != -1)
+{
+targetUrl+="&r=f58d7b2e1d6aa76409a262f4641f9fd5";
+}
+
+window.location.replace(targetUrl);
+</script></html>
+2014-02-01 22:36:23,361 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> GET /cgi-bin/login?fun=passport&from=webqq?from=webqq&fun=passport HTTP/1.1
+2014-02-01 22:36:23,362 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:23,362 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:23,363 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> Host: mail.qq.com
+2014-02-01 22:36:23,363 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> Connection: Keep-Alive
+2014-02-01 22:36:23,363 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> Cookie: CCSHOW=0000; RK=S82m1+Vhco; p_skey=gixyRVHAA31A35NDVJNmxfhi2RXVmgye4C8oSELX7wM_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=znvnAGj0rY1tRhv2-Nsp5Q__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; qm_domain=http://mail.qq.com; qm_flag=0; qm_lg=qm_lg; qm_ptsk=917362009&@mwuWGQFni; qm_sid=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; qm_username=917362009; qqmail_alias=917362009@qq.com; sid=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; skey=@mwuWGQFni; tinfo=1391265382.0000*; uin=o0917362009
+2014-02-01 22:36:23,364 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 >> Cookie2: $Version=1
+2014-02-01 22:36:23,412 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << HTTP/1.1 200 OK
+2014-02-01 22:36:23,413 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << Date: Sat, 01 Feb 2014 14:36:22 GMT
+2014-02-01 22:36:23,413 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << Content-Type: text/plain; charset=utf-8
+2014-02-01 22:36:23,414 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << Content-Length: 450
+2014-02-01 22:36:23,414 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << Cache-Control: no-cache
+2014-02-01 22:36:23,414 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-14 << Connection: close
+2014-02-01 22:36:23,417 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/plain; charset=utf-8
+2014-02-01 22:36:23,418 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - {"retcode":0,"result":{"info":{"did":2578120372,"discu_owner":917362009,"discu_name":"\u5E73\u51E1\u3001\u627F\u222E\u8BFA","info_seq":4,"mem_list":[{"mem_uin":471499981,"ruin":6208317},{"mem_uin":917362009,"ruin":917362009}]},"mem_status":[{"uin":471499981,"status":"online","client_type":41},{"uin":917362009,"status":"online","client_type":41}],"mem_info":[{"uin":471499981,"nick":"\u627F\u222E\u8BFA"},{"uin":917362009,"nick":"\u5E73\u51E1"}]}}
+
+2014-02-01 22:36:23,590 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << HTTP/1.1 200 OK
+2014-02-01 22:36:23,591 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Content-Type: text/html; charset=GB18030
+2014-02-01 22:36:23,591 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Content-Length: 479
+2014-02-01 22:36:23,592 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: tinfo=1391265383.0000*; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,592 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: autologin=; Domain=mail.qq.com; Path=/; Expires=Thu, 01-Jan-1970 00:00:01 GMT
+2014-02-01 22:36:23,592 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_flag=0; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,593 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qqmail_alias=917362009@qq.com; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,593 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_domain=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,594 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_verifyimagesession=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,594 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_authimgs_id=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,595 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_sk=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,595 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: pcache=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,599 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: device=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,600 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_ssum=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,600 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_qz_key=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,600 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_lg=qm_lg; Domain=.qq.com; Path=/; Expires=Sat, 01-Feb-2014 14:36:53 GMT
+2014-02-01 22:36:23,601 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_sid=; Domain=mail.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,601 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_username=; Domain=mail.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,602 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: sid=; Domain=.qq.com; Path=/; Expires=Wed, 31-Dec-1969 23:59:59 GMT
+2014-02-01 22:36:23,602 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: sid=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,602 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_sid=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; Domain=.qq.com; Path=/
+2014-02-01 22:36:23,603 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_username=917362009; Domain=.qq.com; Path=/
+2014-02-01 22:36:23,603 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_domain=http://mail.qq.com; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,603 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: qm_ptsk=917362009&@mwuWGQFni; Domain=mail.qq.com; Path=/
+2014-02-01 22:36:23,605 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: CCSHOW=0000; Domain=mail.qq.com; Path=/; Expires=Thu, 31-Jul-2014 14:36:23 GMT
+2014-02-01 22:36:23,605 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-16 << Set-Cookie: jf=; Domain=mail.qq.com; Path=/; Expires=Thu, 01-Jan-1970 00:00:01 GMT
+2014-02-01 22:36:23,606 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=tinfo, value=1391265383.0000*, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,607 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_flag, value=0, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,608 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qqmail_alias, value=917362009@qq.com, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,612 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_lg, value=qm_lg, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,615 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=sid, value=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8., domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,616 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_sid, value=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8., domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,616 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_username, value=917362009, domain=.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,617 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [New Cookie] Cookie [name=qm_domain, value=http://mail.qq.com, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,619 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=qm_ptsk, value=917362009&@mwuWGQFni, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,620 [I/O dispatcher 2] [iqq.im.http.QQHttpCookieJar] [DEBUG] - [Update Cookie] Cookie [name=CCSHOW, value=0000, domain=mail.qq.com, path=/, expired=null]
+2014-02-01 22:36:23,703 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/html; charset=GB18030
+2014-02-01 22:36:23,704 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - <html><title>���ڵ�¼QQ����</title><script type="text/javascript">document.domain="mail.qq.com";</script><script>
+
+var urlHead="http://mail.qq.com/cgi-bin/";
+var targetUrl="";
+var target="";
+var mailto="";
+targetUrl = urlHead + "frame_html?sid=RRy1O_4znjPfCjxu";
+if (targetUrl == "")
+{
+targetUrl = "" != "" ? "" : "/cgi-bin/loginpage";
+}
+if (targetUrl.indexOf("?") != -1)
+{
+targetUrl+="&r=f58d7b2e1d6aa76409a262f4641f9fd5";
+}
+
+window.location.replace(targetUrl);
+</script></html>
+2014-02-01 22:36:23,824 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> GET /cgi-bin/getwpkey?sid=RRy1O_4znjPfCjxu&ef=js&r=0.7975904128979892&resp_charset=UTF8 HTTP/1.1
+2014-02-01 22:36:23,825 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:23,826 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:23,826 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> Host: mail.qq.com
+2014-02-01 22:36:23,826 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> Connection: Keep-Alive
+2014-02-01 22:36:23,826 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> Cookie: CCSHOW=0000; RK=S82m1+Vhco; p_skey=gixyRVHAA31A35NDVJNmxfhi2RXVmgye4C8oSELX7wM_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=znvnAGj0rY1tRhv2-Nsp5Q__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; qm_domain=http://mail.qq.com; qm_flag=0; qm_lg=qm_lg; qm_ptsk=917362009&@mwuWGQFni; qm_sid=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; qm_username=917362009; qqmail_alias=917362009@qq.com; sid=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; skey=@mwuWGQFni; tinfo=1391265383.0000*; uin=o0917362009
+2014-02-01 22:36:23,826 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 >> Cookie2: $Version=1
+2014-02-01 22:36:23,995 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 << HTTP/1.1 200 OK
+2014-02-01 22:36:23,996 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 << Content-Type: text/html; charset=UTF-8
+2014-02-01 22:36:23,996 [I/O dispatcher 1] [org.apache.http.headers] [DEBUG] - http-outgoing-17 << Content-Length: 28
+2014-02-01 22:36:23,996 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - text/html; charset=UTF-8
+2014-02-01 22:36:23,997 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - ({k:"hSBR8GYaWdWtNrBD",t:0})
+2014-02-01 22:36:24,108 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> GET /poll?u=917362009&t=0&s=7&r=0.6415998691502479&k=hSBR8GYaWdWtNrBD&i=30 HTTP/1.1
+2014-02-01 22:36:24,109 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> Referer: http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3
+2014-02-01 22:36:24,110 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> User-Agent: Mozilla/5.0 (Linux; 3.11.0-15-generic; amd64) AppleWebKit/537.36 (KHTML, like Gecko) IQQ Client/0.1 dev Safari/537.36
+2014-02-01 22:36:24,110 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> Host: wp.mail.qq.com
+2014-02-01 22:36:24,110 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> Connection: Keep-Alive
+2014-02-01 22:36:24,111 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> Cookie: CCSHOW=0000; RK=S82m1+Vhco; p_skey=gixyRVHAA31A35NDVJNmxfhi2RXVmgye4C8oSELX7wM_; p_uin=o0917362009; pt2gguin=o0917362009; pt4_token=znvnAGj0rY1tRhv2-Nsp5Q__; ptcz=4996dbba96fc535bd71b7771f55407e007eb15f47dd5fd37282e4cd91d408938; ptisp=ctc; ptwebqq=0e03609809fca42c0e505f24a3744fd2b0799323a56f116c4bd557403d741cbb; qm_domain=http://mail.qq.com; qm_flag=0; qm_lg=qm_lg; qm_ptsk=917362009&@mwuWGQFni; qm_sid=7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; qm_username=917362009; qqmail_alias=917362009@qq.com; sid=917362009&7956e9366f3da324fd850f648392a259,qZ2l4eVJWSEFBMzFBMzVORFZKTm14ZmhpMlJYVm1neWU0QzhvU0VMWDd3TV8.; skey=@mwuWGQFni; tinfo=1391265383.0000*; uin=o0917362009
+2014-02-01 22:36:24,111 [I/O dispatcher 2] [org.apache.http.headers] [DEBUG] - http-outgoing-18 >> Cookie2: $Version=1
+2014-02-01 22:36:26,250 [QQActorDispatcher] [iqq.im.action.AbstractHttpAction] [DEBUG] - application/json;charset=utf-8
