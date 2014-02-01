@@ -4,6 +4,7 @@ import iqq.im.QQActionListener;
 import iqq.im.QQException;
 import iqq.im.QQException.QQErrorCode;
 import iqq.im.action.CheckEmailSig;
+import iqq.im.action.DeleteEmailAction;
 import iqq.im.action.GetPT4Auth;
 import iqq.im.action.GetWPKeyAction;
 import iqq.im.action.LoginEmailAction;
@@ -220,8 +221,28 @@ public class EmailModule extends AbstractModule {
 		return pushHttpAction(new GetPT4Auth(getContext(), listener));
 	}
 
+	/**
+	 * 把邮件标记为已经读，或者未读
+	 * 
+	 * @param unread
+	 * @param mails
+	 * @param listener
+	 * @return
+	 */
 	public QQActionFuture mark(boolean unread, List<QQEmail> mails,
 			QQActionListener listener) {
 		return pushHttpAction(new MarkEmailAction(unread, mails, getContext(), listener));
+	}
+	
+	/**
+	 * 删除邮件
+	 * 
+	 * @param mails
+	 * @param listener
+	 * @return
+	 */
+	public QQActionFuture delete(List<QQEmail> mails,
+			QQActionListener listener) {
+		return pushHttpAction(new DeleteEmailAction(mails, getContext(), listener));
 	}
 }
