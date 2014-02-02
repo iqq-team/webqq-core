@@ -12,6 +12,7 @@ import iqq.im.action.MarkEmailAction;
 import iqq.im.action.PollEmailAction;
 import iqq.im.bean.QQEmail;
 import iqq.im.core.QQConstants;
+import iqq.im.core.QQSession;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQActionFuture;
 import iqq.im.event.QQNotifyEvent;
@@ -103,6 +104,10 @@ public class EmailModule extends AbstractModule {
 						// 登录失败，QQ消息的POLL同时也失效，这时那边会重新登录
 						// 如果已经在登录中，或者已经登录了，就不用再次执行
 						LOG.warn("getPT4Auth error!!! wait relogin...", ex);
+						QQSession session = getContext().getSession();
+						if(session.getState() == QQSession.State.LOGINING
+								|| session.getState() == QQSession.State.KICKED) return;
+						
 						ProcModule procModule = getContext().getModule(
 								Type.PROC);
 						procModule.relogin();// 重新登录成功会重新唤醒beginPoll

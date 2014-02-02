@@ -242,9 +242,9 @@ public class ProcModule extends AbstractModule {
 					
 					// 准备提交下次poll请求
 					QQSession session = getContext().getSession();
-					if(session.getState() == QQSession.State.ONLINE){
+					if(session.getState() == QQSession.State.ONLINE) {
 						doPollMsg();
-					} else {
+					} else if(session.getState() != QQSession.State.KICKED) {
 						relogin();
 					}
 				}else if(event.getType() == QQActionEvent.Type.EVT_ERROR){

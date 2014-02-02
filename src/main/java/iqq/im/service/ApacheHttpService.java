@@ -131,6 +131,9 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 			if (request.getMethod().equals("POST")) {
 				HttpPost httppost = new HttpPost(uri);
 				HttpHost httphost = URIUtils.extractHost(uri);
+				if(httphost == null) {
+					httphost  = new HttpHost(uri.getHost());
+				}
 				
 				if(request.getReadTimeout() > 0){
 					HttpConnectionParams.setSoTimeout(httppost.getParams(), request.getReadTimeout());
@@ -180,6 +183,9 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 			}else if(request.getMethod().equals("GET")){
 				HttpGet httpget = new HttpGet(uri);
 				HttpHost httphost = URIUtils.extractHost(uri);
+				if(httphost == null) {
+					httphost  = new HttpHost(uri.getHost());
+				}
 				Map<String, String> headerMap = request.getHeaderMap();
 				for(String key: headerMap.keySet()){
 					httpget.addHeader(key, headerMap.get(key));

@@ -206,9 +206,9 @@ public abstract class AbstractHttpAction implements HttpAction{
 			notifyActionEvent(QQActionEvent.Type.EVT_RETRY, new QQException(code, t));
 			try {
 				// 等待几秒再重试
-				Thread.sleep(3000);
+				Thread.sleep(1500);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				LOG.error("Sleep error...", e);
 			}
 			getContext().pushActor(new HttpActor(HttpActor.Type.BUILD_REQUEST, getContext(), this));
 			return true;
