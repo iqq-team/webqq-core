@@ -38,6 +38,7 @@ public class LoginEmailAction extends AbstractHttpAction {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_LOGIN_EMAIL);
 		req.addGetValue("fun", "passport");
 		req.addGetValue("from", "webqq");
+		req.addGetValue("Referer", "https://mail.qq.com/cgi-bin/loginpage");
 		return req;
 	}
 	

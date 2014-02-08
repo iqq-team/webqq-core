@@ -342,6 +342,8 @@ public class PollMsgAction extends AbstractHttpAction {
 				user = new QQStranger();
 				user.setQQ(pollData.getLong("ruin"));
 				user.setUin(fromUin);
+				user.setNickname(pollData.getLong("ruin") + "");
+				store.addStranger((QQStranger)user);
 			}
 		}
 		user.setQQ(fromQQ); // 带上QQ号码

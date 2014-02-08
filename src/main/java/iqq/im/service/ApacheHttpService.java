@@ -27,6 +27,7 @@ package iqq.im.service;
 
 import iqq.im.QQException;
 import iqq.im.QQException.QQErrorCode;
+import iqq.im.action.AbstractHttpAction;
 import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
 import iqq.im.http.QQHttpCookie;
@@ -90,6 +91,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HttpContext;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -100,6 +102,7 @@ import org.apache.http.protocol.HttpContext;
  *
  */
 public class ApacheHttpService extends AbstractService implements HttpService{
+	private static final Logger LOG = Logger.getLogger(ApacheHttpService.class);
 	private DefaultHttpAsyncClient asyncHttpClient;
 	private QQHttpCookieJar cookieJar;
 	private String userAgent;
@@ -132,6 +135,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 				HttpPost httppost = new HttpPost(uri);
 				HttpHost httphost = URIUtils.extractHost(uri);
 				if(httphost == null) {
+					LOG.error("host is null, url: " + uri.toString());
 					httphost  = new HttpHost(uri.getHost());
 				}
 				
@@ -184,6 +188,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 				HttpGet httpget = new HttpGet(uri);
 				HttpHost httphost = URIUtils.extractHost(uri);
 				if(httphost == null) {
+					LOG.error("host is null, url: " + uri.toString());
 					httphost  = new HttpHost(uri.getHost());
 				}
 				Map<String, String> headerMap = request.getHeaderMap();

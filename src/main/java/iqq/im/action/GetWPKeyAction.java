@@ -32,6 +32,7 @@ public class GetWPKeyAction extends AbstractHttpAction {
 		req.addGetValue("resp_charset", "UTF8");
 		req.addGetValue("ef", "js");
 		req.addGetValue("sid", sid);
+		req.addGetValue("Referer", "http://mail.qq.com/cgi-bin/frame_html?sid=" + sid);
 		return req;
 	}
 	

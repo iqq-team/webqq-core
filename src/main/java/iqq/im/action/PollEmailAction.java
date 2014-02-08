@@ -49,7 +49,7 @@ public class PollEmailAction extends AbstractHttpAction {
 		req.addGetValue("r", Math.random() + "");
 		req.setReadTimeout(70 * 1000);
 		req.setConnectTimeout(10 * 1000);
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Referer", "http://wp.mail.qq.com/ajax_proxy.html?mail.qq.com&v=110702");
 		return req;
 	}
 	

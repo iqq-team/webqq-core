@@ -3,15 +3,14 @@
  */
 package iqq.im.action;
 
-import org.json.JSONException;
-
 import iqq.im.QQActionListener;
 import iqq.im.QQException;
-import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
+
+import org.json.JSONException;
 
 /**
  * 通过pt4获取到的URL进行封装
