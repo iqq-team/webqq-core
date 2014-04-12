@@ -19,7 +19,8 @@ import iqq.im.event.QQNotifyEvent;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 邮箱模块
@@ -28,7 +29,7 @@ import org.apache.log4j.Logger;
  * @Created 2014年1月23日
  */
 public class EmailModule extends AbstractModule {
-	private static final Logger LOG = Logger.getLogger(EmailModule.class);
+	private static final Logger LOG = LoggerFactory.getLogger(EmailModule.class);
 	private int errorCount = 0;
 
 	/**

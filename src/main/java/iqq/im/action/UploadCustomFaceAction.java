@@ -15,9 +15,10 @@ import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * 消息发送
@@ -26,7 +27,7 @@ import org.json.JSONObject;
  * @create-time 2013-2-23
  */
 public class UploadCustomFaceAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger.getLogger(UploadCustomFaceAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UploadCustomFaceAction.class);
 	private File file;
 
 	public UploadCustomFaceAction(QQContext context, QQActionListener listener, File file) {
@@ -91,7 +92,7 @@ public class UploadCustomFaceAction extends AbstractHttpAction {
 					LOG.debug("ret: " + retcode);
 				}
 			} catch (Exception e) {
-				LOG.warn(e);
+				LOG.warn(e.getMessage(), e);
 			}
 		}
 		// 失败后返回路径

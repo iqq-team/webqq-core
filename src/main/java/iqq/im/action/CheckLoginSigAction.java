@@ -32,17 +32,18 @@ import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONException;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  *
  * @author solosky <solosky772@qq.com>
  *
  */
 public class CheckLoginSigAction extends AbstractHttpAction{
-	private static final Logger LOG = Logger.getLogger(CheckLoginSigAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CheckLoginSigAction.class);
 	private String checkSigUrl;
 	public CheckLoginSigAction(QQContext context, QQActionListener listener, String checkSigUrl) {
 		super(context, listener);

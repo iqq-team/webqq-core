@@ -51,10 +51,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -65,7 +66,7 @@ import org.json.JSONObject;
  */
 public class PollMsgAction extends AbstractHttpAction {
 
-	private static final Logger LOG = Logger.getLogger(PollMsgAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PollMsgAction.class);
 
 	public PollMsgAction(QQContext context, QQActionListener listener) {
 		super(context, listener);

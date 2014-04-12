@@ -32,9 +32,10 @@ import iqq.im.core.QQContext;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  * 单线程的QQ内部分发器，可以同时使用多个QQ实例里
  *
@@ -42,7 +43,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
-	private static final Logger LOG = Logger.getLogger(ThreadActorDispatcher.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ThreadActorDispatcher.class);
 	private BlockingQueue<QQActor> actorQueue;
 	private Thread dispatchThread;
 	

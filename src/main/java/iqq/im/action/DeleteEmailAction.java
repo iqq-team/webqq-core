@@ -11,10 +11,11 @@ import iqq.im.http.QQHttpResponse;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DeleteEmailAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger.getLogger(DeleteEmailAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DeleteEmailAction.class);
 	private List<QQEmail> markList;
 
 	public DeleteEmailAction(List<QQEmail> markList,

@@ -31,9 +31,10 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  * 使用这个类简化事件的注册，分发
  * 只需在被代理的类使用@IMEventHandler注解需要处理的事件类型即可
@@ -42,7 +43,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class QQNotifyHandlerProxy implements QQNotifyListener{
-	private static final Logger LOG = Logger.getLogger(QQNotifyHandlerProxy.class);
+	private static final Logger LOG = LoggerFactory.getLogger(QQNotifyHandlerProxy.class);
 	private Object proxyObject;
 	private Map<QQNotifyEvent.Type, Method> methodMap;
 	public QQNotifyHandlerProxy(Object proxyObject){

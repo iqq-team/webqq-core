@@ -44,17 +44,18 @@ import java.net.SocketTimeoutException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
 
-import org.apache.log4j.Logger;
 import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  *
  * @author solosky <solosky772@qq.com>
  *
  */
 public abstract class AbstractHttpAction implements HttpAction{
-	private static final Logger LOG = Logger.getLogger(AbstractHttpAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AbstractHttpAction.class);
 	private QQContext context;
 	private QQActionListener listener;
 	private Future<QQHttpResponse> responseFuture;

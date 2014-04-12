@@ -39,9 +39,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -229,7 +230,7 @@ public class QQMsg implements Serializable{
 		try {
 			return packContentList();
 		} catch (QQException e) {
-			Logger.getLogger(QQMsg.class).warn(e.getMessage());
+			LoggerFactory.getLogger(QQMsg.class).warn(e.getMessage());
 		}
 		return null;
 	}

@@ -18,8 +18,9 @@ import iqq.im.util.QQEncryptor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONException;
+import org.slf4j.LoggerFactory;
 
 /**
  * pt4登录验证
@@ -29,7 +30,7 @@ import org.json.JSONException;
  * @Created 2014年1月24日
  */
 public class GetPT4Auth extends AbstractHttpAction {
-	private static final Logger LOG = Logger.getLogger(GetPT4Auth.class);
+	private static final Logger LOG = LoggerFactory.getLogger(GetPT4Auth.class);
 
 	/**
 	 * @param context

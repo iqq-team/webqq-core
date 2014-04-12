@@ -70,7 +70,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -80,7 +81,7 @@ import org.apache.log4j.Logger;
  * 
  */
 public class WebQQClient implements QQClient, QQContext {
-	private static final Logger LOG = Logger.getLogger(WebQQClient.class);
+	private static final Logger LOG = LoggerFactory.getLogger(WebQQClient.class);
 	private Map<QQService.Type, QQService> services;
 	private Map<QQModule.Type, QQModule> modules;
 	private QQActorDispatcher actorDispatcher;

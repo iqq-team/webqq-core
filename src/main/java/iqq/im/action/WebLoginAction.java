@@ -38,16 +38,17 @@ import iqq.im.util.QQEncryptor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  *
  * @author solosky <solosky772@qq.com>
  *
  */
 public class WebLoginAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger.getLogger(WebLoginAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(WebLoginAction.class);
 	private String username;
 	private String password;
 	private long   uin;

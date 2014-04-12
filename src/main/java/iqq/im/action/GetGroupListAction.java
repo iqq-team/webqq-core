@@ -14,10 +14,11 @@ import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * 获取群列表名称
@@ -26,8 +27,7 @@ import org.json.JSONObject;
  * @create-date 2013-2-21
  */
 public class GetGroupListAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger
-			.getLogger(GetGroupListAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(GetGroupListAction.class);
 
 	public GetGroupListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);

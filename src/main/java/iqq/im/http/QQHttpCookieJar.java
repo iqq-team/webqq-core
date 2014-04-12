@@ -32,16 +32,17 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  * 保存和读取cookie
  *
  * @author solosky <solosky772@qq.com>
  *
  */
 public class QQHttpCookieJar {
-	private static final Logger LOG = Logger.getLogger(QQHttpCookieJar.class);
+	private static final Logger LOG = LoggerFactory.getLogger(QQHttpCookieJar.class);
 	private List<QQHttpCookie> cookieContainer;
 	
 	public QQHttpCookieJar(){

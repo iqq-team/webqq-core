@@ -38,10 +38,11 @@ import iqq.im.http.QQHttpResponse;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONException;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  * 获取从登陆页面获取LoginSig
  * 2013-08-03 接口更新
@@ -50,7 +51,7 @@ import org.json.JSONException;
  *
  */
 public class GetLoginSigAction extends AbstractHttpAction {
-	private static Logger LOG = Logger.getLogger(GetLoginSigAction.class);
+	private static Logger LOG = LoggerFactory.getLogger(GetLoginSigAction.class);
 
 	public GetLoginSigAction(QQContext context, QQActionListener listener) {
 		super(context, listener);

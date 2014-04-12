@@ -91,9 +91,10 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HttpContext;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
+ /**
  *
  * 使用 AsyncHttpClient实现的Http服务
  * http://hc.apache.org/httpcomponents-asyncclient-dev/index.html
@@ -102,7 +103,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class ApacheHttpService extends AbstractService implements HttpService{
-	private static final Logger LOG = Logger.getLogger(ApacheHttpService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ApacheHttpService.class);
 	private DefaultHttpAsyncClient asyncHttpClient;
 	private QQHttpCookieJar cookieJar;
 	private String userAgent;

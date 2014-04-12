@@ -42,7 +42,8 @@ import iqq.im.event.future.ProcActionFuture;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -52,7 +53,7 @@ import org.apache.log4j.Logger;
  * 
  */
 public class ProcModule extends AbstractModule {
-	private static final Logger LOG = Logger.getLogger(ProcModule.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ProcModule.class);
 	public QQActionFuture login(QQActionListener listener) {
 		ProcActionFuture future = new ProcActionFuture(listener, true);
 		doGetLoginSig(future);

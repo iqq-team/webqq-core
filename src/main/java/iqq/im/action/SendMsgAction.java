@@ -12,9 +12,10 @@ import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * 消息发送
@@ -24,7 +25,7 @@ import org.json.JSONObject;
  */
 public class SendMsgAction extends AbstractHttpAction {
 
-	private static final Logger LOG = Logger.getLogger(SendMsgAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SendMsgAction.class);
 
 	private QQMsg msg;
 

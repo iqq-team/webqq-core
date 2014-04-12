@@ -22,18 +22,18 @@ import iqq.im.http.QQHttpResponse;
 import iqq.im.service.HttpService;
 import iqq.im.util.QQEncryptor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author ChenZhiHui
  * @create-date 2013-2-21
  */
 public class GetBuddyListAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger
-			.getLogger(GetBuddyListAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(GetBuddyListAction.class);
 
 	public GetBuddyListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);

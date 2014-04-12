@@ -14,10 +14,11 @@ import iqq.im.http.QQHttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 /**
  * 邮件轮询
@@ -26,7 +27,7 @@ import org.json.JSONObject;
  * @Created 2014年1月25日
  */
 public class PollEmailAction extends AbstractHttpAction {
-	private static final Logger LOG = Logger.getLogger(PollEmailAction.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PollEmailAction.class);
 
 	private String sid = "";
 	private long t = 0;
