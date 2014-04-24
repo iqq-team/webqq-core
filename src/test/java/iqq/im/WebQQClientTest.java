@@ -34,10 +34,7 @@ import iqq.im.bean.QQGroup;
 import iqq.im.bean.QQGroupSearchList;
 import iqq.im.bean.QQMsg;
 import iqq.im.bean.QQStatus;
-import iqq.im.bean.content.ContentItem;
-import iqq.im.bean.content.FaceItem;
-import iqq.im.bean.content.OffPicItem;
-import iqq.im.bean.content.TextItem;
+import iqq.im.bean.content.*;
 import iqq.im.core.QQConstants;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQActionEvent.Type;
@@ -67,23 +64,21 @@ public class WebQQClientTest {
 	public WebQQClientTest(String user, String pwd){
 		client = new WebQQClient(user,pwd, new QQNotifyHandlerProxy(this), new ThreadActorDispatcher());
 	}
+
+    /**
+     * 程序入口
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        WebQQClientTest test = new WebQQClientTest("2010901301", "123456");
+        test.login();
+    }
 	
 	/**
-	 * 新邮件通知
-	 * 
-	 * @param event
-	 * @throws QQException
-	 */
-	@QQNotifyHandler(QQNotifyEvent.Type.EMAIL_NOTIFY)
-	public void processEmailMsg(QQNotifyEvent event) throws QQException {
-		List<QQEmail> list = (List<QQEmail>) event.getTarget();
-		for(QQEmail mail : list) {
-			System.out.println("邮件: " + mail.getSubject());
-		}
-	}
-	
-	/**
-	 * 聊天消息通知
+	 * 聊天消息通知，使用这个注解可以收到QQ消息
+     *
+     * 接收到消息然后组装消息发送回去
 	 * 
 	 * @param event
 	 * @throws QQException
@@ -105,6 +100,16 @@ public class WebQQClientTest {
 			}
 		}
 		System.out.println();
+
+        // 组装QQ消息发送回去
+        QQMsg sendMsg = new QQMsg();
+        sendMsg.setTo(msg.getFrom());                       // QQ好友UIN
+        sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
+        // QQ内容
+        sendMsg.addContentItem(new TextItem("hello"));      // 添加文本内容
+        sendMsg.addContentItem(new FaceItem(0));            // QQ id为0的表情
+        sendMsg.addContentItem(new FontItem());             // 使用默认字体
+        client.sendMsg(sendMsg, null);                      // 调用接口发送消息
 	}
 	
 	/**
@@ -131,16 +136,6 @@ public class WebQQClientTest {
 		System.out.print("请输入在项目根目录下verify.png图片里面的验证码:");
 		String code = new BufferedReader(new InputStreamReader(System.in)).readLine();
 		client.submitVerify(code, event);
-	}
-
-	/**
-	 * 程序入口
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		WebQQClientTest test = new WebQQClientTest("917362009", "chen01234");
-		test.login();
 	}
 
 	/**
@@ -247,5 +242,21 @@ public class WebQQClientTest {
 		client.setHttpUserAgent(ua);
 		client.login(QQStatus.ONLINE, listener);
 	}
+
+    /**
+     * 新邮件通知
+     *
+     * 这个暂时没有启用
+     *
+     * @param event
+     * @throws QQException
+     */
+    @QQNotifyHandler(QQNotifyEvent.Type.EMAIL_NOTIFY)
+    public void processEmailMsg(QQNotifyEvent event) throws QQException {
+        List<QQEmail> list = (List<QQEmail>) event.getTarget();
+        for(QQEmail mail : list) {
+            System.out.println("邮件: " + mail.getSubject());
+        }
+    }
 
 }

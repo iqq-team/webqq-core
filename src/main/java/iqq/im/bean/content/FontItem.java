@@ -17,12 +17,12 @@ import org.json.JSONObject;
  */
 public class FontItem implements ContentItem, Serializable{
 	private static final long serialVersionUID = -4303036964268065910L;
-	private String name;
-	private int size;
+	private String name = "宋体";
+	private int size = 12;
 	private boolean bold;
 	private boolean underline;
 	private boolean italic;
-	private int color;
+	private int color = 0;
 
 	public FontItem() {
 	}

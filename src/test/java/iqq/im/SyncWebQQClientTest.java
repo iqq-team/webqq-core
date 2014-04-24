@@ -48,7 +48,7 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 /**
- * 
+ * 使用同步登录
  * 
  * @author solosky <solosky772@qq.com>
  * 
@@ -56,7 +56,10 @@ import javax.imageio.ImageIO;
 public class SyncWebQQClientTest {
 
 	private static QQClient client;
+
 	/**
+     * 程序入口
+     *
 	 * @param args
 	 * @throws QQException 
 	 * @throws IOException 
