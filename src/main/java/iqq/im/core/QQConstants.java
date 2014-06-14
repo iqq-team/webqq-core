@@ -37,7 +37,7 @@ public interface QQConstants {
 	public static final String USER_AGENT = "IQQ Client/0.1 dev";
 	public static final String URL_CHECK_VERIFY = "https://ssl.ptlogin2.qq.com/check?uin={0}&appid=1003903&js_ver=10038&js_type=0&login_sig={1}&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&r={2}";
 	public static final String URL_GET_CAPTCHA = "http://captcha.qq.com/getimage";
-	public static final String REGXP_CHECK_VERIFY = "ptui_checkVC\\('(.*?)','(.*?)','(.*?)'\\)";
+	public static final String REGXP_CHECK_VERIFY = "ptui_checkVC\\('(.*?)','(.*?)','(.*?)'(,\\s*'(.*?)')?\\)";
 	public static final String REGXP_LOGIN = "ptuiCB\\('(\\d+)','(\\d+)','(.*?)','(\\d+)','(.*?)', '(.*?)'\\)";
 	public static final String REGXP_JSON_SINGLE_RESULT = "\\{([\\s\\S]*)\\}";
 	public static final String URL_UI_LOGIN = "https://ssl.ptlogin2.qq.com/login";

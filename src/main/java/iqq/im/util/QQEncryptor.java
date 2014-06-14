@@ -51,134 +51,55 @@ public class QQEncryptor {
         }
         return hash % 4294967296L;
 	}
-	
-	/**
-	 * 获取好友列表时计算的HASH参数 基本上照抄eqq.all.js代码即可
-	 * 
-	 * @param uin
-	 *            当前登录用户UIN
-	 * @param ptwebqq
-	 *            Cookie中的ptwebqq的值
-	 * @return
-	 */
-	public static String hash(String uin, String ptwebqq) {
-		String a = uin;
-		String e = ptwebqq;
-		byte[] c = new byte[a.length()];
-		for (int i = 0; i < a.length(); i++) {
-			c[i] = (byte) (a.charAt(i) - '0');
-		}
-		int k = -1;
-		for (int b = 0, d = 0; d < c.length; d++) {
-			b += c[d];
-			b %= e.length();
-			int f = 0;
-			if (b + 4 > e.length()) {
-				for (int g = 4 + b - e.length(), h = 0; h < 4; h++) {
-					if (h < g) {
-						f |= (e.charAt(b + h) & 255) << (3 - h) * 8;
-					} else {
-						f |= (e.charAt(h - g) & 255) << (3 - h) * 8;
-					}
-				}
-			} else {
-				for (int h = 0; h < 4; h++) {
-					f |= (e.charAt(b + h) & 255) << (3 - h) * 8;
-				}
-			}
-			k ^= f;
-		}
-		return Integer.toHexString(k).toUpperCase();
-	}
 
-	/**
-	 * 获取好友列表时计算的HASH参数 v2012.04.19更新
-	 * 
-	 * @param uin
-	 *            当前登录用户UIN
-	 * @param ptwebqq
-	 *            Cookie中的ptwebqq的值
-	 * @return
-	 */
-	public static String hash2(String uin, String ptwebqq) {
-		String i = ptwebqq;
-		String b = uin;
-		String a = i + "password error";
-		StringBuffer s = new StringBuffer();
-		while (s.length() < a.length()) {
-			s.append(b);
-		}
-		String ss = s.substring(0, a.length());
-		byte[] j = new byte[a.length()];
-		for (int d = 0; d < a.length(); d++) {
-			j[d] = (byte) (ss.charAt(d) ^ a.charAt(d));
-		}
-		return byte2HexString(j);
-	}
+    /**
+     * 获取好友列表时计算的Hash参数 v2014.06.14更新
+     *
+     * @param uin
+     *            当前登录用户UIN
+     * @param ptwebqq
+     *            Cookie中的ptwebqq的值
+     * @return hash
+     */
+    public static String hash(String uin, String ptwebqq) {
+        String s = "";
+        try {
+//			String js = "P=function(i,a){var j=[];j[0]=i>>24&255;j[1]=i>>16&255;j[2]=i>>8&255;j[3]=i&255;for(var s=[],e=0;e<a.length;++e)s.push(a.charCodeAt(e));e=[];for(e.push(new b(0,s.length-1));e.length>0;){var c=e.pop();if(!(c.s>=c.e||c.s<0||c.e>=s.length))if(c.s+1==c.e){if(s[c.s]>s[c.e]){var J=s[c.s];s[c.s]=s[c.e];s[c.e]=J}}else{for(var J=c.s,l=c.e,f=s[c.s];c.s<c.e;){for(;c.s<c.e&&s[c.e]>=f;)c.e--,j[0]=j[0]+3&255;c.s<c.e&&(s[c.s]=s[c.e],c.s++,j[1]=j[1]*13+43&255);for(;c.s<c.e&&s[c.s]<=f;)c.s++,j[2]=j[2]-3&255;c.s<c.e&&(s[c.e]=s[c.s],c.e--,j[3]=(j[0]^j[1]^j[2]^j[3]+1)&255)}s[c.s]=f;e.push(new b(J,c.s-1));e.push(new b(c.s+1,l))}}s=[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"A\",\"B\",\"C\",\"D\",\"E\",\"F\"];e=\"\";for(c=0;c<j.length;c++)e+=s[j[c]>>4&15],e+=s[j[c]&15];return e},b=function(b,i){this.s=b||0;this.e=i||0}";
+            // 20140614修改
+            StringBuffer sqlSB = new StringBuffer();
+            sqlSB.setLength(0);
+            sqlSB.append("P = function(b, j) { \n");
+            sqlSB.append("\tfor (var a = j + \"password error\", i = \"\", E = [];;) \n");
+            sqlSB.append("\t\tif (i.length <= a.length) { \n");
+            sqlSB.append("\t\t\tif (i += b, i.length == a.length) \n");
+            sqlSB.append("\t\t\t\tbreak \n");
+            sqlSB.append("\t\t} else { \n");
+            sqlSB.append("\t\t\ti = i.slice(0, a.length); \n");
+            sqlSB.append("\t\t\tbreak \n");
+            sqlSB.append("\t\t} \n");
+            sqlSB.append("\tfor (var c = 0; c < i.length; c++) \n");
+            sqlSB.append("\t\tE[c] = i.charCodeAt(c) ^ a.charCodeAt(c); \n");
+            sqlSB.append("\ta = [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \n");
+            sqlSB.append("\t\t  \"E\", \"F\"]; \n");
+            sqlSB.append("  i = \"\"; \n");
+            sqlSB.append("  for (c = 0; c < E.length; c++) \n");
+            sqlSB.append("    i += a[E[c] >> 4 & 15], i += a[E[c] & 15]; \n");
+            sqlSB.append("  return i \n");
+            sqlSB.append("} \n");
+            String js = sqlSB.toString();
+            // end
+            ScriptEngineManager mgr = new ScriptEngineManager();
+            ScriptEngine engine = mgr
+                    .getEngineByMimeType("application/javascript");
+            engine.eval(js);
+            Invocable inv = (Invocable) engine;
+            s = (String) inv.invokeFunction("P", uin, ptwebqq);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return s;
 
-	/**
-	 * 获取好友列表时计算的HASH参数 v2012.07.20更新 感谢IQQ群里面的@枫叶(953884102)提供
-	 * 
-	 * @param uin
-	 *            当前登录用户UIN
-	 * @param ptwebqq
-	 *            Cookie中的ptwebqq的值
-	 * @return
-	 */
-	public static String hash3(String uin, String ptwebqq) {
-		String i = ptwebqq;
-		String b = uin;
-		int[] a = new int[i.length()];
-		char[] iString = i.toCharArray();
-		for (int s = 0; s < i.length(); s++) {
-			a[s % 4] ^= (int) iString[s];
-		}
-		String[] j = { "EC", "OK" };
-		int[] d = new int[4];
-		d[0] = Integer.parseInt(b) >> 24 & 255 ^ (int) j[0].toCharArray()[0];
-		d[1] = Integer.parseInt(b) >> 16 & 255 ^ (int) j[0].toCharArray()[1];
-		d[2] = Integer.parseInt(b) >> 8 & 255 ^ (int) j[1].toCharArray()[0];
-		d[3] = Integer.parseInt(b) & 255 ^ (int) j[1].toCharArray()[1];
-
-		int[] k = new int[8];
-		for (int s = 0; s < 8; s++)
-			k[s] = s % 2 == 0 ? a[s >> 1] : d[s >> 1];
-		String[] aa = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A",
-				"B", "C", "D", "E", "F" };
-
-		String dd = "";
-		for (int s = 0; s < k.length; s++) {
-			dd += aa[k[s] >> 4 & 15];
-			dd += aa[k[s] & 15];
-		}
-		return dd;
-	}
-
-	/**
-	 * 获取好友列表时计算的Hash参数 v2013.08.17更新
-	 * 
-	 * @param uin
-	 *            当前登录用户UIN
-	 * @param ptwebqq
-	 *            Cookie中的ptwebqq的值
-	 * @return hash
-	 */
-	public static String hashP(String uin, String ptwebqq) {
-		String s = "";
-		try {
-			String js = "P=function(i,a){var j=[];j[0]=i>>24&255;j[1]=i>>16&255;j[2]=i>>8&255;j[3]=i&255;for(var s=[],e=0;e<a.length;++e)s.push(a.charCodeAt(e));e=[];for(e.push(new b(0,s.length-1));e.length>0;){var c=e.pop();if(!(c.s>=c.e||c.s<0||c.e>=s.length))if(c.s+1==c.e){if(s[c.s]>s[c.e]){var J=s[c.s];s[c.s]=s[c.e];s[c.e]=J}}else{for(var J=c.s,l=c.e,f=s[c.s];c.s<c.e;){for(;c.s<c.e&&s[c.e]>=f;)c.e--,j[0]=j[0]+3&255;c.s<c.e&&(s[c.s]=s[c.e],c.s++,j[1]=j[1]*13+43&255);for(;c.s<c.e&&s[c.s]<=f;)c.s++,j[2]=j[2]-3&255;c.s<c.e&&(s[c.e]=s[c.s],c.e--,j[3]=(j[0]^j[1]^j[2]^j[3]+1)&255)}s[c.s]=f;e.push(new b(J,c.s-1));e.push(new b(c.s+1,l))}}s=[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"A\",\"B\",\"C\",\"D\",\"E\",\"F\"];e=\"\";for(c=0;c<j.length;c++)e+=s[j[c]>>4&15],e+=s[j[c]&15];return e},b=function(b,i){this.s=b||0;this.e=i||0}";
-			ScriptEngineManager mgr = new ScriptEngineManager();
-			ScriptEngine engine = mgr
-					.getEngineByMimeType("application/javascript");
-			engine.eval(js);
-			Invocable inv = (Invocable) engine;
-			s = (String) inv.invokeFunction("P", uin, ptwebqq);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return s;
-
-	}
+    }
 
 	/***
 	 * 计算登录时密码HASH值

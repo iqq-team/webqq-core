@@ -71,7 +71,7 @@ public class WebQQClientTest {
      * @param args
      */
     public static void main(String[] args) {
-        WebQQClientTest test = new WebQQClientTest("2010901301", "123456");
+        WebQQClientTest test = new WebQQClientTest("2010901309", "chen01234");
         test.login();
     }
 	
@@ -198,7 +198,9 @@ public class WebQQClientTest {
 									client.getGroupInfo(g, null);
 									System.out.println("Group: " + g.getName());
 								}
-							}
+							} else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                                System.out.println("** 群列表获取失败，处理重新获取");
+                            }
 						}
 					});
 					// 获取讨论组列表
