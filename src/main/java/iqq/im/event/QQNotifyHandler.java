@@ -35,10 +35,8 @@ import java.lang.annotation.Target;
  * 一个注解可以简化NotifyEvent的监听，分发和处理
  * 只需在处理事件的方法上加入@QQNotifyHandler即可
  * 如
- * @QQNotifyHandler(QQNotifyEvent.Type.BUDDY_MSG)
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

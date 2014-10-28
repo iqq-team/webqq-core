@@ -1,11 +1,11 @@
-/**
- * 
- */
+
 package iqq.im.bean;
 
 /**
- * @author ZhiHui_Chen<6208317@qq.com>
- * @create date 2013-4-11
+ * <p>QQStranger class.</p>
+ *
+ * @author ZhiHui_Chen
+ * @since date 2013-4-11
  */
 public class QQStranger extends QQUser {
 	private static final long serialVersionUID = -5581405313260458197L;
@@ -16,23 +16,45 @@ public class QQStranger extends QQUser {
 	/**加好友时需要的参数*/
 	private String token;
 
+	/**
+	 * <p>Getter for the field <code>groupSig</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getGroupSig() {
 		return groupSig;
 	}
 
+	/**
+	 * <p>Setter for the field <code>groupSig</code>.</p>
+	 *
+	 * @param groupSig a {@link java.lang.String} object.
+	 */
 	public void setGroupSig(String groupSig) {
 		this.groupSig = groupSig;
 	}
 
+	/**
+	 * <p>Getter for the field <code>serviceType</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getServiceType() {
 		return serviceType;
 	}
 
+	/**
+	 * <p>Setter for the field <code>serviceType</code>.</p>
+	 *
+	 * @param serviceType a int.
+	 */
 	public void setServiceType(int serviceType) {
 		this.serviceType = serviceType;
 	}
 
 	/**
+	 * <p>Getter for the field <code>token</code>.</p>
+	 *
 	 * @return the token
 	 */
 	public String getToken() {
@@ -40,6 +62,8 @@ public class QQStranger extends QQUser {
 	}
 
 	/**
+	 * <p>Setter for the field <code>token</code>.</p>
+	 *
 	 * @param token the token to set
 	 */
 	public void setToken(String token) {

@@ -45,14 +45,22 @@ import org.json.JSONException;
  *
  * 获取群聊天图片
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetGroupPicAction extends AbstractHttpAction{
 	private CFaceItem cface;
 	private QQMsg msg;
 	private OutputStream picOut;
 	
+	/**
+	 * <p>Constructor for GetGroupPicAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param cface a {@link iqq.im.bean.content.CFaceItem} object.
+	 * @param msg a {@link iqq.im.bean.QQMsg} object.
+	 * @param picOut a {@link java.io.OutputStream} object.
+	 */
 	public GetGroupPicAction(QQContext context, QQActionListener listener,
 										CFaceItem cface, QQMsg msg, OutputStream picOut) {
 		super(context, listener);
@@ -64,6 +72,7 @@ public class GetGroupPicAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -73,6 +82,7 @@ public class GetGroupPicAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onBuildRequest()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_GROUP_PIC);

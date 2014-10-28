@@ -46,20 +46,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * 处理整体登陆逻辑
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class ProcModule extends AbstractModule {
 	private static final Logger LOG = LoggerFactory.getLogger(ProcModule.class);
+	/**
+	 * <p>login.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture login(QQActionListener listener) {
 		ProcActionFuture future = new ProcActionFuture(listener, true);
 		doGetLoginSig(future);
 		return future;
 	}
 	
+	/**
+	 * <p>loginWithVerify.</p>
+	 *
+	 * @param verifyCode a {@link java.lang.String} object.
+	 * @param future a {@link iqq.im.event.future.ProcActionFuture} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture loginWithVerify(String verifyCode, ProcActionFuture future) {
 		doWebLogin(verifyCode, future);
 		return future;
@@ -191,6 +203,13 @@ public class ProcModule extends AbstractModule {
 		});
 	}
 	
+	/**
+	 * <p>relogin.</p>
+	 *
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture relogin(QQStatus status, final QQActionListener listener){
 		getContext().getAccount().setStatus(status);
 		getContext().getSession().setState(QQSession.State.LOGINING);
@@ -211,6 +230,9 @@ public class ProcModule extends AbstractModule {
 		return future;
 	}
 	
+	/**
+	 * <p>relogin.</p>
+	 */
 	public void relogin() {
 		QQSession session = getContext().getSession();
 		if(session.getState() == QQSession.State.LOGINING) return;
@@ -230,6 +252,9 @@ public class ProcModule extends AbstractModule {
 		});
 	}
 
+	/**
+	 * <p>doPollMsg.</p>
+	 */
 	public void doPollMsg() {
 		final LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
 		login.pollMsg(new QQActionListener() {
@@ -274,6 +299,12 @@ public class ProcModule extends AbstractModule {
 		});
 	}
 
+	/**
+	 * <p>doLogout.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture doLogout(QQActionListener listener) {
 		LoginModule login = (LoginModule) getContext().getModule(QQModule.Type.LOGIN);
 		return login.logout(listener);

@@ -30,13 +30,18 @@ import iqq.im.action.GetBuddyListAction;
 import iqq.im.event.QQActionFuture;
 
 /**
- * 
+ *
  * 好友列表模块，处理好友的添加和删除
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class CategoryModule extends AbstractModule {
+	/**
+	 * <p>getCategoryList.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getCategoryList(QQActionListener listener) {
 		return pushHttpAction(new GetBuddyListAction(getContext(), listener));
 	}

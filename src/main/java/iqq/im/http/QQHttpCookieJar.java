@@ -35,20 +35,29 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
  * 保存和读取cookie
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQHttpCookieJar {
 	private static final Logger LOG = LoggerFactory.getLogger(QQHttpCookieJar.class);
 	private List<QQHttpCookie> cookieContainer;
 	
+	/**
+	 * <p>Constructor for QQHttpCookieJar.</p>
+	 */
 	public QQHttpCookieJar(){
 		this.cookieContainer = new ArrayList<QQHttpCookie>();
 	}
 	
+	/**
+	 * <p>getCookie.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param url a {@link java.lang.String} object.
+	 * @return a {@link iqq.im.http.QQHttpCookie} object.
+	 */
 	public QQHttpCookie getCookie(String name, String url){
 		Iterator<QQHttpCookie> it = cookieContainer.iterator();
 		while(it.hasNext()) {
@@ -60,6 +69,11 @@ public class QQHttpCookieJar {
 		return null;
 	}
 	
+	/**
+	 * <p>updateCookies.</p>
+	 *
+	 * @param tmpCookies a {@link java.util.List} object.
+	 */
 	public void updateCookies(List<String> tmpCookies){
 		List<String> newCookies = new ArrayList<String>();
 		if(tmpCookies!=null){
@@ -87,6 +101,12 @@ public class QQHttpCookieJar {
 		}
 	}
 	
+	/**
+	 * <p>getCookieHeader.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getCookieHeader(String url){
 		URL u = null;
 		try {

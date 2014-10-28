@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
- /**
+/**
  * Project  : WebQQCore
  * Package  : iqq.im.protocol
  * File     : AbstractHttpAction.java
  * Author   : solosky < solosky772@qq.com >
  * Created  : 2012-9-1
- * License  : Apache License 2.0 
+ * License  : Apache License 2.0
  */
 package iqq.im.action;
 
@@ -47,13 +47,6 @@ import java.util.concurrent.TimeoutException;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
- /**
- *
- *
- * @author solosky <solosky772@qq.com>
- *
- */
 public abstract class AbstractHttpAction implements HttpAction{
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractHttpAction.class);
 	private QQContext context;
@@ -61,26 +54,33 @@ public abstract class AbstractHttpAction implements HttpAction{
 	private Future<QQHttpResponse> responseFuture;
 	private QQActionFuture actionFuture;
 	private int retryTimes;
-	
 
+
+	/**
+	 * <p>Constructor for AbstractHttpAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public AbstractHttpAction(QQContext context, QQActionListener listener) {
 		this.context = context;
 		this.listener = listener;
 		this.retryTimes = 0;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpFinish(QQHttpResponse response) {
 		try {
 			LOG.debug(response.getContentType());
 			String type = response.getContentType();
-			if((type.startsWith("application/x-javascript") 
-					|| type.startsWith("application/json") 
+			if((type.startsWith("application/x-javascript")
+					|| type.startsWith("application/json")
 					|| type.indexOf("text") >= 0
 					) && response.getContentLength() > 0){
 				LOG.debug(response.getResponseString());
 			}
-			
+
 			if(response.getResponseCode() == QQHttpResponse.S_OK){
 				onHttpStatusOK(response);
 			}else{
@@ -96,6 +96,7 @@ public abstract class AbstractHttpAction implements HttpAction{
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpError(Throwable t) {
 		if(!doRetryIt(getErrorCode(t), t)){
@@ -103,6 +104,7 @@ public abstract class AbstractHttpAction implements HttpAction{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpWrite(long current, long total) {
 		QQActionEventArgs.ProgressArgs progress = new QQActionEventArgs.ProgressArgs();
@@ -111,6 +113,7 @@ public abstract class AbstractHttpAction implements HttpAction{
 		notifyActionEvent(QQActionEvent.Type.EVT_WRITE, progress);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public  void onHttpRead(long current, long total) {
 		QQActionEventArgs.ProgressArgs progress = new QQActionEventArgs.ProgressArgs();
@@ -118,40 +121,51 @@ public abstract class AbstractHttpAction implements HttpAction{
 		progress.current = current;
 		notifyActionEvent(QQActionEvent.Type.EVT_READ, progress);
 	}
-	
+
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpHeader(QQHttpResponse response) {
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void cancelRequest() {
 		responseFuture.cancel(true);
 		notifyActionEvent(QQActionEvent.Type.EVT_CANCELED, null);
 	}
 
+	/**
+	 * <p>Getter for the field <code>context</code>.</p>
+	 *
+	 * @return a {@link iqq.im.core.QQContext} object.
+	 */
 	protected QQContext getContext(){
 		return this.context;
 	}
-	
+
+	/** {@inheritDoc} */
 	@Override
 	public void setActionFuture(QQActionFuture future) {
 		actionFuture = future;
 	}
-	
 
+
+	/** {@inheritDoc} */
 	@Override
 	public void setResponseFuture(Future<QQHttpResponse> future) {
 		responseFuture = future;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void notifyActionEvent(QQActionEvent.Type type, Object target) {
 		if(listener != null){
 			listener.onActionEvent(new QQActionEvent(type, target, actionFuture));
 		}
-		
+
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest buildRequest() throws QQException {
 		try {
@@ -163,45 +177,75 @@ public abstract class AbstractHttpAction implements HttpAction{
 		}
 	}
 
+	/**
+	 * <p>createHttpRequest.</p>
+	 *
+	 * @param method a {@link java.lang.String} object.
+	 * @param url a {@link java.lang.String} object.
+	 * @return a {@link iqq.im.http.QQHttpRequest} object.
+	 */
 	protected QQHttpRequest createHttpRequest(String method, String url){
 		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
 		return httpService.createHttpRequest(method, url);
 	}
-	
+
+	/**
+	 * <p>onHttpStatusError.</p>
+	 *
+	 * @param response a {@link iqq.im.http.QQHttpResponse} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	protected void onHttpStatusError(QQHttpResponse response) throws QQException {
 		if(!doRetryIt(QQErrorCode.ERROR_HTTP_STATUS, null)){
 			throw new QQException(QQErrorCode.ERROR_HTTP_STATUS);
 		}
 	}
-	
+
+	/**
+	 * <p>onHttpStatusOK.</p>
+	 *
+	 * @param response a {@link iqq.im.http.QQHttpResponse} object.
+	 * @throws iqq.im.QQException if any.
+	 * @throws org.json.JSONException if any.
+	 */
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException{
 		notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
 	}
-	
+
+	/**
+	 * <p>onBuildRequest.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 * @throws org.json.JSONException if any.
+	 * @return a {@link iqq.im.http.QQHttpRequest} object.
+	 */
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		return null;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionListener getActionListener() {
 		return listener;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void setActionListener(QQActionListener listener) {
 		this.listener = listener;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean isCancelable() {
 		return false;
 	}
-	
+
 	private boolean doRetryIt(QQErrorCode code, Throwable t){
 		if(actionFuture.isCanceled()){
 			return true;
 		}
-	
+
 		++retryTimes;
 		if( retryTimes < QQConstants.MAX_RETRY_TIMES){
 			notifyActionEvent(QQActionEvent.Type.EVT_RETRY, new QQException(code, t));
@@ -214,12 +258,12 @@ public abstract class AbstractHttpAction implements HttpAction{
 			getContext().pushActor(new HttpActor(HttpActor.Type.BUILD_REQUEST, getContext(), this));
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	private QQErrorCode getErrorCode(Throwable e){
-		if(e instanceof SocketTimeoutException 
+		if(e instanceof SocketTimeoutException
 				|| e instanceof TimeoutException){
 			return QQErrorCode.IO_TIMEOUT;
 		}else if(e instanceof IOException){

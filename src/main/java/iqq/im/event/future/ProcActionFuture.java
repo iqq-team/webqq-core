@@ -34,21 +34,28 @@ import iqq.im.event.QQActionEvent;
  * 多个过程操作的异步等待对象
  * 需手动处理
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class ProcActionFuture extends AbstractActionFuture {
 
+	/**
+	 * <p>Constructor for ProcActionFuture.</p>
+	 *
+	 * @param proxyListener a {@link iqq.im.QQActionListener} object.
+	 * @param Cancelable a boolean.
+	 */
 	public ProcActionFuture(QQActionListener proxyListener, boolean Cancelable) {
 		super(proxyListener);
 		setCanceled(false);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean isCancelable() {
 		return true;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void cancel() throws QQException {
 		setCanceled(true);

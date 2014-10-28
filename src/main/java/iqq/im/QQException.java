@@ -26,31 +26,57 @@
 package iqq.im;
 
 /**
- * 
+ *
  * QQ异常，所有的接口都需要声明抛出QQ异常
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class QQException extends Exception {
 	private static final long serialVersionUID = 1L;
 	private QQErrorCode errorCode;
 
+	/**
+	 * <p>Constructor for QQException.</p>
+	 *
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 */
 	public QQException(QQErrorCode errorCode) {
 		super(errorCode.toString());
 		this.errorCode = errorCode;
 	}
 	
+	/**
+	 * <p>Constructor for QQException.</p>
+	 *
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param msg a {@link java.lang.String} object.
+	 */
 	public QQException(QQErrorCode errorCode, String msg) {
 		super(msg);
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * <p>Constructor for QQException.</p>
+	 *
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param errorCode a {@link iqq.im.QQException.QQErrorCode} object.
+	 * @param e a {@link java.lang.Throwable} object.
+	 */
 	public QQException(QQErrorCode errorCode, Throwable e) {
 		super(errorCode.toString(), e);
 		this.errorCode = errorCode;
 	}
 
+	/**
+	 * <p>getError.</p>
+	 *
+	 * @return a {@link iqq.im.QQException.QQErrorCode} object.
+	 */
 	public QQErrorCode getError() {
 		return errorCode;
 	}

@@ -15,18 +15,27 @@ import org.json.JSONObject;
 
 /**
  * 获取QQ账号
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetFriendAccoutAction extends AbstractHttpAction {
 
 	private QQUser buddy;
 
+	/**
+	 * <p>Constructor for GetFriendAccoutAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param buddy a {@link iqq.im.bean.QQUser} object.
+	 */
 	public GetFriendAccoutAction(QQContext context, QQActionListener listener, QQUser buddy) {
 		super(context, listener);
 		this.buddy = buddy;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -44,6 +53,7 @@ public class GetFriendAccoutAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

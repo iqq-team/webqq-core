@@ -50,7 +50,7 @@ import javax.imageio.ImageIO;
 /**
  * 使用同步登录
  * 
- * @author solosky <solosky772@qq.com>
+ * @author solosky
  * 
  */
 public class SyncWebQQClientTest {
@@ -60,8 +60,7 @@ public class SyncWebQQClientTest {
 	/**
      * 程序入口
      *
-	 * @param args
-	 * @throws QQException 
+	 * @throws QQException
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws QQException, IOException {

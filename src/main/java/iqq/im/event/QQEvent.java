@@ -30,8 +30,7 @@ package iqq.im.event;
  *
  * QQ事件，客户端被动接受的事件，比如收到了消息，好友上线
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public abstract class QQEvent{
 }

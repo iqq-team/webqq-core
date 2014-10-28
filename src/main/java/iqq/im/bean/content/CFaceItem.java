@@ -11,9 +11,9 @@ import org.json.JSONObject;
 
 /**
  * 图片
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-25
+ * @since 2013-2-25
  */
 public class CFaceItem implements ContentItem, Serializable {
 	private static final long serialVersionUID = -5851165085517534445L;
@@ -23,14 +23,25 @@ public class CFaceItem implements ContentItem, Serializable {
 	private String key;
 	private String server;
 
+	/**
+	 * <p>Constructor for CFaceItem.</p>
+	 */
 	public CFaceItem() {
 	}
 
+	/**
+	 * <p>Constructor for CFaceItem.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	public CFaceItem(String text) throws QQException {
 		fromJson(text);
 	}
 
 	/**
+	 * <p>isSuccess.</p>
+	 *
 	 * @return the isSuccess
 	 */
 	public boolean isSuccess() {
@@ -38,6 +49,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>setSuccess.</p>
+	 *
 	 * @param isSuccess
 	 *            the isSuccess to set
 	 */
@@ -46,6 +59,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>fileName</code>.</p>
+	 *
 	 * @return the fileName
 	 */
 	public String getFileName() {
@@ -53,6 +68,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>fileName</code>.</p>
+	 *
 	 * @param fileName
 	 *            the fileName to set
 	 */
@@ -61,6 +78,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>fileId</code>.</p>
+	 *
 	 * @return the fileId
 	 */
 	public long getFileId() {
@@ -68,6 +87,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>fileId</code>.</p>
+	 *
 	 * @param fileId
 	 *            the fileId to set
 	 */
@@ -76,6 +97,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>key</code>.</p>
+	 *
 	 * @return the key
 	 */
 	public String getKey() {
@@ -83,6 +106,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>key</code>.</p>
+	 *
 	 * @param key
 	 *            the key to set
 	 */
@@ -91,6 +116,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>server</code>.</p>
+	 *
 	 * @return the server
 	 */
 	public String getServer() {
@@ -98,6 +125,8 @@ public class CFaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>server</code>.</p>
+	 *
 	 * @param server
 	 *            the server to set
 	 */
@@ -110,11 +139,13 @@ public class CFaceItem implements ContentItem, Serializable {
 	 * 
 	 * @see iqq.im.bean.content.ContentItem#getType()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public Type getType() {
 		return Type.CFACE;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public Object toJson() throws QQException {
 		// [\"cface\",\"group\",\"5F7E31F0001EF4310865F1FF4549B12B.jPg\"]
@@ -125,6 +156,7 @@ public class CFaceItem implements ContentItem, Serializable {
 		return json;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void fromJson(String text) throws QQException {
 		// ["cface",{"name":"{94E8E5BA-9304-043E-F028-93986EEF0450}.jpg","file_id":445318646,"key":"PN576E5TyB53muY9","server":"124.115.11.111:8000"}]

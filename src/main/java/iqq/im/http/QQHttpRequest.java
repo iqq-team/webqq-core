@@ -39,7 +39,7 @@ import java.util.Map;
  *
  * HTTP请求
  *
- * @author solosky <solosky772@qq.com>
+ * @author solosky
  */
 public class QQHttpRequest
 {
@@ -102,8 +102,9 @@ public class QQHttpRequest
 	 * 读取超时
 	 */
 	private int readTimeout;
-	/**
-	 * 默认的构造函数
+    /**
+     * 默认的构造函数
+     *
      * @param url			地址
      * @param method		方法
      */
@@ -117,8 +118,9 @@ public class QQHttpRequest
 	    this.fileMap = new HashMap<String, File>();
     }
 
-	/**
-	 * 设置URL
+    /**
+     * 设置URL
+     *
      * @param url the url to set
      */
     public void setUrl(String url)
@@ -126,8 +128,9 @@ public class QQHttpRequest
     	this.url = url;
     }
 
-	/**
-	 * 设置请求的方法
+    /**
+     * 设置请求的方法
+     *
      * @param method the method to set
      */
     public void setMethod(String method)
@@ -135,8 +138,9 @@ public class QQHttpRequest
     	this.method = method;
     }
 
-	/**
-	 * 设置超时时间
+    /**
+     * 设置超时时间
+     *
      * @param timeout the timeout to set
      */
     public void setTimeout(int timeout)
@@ -146,8 +150,9 @@ public class QQHttpRequest
     
     /**
      * 添加请求头
-     * @param key
-     * @param value
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
      */
     public void addHeader(String key, String value)
     {
@@ -156,8 +161,9 @@ public class QQHttpRequest
     
     
     /**
-     * 以key=>value的方式设置请求体，仅在方法为POST的方式下有用，默认为utf8编码
-     * @param keymap
+     * 以key=&gt;value的方式设置请求体，仅在方法为POST的方式下有用，默认为utf8编码
+     *
+     * @param keymap a {@link java.util.Map} object.
      */
     public void setBody(Map<String, String> keymap)
     {
@@ -166,8 +172,9 @@ public class QQHttpRequest
     
     /**
      * 添加POST的值
-     * @param key
-     * @param value
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
      */
     public void addPostValue(String key, String value) {
     	this.postMap.put(key, value);
@@ -175,8 +182,9 @@ public class QQHttpRequest
     
     /**
      * 添加POST文件
-     * @param key
-     * @param file
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param file a {@link java.io.File} object.
      */
     public void addPostFile(String key, File file){
     	this.fileMap.put(key, file);
@@ -184,8 +192,9 @@ public class QQHttpRequest
     
     /**
      * 添加POST的值
-     * @param key
-     * @param value
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
      */
     public void addGetValue(String key, String value) {
     	this.getMap.put(key, value);
@@ -193,14 +202,17 @@ public class QQHttpRequest
     
     /**
      * 设置请求的数据流
-     * @param outStream
+     *
+     * @param inputStream a {@link java.io.InputStream} object.
      */
     public void setBody(InputStream inputStream)
     {
     	this.inputStream = inputStream;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>headerMap</code>.</p>
+     *
      * @return the headerMap
      */
     public Map<String, String> getHeaderMap()
@@ -208,7 +220,9 @@ public class QQHttpRequest
     	return headerMap;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>headerMap</code>.</p>
+     *
      * @param headerMap the headerMap to set
      */
     public void setHeaderMap(Map<String, String> headerMap)
@@ -217,7 +231,9 @@ public class QQHttpRequest
     }
 
 
-	/**
+    /**
+     * <p>Getter for the field <code>inputStream</code>.</p>
+     *
      * @return the inputStream
      */
     public InputStream getInputStream()
@@ -253,7 +269,9 @@ public class QQHttpRequest
     	}
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>inputStream</code>.</p>
+     *
      * @param inputStream the inputStream to set
      */
     public void setInputStream(InputStream inputStream)
@@ -261,7 +279,9 @@ public class QQHttpRequest
     	this.inputStream = inputStream;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>url</code>.</p>
+     *
      * @return the url
      */
     public String getUrl()
@@ -292,7 +312,9 @@ public class QQHttpRequest
     	}
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>method</code>.</p>
+     *
      * @return the method
      */
     public String getMethod()
@@ -300,7 +322,9 @@ public class QQHttpRequest
     	return method;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>timeout</code>.</p>
+     *
      * @return the timeout
      */
     public int getTimeout()
@@ -308,31 +332,63 @@ public class QQHttpRequest
     	return timeout;
     }
 
+	/**
+	 * <p>Getter for the field <code>outputStream</code>.</p>
+	 *
+	 * @return a {@link java.io.OutputStream} object.
+	 */
 	public OutputStream getOutputStream() {
 		return outputStream;
 	}
 
+	/**
+	 * <p>Setter for the field <code>outputStream</code>.</p>
+	 *
+	 * @param outputStream a {@link java.io.OutputStream} object.
+	 */
 	public void setOutputStream(OutputStream outputStream) {
 		this.outputStream = outputStream;
 	}
 
+	/**
+	 * <p>Getter for the field <code>postMap</code>.</p>
+	 *
+	 * @return a {@link java.util.Map} object.
+	 */
 	public Map<String, String> getPostMap() {
 		return postMap;
 	}
 
+	/**
+	 * <p>Getter for the field <code>fileMap</code>.</p>
+	 *
+	 * @return a {@link java.util.Map} object.
+	 */
 	public Map<String, File> getFileMap() {
 		return fileMap;
 	}
 
+	/**
+	 * <p>Getter for the field <code>charset</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getCharset() {
 		return charset==null ? "utf-8" : charset;
 	}
 
+	/**
+	 * <p>Setter for the field <code>charset</code>.</p>
+	 *
+	 * @param charset a {@link java.lang.String} object.
+	 */
 	public void setCharset(String charset) {
 		this.charset = charset;
 	}
 
 	/**
+	 * <p>Getter for the field <code>connectTimeout</code>.</p>
+	 *
 	 * @return the connectTimeout
 	 */
 	public int getConnectTimeout() {
@@ -340,6 +396,8 @@ public class QQHttpRequest
 	}
 
 	/**
+	 * <p>Setter for the field <code>connectTimeout</code>.</p>
+	 *
 	 * @param connectTimeout the connectTimeout to set
 	 */
 	public void setConnectTimeout(int connectTimeout) {
@@ -347,6 +405,8 @@ public class QQHttpRequest
 	}
 
 	/**
+	 * <p>Getter for the field <code>readTimeout</code>.</p>
+	 *
 	 * @return the readTimeout
 	 */
 	public int getReadTimeout() {
@@ -354,6 +414,8 @@ public class QQHttpRequest
 	}
 
 	/**
+	 * <p>Setter for the field <code>readTimeout</code>.</p>
+	 *
 	 * @param readTimeout the readTimeout to set
 	 */
 	public void setReadTimeout(int readTimeout) {

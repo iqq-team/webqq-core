@@ -28,18 +28,18 @@ package iqq.im.actor;
 import iqq.im.core.QQLifeCycle;
 
 /**
-*
-* QQ内部操作分发器接口
-*
-* @author solosky <solosky772@qq.com>
-*
-*/
+ *
+ * QQ内部操作分发器接口
+ *
+ * @author solosky
+ */
 public interface QQActorDispatcher extends QQLifeCycle {
 
 	/**
 	 * 把一个event放入事件队列的末尾等待处理
 	 * 线程安全的
-	 * @param event
+	 *
+	 * @param actor 事件Actor
 	 */
 	public void pushActor(QQActor actor);
 }

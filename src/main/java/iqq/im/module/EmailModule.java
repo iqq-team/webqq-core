@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 邮箱模块
- * 
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月23日
+ *
+ * @author 承∮诺
+ * @since 2014年1月23日
  */
 public class EmailModule extends AbstractModule {
 	private static final Logger LOG = LoggerFactory.getLogger(EmailModule.class);
@@ -125,7 +125,7 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 反复轮询
-	 * 
+	 *
 	 * @param sid
 	 *            凭证ID，就算没有Cookie都可以轮询
 	 * @param t
@@ -175,10 +175,11 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 轮询，需要到sid
-	 * 
-	 * @param sid
-	 * @param listener
-	 * @return
+	 *
+	 * @param sid a {@link java.lang.String} object.
+	 * @param t a long.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture poll(String sid, long t, QQActionListener listener) {
 		return pushHttpAction(new PollEmailAction(sid, t, getContext(),
@@ -187,10 +188,10 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 通过登录得到的sid，获取到wpkey
-	 * 
-	 * @param sid
-	 * @param listener
-	 * @return
+	 *
+	 * @param sid a {@link java.lang.String} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture getWPKey(String sid, QQActionListener listener) {
 		return pushHttpAction(new GetWPKeyAction(sid, getContext(), listener));
@@ -198,9 +199,9 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 登录邮箱
-	 * 
-	 * @param listener
-	 * @return
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture login(QQActionListener listener) {
 		return pushHttpAction(new LoginEmailAction(getContext(), listener));
@@ -208,10 +209,10 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 通过pt4获取到的URL进行封装 检测邮箱是否合法登录了
-	 * 
-	 * @param url
-	 * @param listener
-	 * @return
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture check(String url, QQActionListener listener) {
 		return pushHttpAction(new CheckEmailSig(url, getContext(), listener));
@@ -219,9 +220,9 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * pt4登录验证 获取到一个链接
-	 * 
-	 * @param listener
-	 * @return
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture getPT4Auth(QQActionListener listener) {
 		return pushHttpAction(new GetPT4Auth(getContext(), listener));
@@ -229,11 +230,11 @@ public class EmailModule extends AbstractModule {
 
 	/**
 	 * 把邮件标记为已经读，或者未读
-	 * 
-	 * @param unread
-	 * @param mails
-	 * @param listener
-	 * @return
+	 *
+	 * @param unread a boolean.
+	 * @param mails a {@link java.util.List} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture mark(boolean unread, List<QQEmail> mails,
 			QQActionListener listener) {
@@ -242,10 +243,10 @@ public class EmailModule extends AbstractModule {
 	
 	/**
 	 * 删除邮件
-	 * 
-	 * @param mails
-	 * @param listener
-	 * @return
+	 *
+	 * @param mails a {@link java.util.List} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
 	 */
 	public QQActionFuture delete(List<QQEmail> mails,
 			QQActionListener listener) {

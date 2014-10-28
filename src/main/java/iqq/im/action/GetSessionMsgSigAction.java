@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -23,17 +21,20 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 临时消息信道，用于发送群 U 2 U会话消息
- * 
- * @author ZhiHui_Chen<6208317@qq.com>
- * @create date 2013-4-10
+ *
+ * @author ZhiHui_Chen
+ * @since 2013-4-10
  */
 public class GetSessionMsgSigAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(GetSessionMsgSigAction.class);
 	private QQStranger user;
 
 	/**
-	 * @param context
-	 * @param listener
+	 * <p>Constructor for GetSessionMsgSigAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQStranger} object.
 	 */
 	public GetSessionMsgSigAction(QQContext context, QQActionListener listener,
 			QQStranger user) {
@@ -41,6 +42,7 @@ public class GetSessionMsgSigAction extends AbstractHttpAction {
 		this.user = user;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -66,6 +68,7 @@ public class GetSessionMsgSigAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

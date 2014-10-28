@@ -50,15 +50,21 @@ import org.json.JSONObject;
  *
  * 获取最近联系人列表
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetRecentListAction extends AbstractHttpAction{
 
+	/**
+	 * <p>Constructor for GetRecentListAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetRecentListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -79,6 +85,7 @@ public class GetRecentListAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

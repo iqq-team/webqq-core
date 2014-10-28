@@ -19,16 +19,23 @@ import org.json.JSONObject;
 
 /**
  * 个人签名
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetOnlineFriendAction extends AbstractHttpAction {
 
+	/**
+	 * <p>Constructor for GetOnlineFriendAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetOnlineFriendAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -43,6 +50,7 @@ public class GetOnlineFriendAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

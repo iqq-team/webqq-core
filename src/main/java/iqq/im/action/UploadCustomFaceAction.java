@@ -22,19 +22,27 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 消息发送
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class UploadCustomFaceAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(UploadCustomFaceAction.class);
 	private File file;
 
+	/**
+	 * <p>Constructor for UploadCustomFaceAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param file a {@link java.io.File} object.
+	 */
 	public UploadCustomFaceAction(QQContext context, QQActionListener listener, File file) {
 		super(context, listener);
 		this.file = file;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 
@@ -51,6 +59,7 @@ public class UploadCustomFaceAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
 		// {'ret':0,'msg':'5F7E31F0001EF4310865F1FF4549B12B.jPg'}

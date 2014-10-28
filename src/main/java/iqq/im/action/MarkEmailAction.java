@@ -14,11 +14,22 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * <p>MarkEmailAction class.</p>
+ */
 public class MarkEmailAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(MarkEmailAction.class);
 	private boolean status;
 	private List<QQEmail> markList;
 
+	/**
+	 * <p>Constructor for MarkEmailAction.</p>
+	 *
+	 * @param status a boolean.
+	 * @param markList a {@link java.util.List} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public MarkEmailAction(boolean status, List<QQEmail> markList,
 			QQContext context, QQActionListener listener) {
 		super(context, listener);
@@ -28,6 +39,7 @@ public class MarkEmailAction extends AbstractHttpAction {
 
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest buildRequest() throws QQException {
 		QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_MARK_EMAIL);
@@ -45,6 +57,7 @@ public class MarkEmailAction extends AbstractHttpAction {
 	}
 	
 	// ({msg : "new successful",rbkey : "1391255617",status : "false"})
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException {
 		String ct = response.getResponseString();

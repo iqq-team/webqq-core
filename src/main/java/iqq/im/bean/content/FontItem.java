@@ -11,9 +11,9 @@ import org.json.JSONObject;
 
 /**
  * 字体
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-25
+ * @since 2013-2-25
  */
 public class FontItem implements ContentItem, Serializable{
 	private static final long serialVersionUID = -4303036964268065910L;
@@ -24,22 +24,43 @@ public class FontItem implements ContentItem, Serializable{
 	private boolean italic;
 	private int color = 0;
 
+	/**
+	 * <p>Constructor for FontItem.</p>
+	 */
 	public FontItem() {
 	}
 
+	/**
+	 * <p>Constructor for FontItem.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	public FontItem(String text) throws QQException {
 		fromJson(text);
 	}
 
+	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
+	 * <p>Getter for the field <code>size</code>.</p>
+	 *
 	 * @return the size
 	 */
 	public int getSize() {
@@ -47,6 +68,8 @@ public class FontItem implements ContentItem, Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>size</code>.</p>
+	 *
 	 * @param size
 	 *            the size to set
 	 */
@@ -54,31 +77,63 @@ public class FontItem implements ContentItem, Serializable{
 		this.size = size;
 	}
 
+	/**
+	 * <p>isBold.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isBold() {
 		return bold;
 	}
 
+	/**
+	 * <p>Setter for the field <code>bold</code>.</p>
+	 *
+	 * @param bold a boolean.
+	 */
 	public void setBold(boolean bold) {
 		this.bold = bold;
 	}
 
+	/**
+	 * <p>isUnderline.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isUnderline() {
 		return underline;
 	}
 
+	/**
+	 * <p>Setter for the field <code>underline</code>.</p>
+	 *
+	 * @param underline a boolean.
+	 */
 	public void setUnderline(boolean underline) {
 		this.underline = underline;
 	}
 
+	/**
+	 * <p>isItalic.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isItalic() {
 		return italic;
 	}
 
+	/**
+	 * <p>Setter for the field <code>italic</code>.</p>
+	 *
+	 * @param italic a boolean.
+	 */
 	public void setItalic(boolean italic) {
 		this.italic = italic;
 	}
 
 	/**
+	 * <p>Getter for the field <code>color</code>.</p>
+	 *
 	 * @return the color
 	 */
 	public int getColor() {
@@ -86,6 +141,8 @@ public class FontItem implements ContentItem, Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>color</code>.</p>
+	 *
 	 * @param color
 	 *            the color to set
 	 */
@@ -98,12 +155,14 @@ public class FontItem implements ContentItem, Serializable{
 	 * 
 	 * @see iqq.im.bean.content.ContentItem#getType()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public Type getType() {
 		// TODO Auto-generated method stub
 		return Type.FONT;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public Object toJson() throws QQException {
 		// ["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}]
@@ -126,6 +185,7 @@ public class FontItem implements ContentItem, Serializable{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void fromJson(String text) throws QQException {
 		try {

@@ -19,9 +19,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 消息发送
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class SendMsgAction extends AbstractHttpAction {
 
@@ -29,11 +29,19 @@ public class SendMsgAction extends AbstractHttpAction {
 
 	private QQMsg msg;
 
+	/**
+	 * <p>Constructor for SendMsgAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param msg a {@link iqq.im.bean.QQMsg} object.
+	 */
 	public SendMsgAction(QQContext context, QQActionListener listener, QQMsg msg) {
 		super(context, listener);
 		this.msg = msg;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		// r:{"to":2982077931,"face":0,"content":"[\"123\",[\"face\",1],\"456\",[\"face\",0],\"\",\"\\n【提示：此用户正在使用Q+ Web：http://web.qq.com/】\",[\"font\",{\"name\":\"微软雅黑\",\"size\":\"11\",\"style\":[0,0,0],\"color\":\"ffcc99\"}]]","msg_id":91310001,"clientid":"74131454","psessionid":"8368046764001e636f6e6e7365727665725f77656271714031302e3133332e34312e3230320000230700001f01026e04002aafd23f6d0000000a40484a526f4866467a476d00000028d954c71693cd99ae8c0c64b651519e88f55ce5075140346da7d957f3abefb51d0becc25c425d7cf5"}
@@ -82,6 +90,7 @@ public class SendMsgAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

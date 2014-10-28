@@ -54,7 +54,7 @@ import javax.imageio.ImageIO;
 /**
  * Client测试类
  * 
- * @author solosky <solosky772@qq.com>
+ * @author solosky
  * 
  */
 public class WebQQClientTest {
@@ -68,7 +68,6 @@ public class WebQQClientTest {
     /**
      * 程序入口
      *
-     * @param args
      */
     public static void main(String[] args) {
         WebQQClientTest test = new WebQQClientTest("2010901309", "chen01234");
@@ -80,7 +79,6 @@ public class WebQQClientTest {
      *
      * 接收到消息然后组装消息发送回去
 	 * 
-	 * @param event
 	 * @throws QQException
 	 */
 	@QQNotifyHandler(QQNotifyEvent.Type.CHAT_MSG)
@@ -115,7 +113,6 @@ public class WebQQClientTest {
 	/**
 	 * 被踢下线通知
 	 * 
-	 * @param event
 	 */
 	@QQNotifyHandler(QQNotifyEvent.Type.KICK_OFFLINE)
 	protected void processKickOff(QQNotifyEvent event){
@@ -125,7 +122,6 @@ public class WebQQClientTest {
 	/**
 	 * 需要验证码通知
 	 * 
-	 * @param event
 	 * @throws IOException
 	 */
 	@QQNotifyHandler(QQNotifyEvent.Type.CAPACHA_VERIFY)
@@ -250,7 +246,6 @@ public class WebQQClientTest {
      *
      * 这个暂时没有启用
      *
-     * @param event
      * @throws QQException
      */
     @QQNotifyHandler(QQNotifyEvent.Type.EMAIL_NOTIFY)

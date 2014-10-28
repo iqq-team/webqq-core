@@ -45,15 +45,22 @@ import org.json.JSONException;
  *
  * 获取验证码图片
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetCaptchaImageAction extends AbstractHttpAction {
 	private long uin;
+	/**
+	 * <p>Constructor for GetCaptchaImageAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param uin a long.
+	 */
 	public GetCaptchaImageAction(QQContext context, QQActionListener listener, long uin) {
 		super(context, listener);
 		this.uin = uin;
 	}
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -64,6 +71,7 @@ public class GetCaptchaImageAction extends AbstractHttpAction {
 			notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQErrorCode.UNKNOWN_ERROR, e));
 		}
 	}
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_CAPTCHA);

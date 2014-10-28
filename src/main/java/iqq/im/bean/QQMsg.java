@@ -45,11 +45,10 @@ import org.json.JSONException;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * QQ消息
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class QQMsg implements Serializable{
 	private static final long serialVersionUID = 7531037633776708882L;
@@ -71,10 +70,19 @@ public class QQMsg implements Serializable{
 	private Date date; // 发送时间
 	private List<ContentItem> contentList; // 消息列表
 
+	/**
+	 * <p>Constructor for QQMsg.</p>
+	 */
 	public QQMsg() {
 		contentList = new ArrayList<ContentItem>();
 	}
 
+	/**
+	 * <p>packContentList.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String packContentList() throws QQException {
 		// ["font",{"size":10,"color":"808080","style":[0,0,0],"name":"\u65B0\u5B8B\u4F53"}]
 		JSONArray json = new JSONArray();
@@ -84,6 +92,12 @@ public class QQMsg implements Serializable{
 		return json.toString();
 	}
 
+	/**
+	 * <p>parseContentList.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	public void parseContentList(String text) throws QQException {
 		try {
 			JSONArray json = new JSONArray(text);
@@ -110,47 +124,99 @@ public class QQMsg implements Serializable{
 		}
 	}
 
+	/**
+	 * <p>addContentItem.</p>
+	 *
+	 * @param contentItem a {@link iqq.im.bean.content.ContentItem} object.
+	 */
 	public void addContentItem(ContentItem contentItem) {
 		contentList.add(contentItem);
 	}
 
+	/**
+	 * <p>deleteContentItem.</p>
+	 *
+	 * @param contentItem a {@link iqq.im.bean.content.ContentItem} object.
+	 */
 	public void deleteContentItem(ContentItem contentItem) {
 		contentList.remove(contentItem);
 	}
 
+	/**
+	 * <p>Getter for the field <code>type</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQMsg.Type} object.
+	 */
 	public Type getType() {
 		return type;
 	}
 
+	/**
+	 * <p>Setter for the field <code>type</code>.</p>
+	 *
+	 * @param type a {@link iqq.im.bean.QQMsg.Type} object.
+	 */
 	public void setType(Type type) {
 		this.type = type;
 	}
 
+	/**
+	 * <p>Getter for the field <code>from</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQUser} object.
+	 */
 	public QQUser getFrom() {
 		return from;
 	}
 
+	/**
+	 * <p>Setter for the field <code>from</code>.</p>
+	 *
+	 * @param from a {@link iqq.im.bean.QQUser} object.
+	 */
 	public void setFrom(QQUser from) {
 		this.from = from;
 	}
 
+	/**
+	 * <p>Getter for the field <code>group</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQGroup} object.
+	 */
 	public QQGroup getGroup() {
 		return group;
 	}
 
+	/**
+	 * <p>Setter for the field <code>group</code>.</p>
+	 *
+	 * @param group a {@link iqq.im.bean.QQGroup} object.
+	 */
 	public void setGroup(QQGroup group) {
 		this.group = group;
 	}
 
+	/**
+	 * <p>Getter for the field <code>date</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getDate() {
 		return date;
 	}
 
+	/**
+	 * <p>Setter for the field <code>date</code>.</p>
+	 *
+	 * @param date a {@link java.util.Date} object.
+	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	/**
+	 * <p>Getter for the field <code>contentList</code>.</p>
+	 *
 	 * @return the contentList
 	 */
 	public List<ContentItem> getContentList() {
@@ -158,6 +224,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>contentList</code>.</p>
+	 *
 	 * @param contentList
 	 *            the contentList to set
 	 */
@@ -166,6 +234,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
 	 * @return the id
 	 */
 	public long getId() {
@@ -173,6 +243,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
 	 * @param id
 	 *            the id to set
 	 */
@@ -181,6 +253,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Getter for the field <code>to</code>.</p>
+	 *
 	 * @return the to
 	 */
 	public QQUser getTo() {
@@ -188,6 +262,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>to</code>.</p>
+	 *
 	 * @param to the to to set
 	 */
 	public void setTo(QQUser to) {
@@ -195,6 +271,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Getter for the field <code>discuz</code>.</p>
+	 *
 	 * @return the discuz
 	 */
 	public QQDiscuz getDiscuz() {
@@ -202,6 +280,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>discuz</code>.</p>
+	 *
 	 * @param discuz the discuz to set
 	 */
 	public void setDiscuz(QQDiscuz discuz) {
@@ -209,6 +289,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Getter for the field <code>id2</code>.</p>
+	 *
 	 * @return the id2
 	 */
 	public long getId2() {
@@ -216,6 +298,8 @@ public class QQMsg implements Serializable{
 	}
 
 	/**
+	 * <p>Setter for the field <code>id2</code>.</p>
+	 *
 	 * @param id2 the id2 to set
 	 */
 	public void setId2(long id2) {
@@ -225,6 +309,7 @@ public class QQMsg implements Serializable{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		try {
@@ -235,6 +320,11 @@ public class QQMsg implements Serializable{
 		return null;
 	}
 	
+	/**
+	 * <p>getText.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getText(){
 		StringBuffer buffer = new StringBuffer();
 		for(ContentItem item: contentList){

@@ -23,14 +23,22 @@ import org.json.JSONObject;
 
 /**
  * 消息发送
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class UploadOfflinePictureAction extends AbstractHttpAction {
 	private File file;
 	private QQUser user;
 
+	/**
+	 * <p>Constructor for UploadOfflinePictureAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param file a {@link java.io.File} object.
+	 */
 	public UploadOfflinePictureAction(QQContext context,
 			QQActionListener listener, QQUser user, File file) {
 		super(context, listener);
@@ -38,6 +46,7 @@ public class UploadOfflinePictureAction extends AbstractHttpAction {
 		this.file = file;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 
@@ -63,6 +72,7 @@ public class UploadOfflinePictureAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

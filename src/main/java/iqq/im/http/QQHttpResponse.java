@@ -32,22 +32,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ *
  * HTTP回复
  *
- * @author solosky <solosky772@qq.com>
+ * @author solosky
  */
 public class QQHttpResponse
 {
+	/** Constant <code>S_OK=200</code> */
 	public static final int S_OK = 200;
+	/** Constant <code>S_NOT_MODIFIED=304</code> */
 	public static final int S_NOT_MODIFIED = 304;
+	/** Constant <code>S_BAD_REQUEST=400</code> */
 	public static final int S_BAD_REQUEST = 400;
+	/** Constant <code>S_NOT_AUTHORIZED=401</code> */
 	public static final int S_NOT_AUTHORIZED = 401;
+	/** Constant <code>S_FORBIDDEN=403</code> */
 	public static final int S_FORBIDDEN = 403;
+	/** Constant <code>S_NOT_FOUND=404</code> */
 	public static final int S_NOT_FOUND = 404;
+	/** Constant <code>S_NOT_ACCEPTABLE=406</code> */
 	public static final int S_NOT_ACCEPTABLE = 406;
+	/** Constant <code>S_INTERNAL_SERVER_ERROR=500</code> */
 	public static final int S_INTERNAL_SERVER_ERROR = 500;
+	/** Constant <code>S_BAD_GATEWAY=502</code> */
 	public static final int S_BAD_GATEWAY = 502;
+	/** Constant <code>S_SERVICE_UNAVAILABLE=503</code> */
 	public static final int S_SERVICE_UNAVAILABLE = 503;
 	/**
 	 * 状态码
@@ -69,12 +79,13 @@ public class QQHttpResponse
 	 */
 	private byte[] responseData;
 
-	/**
-	 * 构造函数
-     * @param responseCode
-     * @param responseMessage
-     * @param headerFields
-     * @param responseData
+    /**
+     * 构造函数
+     *
+     * @param responseCode a int.
+     * @param responseMessage a {@link java.lang.String} object.
+     * @param headerFields a {@link java.util.Map} object.
+     * @param responseData an array of byte.
      */
     public QQHttpResponse(int responseCode, String responseMessage,
             Map<String, List<String>> headerFields, byte[] responseData)
@@ -86,11 +97,16 @@ public class QQHttpResponse
     }
 
     
+	/**
+	 * <p>Constructor for QQHttpResponse.</p>
+	 */
 	public QQHttpResponse() {
 	}
 
 
-	/**
+    /**
+     * <p>Getter for the field <code>responseCode</code>.</p>
+     *
      * @return the responseCode
      */
     public int getResponseCode()
@@ -98,7 +114,9 @@ public class QQHttpResponse
     	return responseCode;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>responseMessage</code>.</p>
+     *
      * @return the responseMessage
      */
     public String getResponseMessage()
@@ -108,6 +126,7 @@ public class QQHttpResponse
 
     /**
      * 返回所有的回复头的值
+     *
      * @return the headerFields
      */
     public Map<String, List<String>> getHeaders()
@@ -118,8 +137,9 @@ public class QQHttpResponse
     /**
      * 返回指定名字的回复头的值
      * 可能有多个返回值时，默认返回第一个值
-     * @param name
-     * @return
+     *
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link java.lang.String} object.
      */
     public String getHeader(String name)
     {
@@ -133,15 +153,18 @@ public class QQHttpResponse
     
     /**
      * 返回指定名字的所有的回复头的值的列表
-     * @param name
-     * @return
+     *
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link java.util.List} object.
      */
     public List<String> getHeaders(String name)
     {
     	return this.headerFields.get(name);
     }
     
-	/**
+    /**
+     * <p>getInputStream.</p>
+     *
      * @return the inputStream
      */
     public InputStream getInputStream()
@@ -151,6 +174,8 @@ public class QQHttpResponse
     
     
     /**
+     * <p>Getter for the field <code>responseData</code>.</p>
+     *
      * @return the responseData
      */
     public byte[] getResponseData()
@@ -158,10 +183,11 @@ public class QQHttpResponse
     	return responseData;
     }
 
-	/**
+    /**
      * 获取回复的字符串
+     *
      * @param charset	字符集编码
-     * @return
+     * @return a {@link java.lang.String} object.
      */
     public String getResponseString(String charset)
     {
@@ -174,7 +200,8 @@ public class QQHttpResponse
     
     /**
      * 返回回复内容编码为utf8的字符串
-     * @return
+     *
+     * @return a {@link java.lang.String} object.
      */
     public String getResponseString()
     {
@@ -184,6 +211,7 @@ public class QQHttpResponse
 	/* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
+    /** {@inheritDoc} */
     @Override
     public String toString()
     {
@@ -192,30 +220,65 @@ public class QQHttpResponse
 	            + ", getResponseString()=" + getResponseString() + "]";
     }
     
+    /**
+     * <p>getContentLength.</p>
+     *
+     * @return a long.
+     */
     public long getContentLength(){
     	String length = getHeader("Content-Length");
     	return length != null ? Long.parseLong(length) : 0;
     }
+    /**
+     * <p>getContentType.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getContentType(){
     	return getHeader("Content-Type");
     }
 
+	/**
+	 * <p>Getter for the field <code>headerFields</code>.</p>
+	 *
+	 * @return a {@link java.util.Map} object.
+	 */
 	public Map<String, List<String>> getHeaderFields() {
 		return headerFields;
 	}
 
+	/**
+	 * <p>Setter for the field <code>headerFields</code>.</p>
+	 *
+	 * @param headerFields a {@link java.util.Map} object.
+	 */
 	public void setHeaderFields(Map<String, List<String>> headerFields) {
 		this.headerFields = headerFields;
 	}
 
+	/**
+	 * <p>Setter for the field <code>responseCode</code>.</p>
+	 *
+	 * @param responseCode a int.
+	 */
 	public void setResponseCode(int responseCode) {
 		this.responseCode = responseCode;
 	}
 
+	/**
+	 * <p>Setter for the field <code>responseMessage</code>.</p>
+	 *
+	 * @param responseMessage a {@link java.lang.String} object.
+	 */
 	public void setResponseMessage(String responseMessage) {
 		this.responseMessage = responseMessage;
 	}
 
+	/**
+	 * <p>Setter for the field <code>responseData</code>.</p>
+	 *
+	 * @param responseData an array of byte.
+	 */
 	public void setResponseData(byte[] responseData) {
 		this.responseData = responseData;
 	}

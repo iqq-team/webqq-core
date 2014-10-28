@@ -46,11 +46,16 @@ import org.json.JSONObject;
  *
  * 获取讨论组列表
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetDiscuzListAction extends AbstractHttpAction{
 
+	/**
+	 * <p>Constructor for GetDiscuzListAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetDiscuzListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
@@ -59,6 +64,7 @@ public class GetDiscuzListAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onBuildRequest()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -74,6 +80,7 @@ public class GetDiscuzListAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
 		//{"retcode":0,"result":{"dnamelist":[{"did":3536443553,"name":"\u8FD9\u662F\u6807\u9898"},

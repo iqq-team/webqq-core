@@ -34,28 +34,40 @@ import iqq.im.event.QQActionFuture;
 import iqq.im.event.future.HttpActionFuture;
 
 /**
+ * <p>AbstractModule class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class AbstractModule implements QQModule {
 	private QQContext context;
 
+	/** {@inheritDoc} */
 	@Override
 	public void init(QQContext context) throws QQException{
 		this.context = context;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void destroy() throws QQException{
 	}
 	
 	
+	/**
+	 * <p>Getter for the field <code>context</code>.</p>
+	 *
+	 * @return a {@link iqq.im.core.QQContext} object.
+	 */
 	protected QQContext getContext(){
 		return this.context;
 	}
 	
+	/**
+	 * <p>pushHttpAction.</p>
+	 *
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	protected QQActionFuture pushHttpAction(HttpAction action){
 		QQActionFuture future = new HttpActionFuture(action);	 	//替换掉原始的QQActionListener
 		getContext().pushActor(new HttpActor(HttpActor.Type.BUILD_REQUEST, getContext(), action));

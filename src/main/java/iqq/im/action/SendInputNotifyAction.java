@@ -44,11 +44,17 @@ import iqq.im.util.DateUtils;
  *
  * 发送正在输入状态通知
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class SendInputNotifyAction extends AbstractHttpAction{
 	private QQUser user;
+	/**
+	 * <p>Constructor for SendInputNotifyAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 */
 	public SendInputNotifyAction(QQContext context, QQActionListener listener, QQUser user) {
 		super(context, listener);
 		this.user = user;
@@ -56,6 +62,7 @@ public class SendInputNotifyAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -72,6 +79,7 @@ public class SendInputNotifyAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onBuildRequest()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_SEND_INPUT_NOTIFY);

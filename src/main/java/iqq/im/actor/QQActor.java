@@ -27,11 +27,13 @@ package iqq.im.actor;
 
 
 /**
+ * <p>QQActor interface.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQActor {
+	/**
+	 * <p>execute.</p>
+	 */
 	public void  execute();
 }

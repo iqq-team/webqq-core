@@ -34,9 +34,13 @@ import iqq.im.event.QQActionEvent;
  *
  * QQ请求事件监听器
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQActionListener {
+	/**
+	 * <p>onActionEvent.</p>
+	 *
+	 * @param event a {@link iqq.im.event.QQActionEvent} object.
+	 */
 	public void onActionEvent(QQActionEvent event); 
 }

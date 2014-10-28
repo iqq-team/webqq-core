@@ -46,18 +46,25 @@ import org.json.JSONObject;
  *
  * 批量获取群成员在线状态
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetGroupMemberStatusAction extends AbstractHttpAction{
 	private QQGroup group;
 	
+	/**
+	 * <p>Constructor for GetGroupMemberStatusAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param group a {@link iqq.im.bean.QQGroup} object.
+	 */
 	public GetGroupMemberStatusAction(QQContext context,
 			QQActionListener listener, QQGroup group) {
 		super(context, listener);
 		this.group = group;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -89,6 +96,7 @@ public class GetGroupMemberStatusAction extends AbstractHttpAction{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_GROUP_INFO_EXT);

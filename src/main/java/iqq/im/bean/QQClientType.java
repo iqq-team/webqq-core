@@ -26,12 +26,11 @@
 package iqq.im.bean;
 
 /**
- * 
+ *
  * QQ客户端类型
  * 可能有多个值对应同一种客户端的情况，这些值是否能进一步区分，还需做测试
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public enum QQClientType {
 	/**PC版QQ: [1,2,3,4,5,6,10,0x1E4]*/
@@ -46,6 +45,12 @@ public enum QQClientType {
 	UNKNOWN;
 	
 	
+	/**
+	 * <p>valueOfRaw.</p>
+	 *
+	 * @param i a int.
+	 * @return a {@link iqq.im.bean.QQClientType} object.
+	 */
 	public static QQClientType valueOfRaw(int i){
 		switch(i){
 		case 1:

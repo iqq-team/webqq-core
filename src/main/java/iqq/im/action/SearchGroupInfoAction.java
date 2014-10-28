@@ -21,18 +21,26 @@ import org.json.JSONObject;
 
 /**
  * 查找群,并获取相应信息;
+ *
  * @author 元谷
- * @create-time 2013-8-13
+ * @since 2013-8-13
  */
-
 public class SearchGroupInfoAction extends AbstractHttpAction {
 
 	private QQGroupSearchList buddy;
+	/**
+	 * <p>Constructor for SearchGroupInfoAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param buddy a {@link iqq.im.bean.QQGroupSearchList} object.
+	 */
 	public SearchGroupInfoAction(QQContext context, QQActionListener listener, QQGroupSearchList buddy) {
 		super(context, listener);
 		this.buddy = buddy;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -59,6 +67,7 @@ public class SearchGroupInfoAction extends AbstractHttpAction {
 		return req;		
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

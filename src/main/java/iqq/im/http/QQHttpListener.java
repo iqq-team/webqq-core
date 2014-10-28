@@ -27,15 +27,41 @@ package iqq.im.http;
 
 
 /**
+ * <p>QQHttpListener interface.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQHttpListener {
+	/**
+	 * <p>onHttpFinish.</p>
+	 *
+	 * @param response a {@link iqq.im.http.QQHttpResponse} object.
+	 */
 	public void onHttpFinish(QQHttpResponse response);
+	/**
+	 * <p>onHttpError.</p>
+	 *
+	 * @param t a {@link java.lang.Throwable} object.
+	 */
 	public void onHttpError(Throwable t);
+	/**
+	 * <p>onHttpHeader.</p>
+	 *
+	 * @param response a {@link iqq.im.http.QQHttpResponse} object.
+	 */
 	public void onHttpHeader(QQHttpResponse response);
+	/**
+	 * <p>onHttpWrite.</p>
+	 *
+	 * @param current a long.
+	 * @param total a long.
+	 */
 	public void onHttpWrite(long current, long total);
+	/**
+	 * <p>onHttpRead.</p>
+	 *
+	 * @param current a long.
+	 * @param total a long.
+	 */
 	public void onHttpRead(long current, long total);
 }

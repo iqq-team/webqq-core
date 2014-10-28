@@ -44,14 +44,22 @@ import org.json.JSONException;
  *
  * 获取聊天图片
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetOffPicAction extends AbstractHttpAction{
 	private OffPicItem offpic;
 	private QQMsg msg;
 	private OutputStream picOut;
 	
+	/**
+	 * <p>Constructor for GetOffPicAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param offpic a {@link iqq.im.bean.content.OffPicItem} object.
+	 * @param msg a {@link iqq.im.bean.QQMsg} object.
+	 * @param picOut a {@link java.io.OutputStream} object.
+	 */
 	public GetOffPicAction(QQContext context, QQActionListener listener, OffPicItem offpic, QQMsg msg, OutputStream picOut) {
 		super(context, listener);
 		this.offpic = offpic;
@@ -62,6 +70,7 @@ public class GetOffPicAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -71,6 +80,7 @@ public class GetOffPicAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onBuildRequest()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_OFFPIC);

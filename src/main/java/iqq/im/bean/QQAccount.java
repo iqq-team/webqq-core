@@ -29,8 +29,7 @@ package iqq.im.bean;
  *
  * QQ用户，代表当前登录的账号
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQAccount extends QQUser {
 	private static final long serialVersionUID = 1L;
@@ -38,18 +37,38 @@ public class QQAccount extends QQUser {
 	private String password;
 	private String username;
 
+	/**
+	 * <p>Getter for the field <code>password</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * <p>Setter for the field <code>password</code>.</p>
+	 *
+	 * @param password a {@link java.lang.String} object.
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * <p>Getter for the field <code>username</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * <p>Setter for the field <code>username</code>.</p>
+	 *
+	 * @param username a {@link java.lang.String} object.
+	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}

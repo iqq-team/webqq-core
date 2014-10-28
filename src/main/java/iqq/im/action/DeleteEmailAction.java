@@ -14,10 +14,20 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * <p>DeleteEmailAction class.</p>
+ */
 public class DeleteEmailAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(DeleteEmailAction.class);
 	private List<QQEmail> markList;
 
+	/**
+	 * <p>Constructor for DeleteEmailAction.</p>
+	 *
+	 * @param markList a {@link java.util.List} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public DeleteEmailAction(List<QQEmail> markList,
 			QQContext context, QQActionListener listener) {
 		super(context, listener);
@@ -26,6 +36,7 @@ public class DeleteEmailAction extends AbstractHttpAction {
 
 	}
 	// mailaction=mail_del&mailid=C1TFACD70BB&t=mail_mgr2&resp_charset=UTF8&ef=js&sid=eEVNdM8QDlC8YWEz&folderkey=1
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest buildRequest() throws QQException {
 		QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_MARK_EMAIL);
@@ -42,6 +53,7 @@ public class DeleteEmailAction extends AbstractHttpAction {
 	}
 	
 	// ({msg : "new successful",rbkey : "1391255617",status : "false"})
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException {
 		String ct = response.getResponseString();

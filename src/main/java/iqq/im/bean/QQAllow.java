@@ -29,8 +29,7 @@ package iqq.im.bean;
  *
  * 对方设置的加好友策略
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public enum QQAllow {
 	/**允许所有人添加*/

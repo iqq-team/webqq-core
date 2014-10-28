@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -19,19 +17,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * @author ZhiHui_Chen<6208317@qq.com>
- * @create date 2013-4-15
+ * <p>UpdateGroupMessageFilterAction class.</p>
+ *
+ * @author ZhiHui_Chen
+ * @since date 2013-4-15
  */
 public class UpdateGroupMessageFilterAction extends AbstractHttpAction {
 
+
 	/**
-	 * @param context
-	 * @param listener
+	 * <p>Constructor for UpdateGroupMessageFilterAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
 	 */
 	public UpdateGroupMessageFilterAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		// retype:1 app:EQQ
@@ -61,6 +65,7 @@ public class UpdateGroupMessageFilterAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

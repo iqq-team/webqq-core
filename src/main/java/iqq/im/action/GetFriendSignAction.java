@@ -16,20 +16,28 @@ import org.json.JSONObject;
 
 /**
  * 个人签名
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetFriendSignAction extends AbstractHttpAction {
 
 	private QQUser buddy;
 
+	/**
+	 * <p>Constructor for GetFriendSignAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param buddy a {@link iqq.im.bean.QQUser} object.
+	 */
 	public GetFriendSignAction(QQContext context, QQActionListener listener,
 			QQUser buddy) {
 		super(context, listener);
 		this.buddy = buddy;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -44,6 +52,7 @@ public class GetFriendSignAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

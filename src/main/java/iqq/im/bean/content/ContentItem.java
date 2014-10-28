@@ -6,13 +6,30 @@ import iqq.im.QQException;
 
 /**
  * 内容接口
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-25
+ * @since 2013-2-25
  */
 public interface ContentItem {
+	/**
+	 * <p>getType.</p>
+	 *
+	 * @return a {@link iqq.im.bean.content.ContentItem.Type} object.
+	 */
 	public Type getType();
+	/**
+	 * <p>toJson.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link java.lang.Object} object.
+	 */
 	public Object toJson() throws QQException;
+	/**
+	 * <p>fromJson.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	public void fromJson(String text) throws QQException;
 
 	public enum Type {

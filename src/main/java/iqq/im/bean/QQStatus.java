@@ -27,11 +27,10 @@ package iqq.im.bean;
 
 
 /**
- * 
+ *
  * QQ状态枚举
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public enum QQStatus {
 	
@@ -58,13 +57,29 @@ public enum QQStatus {
 		this.value = value; 
 		this.status = status;
 	}
+	/**
+	 * <p>Getter for the field <code>value</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getValue(){
 		return value;
 	}
+	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getStatus(){
 		return status;
 	}
 	
+	/**
+	 * <p>valueOfRaw.</p>
+	 *
+	 * @param txt a {@link java.lang.String} object.
+	 * @return a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public static QQStatus valueOfRaw(String txt){
 		for(QQStatus s: QQStatus.values()){
 			if(s.value.equals(txt)){
@@ -75,6 +90,12 @@ public enum QQStatus {
 	}
 	
 	
+	/**
+	 * <p>valueOfRaw.</p>
+	 *
+	 * @param status a int.
+	 * @return a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public static QQStatus valueOfRaw(int status){
 		for(QQStatus s: QQStatus.values()){
 			if(s.status == status){
@@ -84,6 +105,12 @@ public enum QQStatus {
 		throw new IllegalArgumentException("unknown QQStatus enum: " + status);
 	}
 	
+	/**
+	 * <p>isGeneralOnline.</p>
+	 *
+	 * @param stat a {@link iqq.im.bean.QQStatus} object.
+	 * @return a boolean.
+	 */
 	public static boolean isGeneralOnline(QQStatus stat){
 		return (stat == QQStatus.ONLINE ||
 			stat == QQStatus.CALLME ||

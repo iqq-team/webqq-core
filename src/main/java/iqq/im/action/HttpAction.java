@@ -36,18 +36,59 @@ import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 
 /**
+ * <p>HttpAction interface.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface HttpAction extends QQHttpListener {
+	/**
+	 * <p>buildRequest.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link iqq.im.http.QQHttpRequest} object.
+	 */
 	public QQHttpRequest buildRequest() throws QQException;
+	/**
+	 * <p>cancelRequest.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 */
 	public void cancelRequest() throws QQException;
+	/**
+	 * <p>isCancelable.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isCancelable();
+	/**
+	 * <p>notifyActionEvent.</p>
+	 *
+	 * @param type a {@link iqq.im.event.QQActionEvent.Type} object.
+	 * @param target a {@link java.lang.Object} object.
+	 */
 	public void notifyActionEvent(QQActionEvent.Type type, Object target);
+	/**
+	 * <p>getActionListener.</p>
+	 *
+	 * @return a {@link iqq.im.QQActionListener} object.
+	 */
 	public QQActionListener getActionListener();
+	/**
+	 * <p>setActionListener.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public void setActionListener(QQActionListener listener);
+	/**
+	 * <p>setActionFuture.</p>
+	 *
+	 * @param future a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public void setActionFuture(QQActionFuture future);
+	/**
+	 * <p>setResponseFuture.</p>
+	 *
+	 * @param future a {@link java.util.concurrent.Future} object.
+	 */
 	public void setResponseFuture(Future<QQHttpResponse> future);
 }

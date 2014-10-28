@@ -41,11 +41,10 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
+ * <p>WebLoginAction class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class WebLoginAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(WebLoginAction.class);
@@ -54,6 +53,16 @@ public class WebLoginAction extends AbstractHttpAction {
 	private long   uin;
 	private String verifyCode;
 
+	/**
+	 * <p>Constructor for WebLoginAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param username a {@link java.lang.String} object.
+	 * @param password a {@link java.lang.String} object.
+	 * @param uin a long.
+	 * @param verifyCode a {@link java.lang.String} object.
+	 */
 	public WebLoginAction(QQContext context, QQActionListener listener,
 			String username, String password, long uin, String verifyCode) {
 		super(context, listener);
@@ -63,6 +72,7 @@ public class WebLoginAction extends AbstractHttpAction {
 		this.verifyCode = verifyCode;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest buildRequest() throws QQException {
 		/*
@@ -121,6 +131,7 @@ public class WebLoginAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException {
 		Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN);

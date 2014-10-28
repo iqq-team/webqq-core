@@ -15,16 +15,24 @@ import org.json.JSONObject;
 /**
  * 通过登录得到的sid，获取到wpkey
  *
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月25日
+ * @author 承∮诺
+ * @since 2014年1月25日
  */
 public class GetWPKeyAction extends AbstractHttpAction {
 	private String sid = "";
+	/**
+	 * <p>Constructor for GetWPKeyAction.</p>
+	 *
+	 * @param sid a {@link java.lang.String} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetWPKeyAction(String sid, QQContext context, QQActionListener listener) {
 		super(context, listener);
 		this.sid = sid;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_WP_KEY);
@@ -36,6 +44,7 @@ public class GetWPKeyAction extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

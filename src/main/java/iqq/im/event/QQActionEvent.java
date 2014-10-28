@@ -30,16 +30,22 @@ import iqq.im.QQException;
 
 
 /**
+ * <p>QQActionEvent class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQActionEvent extends QQEvent {
 	private Type type;
 	private Object target;
 	private QQActionFuture future;
 	
+	/**
+	 * <p>Constructor for QQActionEvent.</p>
+	 *
+	 * @param type a {@link iqq.im.event.QQActionEvent.Type} object.
+	 * @param target a {@link java.lang.Object} object.
+	 * @param future a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionEvent(Type type, Object target, QQActionFuture future) {
 		this.type = type;
 		this.target = target;
@@ -47,12 +53,27 @@ public class QQActionEvent extends QQEvent {
 	}
 	
 	
+	/**
+	 * <p>Getter for the field <code>type</code>.</p>
+	 *
+	 * @return a {@link iqq.im.event.QQActionEvent.Type} object.
+	 */
 	public Type getType() {
 		return type;
 	}
+	/**
+	 * <p>Getter for the field <code>target</code>.</p>
+	 *
+	 * @return a {@link java.lang.Object} object.
+	 */
 	public Object getTarget() {
 		return target;
 	}
+	/**
+	 * <p>cancelAction.</p>
+	 *
+	 * @throws iqq.im.QQException if any.
+	 */
 	public void cancelAction() throws QQException{
 		future.cancel();
 	}
@@ -68,6 +89,7 @@ public class QQActionEvent extends QQEvent {
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "QQActionEvent [type=" + type + ", target=" + target + "]";

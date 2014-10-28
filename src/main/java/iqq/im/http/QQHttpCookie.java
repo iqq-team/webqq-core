@@ -30,10 +30,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 
+ *
  * Cookie
  *
- * @author solosky <solosky772@qq.com>
+ * @author solosky
  */
 public class QQHttpCookie
 {
@@ -64,12 +64,14 @@ public class QQHttpCookie
 	
 	
 
-	/**
-     * @param name
-     * @param value
-     * @param domain
-     * @param path
-     * @param expired
+    /**
+     * <p>Constructor for QQHttpCookie.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
+     * @param domain a {@link java.lang.String} object.
+     * @param path a {@link java.lang.String} object.
+     * @param expired a {@link java.util.Date} object.
      */
     public QQHttpCookie(String name, String value, String domain, String path,
             Date expired)
@@ -84,7 +86,8 @@ public class QQHttpCookie
     
     /**
      * 通过一个原始的cookie字符串解析cookie
-     * @param cookie
+     *
+     * @param cookie a {@link java.lang.String} object.
      */
     public QQHttpCookie(String cookie)
     {
@@ -132,7 +135,9 @@ public class QQHttpCookie
 
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
      * @return the name
      */
     public String getName()
@@ -140,7 +145,9 @@ public class QQHttpCookie
     	return name;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>name</code>.</p>
+     *
      * @param name the name to set
      */
     public void setName(String name)
@@ -148,7 +155,9 @@ public class QQHttpCookie
     	this.name = name;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>value</code>.</p>
+     *
      * @return the value
      */
     public String getValue()
@@ -156,7 +165,9 @@ public class QQHttpCookie
     	return value;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>value</code>.</p>
+     *
      * @param value the value to set
      */
     public void setValue(String value)
@@ -164,7 +175,9 @@ public class QQHttpCookie
     	this.value = value;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>domain</code>.</p>
+     *
      * @return the domain
      */
     public String getDomain()
@@ -172,7 +185,9 @@ public class QQHttpCookie
     	return domain;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>domain</code>.</p>
+     *
      * @param domain the domain to set
      */
     public void setDomain(String domain)
@@ -180,7 +195,9 @@ public class QQHttpCookie
     	this.domain = domain;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>path</code>.</p>
+     *
      * @return the path
      */
     public String getPath()
@@ -188,7 +205,9 @@ public class QQHttpCookie
     	return path;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>path</code>.</p>
+     *
      * @param path the path to set
      */
     public void setPath(String path)
@@ -196,7 +215,9 @@ public class QQHttpCookie
     	this.path = path;
     }
 
-	/**
+    /**
+     * <p>Getter for the field <code>expired</code>.</p>
+     *
      * @return the expired
      */
     public Date getExpired()
@@ -204,7 +225,9 @@ public class QQHttpCookie
     	return expired;
     }
 
-	/**
+    /**
+     * <p>Setter for the field <code>expired</code>.</p>
+     *
      * @param expired the expired to set
      */
     public void setExpired(Date expired)
@@ -216,6 +239,7 @@ public class QQHttpCookie
 	/* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
+    /** {@inheritDoc} */
     @Override
     public String toString()
     {
