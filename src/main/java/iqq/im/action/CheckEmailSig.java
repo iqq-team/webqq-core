@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -15,22 +13,26 @@ import org.json.JSONException;
 /**
  * 通过pt4获取到的URL进行封装
  * 检测邮箱是否合法登录了
- * 
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月24日
+ *
+ * @author 承∮诺
  */
 public class CheckEmailSig extends AbstractHttpAction {
 	
 	private String url = "";
+
 	/**
-	 * @param context
-	 * @param listener
+	 * <p>Constructor for CheckEmailSig.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
 	 */
 	public CheckEmailSig(String url, QQContext context, QQActionListener listener) {
 		super(context, listener);
 		this.url = url;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		url += "&regmaster=undefined&aid=1";
@@ -40,6 +42,7 @@ public class CheckEmailSig extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

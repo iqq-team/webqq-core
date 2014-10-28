@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -25,21 +23,24 @@ import org.slf4j.LoggerFactory;
 /**
  * pt4登录验证
  * 获取到一个链接
- * 
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月24日
+ *
+ * @author 承∮诺
+ * @since 2014年1月24日
  */
 public class GetPT4Auth extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(GetPT4Auth.class);
 
 	/**
-	 * @param context
-	 * @param listener
+	 * <p>Constructor for GetPT4Auth.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
 	 */
 	public GetPT4Auth(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
@@ -50,6 +51,7 @@ public class GetPT4Auth extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

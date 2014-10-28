@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -29,16 +27,25 @@ import org.json.JSONObject;
 import org.slf4j.LoggerFactory;
 
 /**
+ * <p>GetBuddyListAction class.</p>
+ *
  * @author ChenZhiHui
- * @create-date 2013-2-21
+ * @since 2013-2-21
  */
 public class GetBuddyListAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(GetBuddyListAction.class);
 
+	/**
+	 * <p>Constructor for GetBuddyListAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetBuddyListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -60,6 +67,7 @@ public class GetBuddyListAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

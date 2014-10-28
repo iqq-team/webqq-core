@@ -36,19 +36,26 @@ import org.slf4j.Logger;
 import org.json.JSONException;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
+ * <p>CheckLoginSigAction class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class CheckLoginSigAction extends AbstractHttpAction{
 	private static final Logger LOG = LoggerFactory.getLogger(CheckLoginSigAction.class);
 	private String checkSigUrl;
+	/**
+	 * <p>Constructor for CheckLoginSigAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param checkSigUrl a {@link java.lang.String} object.
+	 */
 	public CheckLoginSigAction(QQContext context, QQActionListener listener, String checkSigUrl) {
 		super(context, listener);
 		this.checkSigUrl = checkSigUrl;
 	}
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -56,6 +63,7 @@ public class CheckLoginSigAction extends AbstractHttpAction{
 		LOG.info("Location:" + response.getHeader("Location"));
 		notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
 	}
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		return createHttpRequest("GET", checkSigUrl);

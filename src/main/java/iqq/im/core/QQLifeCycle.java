@@ -32,20 +32,22 @@ import iqq.im.QQException;
  * 生命周期管理
  * 实现了这个接口就可以支持对象的重复使用
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQLifeCycle {
 	
 	/**
 	 * 初始化，在使用之前调用
+	 *
 	 * @param context	初始化失败抛出
+	 * @throws iqq.im.QQException if any.
 	 */
 	public void init(QQContext context) throws QQException;
 	
 	/**
 	 * 销毁，在使用完毕之后调用
-	 * @throws QQException 销毁失败抛出
+	 *
+	 * @throws iqq.im.QQException 销毁失败抛出
 	 */
 	public void destroy() throws QQException;
 }

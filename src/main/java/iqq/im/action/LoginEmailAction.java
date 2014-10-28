@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import java.util.regex.Matcher;
@@ -20,19 +18,23 @@ import iqq.im.http.QQHttpResponse;
 /**
  * 登录邮箱
  *
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月24日
+ * @author 承∮诺
+ * @since 2014年1月24日
  */
 public class LoginEmailAction extends AbstractHttpAction {
 
+
 	/**
-	 * @param context
-	 * @param listener
+	 * <p>Constructor for LoginEmailAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
 	 */
 	public LoginEmailAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_LOGIN_EMAIL);
@@ -42,6 +44,7 @@ public class LoginEmailAction extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

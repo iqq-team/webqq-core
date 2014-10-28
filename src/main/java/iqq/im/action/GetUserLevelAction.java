@@ -45,16 +45,23 @@ import org.json.JSONObject;
  *
  * 获取用户等级
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetUserLevelAction extends AbstractHttpAction {
 	private QQUser user;
+	/**
+	 * <p>Constructor for GetUserLevelAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 */
 	public GetUserLevelAction(QQContext context, QQActionListener listener, QQUser user) {
 		super(context, listener);
 		this.user = user;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -73,6 +80,7 @@ public class GetUserLevelAction extends AbstractHttpAction {
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_USER_LEVEL);

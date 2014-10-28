@@ -38,38 +38,86 @@ import iqq.im.bean.QQUser;
 import iqq.im.event.QQActionFuture;
 
 /**
- * 
+ *
  * 个人信息模块
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class UserModule extends AbstractModule {
+	/**
+	 * <p>getUserFace.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getUserFace(QQUser user, QQActionListener listener) {
 		return pushHttpAction(new GetFriendFaceAction(getContext(), listener, user));
 	}
 	
+	/**
+	 * <p>getUserInfo.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getUserInfo(QQUser user, QQActionListener listener){
 		return pushHttpAction(new GetFriendInfoAction(getContext(), listener, user));
 	}
 	
+	/**
+	 * <p>getUserAccount.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getUserAccount(QQUser user, QQActionListener listener){
 		return pushHttpAction(new GetFriendAccoutAction(getContext(), listener, user));
 	}
 	
+	/**
+	 * <p>getUserSign.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getUserSign(QQUser user, QQActionListener listener) {
 		return pushHttpAction(new GetFriendSignAction(getContext(), listener, user));
 	}
 	
+	/**
+	 * <p>getUserLevel.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getUserLevel(QQUser user, QQActionListener listener) {
 		return pushHttpAction(new GetUserLevelAction(getContext(), listener, user));
 	}
 	
 
+	/**
+	 * <p>changeStatus.</p>
+	 *
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture changeStatus(QQStatus status, QQActionListener listener) {
 		return pushHttpAction(new ChangeStatusAction(getContext(), listener, status));
 	}
 	
+	/**
+	 * <p>getStrangerInfo.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getStrangerInfo(QQUser user, QQActionListener listener) {
 		return pushHttpAction(new GetStrangerInfoAction(getContext(), listener, user));
 	}

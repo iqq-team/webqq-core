@@ -33,8 +33,7 @@ import java.util.List;
  *
  * QQ讨论组
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQDiscuz implements Serializable {
 	private static final long serialVersionUID = -2467563422772879814L;
@@ -44,54 +43,76 @@ public class QQDiscuz implements Serializable {
 	private List<QQDiscuzMember> members = new ArrayList<QQDiscuzMember>();	//讨论组成员
 	
 	/**
+	 * <p>Getter for the field <code>did</code>.</p>
+	 *
 	 * @return the did
 	 */
 	public long getDid() {
 		return did;
 	}
 	/**
+	 * <p>Setter for the field <code>did</code>.</p>
+	 *
 	 * @param did the did to set
 	 */
 	public void setDid(long did) {
 		this.did = did;
 	}
 	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
+	 * <p>Getter for the field <code>owner</code>.</p>
+	 *
 	 * @return the owner
 	 */
 	public long getOwner() {
 		return owner;
 	}
 	/**
+	 * <p>Setter for the field <code>owner</code>.</p>
+	 *
 	 * @param owner the owner to set
 	 */
 	public void setOwner(long owner) {
 		this.owner = owner;
 	}
 	/**
+	 * <p>Getter for the field <code>members</code>.</p>
+	 *
 	 * @return the memebers
 	 */
 	public List<QQDiscuzMember> getMembers() {
 		return members;
 	}
 	/**
-	 * @param memebers the memebers to set
+	 * <p>Setter for the field <code>members</code>.</p>
+	 *
+	 * @param members a {@link java.util.List} object.
 	 */
 	public void setMembers(List<QQDiscuzMember> members) {
 		this.members = members;
 	}
 	
+	/**
+	 * <p>getMemberByUin.</p>
+	 *
+	 * @param uin a long.
+	 * @return a {@link iqq.im.bean.QQDiscuzMember} object.
+	 */
 	public QQDiscuzMember getMemberByUin(long uin){
 		for(QQDiscuzMember mem: members){
 			if(mem.getUin() == uin){
@@ -101,12 +122,20 @@ public class QQDiscuz implements Serializable {
 		return null;
 	}
 	
+	/**
+	 * <p>clearStatus.</p>
+	 */
 	public void clearStatus(){
 		for(QQDiscuzMember mem: members){
 			mem.setStatus(QQStatus.OFFLINE);
 		}
 	}
 	
+	/**
+	 * <p>addMemeber.</p>
+	 *
+	 * @param user a {@link iqq.im.bean.QQDiscuzMember} object.
+	 */
 	public void addMemeber(QQDiscuzMember user){
 		this.members.add(user);
 	}
@@ -114,6 +143,7 @@ public class QQDiscuz implements Serializable {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -124,6 +154,7 @@ public class QQDiscuz implements Serializable {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -137,6 +168,7 @@ public class QQDiscuz implements Serializable {
 			return false;
 		return true;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "QQDiscuz [did=" + did + ", name=" + name + ", owner=" + owner + "]";

@@ -34,18 +34,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
+ * <p>DateUtils class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class DateUtils {
+   /**
+    * <p>parse.</p>
+    *
+    * @param jsonobj a {@link org.json.JSONObject} object.
+    * @throws java.text.ParseException if any.
+    * @throws org.json.JSONException if any.
+    * @return a {@link java.util.Date} object.
+    */
    public static Date parse(JSONObject jsonobj) throws ParseException, JSONException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date d = format.parse(jsonobj.getInt("year") + "-" + jsonobj.getInt("month")+ "-" + jsonobj.getInt("day"));
         return d;
     }
    
+   /**
+    * <p>nowTimestamp.</p>
+    *
+    * @return a long.
+    */
    public static long nowTimestamp(){
 	   return System.currentTimeMillis()/1000;
    }

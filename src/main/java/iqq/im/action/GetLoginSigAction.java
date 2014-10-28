@@ -42,21 +42,27 @@ import org.slf4j.Logger;
 import org.json.JSONException;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
  *
  * 获取从登陆页面获取LoginSig
  * 2013-08-03 接口更新
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetLoginSigAction extends AbstractHttpAction {
 	private static Logger LOG = LoggerFactory.getLogger(GetLoginSigAction.class);
 
+	/**
+	 * <p>Constructor for GetLoginSigAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetLoginSigAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -72,6 +78,7 @@ public class GetLoginSigAction extends AbstractHttpAction {
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		return createHttpRequest("GET", QQConstants.URL_LOGIN_PAGE);

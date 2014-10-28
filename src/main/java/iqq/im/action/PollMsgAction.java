@@ -58,20 +58,26 @@ import org.json.JSONObject;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * 轮询Poll消息
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class PollMsgAction extends AbstractHttpAction {
 
 	private static final Logger LOG = LoggerFactory.getLogger(PollMsgAction.class);
 
+	/**
+	 * <p>Constructor for PollMsgAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public PollMsgAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -92,6 +98,7 @@ public class PollMsgAction extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpFinish(QQHttpResponse response) {
 		//如果返回的内容为空，认为这次pollMsg仍然成功
@@ -103,6 +110,7 @@ public class PollMsgAction extends AbstractHttpAction {
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -193,6 +201,13 @@ public class PollMsgAction extends AbstractHttpAction {
 		notifyActionEvent(QQActionEvent.Type.EVT_OK, notifyEvents);
 	}
 
+	/**
+	 * <p>processBuddyStatusChange.</p>
+	 *
+	 * @param pollData a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 * @return a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public QQNotifyEvent processBuddyStatusChange(JSONObject pollData)
 			throws JSONException {
 		long uin = pollData.getLong("uin");
@@ -204,6 +219,14 @@ public class PollMsgAction extends AbstractHttpAction {
 		return new QQNotifyEvent(QQNotifyEvent.Type.BUDDY_STATUS_CHANGE, buddy);
 	}
 
+	/**
+	 * <p>processBuddyMsg.</p>
+	 *
+	 * @param pollData a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public QQNotifyEvent processBuddyMsg(JSONObject pollData)
 			throws JSONException, QQException {
 		QQStore store = getContext().getStore();
@@ -230,6 +253,14 @@ public class PollMsgAction extends AbstractHttpAction {
 		return new QQNotifyEvent(QQNotifyEvent.Type.CHAT_MSG, msg);
 	}
 
+	/**
+	 * <p>processGroupMsg.</p>
+	 *
+	 * @param pollData a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public QQNotifyEvent processGroupMsg(JSONObject pollData)
 			throws JSONException, QQException {
 		// {"retcode":0,"result":[{"poll_type":"group_message",
@@ -269,6 +300,14 @@ public class PollMsgAction extends AbstractHttpAction {
 		return new QQNotifyEvent(QQNotifyEvent.Type.CHAT_MSG, msg);
 	}
 
+	/**
+	 * <p>processDiscuzMsg.</p>
+	 *
+	 * @param pollData a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public QQNotifyEvent processDiscuzMsg(JSONObject pollData)
 			throws JSONException, QQException {
 		QQStore store = getContext().getStore();
@@ -298,6 +337,14 @@ public class PollMsgAction extends AbstractHttpAction {
 		return new QQNotifyEvent(QQNotifyEvent.Type.CHAT_MSG, msg);
 	}
 
+	/**
+	 * <p>processSessionMsg.</p>
+	 *
+	 * @param pollData a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public QQNotifyEvent processSessionMsg(JSONObject pollData)
 			throws JSONException, QQException {
 		// {"retcode":0,"result":[{"poll_type":"sess_message",

@@ -35,13 +35,13 @@ import javax.swing.SwingUtilities;
  * 使用Swing的线程模型Actor分发器，可以结合SWing来使用，
  * 好处就是所有的回调函数都是在GUI线程里面运行的，可以直接在回调函数里面写GUI的代码
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class SwingActorDispatcher implements QQActorDispatcher {
 	/* (non-Javadoc)
 	 * @see iqq.im.actor.QQActorDispatcher#pushActor(iqq.im.actor.QQActor)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public void pushActor(final QQActor actor){
 		SwingUtilities.invokeLater(new Runnable(){
@@ -51,11 +51,13 @@ public class SwingActorDispatcher implements QQActorDispatcher {
 		});
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void init(QQContext context) throws QQException {
 		//do nothing
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void destroy() throws QQException {
 		//do nothing

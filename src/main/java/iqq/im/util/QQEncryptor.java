@@ -34,15 +34,16 @@ import javax.script.ScriptEngineManager;
 
 /**
  * QQ加密解码
- * 
- * @author solosky <solosky772@qq.com>
+ *
+ * @author solosky
  */
 public class QQEncryptor {
 	
 	/**
 	 * 登录邮箱时用到的，auth_token
-	 * @param str
-	 * @return
+	 *
+	 * @param str a {@link java.lang.String} object.
+	 * @return a long.
 	 */
 	public static long time33(String str) {
 		long hash = 0;
@@ -101,13 +102,14 @@ public class QQEncryptor {
 
     }
 
-	/***
+	/**
+	 *
 	 * 计算登录时密码HASH值
-	 * 
-	 * @param uin
-	 * @param plain
-	 * @param verify
-	 * @return
+	 *
+	 * @param uin a long.
+	 * @param plain a {@link java.lang.String} object.
+	 * @param verify a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	public static String encrypt(long uin, String plain, String verify) {
 		byte[] data = concat(md5(plain.getBytes()), long2bytes(uin));
@@ -126,8 +128,6 @@ public class QQEncryptor {
 	/**
 	 * 计算一个字节数组的Md5值
 	 * 
-	 * @param bytes
-	 * @return
 	 */
 	private static byte[] md5(byte[] bytes) {
 		MessageDigest dist = null;
@@ -144,8 +144,6 @@ public class QQEncryptor {
 	/**
 	 * 把字节数组转换为16进制表示的字符串
 	 * 
-	 * @param b
-	 * @return
 	 */
 	private static String byte2HexString(byte[] b) {
 		StringBuffer sb = new StringBuffer();
@@ -171,9 +169,9 @@ public class QQEncryptor {
 
 	/**
 	 * 计算GTK(gtk啥东东？)
-	 * 
-	 * @param skey
-	 * @return
+	 *
+	 * @param skey a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	public static String gtk(String skey) {
 		int hash = 5381;
@@ -185,9 +183,9 @@ public class QQEncryptor {
 
 	/**
 	 * 把整形数转换为字节数组
-	 * 
-	 * @param i
-	 * @return
+	 *
+	 * @param i a long.
+	 * @return an array of byte.
 	 */
 	public static byte[] long2bytes(long i) {
 		byte[] b = new byte[8];
@@ -202,9 +200,9 @@ public class QQEncryptor {
 
 	/**
 	 * 把一个16进制字符串转换为字节数组，字符串没有空格，所以每两个字符 一个字节
-	 * 
-	 * @param s
-	 * @return
+	 *
+	 * @param s a {@link java.lang.String} object.
+	 * @return an array of byte.
 	 */
 	public static byte[] hexString2Byte(String s) {
 		int len = s.length();

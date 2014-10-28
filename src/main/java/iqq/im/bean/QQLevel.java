@@ -31,8 +31,7 @@ import java.io.Serializable;
  *
  * QQ等级
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQLevel implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -41,48 +40,64 @@ public class QQLevel implements Serializable{
 	private int hours;
 	private int remainDays;
 	/**
+	 * <p>Getter for the field <code>level</code>.</p>
+	 *
 	 * @return the level
 	 */
 	public int getLevel() {
 		return level;
 	}
 	/**
+	 * <p>Setter for the field <code>level</code>.</p>
+	 *
 	 * @param level the level to set
 	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
 	/**
+	 * <p>Getter for the field <code>days</code>.</p>
+	 *
 	 * @return the days
 	 */
 	public int getDays() {
 		return days;
 	}
 	/**
+	 * <p>Setter for the field <code>days</code>.</p>
+	 *
 	 * @param days the days to set
 	 */
 	public void setDays(int days) {
 		this.days = days;
 	}
 	/**
+	 * <p>Getter for the field <code>hours</code>.</p>
+	 *
 	 * @return the hours
 	 */
 	public int getHours() {
 		return hours;
 	}
 	/**
+	 * <p>Setter for the field <code>hours</code>.</p>
+	 *
 	 * @param hours the hours to set
 	 */
 	public void setHours(int hours) {
 		this.hours = hours;
 	}
 	/**
+	 * <p>Getter for the field <code>remainDays</code>.</p>
+	 *
 	 * @return the remainDays
 	 */
 	public int getRemainDays() {
 		return remainDays;
 	}
 	/**
+	 * <p>Setter for the field <code>remainDays</code>.</p>
+	 *
 	 * @param remainDays the remainDays to set
 	 */
 	public void setRemainDays(int remainDays) {

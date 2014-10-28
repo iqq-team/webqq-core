@@ -21,19 +21,28 @@ import org.json.JSONException;
 
 /**
  * 获取用户头像
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetFriendFaceAction extends AbstractHttpAction {
 
 	private QQUser user;
 
+	/**
+	 * <p>Constructor for GetFriendFaceAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 */
 	public GetFriendFaceAction(QQContext context, QQActionListener listener,
 			QQUser user) {
 		super(context, listener);
 		this.user = user;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -49,6 +58,7 @@ public class GetFriendFaceAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

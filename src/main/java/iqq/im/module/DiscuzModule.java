@@ -35,15 +35,27 @@ import iqq.im.event.QQActionFuture;
  *
  * 讨论组模块
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class DiscuzModule extends AbstractModule{
 	
+	/**
+	 * <p>getDiscuzList.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getDiscuzList(QQActionListener listener) {
 		return pushHttpAction(new GetDiscuzListAction(getContext(), listener));
 	}
 	
+	/**
+	 * <p>getDiscuzInfo.</p>
+	 *
+	 * @param discuz a {@link iqq.im.bean.QQDiscuz} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getDiscuzInfo(QQDiscuz discuz, QQActionListener listener) {
 		return pushHttpAction(new GetDiscuzInfoAction(getContext(), listener, discuz));
 	}

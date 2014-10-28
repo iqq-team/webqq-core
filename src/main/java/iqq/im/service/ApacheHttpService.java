@@ -94,30 +94,32 @@ import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
  *
  * 使用 AsyncHttpClient实现的Http服务
  * http://hc.apache.org/httpcomponents-asyncclient-dev/index.html
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class ApacheHttpService extends AbstractService implements HttpService{
 	private static final Logger LOG = LoggerFactory.getLogger(ApacheHttpService.class);
 	private DefaultHttpAsyncClient asyncHttpClient;
 	private QQHttpCookieJar cookieJar;
 	private String userAgent;
+	/** {@inheritDoc} */
 	@Override
 	public void setHttpProxy(ProxyType proxyType, String proxyHost,
 			int proxyPort, String proxyAuthUser, String proxyAuthPassword) {
 		// TODO ...
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void setUserAgent(String userAgent) {
 		this.userAgent = userAgent;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest createHttpRequest(String method, String url) {
 		QQHttpRequest req = new QQHttpRequest(url, method);
@@ -126,6 +128,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public Future<QQHttpResponse> executeHttpRequest(QQHttpRequest request, QQHttpListener listener)
 		throws QQException {
@@ -215,11 +218,13 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpCookie getCookie(String name, String url) {
 		return cookieJar.getCookie(name, url);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void init(QQContext context) throws QQException {
 		super.init(context);
@@ -245,6 +250,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void destroy() throws QQException {
 		super.destroy();
@@ -263,6 +269,12 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 	
 	////////////////////////////////////////////////////////////////////////
 	private static final String CANCEL_EX_STRING = "http canceled by user!!!";
+	/**
+	 * <p>checkCanceled.</p>
+	 *
+	 * @param isCanceled a boolean.
+	 * @throws java.io.IOException if any.
+	 */
 	public static void checkCanceled(boolean isCanceled) throws IOException{
 		if(isCanceled){
 			throw new IOException(CANCEL_EX_STRING);

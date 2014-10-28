@@ -74,11 +74,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * WebQQ客户的实现
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class WebQQClient implements QQClient, QQContext {
 	private static final Logger LOG = LoggerFactory.getLogger(WebQQClient.class);
@@ -90,15 +89,15 @@ public class WebQQClient implements QQClient, QQContext {
 	private QQStore store;
 	private QQNotifyListener notifyListener;
 
-    /**
-     * 构造方法，初始化模块和服务
-     * 账号/密码    监听器     线程执行器
-     *
-     * @param username
-     * @param password
-     * @param notifyListener
-     * @param actorDispatcher
-     */
+	/**
+	 * 构造方法，初始化模块和服务
+	 * 账号/密码    监听器     线程执行器
+	 *
+	 * @param username a {@link java.lang.String} object.
+	 * @param password a {@link java.lang.String} object.
+	 * @param notifyListener a {@link iqq.im.QQNotifyListener} object.
+	 * @param actorDispatcher a {@link iqq.im.actor.QQActorDispatcher} object.
+	 */
 	public WebQQClient(String username, String password,
 			QQNotifyListener notifyListener, QQActorDispatcher actorDispatcher) {
 		this.modules = new HashMap<QQModule.Type, QQModule>();
@@ -127,37 +126,33 @@ public class WebQQClient implements QQClient, QQContext {
 		this.init();
 	}
 
-    /**
-     * 获取某个类型的模块，QQModule.Type
-     *
-     * @param type
-     * @param <T>
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取某个类型的模块，QQModule.Type
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends QQModule> T getModule(QQModule.Type type) {
 		return (T) modules.get(type);
 	}
 
-    /**
-     * 获取某个类型的服务，QQService.Type
-     *
-     * @param type
-     * @param <T>
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取某个类型的服务，QQService.Type
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends QQService> T getSerivce(QQService.Type type) {
 		return (T) services.get(type);
 	}
 
-    /**
-     * 设置HTTP的用户信息
-     *
-     * @param userAgent
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 设置HTTP的用户信息
+	 */
 	@Override
 	public void setHttpUserAgent(String userAgent) {
 		HttpService http = getSerivce(QQService.Type.HTTP);
@@ -165,15 +160,11 @@ public class WebQQClient implements QQClient, QQContext {
 		
 	}
 
-    /**
-     * 设置代理
-     *
-     * @param proxyType
-     * @param proxyHost
-     * @param proxyPort
-     * @param proxyAuthUser
-     * @param proxyAuthPassword
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 设置代理
+	 */
 	@Override
 	public void setHttpProxy(ProxyType proxyType, String proxyHost,
 			int proxyPort, String proxyAuthUser, String proxyAuthPassword) {
@@ -182,32 +173,32 @@ public class WebQQClient implements QQClient, QQContext {
 							proxyAuthUser, proxyAuthPassword);
 	}
 
-    /**
-     * 获取自己的账号实体
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取自己的账号实体
+	 */
 	@Override
 	public QQAccount getAccount() {
 		return account;
 	}
 
-    /**
-     * 获取QQ存储信息，包括获取过后的好友/群好友
-     * 还有一些其它的认证信息
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取QQ存储信息，包括获取过后的好友/群好友
+	 * 还有一些其它的认证信息
+	 */
 	@Override
 	public QQStore getStore() {
 		return store;
 	}
 
-    /**
-     * 放入一个QQActor到队列，将会在线程执行器里面执行
-     *
-     * @param actor
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 放入一个QQActor到队列，将会在线程执行器里面执行
+	 */
 	@Override
 	public void pushActor(QQActor actor) {
 		actorDispatcher.pushActor(actor);
@@ -235,9 +226,9 @@ public class WebQQClient implements QQClient, QQContext {
 		}
 	}
 
-    /**
-     * 销毁所有模块和服务
-     */
+	/**
+	 * 销毁所有模块和服务
+	 */
 	public void destroy() {
 		try {
 			for (QQModule.Type type : modules.keySet()) {
@@ -257,13 +248,11 @@ public class WebQQClient implements QQClient, QQContext {
 		}
 	}
 
-    /**
-     * 登录接口
-     *
-     * @param status
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 登录接口
+	 */
 	@Override
 	public QQActionFuture login(QQStatus status, final QQActionListener listener) {
 		//检查客户端状态，是否允许登陆
@@ -277,13 +266,11 @@ public class WebQQClient implements QQClient, QQContext {
 		return procModule.login(listener);
 	}
 
-    /**
-     * 重新登录
-     *
-     * @param status
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 重新登录
+	 */
 	@Override
 	public QQActionFuture relogin(QQStatus status, final QQActionListener listener) {
 		if (session.getState() == State.ONLINE) {
@@ -296,26 +283,31 @@ public class WebQQClient implements QQClient, QQContext {
 		return procModule.relogin(status, listener);
 	}
 
+	/**
+	 * <p>getCaptcha.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public void getCaptcha(QQActionListener listener) {
 		LoginModule loginModule = (LoginModule) getModule(QQModule.Type.LOGIN);
 		loginModule.getCaptcha(getAccount().getUin(), listener);
 	}
 
-    /**
-     * 获取会话信息
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取会话信息
+	 */
 	@Override
 	public QQSession getSession() {
 		return session;
 	}
 
-    /**
-     * 通知事件
-     *
-     * @param event
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 通知事件
+	 */
 	@Override
 	public void fireNotify(QQNotifyEvent event) {
 		if (notifyListener != null) {
@@ -331,9 +323,11 @@ public class WebQQClient implements QQClient, QQContext {
 		}
 	}
 
-    /**
-     * 轮询QQ消息
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 轮询QQ消息
+	 */
 	@Override
 	public void beginPollMsg() {
 		if (session.getState() == QQSession.State.OFFLINE) {
@@ -348,73 +342,66 @@ public class WebQQClient implements QQClient, QQContext {
 		// emailModule.doPoll();
 	}
 
-    /**
-     * 获取所有好友
-     *
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取所有好友
+	 */
 	@Override
 	public QQActionFuture getBuddyList(QQActionListener listener) {
 		CategoryModule categoryModule = (CategoryModule) getModule(QQModule.Type.CATEGORY);
 		return categoryModule.getCategoryList(listener);
 	}
 
-    /**
-     * 获取群列表
-     *
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群列表
+	 */
 	@Override
 	public QQActionFuture getGroupList(QQActionListener listener) {
 		GroupModule groupModule = (GroupModule) getModule(QQModule.Type.GROUP);
 		return groupModule.getGroupList(listener);
 	}
 
-    /**
-     * 获取在线好友列表
-     *
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取在线好友列表
+	 */
 	@Override
 	public QQActionFuture getOnlineList(QQActionListener qqActionListener) {
 		BuddyModule buddyModule = getModule(QQModule.Type.BUDDY);
 		return buddyModule.getOnlineBuddy(qqActionListener);
 	}
 
-    /**
-     * 获取最近好友列表
-     *
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取最近好友列表
+	 */
 	@Override
 	public QQActionFuture getRecentList(QQActionListener qqActionListener) {
 		BuddyModule buddyModule = getModule(QQModule.Type.BUDDY);
 		return buddyModule.getRecentList(qqActionListener);
 	}
 
-    /**
-     * 使用UIN获取QQ号码
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 使用UIN获取QQ号码
+	 */
 	@Override
 	public QQActionFuture getUserQQ(QQUser user, QQActionListener qqActionListener) {
 		UserModule userModule = getModule(QQModule.Type.USER);
 		return userModule.getUserAccount(user, qqActionListener);
 	}
 
-    /**
-     * 退出登录
-     *
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 退出登录
+	 */
 	@Override
 	public QQActionFuture logout(final QQActionListener listener) {
 		if (session.getState() == QQSession.State.OFFLINE) {
@@ -438,158 +425,132 @@ public class WebQQClient implements QQClient, QQContext {
 		});
 	}
 
-    /**
-     * 改变状态
-     *
-     * @param status
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 改变状态
+	 */
 	@Override
 	public QQActionFuture changeStatus(final QQStatus status, final QQActionListener listener) {
 		UserModule userModule = (UserModule) getModule(QQModule.Type.USER);
 		return userModule.changeStatus(status , listener);
 	}
 
-    /**
-     * 获取群图标
-     *
-     * @param group
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群图标
+	 */
 	@Override
 	public QQActionFuture getGroupFace(QQGroup group, QQActionListener qqActionListener) {
 		GroupModule mod = getModule(QQModule.Type.GROUP);
 		return mod.getGroupFace(group, qqActionListener);
 	}
 
-    /**
-     * 获取群信息，好友列表
-     *
-     * @param group
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群信息，好友列表
+	 */
 	@Override
 	public QQActionFuture getGroupInfo(QQGroup group, QQActionListener qqActionListener) {
 		GroupModule mod = getModule(QQModule.Type.GROUP);
 		return mod.getGroupInfo(group, qqActionListener);
 	}
 
-    /**
-     * 获取群号码
-     *
-     * @param group
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群号码
+	 */
 	@Override
 	public QQActionFuture getGroupGid(QQGroup group, QQActionListener qqActionListener){
 		GroupModule mod = getModule(QQModule.Type.GROUP);
 		return mod.getGroupGid(group, qqActionListener);
 	}
 
-    /**
-     * 获取用户头像
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取用户头像
+	 */
 	@Override
 	public QQActionFuture getUserFace(QQUser user, QQActionListener qqActionListener) {
 		UserModule mod = getModule(QQModule.Type.USER);
 		return mod.getUserFace(user, qqActionListener);
 	}
 
-    /**
-     * 获取个人签名
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取个人签名
+	 */
 	@Override
 	public QQActionFuture getUserSign(QQUser user, QQActionListener qqActionListener) {
 		UserModule mod = getModule(QQModule.Type.USER);
 		return mod.getUserSign(user, qqActionListener);
 	}
 
-    /**
-     * 获取QQ等级
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取QQ等级
+	 */
 	@Override
 	public QQActionFuture getUserLevel(QQUser user, QQActionListener qqActionListener){
 		UserModule mod = getModule(QQModule.Type.USER);
 		return mod.getUserLevel(user, qqActionListener);
 	}
 
-    /**
-     * 获取自己或者好友信息
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取自己或者好友信息
+	 */
 	@Override
 	public QQActionFuture getUserInfo(QQUser user, QQActionListener qqActionListener) {
 		UserModule mod = getModule(QQModule.Type.USER);
 		return mod.getUserInfo(user, qqActionListener);
 	}
 
-    /**
-     * 获取陌生人信息
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取陌生人信息
+	 */
 	@Override
 	public QQActionFuture getStrangerInfo(QQUser user, QQActionListener qqActionListener) {
 		UserModule mod = getModule(QQModule.Type.USER);
 		return mod.getStrangerInfo(user, qqActionListener);
 	}
 
-    /**
-     * 发送QQ消息
-     *
-     * @param msg
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 发送QQ消息
+	 */
 	@Override
 	public QQActionFuture sendMsg(QQMsg msg, QQActionListener qqActionListener) {
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.sendMsg(msg, qqActionListener);
 	}
 
-    /**
-     * 发送一个震动
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 发送一个震动
+	 */
 	@Override
 	public QQActionFuture sendShake(QQUser user, QQActionListener qqActionListener) {
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.sendShake(user, qqActionListener);
 	}
 
-    /**
-     * 获取离线图片
-     *
-     * @param offpic
-     * @param msg
-     * @param picout
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取离线图片
+	 */
 	@Override
 	public QQActionFuture getOffPic(OffPicItem offpic, QQMsg msg, OutputStream picout, 
 					QQActionListener listener) {
@@ -597,15 +558,11 @@ public class WebQQClient implements QQClient, QQContext {
 		return mod.getOffPic(offpic, msg, picout, listener);
 	}
 
-    /**
-     * 获取聊天图片
-     *
-     * @param cface
-     * @param msg
-     * @param picout
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取聊天图片
+	 */
 	@Override
 	public QQActionFuture getUserPic(CFaceItem cface, QQMsg msg,
 					OutputStream picout, QQActionListener listener){
@@ -613,15 +570,11 @@ public class WebQQClient implements QQClient, QQContext {
 		return mod.getUserPic(cface, msg, picout, listener);
 	}
 
-    /**
-     * 获取群聊天图片
-     *
-     * @param cface
-     * @param msg
-     * @param picout
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群聊天图片
+	 */
 	@Override
 	public QQActionFuture getGroupPic(CFaceItem cface, QQMsg msg,
 			OutputStream picout, QQActionListener listener){
@@ -629,102 +582,87 @@ public class WebQQClient implements QQClient, QQContext {
 		return mod.getGroupPic(cface, msg, picout, listener);
 	}
 
-    /**
-     * 上传离线图片
-     *
-     * @param user
-     * @param file
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 上传离线图片
+	 */
 	@Override
 	public QQActionFuture uploadOffPic(QQUser user, File file, QQActionListener listener){
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.uploadOffPic(user, file, listener);
 	}
 
-    /**
-     * 上传好友图片
-     *
-     * @param file
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 上传好友图片
+	 */
 	@Override
 	public QQActionFuture uploadCustomPic(File file, QQActionListener listener){
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.uploadCFace(file, listener);
 	}
 
-    /**
-     * 发送正在输入通知
-     *
-     * @param user
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 发送正在输入通知
+	 */
 	@Override
 	public QQActionFuture sendInputNotify(QQUser user, QQActionListener listener){
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.sendInputNotify(user, listener);
 	}
 
-    /**
-     * 获取讨论组列表
-     *
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取讨论组列表
+	 */
 	@Override
 	public QQActionFuture getDiscuzList(QQActionListener qqActionListener) {
 		DiscuzModule mod = getModule(QQModule.Type.DISCUZ);
 		return mod.getDiscuzList(qqActionListener);
 	}
 
-    /**
-     * 获取讨论组信息
-     *
-     * @param discuz
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取讨论组信息
+	 */
 	@Override
 	public QQActionFuture getDiscuzInfo(QQDiscuz discuz, QQActionListener qqActionListener) {
 		DiscuzModule mod = getModule(QQModule.Type.DISCUZ);
 		return mod.getDiscuzInfo(discuz, qqActionListener);
 	}
 
-    /**
-     * 临时消息信道，用于发送群 U 2 U会话消息
-     *
-     * @param user
-     * @param qqActionListener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 临时消息信道，用于发送群 U 2 U会话消息
+	 */
 	@Override
 	public QQActionFuture getSessionMsgSig(QQStranger user, QQActionListener qqActionListener) {
 		ChatModule mod = getModule(QQModule.Type.CHAT);
 		return mod.getSessionMsgSig(user, qqActionListener);
 	}
 
-    /**
-     * 获取群成员状态
-     *
-     * @param group
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群成员状态
+	 */
 	public QQActionFuture getGroupMemberStatus(QQGroup group, QQActionListener listener) {
 		GroupModule mod = getModule(QQModule.Type.GROUP);
 		return mod.getMemberStatus(group, listener);
 	}
 
-    /**
-     * 提交验证码
-     *
-     * @param code
-     * @param verifyEvent
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 提交验证码
+	 */
 	@Override
 	public void submitVerify(String code, QQNotifyEvent verifyEvent) {
 		QQNotifyEventArgs.ImageVerify verify = 
@@ -736,13 +674,11 @@ public class WebQQClient implements QQClient, QQContext {
 		}
 	}
 
-    /**
-     * 刷新验证码
-     *
-     * @param verifyEvent
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 刷新验证码
+	 */
 	@Override
 	public QQActionFuture freshVerify(QQNotifyEvent verifyEvent, QQActionListener listener) {
 		LoginModule mod = getModule(QQModule.Type.LOGIN);
@@ -750,19 +686,18 @@ public class WebQQClient implements QQClient, QQContext {
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionFuture updateGroupMessageFilter(QQActionListener listener) {
 		GroupModule mod = getModule(QQModule.Type.GROUP);
 		return mod.updateGroupMessageFilter(listener);
 	}
 
-    /**
-     * 搜索群列表
-     *
-     * @param resultList
-     * @param listener
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 搜索群列表
+	 */
 	@Override
 	public QQActionFuture searchGroupGetList(QQGroupSearchList resultList, QQActionListener listener)
 	{
@@ -770,12 +705,11 @@ public class WebQQClient implements QQClient, QQContext {
 		return mod.searchGroup(resultList, listener);
 	}
 
-    /**
-     * 退出验证码输入
-     *
-     * @param verifyEvent
-     * @throws QQException
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 退出验证码输入
+	 */
 	@Override
 	public void cancelVerify(QQNotifyEvent verifyEvent) throws QQException {
 		QQNotifyEventArgs.ImageVerify verify = 
@@ -783,62 +717,61 @@ public class WebQQClient implements QQClient, QQContext {
 		verify.future.cancel();
 	}
 
-    /**
-     * 获取好友列表，但必须已经使用接口获取过
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取好友列表，但必须已经使用接口获取过
+	 */
 	@Override
 	public List<QQBuddy> getBuddyList() {
 		return getStore().getBuddyList();
 	}
 
-    /**
-     * 获取群列表，但必须已经使用接口获取过
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取群列表，但必须已经使用接口获取过
+	 */
 	@Override
 	public List<QQGroup> getGroupList() {
 		return getStore().getGroupList();
 	}
 
-    /**
-     * 获取讨论组列表，但必须已经使用接口获取过
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取讨论组列表，但必须已经使用接口获取过
+	 */
 	@Override
 	public List<QQDiscuz> getDiscuzList() {
 		return getStore().getDiscuzList();
 	}
 
-    /**
-     * 根据UIN获得好友
-     *
-     * @param uin
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 根据UIN获得好友
+	 */
 	@Override
 	public QQBuddy getBuddyByUin(long uin) {
 		return getStore().getBuddyByUin(uin);
 	}
 
-    /**
-     * 获取自己的状态
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取自己的状态
+	 */
 	@Override
 	public boolean isOnline() {
 		return getSession().getState() == QQSession.State.ONLINE;
 	}
 
-    /**
-     * 获取是否正在登录的状态
-     *
-     * @return
-     */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * 获取是否正在登录的状态
+	 */
 	@Override
 	public boolean isLogining() {
 		return getSession().getState() == QQSession.State.LOGINING;

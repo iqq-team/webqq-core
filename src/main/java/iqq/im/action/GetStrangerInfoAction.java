@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import java.text.ParseException;
@@ -22,17 +20,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * @author ZhiHui_Chen<6208317@qq.com>
- * @create date 2013-4-21
+ * <p>GetStrangerInfoAction class.</p>
+ *
+ * @author ZhiHui_Chen
+ * @since date 2013-4-21
  */
 public class GetStrangerInfoAction extends AbstractHttpAction {
 
 	private QQUser user;
 	
+
 	/**
-	 * @param context
-	 * @param listener
-	 * @param user
+	 * <p>Constructor for GetStrangerInfoAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
 	 */
 	public GetStrangerInfoAction(QQContext context, QQActionListener listener,
 			QQUser user) {
@@ -41,6 +44,7 @@ public class GetStrangerInfoAction extends AbstractHttpAction {
 		this.user = user;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -54,6 +58,7 @@ public class GetStrangerInfoAction extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

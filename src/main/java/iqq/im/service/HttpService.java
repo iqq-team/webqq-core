@@ -9,6 +9,9 @@ import iqq.im.http.QQHttpResponse;
 
 import java.util.concurrent.Future;
 
+/**
+ * <p>HttpService interface.</p>
+ */
 public interface HttpService extends QQService{
 	
 	public enum ProxyType{
@@ -19,6 +22,7 @@ public interface HttpService extends QQService{
 	
 	/**
 	 * 设置HTTP代理
+	 *
 	 * @param proxyType				代理类型
 	 * @param proxyHost				代理主机
 	 * @param proxyPort				代理端口
@@ -31,31 +35,37 @@ public interface HttpService extends QQService{
 	/**
 	 * 创建一个请求
 	 * 这个方法会填充默认的HTTP头，比如User-Agent
+	 *
 	 * @param method			请求方法，POST,GET,POST
 	 * @param url				请求的URL
-	 * @return
+	 * @return a {@link iqq.im.http.QQHttpRequest} object.
 	 */
 	public QQHttpRequest createHttpRequest(String method, String url);
 
 	/**
-	 * 执行一个HTTP请求		
+	 * 执行一个HTTP请求
+	 *
 	 * @param request			请求对象
 	 * @param listener			请求回调
-	 * @return	同步获取请求结果对象，可在这个对象上等待请求的完成
+	 * @throws iqq.im.QQException if any.
+	 * @return a {@link java.util.concurrent.Future} object.
 	 */
 	public Future<QQHttpResponse> executeHttpRequest(QQHttpRequest request, QQHttpListener listener) throws QQException;
 
 	/**
 	 * 获取一个cookie
+	 *
 	 * @param name				Cookie名
 	 * @param url				基于的URL
-	 * @return	cookie
+	 * @return a {@link iqq.im.http.QQHttpCookie} object.
 	 */
 	public QQHttpCookie getCookie(String name, String url);
 
-	/***
+	/**
+	 *
 	 * 设置UA，每次在HTTP请求是会附带上
-	 * @param userAgent
+	 *
+	 * @param userAgent a {@link java.lang.String} object.
 	 */
 	public void setUserAgent(String userAgent);
 }

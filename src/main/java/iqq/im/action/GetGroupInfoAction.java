@@ -48,16 +48,23 @@ import org.json.JSONObject;
  *
  * 获取群信息， 包括群信息和群成员
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetGroupInfoAction extends AbstractHttpAction{
 	private QQGroup group;
+	/**
+	 * <p>Constructor for GetGroupInfoAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param group a {@link iqq.im.bean.QQGroup} object.
+	 */
 	public GetGroupInfoAction(QQContext context, QQActionListener listener, QQGroup group) {
 		super(context, listener);
 		this.group = group;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
@@ -131,6 +138,7 @@ public class GetGroupInfoAction extends AbstractHttpAction{
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_GROUP_INFO_EXT);

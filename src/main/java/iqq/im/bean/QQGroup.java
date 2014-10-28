@@ -32,11 +32,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 
+ *
  * QQ群
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class QQGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -58,6 +57,8 @@ public class QQGroup implements Serializable {
 
 
 	/**
+	 * <p>Getter for the field <code>code</code>.</p>
+	 *
 	 * @return the code
 	 */
 	public long getCode() {
@@ -65,6 +66,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>code</code>.</p>
+	 *
 	 * @param code
 	 *            the code to set
 	 */
@@ -73,6 +76,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>clazz</code>.</p>
+	 *
 	 * @return the clazz
 	 */
 	public int getClazz() {
@@ -80,6 +85,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>clazz</code>.</p>
+	 *
 	 * @param clazz
 	 *            the clazz to set
 	 */
@@ -88,6 +95,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>flag</code>.</p>
+	 *
 	 * @return the flag
 	 */
 	public int getFlag() {
@@ -95,6 +104,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>flag</code>.</p>
+	 *
 	 * @param flag
 	 *            the flag to set
 	 */
@@ -103,6 +114,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>level</code>.</p>
+	 *
 	 * @return the level
 	 */
 	public int getLevel() {
@@ -110,6 +123,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>level</code>.</p>
+	 *
 	 * @param level
 	 *            the level to set
 	 */
@@ -118,6 +133,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
 	 * @return the name
 	 */
 	public String getName() {
@@ -125,6 +142,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
 	 * @param name
 	 *            the name to set
 	 */
@@ -133,6 +152,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>fingermemo</code>.</p>
+	 *
 	 * @return the fingermemo
 	 */
 	public String getFingermemo() {
@@ -140,6 +161,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>fingermemo</code>.</p>
+	 *
 	 * @param fingermemo
 	 *            the fingermemo to set
 	 */
@@ -148,6 +171,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>createTime</code>.</p>
+	 *
 	 * @return the createTime
 	 */
 	public Date getCreateTime() {
@@ -155,6 +180,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>createTime</code>.</p>
+	 *
 	 * @param createTime
 	 *            the createTime to set
 	 */
@@ -163,6 +190,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>face</code>.</p>
+	 *
 	 * @return the face
 	 */
 	public BufferedImage getFace() {
@@ -170,6 +199,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>face</code>.</p>
+	 *
 	 * @param face
 	 *            the face to set
 	 */
@@ -178,6 +209,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>members</code>.</p>
+	 *
 	 * @return the members
 	 */
 	public List<QQGroupMember> getMembers() {
@@ -185,6 +218,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>members</code>.</p>
+	 *
 	 * @param members
 	 *            the members to set
 	 */
@@ -193,6 +228,8 @@ public class QQGroup implements Serializable {
 	}
 	
 	/**
+	 * <p>Getter for the field <code>memo</code>.</p>
+	 *
 	 * @return the memo
 	 */
 	public String getMemo() {
@@ -200,12 +237,20 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>memo</code>.</p>
+	 *
 	 * @param memo the memo to set
 	 */
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
 	
+	/**
+	 * <p>getMemberByUin.</p>
+	 *
+	 * @param uin a long.
+	 * @return a {@link iqq.im.bean.QQGroupMember} object.
+	 */
 	public QQGroupMember getMemberByUin(long uin){
 		for(QQGroupMember mem: members){
 			if(mem.getUin() == uin){
@@ -215,19 +260,31 @@ public class QQGroup implements Serializable {
 		return null;
 	}
 
+	/**
+	 * <p>Getter for the field <code>mask</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getMask() {
 		return mask;
 	}
 
+	/**
+	 * <p>Setter for the field <code>mask</code>.</p>
+	 *
+	 * @param mask a int.
+	 */
 	public void setMask(int mask) {
 		this.mask = mask;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		return (int) this.getCode();
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -247,6 +304,8 @@ public class QQGroup implements Serializable {
 	}
 	
 	/**
+	 * <p>Getter for the field <code>gid</code>.</p>
+	 *
 	 * @return the gid
 	 */
 	public long getGid() {
@@ -254,6 +313,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>gid</code>.</p>
+	 *
 	 * @param gid the gid to set
 	 */
 	public void setGid(long gid) {
@@ -262,6 +323,8 @@ public class QQGroup implements Serializable {
 	
 
 	/**
+	 * <p>Getter for the field <code>gin</code>.</p>
+	 *
 	 * @return the gin
 	 */
 	public long getGin() {
@@ -269,6 +332,8 @@ public class QQGroup implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>gin</code>.</p>
+	 *
 	 * @param gin the gin to set
 	 */
 	public void setGin(long gin) {
@@ -280,6 +345,7 @@ public class QQGroup implements Serializable {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "QQGroup [gid=" + gid + ", code=" + code + ", name=" + name + "]";

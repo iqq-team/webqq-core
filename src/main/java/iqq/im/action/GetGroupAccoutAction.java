@@ -15,18 +15,27 @@ import org.json.JSONObject;
 
 /**
  * 获取QQ账号
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetGroupAccoutAction extends AbstractHttpAction {
 
 	private QQGroup group;
 
+	/**
+	 * <p>Constructor for GetGroupAccoutAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param group a {@link iqq.im.bean.QQGroup} object.
+	 */
 	public GetGroupAccoutAction(QQContext context, QQActionListener listener, QQGroup group) {
 		super(context, listener);
 		this.group = group;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -44,6 +53,7 @@ public class GetGroupAccoutAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

@@ -35,12 +35,11 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
  *
  * 单线程的QQ内部分发器，可以同时使用多个QQ实例里
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 	private static final Logger LOG = LoggerFactory.getLogger(ThreadActorDispatcher.class);
@@ -57,6 +56,7 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 	/* (non-Javadoc)
 	 * @see iqq.im.actor.QQActorDispatcher#pushActor(iqq.im.actor.QQActor)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public void pushActor(QQActor actor){
 		this.actorQueue.add(actor);
@@ -64,8 +64,6 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 	
 	/**
 	 * 执行一个QQActor，返回是否继续下一个actor
-	 * @param action
-	 * @return
 	 */
 	private boolean dispatchAction(QQActor actor){
 		try {
@@ -76,6 +74,7 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 		return !(actor instanceof ExitActor);
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public void run(){
 		try {
@@ -87,6 +86,7 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void init(QQContext context) throws QQException {
 		actorQueue.clear();
@@ -95,6 +95,7 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 		dispatchThread.start();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void destroy() throws QQException {
 		pushActor(new ExitActor());
@@ -111,7 +112,7 @@ public class ThreadActorDispatcher implements QQActorDispatcher, Runnable {
 	 * 
 	 * 一个伪Actor只是为了让ActorLoop停下来
 	 *
-	 * @author solosky <solosky772@qq.com>
+	 * @author solosky
 	 *
 	 */
 	public class ExitActor implements QQActor {

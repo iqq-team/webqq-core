@@ -42,16 +42,23 @@ import java.util.regex.Pattern;
  *
  * 检查账号，如果账号安全则不需要验证码
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class CheckVerifyAction extends AbstractHttpAction {
 	private String qqAccount;
+	/**
+	 * <p>Constructor for CheckVerifyAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param qqAccount a {@link java.lang.String} object.
+	 */
 	public CheckVerifyAction(QQContext context, QQActionListener listener, String qqAccount) {
 		super(context, listener);
 		this.qqAccount = qqAccount;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void onHttpStatusOK(QQHttpResponse response) {
 		Pattern p = Pattern.compile(QQConstants.REGXP_CHECK_VERIFY);
@@ -69,6 +76,7 @@ public class CheckVerifyAction extends AbstractHttpAction {
         }
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest buildRequest() {
 		String url = StringHelper.format(QQConstants.URL_CHECK_VERIFY, qqAccount, 

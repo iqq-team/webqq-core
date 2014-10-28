@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iqq.im.action;
 
 import iqq.im.QQActionListener;
@@ -23,17 +21,24 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 获取群列表名称
- * 
+ *
  * @author ChenZhiHui
- * @create-date 2013-2-21
+ * @since 2013-2-21
  */
 public class GetGroupListAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(GetGroupListAction.class);
 
+	/**
+	 * <p>Constructor for GetGroupListAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetGroupListAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest onBuildRequest() throws QQException, JSONException {
         HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
@@ -54,6 +59,7 @@ public class GetGroupListAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

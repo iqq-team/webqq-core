@@ -50,11 +50,17 @@ import org.json.JSONObject;
  *
  * 获取讨论组信息，讨论组成员
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class GetDiscuzInfoAction extends AbstractHttpAction{
 	private QQDiscuz discuz;
+	/**
+	 * <p>Constructor for GetDiscuzInfoAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param discuz a {@link iqq.im.bean.QQDiscuz} object.
+	 */
 	public GetDiscuzInfoAction(QQContext context, QQActionListener listener, QQDiscuz discuz) {
 		super(context, listener);
 		this.discuz = discuz;
@@ -63,6 +69,7 @@ public class GetDiscuzInfoAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onBuildRequest()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -78,6 +85,7 @@ public class GetDiscuzInfoAction extends AbstractHttpAction{
 	/* (non-Javadoc)
 	 * @see iqq.im.action.AbstractHttpAction#onHttpStatusOK(iqq.im.http.QQHttpResponse)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

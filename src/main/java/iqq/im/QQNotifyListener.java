@@ -33,9 +33,13 @@ import iqq.im.event.QQNotifyEvent;
  *
  * QQ通知事件监听器
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQNotifyListener {
+	/**
+	 * <p>onNotifyEvent.</p>
+	 *
+	 * @param event a {@link iqq.im.event.QQNotifyEvent} object.
+	 */
 	public void onNotifyEvent(QQNotifyEvent event);
 }

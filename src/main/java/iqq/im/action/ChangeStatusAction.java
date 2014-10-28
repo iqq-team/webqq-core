@@ -16,20 +16,27 @@ import org.json.JSONObject;
 
 /**
  * 改变在线状态
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
  */
 public class ChangeStatusAction extends AbstractHttpAction {
 
 	private QQStatus status;
 
+	/**
+	 * <p>Constructor for ChangeStatusAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public ChangeStatusAction(QQContext context, QQActionListener listener,
 			QQStatus status) {
 		super(context, listener);
 		this.status = status;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -45,6 +52,7 @@ public class ChangeStatusAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

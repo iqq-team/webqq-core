@@ -38,10 +38,9 @@ import iqq.im.service.HttpService;
 import java.util.concurrent.Future;
 
 /**
+ * <p>HttpActor class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class HttpActor implements QQActor {
 	private Type type;
@@ -52,6 +51,7 @@ public class HttpActor implements QQActor {
 	private long current;
 	private long total;
 	
+	/** {@inheritDoc} */
 	@Override
 	public void execute() {
 		try {
@@ -106,6 +106,13 @@ public class HttpActor implements QQActor {
 	}
 
 	
+	/**
+	 * <p>Constructor for HttpActor.</p>
+	 *
+	 * @param type a {@link iqq.im.actor.HttpActor.Type} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 */
 	public HttpActor(Type type, QQContext context, HttpAction action) {
 		this.type = type;
 		this.context = context;
@@ -113,6 +120,14 @@ public class HttpActor implements QQActor {
 	}
 
 
+	/**
+	 * <p>Constructor for HttpActor.</p>
+	 *
+	 * @param type a {@link iqq.im.actor.HttpActor.Type} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 * @param response a {@link iqq.im.http.QQHttpResponse} object.
+	 */
 	public HttpActor(Type type, QQContext context, HttpAction action, QQHttpResponse response) {
 		this.type = type;
 		this.context = context;
@@ -121,6 +136,14 @@ public class HttpActor implements QQActor {
 	}
 	
 
+	/**
+	 * <p>Constructor for HttpActor.</p>
+	 *
+	 * @param type a {@link iqq.im.actor.HttpActor.Type} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 * @param throwable a {@link java.lang.Throwable} object.
+	 */
 	public HttpActor(Type type, QQContext context, HttpAction action, Throwable throwable) {
 		this.type = type;
 		this.context = context;
@@ -129,6 +152,15 @@ public class HttpActor implements QQActor {
 	}
 
 
+	/**
+	 * <p>Constructor for HttpActor.</p>
+	 *
+	 * @param type a {@link iqq.im.actor.HttpActor.Type} object.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 * @param current a long.
+	 * @param total a long.
+	 */
 	public HttpActor(Type type, QQContext context, HttpAction action, long current, long total) {
 		this.type = type;
 		this.context = context;
@@ -176,6 +208,7 @@ public class HttpActor implements QQActor {
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "HttpActor [type=" + type + ", action=" + action + "]";

@@ -29,11 +29,10 @@ package iqq.im.core;
 /**
  *
  * QQ模块
- * 
+ *
  * 模块是QQ的功能单元水平的划分，一个模块负责某一个单独的相对独立的逻辑，如好友管理，分组管理，消息管理等
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public interface QQModule extends QQLifeCycle{
 	public enum Type{

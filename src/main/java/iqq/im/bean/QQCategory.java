@@ -30,11 +30,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 
+ *
  * QQ分组
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public class QQCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -44,6 +43,12 @@ public class QQCategory implements Serializable {
 
 	private List<QQBuddy> buddyList = new LinkedList<QQBuddy>();
 
+	/**
+	 * <p>getQQBuddyByUin.</p>
+	 *
+	 * @param uin a int.
+	 * @return a {@link iqq.im.bean.QQBuddy} object.
+	 */
 	public QQBuddy getQQBuddyByUin(int uin) {
 		if (!buddyList.isEmpty() && uin != 0) {
 			for (QQBuddy b : buddyList) {
@@ -55,14 +60,29 @@ public class QQCategory implements Serializable {
 		return null;
 	}
 
+	/**
+	 * <p>Getter for the field <code>buddyList</code>.</p>
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
 	public List<QQBuddy> getBuddyList() {
 		return buddyList;
 	}
 
+	/**
+	 * <p>Setter for the field <code>buddyList</code>.</p>
+	 *
+	 * @param buddyList a {@link java.util.List} object.
+	 */
 	public void setBuddyList(List<QQBuddy> buddyList) {
 		this.buddyList = buddyList;
 	}
 
+	/**
+	 * <p>getOnlineCount.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getOnlineCount() {
 		int count = 0;
 		for(QQBuddy buddy: buddyList){
@@ -74,30 +94,65 @@ public class QQCategory implements Serializable {
 		return count;
 	}
 	
+	/**
+	 * <p>getBuddyCount.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBuddyCount(){
 		return buddyList!=null ? buddyList.size() : 0;
 	}
 
+	/**
+	 * <p>Getter for the field <code>index</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getIndex() {
 		return index;
 	}
 
+	/**
+	 * <p>Setter for the field <code>index</code>.</p>
+	 *
+	 * @param index a int.
+	 */
 	public void setIndex(int index) {
 		this.index = index;
 	}
 
+	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * <p>Getter for the field <code>sort</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getSort() {
 		return sort;
 	}
 
+	/**
+	 * <p>Setter for the field <code>sort</code>.</p>
+	 *
+	 * @param sort a int.
+	 */
 	public void setSort(int sort) {
 		this.sort = sort;
 	}

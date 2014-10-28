@@ -33,15 +33,14 @@ import java.awt.image.BufferedImage;
  * 有些事件可能需要附带多个数据，如果没有合适的对象表示Target属性，可以在此定义
  * 所有的成员建议都公开，减少无用的getter和setter
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQNotifyEventArgs {
 	
 	/**
 	 * 需要用户识别验证码通知
 	 * 登录，加好友，获取QQ号可能都需要验证码
-	 * @author solosky <solosky772@qq.com>
+	 * @author solosky
 	 */
 	public static class ImageVerify{
 		public  enum VerifyType {LOGIN, ADD_FRIEND, GET_UIN};
@@ -61,7 +60,7 @@ public class QQNotifyEventArgs {
 	
 	/**
 	 * 登录进度通知
-	 * @author solosky <solosky772@qq.com>
+	 * @author solosky
 	 */
 	public enum LoginProgress{
 		CHECK_VERIFY,

@@ -26,10 +26,9 @@
 package iqq.im.event;
 
 /**
+ * <p>Abstract QQActionEventArgs class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public abstract class QQActionEventArgs {
 	

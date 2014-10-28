@@ -11,18 +11,27 @@ import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQActionEvent.Type;
 import iqq.im.event.QQActionFuture;
 
+/**
+ * <p>Abstract AbstractActionFuture class.</p>
+ */
 public abstract class AbstractActionFuture implements QQActionFuture, QQActionListener {
 	private QQActionListener proxyListener;
 	private BlockingQueue<QQActionEvent> eventQueue;
 	private volatile boolean isCanceled;
 	private volatile boolean hasEvent;
 
+	/**
+	 * <p>Constructor for AbstractActionFuture.</p>
+	 *
+	 * @param proxyListener a {@link iqq.im.QQActionListener} object.
+	 */
 	public AbstractActionFuture(QQActionListener proxyListener) {
 		this.hasEvent = true;
 		this.proxyListener = proxyListener;
 		this.eventQueue = new LinkedBlockingQueue<QQActionEvent>();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionEvent waitEvent() throws QQException {
 		if( !hasEvent ) {
@@ -37,6 +46,7 @@ public abstract class AbstractActionFuture implements QQActionFuture, QQActionLi
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionEvent waitEvent(long timeoutMs) throws QQException {
 		QQActionEvent event = null;
@@ -56,6 +66,7 @@ public abstract class AbstractActionFuture implements QQActionFuture, QQActionLi
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionEvent waitFinalEvent() throws QQException {
 		QQActionEvent event = null;
@@ -67,6 +78,7 @@ public abstract class AbstractActionFuture implements QQActionFuture, QQActionLi
 		throw new QQException(QQErrorCode.UNKNOWN_ERROR);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQActionEvent waitFinalEvent(long timeoutMs) throws QQException {
 		QQActionEvent event = null;
@@ -90,6 +102,7 @@ public abstract class AbstractActionFuture implements QQActionFuture, QQActionLi
 				|| type==Type.EVT_OK;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void onActionEvent(QQActionEvent event) {
 		if (proxyListener != null){
@@ -98,20 +111,34 @@ public abstract class AbstractActionFuture implements QQActionFuture, QQActionLi
 		eventQueue.add(event);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean isCanceled() {
 		return isCanceled;
 	}
 	
+	/**
+	 * <p>setCanceled.</p>
+	 *
+	 * @param isCanceled a boolean.
+	 */
 	public void setCanceled(boolean isCanceled){
 		this.isCanceled = isCanceled;
 	}
 	
+	/**
+	 * <p>notifyActionEvent.</p>
+	 *
+	 * @param type a {@link iqq.im.event.QQActionEvent.Type} object.
+	 * @param target a {@link java.lang.Object} object.
+	 */
 	public void notifyActionEvent(QQActionEvent.Type type, Object target){
 		onActionEvent(new QQActionEvent(type, target, this));
 	}
 
 	/**
+	 * <p>Getter for the field <code>proxyListener</code>.</p>
+	 *
 	 * @return the proxyListener
 	 */
 	public QQActionListener getProxyListener() {

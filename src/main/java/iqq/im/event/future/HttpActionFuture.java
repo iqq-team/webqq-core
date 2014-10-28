@@ -31,18 +31,22 @@ import iqq.im.action.HttpAction;
 /**
  *
  * 用于异步等待操作完成
- * 
+ *
  * 提交任何一个操作都会返回这个对象，可以在这个对象上:
  * 1. 同步等待操作完成
  * 3. 取消请求
- * 
- * 注意: 千万不要在回调函数里面等待操作完成，否则会把整个客户端挂起
- * 
- * @author solosky <solosky772@qq.com>
  *
+ * 注意: 千万不要在回调函数里面等待操作完成，否则会把整个客户端挂起
+ *
+ * @author solosky
  */
 public class HttpActionFuture extends AbstractActionFuture{
 	private HttpAction httpAction;
+	/**
+	 * <p>Constructor for HttpActionFuture.</p>
+	 *
+	 * @param action a {@link iqq.im.action.HttpAction} object.
+	 */
 	public HttpActionFuture(HttpAction action) {
 		super(action.getActionListener());
 		this.httpAction = action;
@@ -53,6 +57,7 @@ public class HttpActionFuture extends AbstractActionFuture{
 	/* (non-Javadoc)
 	 * @see iqq.im.event.QQActionFuture#isCancelable()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean isCancelable(){
 		return httpAction.isCancelable();
@@ -61,6 +66,7 @@ public class HttpActionFuture extends AbstractActionFuture{
 	/* (non-Javadoc)
 	 * @see iqq.im.event.QQActionFuture#cancel()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public void cancel() throws QQException{
 		httpAction.cancelRequest();

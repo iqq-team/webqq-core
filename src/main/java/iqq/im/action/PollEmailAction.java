@@ -23,8 +23,8 @@ import org.slf4j.LoggerFactory;
 /**
  * 邮件轮询
  *
- * @author 承∮诺<6208317@qq.com>
- * @Created 2014年1月25日
+ * @author 承∮诺
+ * @since 2014年1月25日
  */
 public class PollEmailAction extends AbstractHttpAction {
 	private static final Logger LOG = LoggerFactory.getLogger(PollEmailAction.class);
@@ -32,12 +32,21 @@ public class PollEmailAction extends AbstractHttpAction {
 	private String sid = "";
 	private long t = 0;
 	
+	/**
+	 * <p>Constructor for PollEmailAction.</p>
+	 *
+	 * @param sid a {@link java.lang.String} object.
+	 * @param t a long.
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public PollEmailAction(String sid, long t, QQContext context, QQActionListener listener) {
 		super(context, listener);
 		this.sid = sid;
 		this.t = t;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_EMAIL_POLL);
@@ -54,6 +63,7 @@ public class PollEmailAction extends AbstractHttpAction {
 		return req;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

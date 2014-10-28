@@ -43,39 +43,94 @@ import iqq.im.event.QQActionFuture;
  *
  * 登录模块，处理登录和退出
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class LoginModule extends AbstractModule {
 	
+	/**
+	 * <p>checkVerify.</p>
+	 *
+	 * @param qqAccount a {@link java.lang.String} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture checkVerify(String qqAccount, QQActionListener listener){
 		return pushHttpAction(new CheckVerifyAction(getContext(), listener, qqAccount));
 	}
 	
+	/**
+	 * <p>webLogin.</p>
+	 *
+	 * @param username a {@link java.lang.String} object.
+	 * @param password a {@link java.lang.String} object.
+	 * @param uin a long.
+	 * @param verifyCode a {@link java.lang.String} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture webLogin(String username, String password, long uin, String verifyCode, QQActionListener listener){
 		return pushHttpAction(new WebLoginAction(getContext(), listener, username, password, uin, verifyCode));
 	}
 	
+	/**
+	 * <p>channelLogin.</p>
+	 *
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture channelLogin(QQStatus status, QQActionListener listener){
 		return pushHttpAction(new ChannelLoginAction(getContext(), listener, status));
 	}
 	
+	/**
+	 * <p>getCaptcha.</p>
+	 *
+	 * @param uin a long.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getCaptcha(long uin, QQActionListener listener){
 		return pushHttpAction(new GetCaptchaImageAction(getContext(), listener, uin));
 	}
 	
+	/**
+	 * <p>pollMsg.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture pollMsg(QQActionListener listener){
 		return pushHttpAction(new PollMsgAction(getContext(), listener));
 	}
 	
+	/**
+	 * <p>logout.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture logout(QQActionListener listener){
 		return pushHttpAction(new WebLogoutAction(getContext(), listener));
 	}
 	
+	/**
+	 * <p>getLoginSig.</p>
+	 *
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture getLoginSig(QQActionListener listener){
 		return pushHttpAction(new GetLoginSigAction(getContext(), listener));
 	}
 	
+	/**
+	 * <p>checkLoginSig.</p>
+	 *
+	 * @param checkUrl a {@link java.lang.String} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @return a {@link iqq.im.event.QQActionFuture} object.
+	 */
 	public QQActionFuture checkLoginSig(String checkUrl, QQActionListener listener){
 		return pushHttpAction(new CheckLoginSigAction(getContext(), listener, checkUrl));
 	}

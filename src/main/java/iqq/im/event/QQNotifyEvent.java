@@ -27,23 +27,38 @@ package iqq.im.event;
 
 
 /**
+ * <p>QQNotifyEvent class.</p>
  *
- *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQNotifyEvent extends QQEvent{
 	private Type type;
 	private Object target;
 	
+	/**
+	 * <p>Constructor for QQNotifyEvent.</p>
+	 *
+	 * @param type a {@link iqq.im.event.QQNotifyEvent.Type} object.
+	 * @param target a {@link java.lang.Object} object.
+	 */
 	public QQNotifyEvent(Type type, Object target) {
 		this.type = type;
 		this.target = target;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>type</code>.</p>
+	 *
+	 * @return a {@link iqq.im.event.QQNotifyEvent.Type} object.
+	 */
 	public Type getType() {
 		return type;
 	}
+	/**
+	 * <p>Getter for the field <code>target</code>.</p>
+	 *
+	 * @return a {@link java.lang.Object} object.
+	 */
 	public Object getTarget() {
 		return target;
 	}
@@ -84,6 +99,7 @@ public class QQNotifyEvent extends QQEvent{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "QQNotifyEvent [type=" + type + ", target=" + target + "]";

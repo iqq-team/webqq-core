@@ -33,22 +33,28 @@ import iqq.im.core.QQService;
  *
  * 抽象的服务类，实现了部分接口，方便子类实现
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public abstract class AbstractService implements QQService{
 	private QQContext context;
 
+	/** {@inheritDoc} */
 	@Override
 	public void init(QQContext context) throws QQException {
 		this.context = context;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void destroy() throws QQException{
 	}
 	
 	
+	/**
+	 * <p>Getter for the field <code>context</code>.</p>
+	 *
+	 * @return a {@link iqq.im.core.QQContext} object.
+	 */
 	protected QQContext getContext(){
 		return this.context;
 	}

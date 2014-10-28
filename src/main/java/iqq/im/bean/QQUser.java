@@ -36,11 +36,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * 
+ *
  * QQ普通用户，保存了所有用户的基本信息
- * 
- * @author solosky <solosky772@qq.com>
- * 
+ *
+ * @author solosky
  */
 public abstract class QQUser implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -77,250 +76,554 @@ public abstract class QQUser implements Serializable {
 	private QQAllow allow;		//对方加好友验证请求设置
 	
 
+	/**
+	 * <p>Constructor for QQUser.</p>
+	 */
 	public QQUser() {
 		status = QQStatus.OFFLINE;
 		level = new QQLevel();
 	}
 
+	/**
+	 * <p>Getter for the field <code>loginDate</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getLoginDate() {
 		return loginDate;
 	}
 
+	/**
+	 * <p>Setter for the field <code>loginDate</code>.</p>
+	 *
+	 * @param loginDate a long.
+	 */
 	public void setLoginDate(long loginDate) {
 		this.loginDate = loginDate;
 	}
 
+	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public QQStatus getStatus() {
 		return status;
 	}
 
+	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public void setStatus(QQStatus status) {
 		this.status = status;
 	}
 
+	/**
+	 * <p>Getter for the field <code>flag</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFlag() {
 		return flag;
 	}
 
+	/**
+	 * <p>Setter for the field <code>flag</code>.</p>
+	 *
+	 * @param flag a int.
+	 */
 	public void setFlag(int flag) {
 		this.flag = flag;
 	}
 
+	/**
+	 * <p>Getter for the field <code>sign</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getSign() {
 		return sign;
 	}
 
+	/**
+	 * <p>Setter for the field <code>sign</code>.</p>
+	 *
+	 * @param sign a {@link java.lang.String} object.
+	 */
 	public void setSign(String sign) {
 		this.sign = sign;
 	}
+	/**
+	 * <p>Getter for the field <code>birthday</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getBirthday() {
 		return birthday;
 	}
 
+	/**
+	 * <p>Setter for the field <code>birthday</code>.</p>
+	 *
+	 * @param birthday a {@link java.util.Date} object.
+	 */
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
+	/**
+	 * <p>Getter for the field <code>blood</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBlood() {
 		return blood;
 	}
 
+	/**
+	 * <p>Setter for the field <code>blood</code>.</p>
+	 *
+	 * @param blood a int.
+	 */
 	public void setBlood(int blood) {
 		this.blood = blood;
 	}
 
+	/**
+	 * <p>Getter for the field <code>chineseZodiac</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getChineseZodiac() {
 		return chineseZodiac;
 	}
 
+	/**
+	 * <p>Setter for the field <code>chineseZodiac</code>.</p>
+	 *
+	 * @param chineseZodiac a int.
+	 */
 	public void setChineseZodiac(int chineseZodiac) {
 		this.chineseZodiac = chineseZodiac;
 	}
 
+	/**
+	 * <p>Getter for the field <code>city</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getCity() {
 		return city;
 	}
 
+	/**
+	 * <p>Setter for the field <code>city</code>.</p>
+	 *
+	 * @param city a {@link java.lang.String} object.
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * <p>Getter for the field <code>college</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getCollege() {
 		return college;
 	}
 
+	/**
+	 * <p>Setter for the field <code>college</code>.</p>
+	 *
+	 * @param college a {@link java.lang.String} object.
+	 */
 	public void setCollege(String college) {
 		this.college = college;
 	}
 
+	/**
+	 * <p>Getter for the field <code>constel</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getConstel() {
 		return constel;
 	}
 
+	/**
+	 * <p>Setter for the field <code>constel</code>.</p>
+	 *
+	 * @param constel a int.
+	 */
 	public void setConstel(int constel) {
 		this.constel = constel;
 	}
 
+	/**
+	 * <p>Getter for the field <code>country</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getCountry() {
 		return country;
 	}
 
+	/**
+	 * <p>Setter for the field <code>country</code>.</p>
+	 *
+	 * @param country a {@link java.lang.String} object.
+	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
+	/**
+	 * <p>Getter for the field <code>email</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * <p>Setter for the field <code>email</code>.</p>
+	 *
+	 * @param email a {@link java.lang.String} object.
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * <p>Getter for the field <code>gender</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getGender() {
 		return gender;
 	}
 
+	/**
+	 * <p>Setter for the field <code>gender</code>.</p>
+	 *
+	 * @param gender a {@link java.lang.String} object.
+	 */
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
+	/**
+	 * <p>Getter for the field <code>homepage</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getHomepage() {
 		return homepage;
 	}
 
+	/**
+	 * <p>Setter for the field <code>homepage</code>.</p>
+	 *
+	 * @param homepage a {@link java.lang.String} object.
+	 */
 	public void setHomepage(String homepage) {
 		this.homepage = homepage;
 	}
 
+	/**
+	 * <p>Getter for the field <code>level</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQLevel} object.
+	 */
 	public QQLevel getLevel() {
 		return level;
 	}
 
+	/**
+	 * <p>Setter for the field <code>level</code>.</p>
+	 *
+	 * @param level a {@link iqq.im.bean.QQLevel} object.
+	 */
 	public void setLevel(QQLevel level) {
 		this.level = level;
 	}
 
+	/**
+	 * <p>Getter for the field <code>mobile</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getMobile() {
 		return mobile;
 	}
 
+	/**
+	 * <p>Setter for the field <code>mobile</code>.</p>
+	 *
+	 * @param mobile a {@link java.lang.String} object.
+	 */
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
+	/**
+	 * <p>Getter for the field <code>nickname</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getNickname() {
 		return nickname;
 	}
 
+	/**
+	 * <p>Setter for the field <code>nickname</code>.</p>
+	 *
+	 * @param nickname a {@link java.lang.String} object.
+	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
 
+	/**
+	 * <p>Getter for the field <code>occupation</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getOccupation() {
 		return occupation;
 	}
 
+	/**
+	 * <p>Setter for the field <code>occupation</code>.</p>
+	 *
+	 * @param occupation a {@link java.lang.String} object.
+	 */
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
 
+	/**
+	 * <p>Getter for the field <code>personal</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getPersonal() {
 		return personal;
 	}
 
+	/**
+	 * <p>Setter for the field <code>personal</code>.</p>
+	 *
+	 * @param personal a {@link java.lang.String} object.
+	 */
 	public void setPersonal(String personal) {
 		this.personal = personal;
 	}
 
+	/**
+	 * <p>Getter for the field <code>phone</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getPhone() {
 		return phone;
 	}
 
+	/**
+	 * <p>Setter for the field <code>phone</code>.</p>
+	 *
+	 * @param phone a {@link java.lang.String} object.
+	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
+	/**
+	 * <p>Getter for the field <code>province</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getProvince() {
 		return province;
 	}
 
+	/**
+	 * <p>Setter for the field <code>province</code>.</p>
+	 *
+	 * @param province a {@link java.lang.String} object.
+	 */
 	public void setProvince(String province) {
 		this.province = province;
 	}
 
+	/**
+	 * <p>Getter for the field <code>regTime</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getRegTime() {
 		return regTime;
 	}
 
+	/**
+	 * <p>Setter for the field <code>regTime</code>.</p>
+	 *
+	 * @param regTime a int.
+	 */
 	public void setRegTime(int regTime) {
 		this.regTime = regTime;
 	}
 
+	/**
+	 * <p>Getter for the field <code>stat</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getStat() {
 		return stat;
 	}
 
+	/**
+	 * <p>Setter for the field <code>stat</code>.</p>
+	 *
+	 * @param stat a int.
+	 */
 	public void setStat(int stat) {
 		this.stat = stat;
 	}
 
+	/**
+	 * <p>Getter for the field <code>uin</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getUin() {
 		return uin;
 	}
 
+	/**
+	 * <p>Setter for the field <code>uin</code>.</p>
+	 *
+	 * @param uin a long.
+	 */
 	public void setUin(long uin) {
 		this.uin = uin;
 	}
 
+	/**
+	 * <p>Getter for the field <code>cip</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getCip() {
 		return cip;
 	}
 
+	/**
+	 * <p>Setter for the field <code>cip</code>.</p>
+	 *
+	 * @param cip a int.
+	 */
 	public void setCip(int cip) {
 		this.cip = cip;
 	}
 
+	/**
+	 * <p>isVip.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isVip() {
 		return isVip;
 	}
 
+	/**
+	 * <p>setVip.</p>
+	 *
+	 * @param isVip a boolean.
+	 */
 	public void setVip(boolean isVip) {
 		this.isVip = isVip;
 	}
 
+	/**
+	 * <p>Getter for the field <code>vipLevel</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getVipLevel() {
 		return vipLevel;
 	}
 
+	/**
+	 * <p>Setter for the field <code>vipLevel</code>.</p>
+	 *
+	 * @param vipLevel a int.
+	 */
 	public void setVipLevel(int vipLevel) {
 		this.vipLevel = vipLevel;
 	}
 
+	/**
+	 * <p>Getter for the field <code>face</code>.</p>
+	 *
+	 * @return a {@link java.awt.image.BufferedImage} object.
+	 */
 	public BufferedImage getFace() {
 		return face;
 	}
 
+	/**
+	 * <p>Setter for the field <code>face</code>.</p>
+	 *
+	 * @param face a {@link java.awt.image.BufferedImage} object.
+	 */
 	public void setFace(BufferedImage face) {
 		this.face = face;
 	}
 
+	/**
+	 * <p>Getter for the field <code>clientType</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQClientType} object.
+	 */
 	public QQClientType getClientType() {
 		return clientType;
 	}
 
+	/**
+	 * <p>Setter for the field <code>clientType</code>.</p>
+	 *
+	 * @param clientType a {@link iqq.im.bean.QQClientType} object.
+	 */
 	public void setClientType(QQClientType clientType) {
 		this.clientType = clientType;
 	}
 
+	/**
+	 * <p>Getter for the field <code>allow</code>.</p>
+	 *
+	 * @return a {@link iqq.im.bean.QQAllow} object.
+	 */
 	public QQAllow getAllow() {
 		return allow;
 	}
 
+	/**
+	 * <p>Setter for the field <code>allow</code>.</p>
+	 *
+	 * @param allow a {@link iqq.im.bean.QQAllow} object.
+	 */
 	public void setAllow(QQAllow allow) {
 		this.allow = allow;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "QQUser [qq=" + qq + ", uin=" + uin + ", nickname=" + nickname + ", status="
@@ -328,6 +631,8 @@ public abstract class QQUser implements Serializable {
 	}
 	
 	/**
+	 * <p>getQQ.</p>
+	 *
 	 * @return the qq
 	 */
 	public long getQQ() {
@@ -335,17 +640,21 @@ public abstract class QQUser implements Serializable {
 	}
 
 	/**
+	 * <p>setQQ.</p>
+	 *
 	 * @param qq the qq to set
 	 */
 	public void setQQ(long qq) {
 		this.qq = qq;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		return (int) this.getUin();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -364,6 +673,12 @@ public abstract class QQUser implements Serializable {
 		return false;
 	}
 	
+	/**
+	 * <p>parseFromJson.</p>
+	 *
+	 * @param json a {@link org.json.JSONObject} object.
+	 * @throws org.json.JSONException if any.
+	 */
 	public void parseFromJson(JSONObject json) throws JSONException{
 		this.setOccupation(json.optString("occupation"));
 		this.setPhone(json.optString("phone"));

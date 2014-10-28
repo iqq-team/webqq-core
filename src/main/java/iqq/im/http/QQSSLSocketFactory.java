@@ -21,10 +21,16 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.params.HttpConnectionParams;
 
+/**
+ * <p>QQSSLSocketFactory class.</p>
+ */
 public class QQSSLSocketFactory {
 	static {
 		System.out.println(">>>>in MySSLSocketFactory>>");
 	}
+	/**
+	 * <p>Constructor for QQSSLSocketFactory.</p>
+	 */
 	public QQSSLSocketFactory() {
 	}
 	
@@ -45,6 +51,11 @@ public class QQSSLSocketFactory {
 		return sslcontext;
 	}
 
+	/**
+	 * <p>getSSLContext.</p>
+	 *
+	 * @return a {@link javax.net.ssl.SSLContext} object.
+	 */
 	public SSLContext getSSLContext() {
 		if (this.sslcontext == null) {
 			this.sslcontext = createSSLContext();
@@ -52,23 +63,67 @@ public class QQSSLSocketFactory {
 		return this.sslcontext;
 	}
 
+	/**
+	 * <p>createSocket.</p>
+	 *
+	 * @param socket a {@link java.net.Socket} object.
+	 * @param host a {@link java.lang.String} object.
+	 * @param port a int.
+	 * @param autoClose a boolean.
+	 * @throws java.io.IOException if any.
+	 * @throws java.net.UnknownHostException if any.
+	 * @return a {@link java.net.Socket} object.
+	 */
 	public Socket createSocket(Socket socket, String host, int port,
 			boolean autoClose) throws IOException, UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(socket, host,
 				port, autoClose);
 	}
 
+	/**
+	 * <p>createSocket.</p>
+	 *
+	 * @param host a {@link java.lang.String} object.
+	 * @param port a int.
+	 * @throws java.io.IOException if any.
+	 * @throws java.net.UnknownHostException if any.
+	 * @return a {@link java.net.Socket} object.
+	 */
 	public Socket createSocket(String host, int port) throws IOException,
 			UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(host, port);
 	}
 
+	/**
+	 * <p>createSocket.</p>
+	 *
+	 * @param host a {@link java.lang.String} object.
+	 * @param port a int.
+	 * @param clientHost a {@link java.net.InetAddress} object.
+	 * @param clientPort a int.
+	 * @throws java.io.IOException if any.
+	 * @throws java.net.UnknownHostException if any.
+	 * @return a {@link java.net.Socket} object.
+	 */
 	public Socket createSocket(String host, int port, InetAddress clientHost,
 			int clientPort) throws IOException, UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(host, port,
 				clientHost, clientPort);
 	}
 
+	/**
+	 * <p>createSocket.</p>
+	 *
+	 * @param host a {@link java.lang.String} object.
+	 * @param port a int.
+	 * @param localAddress a {@link java.net.InetAddress} object.
+	 * @param localPort a int.
+	 * @param params a {@link org.apache.http.params.HttpConnectionParams} object.
+	 * @throws java.io.IOException if any.
+	 * @throws java.net.UnknownHostException if any.
+	 * @throws org.apache.http.conn.ConnectTimeoutException if any.
+	 * @return a {@link java.net.Socket} object.
+	 */
 	public Socket createSocket(String host, int port, InetAddress localAddress,
 			int localPort, HttpConnectionParams params) throws IOException,
 			UnknownHostException, ConnectTimeoutException {

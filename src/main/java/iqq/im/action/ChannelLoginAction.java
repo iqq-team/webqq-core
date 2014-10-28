@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
- /**
+/**
  * Project  : WebQQCoreAsync
  * Package  : iqq.im.action
  * File     : LoginAction.java
  * Author   : solosky < solosky772@qq.com >
  * Created  : 2012-9-2
- * License  : Apache License 2.0 
+ * License  : Apache License 2.0
  */
 package iqq.im.action;
 
@@ -43,21 +43,22 @@ import java.util.Random;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-/**
- *
- *
- * @author solosky <solosky772@qq.com>
- *
- */
 public class ChannelLoginAction extends AbstractHttpAction {
 	private QQStatus status;
 
+	/**
+	 * <p>Constructor for ChannelLoginAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param status a {@link iqq.im.bean.QQStatus} object.
+	 */
 	public ChannelLoginAction(QQContext context, QQActionListener listener, QQStatus status) {
 		super(context, listener);
 		this.status = status;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
@@ -83,6 +84,7 @@ public class ChannelLoginAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
 		//{"retcode":0,"result":{"uin":236557647,"cip":1991953329,"index":1075,"port":51494,"status":"online","vfwebqq":"41778677efd86bae2ed575eea02349046a36f3f53298a34b97d75297ec1e67f6ee5226429daa6aa7","psessionid":"8368046764001d636f6e6e7365727665725f77656271714031302e3133332e342e31373200005b9200000549016e04004f95190e6d0000000a4052347371696a62724f6d0000002841778677efd86bae2ed575eea02349046a36f3f53298a34b97d75297ec1e67f6ee5226429daa6aa7","user_state":0,"f":0}}

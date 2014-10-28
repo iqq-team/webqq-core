@@ -34,18 +34,22 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
- /**
+/**
  *
  * 使用这个类简化事件的注册，分发
  * 只需在被代理的类使用@IMEventHandler注解需要处理的事件类型即可
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class QQNotifyHandlerProxy implements QQNotifyListener{
 	private static final Logger LOG = LoggerFactory.getLogger(QQNotifyHandlerProxy.class);
 	private Object proxyObject;
 	private Map<QQNotifyEvent.Type, Method> methodMap;
+	/**
+	 * <p>Constructor for QQNotifyHandlerProxy.</p>
+	 *
+	 * @param proxyObject a {@link java.lang.Object} object.
+	 */
 	public QQNotifyHandlerProxy(Object proxyObject){
 		this.proxyObject = proxyObject;
 		this.methodMap = new HashMap<QQNotifyEvent.Type, Method>();
@@ -60,6 +64,7 @@ public class QQNotifyHandlerProxy implements QQNotifyListener{
 		 }
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public void onNotifyEvent(QQNotifyEvent event) {
 		Method m =  methodMap.get(event.getType());

@@ -31,16 +31,16 @@ import java.net.URLEncoder;
 
 /**
  * 字符串工具类
- * 
- * @author solosky <solosky772@qq.com>
  *
+ * @author solosky
  */
 public class StringHelper {
 
 	/**
 	 * 转义HTML中特殊的字符
-	 * @param html
-	 * @return
+	 *
+	 * @param html HTML 内容
+	 * @return 结果字符串
 	 */
 	public static String qouteHtmlSpecialChars(String html)
 	{
@@ -55,8 +55,9 @@ public class StringHelper {
 	
 	/**
 	 * 反转义HTML中特殊的字符
-	 * @param html
-	 * @return
+	 *
+	 * @param html HTML 内容
+	 * @return 结果字符串
 	 */
 	public static String unqouteHtmlSpecialChars(String html)
 	{
@@ -72,8 +73,9 @@ public class StringHelper {
 	
 	/**
 	 * 去掉HTML标签
-	 * @param html
-	 * @return
+	 *
+	 * @param html HTML 内容
+	 * @return 去除HTML标签后的结果
 	 */
 	public static String stripHtmlSpecialChars(String html)
 	{
@@ -87,11 +89,16 @@ public class StringHelper {
 	
 	/**
 	 * 以一种简单的方式格式化字符串
-	 * 如  String s = StringHelper.format("{0} is {1}", "apple", "fruit");
-	 * System.out.println(s);	//输出  apple is fruit.
-	 * @param pattern
-	 * @param args
-	 * @return
+	 * 如
+	 * <pre>
+	 * String s = StringHelper.format("{0} is {1}", "apple", "fruit");
+	 * System.out.println(s);
+	 * //输出  apple is fruit.
+	 * </pre>
+	 *
+	 * @param pattern 需要进行格式化的字符串
+	 * @param args 用于格式化的参数
+	 * @return 结果字符串
 	 */
 	public static String format(String pattern, Object ...args)
 	{
@@ -103,8 +110,9 @@ public class StringHelper {
 	
 	/**
 	 * 编码URL
-	 * @param url
-	 * @return
+	 *
+	 * @param url 需要进行编码的URL
+	 * @return 编码后的URL
 	 */
 	public static String urlEncode(String url)
 	{

@@ -44,15 +44,22 @@ import org.json.JSONObject;
  *
  * 震动聊天窗口
  *
- * @author solosky <solosky772@qq.com>
- *
+ * @author solosky
  */
 public class ShakeWindowAction extends AbstractHttpAction{
 	private QQUser user;
+	/**
+	 * <p>Constructor for ShakeWindowAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 * @param user a {@link iqq.im.bean.QQUser} object.
+	 */
 	public ShakeWindowAction(QQContext context, QQActionListener listener, QQUser user) {
 		super(context, listener);
 		this.user = user;
 	}
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -67,6 +74,7 @@ public class ShakeWindowAction extends AbstractHttpAction{
 	}
 	
 	
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

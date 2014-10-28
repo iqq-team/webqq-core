@@ -15,16 +15,23 @@ import org.json.JSONObject;
 
 /**
  * 获取群图片 key and sig
- * 
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-23
+ * @since 2013-2-23
  */
 public class GetCustomFaceSigAction extends AbstractHttpAction {
 
+	/**
+	 * <p>Constructor for GetCustomFaceSigAction.</p>
+	 *
+	 * @param context a {@link iqq.im.core.QQContext} object.
+	 * @param listener a {@link iqq.im.QQActionListener} object.
+	 */
 	public GetCustomFaceSigAction(QQContext context, QQActionListener listener) {
 		super(context, listener);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
@@ -39,6 +46,7 @@ public class GetCustomFaceSigAction extends AbstractHttpAction {
 		return req;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {

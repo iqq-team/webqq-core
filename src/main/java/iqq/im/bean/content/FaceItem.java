@@ -10,8 +10,9 @@ import org.json.JSONException;
 
 /**
  * 表情
+ *
  * @author ChenZhiHui
- * @create-time 2013-2-25
+ * @since 2013-2-25
  */
 public class FaceItem implements ContentItem, Serializable {
 	private static final long serialVersionUID = 3700557436009352505L;
@@ -20,18 +21,34 @@ public class FaceItem implements ContentItem, Serializable {
 	 */
 	private int id;
 	
+	/**
+	 * <p>Constructor for FaceItem.</p>
+	 */
 	public FaceItem() {
 	}
 
+	/**
+	 * <p>Constructor for FaceItem.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 * @throws iqq.im.QQException if any.
+	 */
 	public FaceItem(String text) throws QQException {
 		fromJson(text);
 	}
 	
+	/**
+	 * <p>Constructor for FaceItem.</p>
+	 *
+	 * @param id a int.
+	 */
 	public FaceItem(int id){
 		this.id = id;
 	}
 	
 	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
 	 * @return the id
 	 */
 	public int getId() {
@@ -39,6 +56,8 @@ public class FaceItem implements ContentItem, Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
@@ -48,12 +67,14 @@ public class FaceItem implements ContentItem, Serializable {
 	/* (non-Javadoc)
 	 * @see iqq.im.bean.content.ContentItem#getType()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public Type getType() {
 		// TODO Auto-generated method stub
 		return Type.FACE;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public Object toJson() throws QQException {
 		JSONArray json = new JSONArray();
@@ -62,6 +83,7 @@ public class FaceItem implements ContentItem, Serializable {
 		return json;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void fromJson(String text) throws QQException {
 		try {
