@@ -31,8 +31,11 @@ import iqq.im.QQException.QQErrorCode;
 import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
 import iqq.im.event.QQActionEvent;
+import iqq.im.http.QQHttpCookie;
+import iqq.im.core.QQService;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
+import iqq.im.service.HttpService;
 import iqq.im.util.QQEncryptor;
 
 import java.util.regex.Matcher;
@@ -104,7 +107,7 @@ public class WebLoginAction extends AbstractHttpAction {
 		//尝试登录，准备传递的参数值
 		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_UI_LOGIN);
 		req.addGetValue("u", username);
-		req.addGetValue("p", QQEncryptor.encrypt(uin, password, verifyCode));
+		req.addGetValue("p", QQEncryptor.encrypt2(uin, password, verifyCode));
 		req.addGetValue("verifycode", verifyCode);
 		req.addGetValue("webqq_type", "10");
 		req.addGetValue("remember_uin","1");
@@ -119,13 +122,27 @@ public class WebLoginAction extends AbstractHttpAction {
 		req.addGetValue("pttype", "1");
 		req.addGetValue("dumy", "");
 		req.addGetValue("fp", "loginerroralert");
-		req.addGetValue("action", "4-28-1632882");
+		req.addGetValue("action", "2-12-26161");
 		req.addGetValue("mibao_css", "m_webqq");
 		req.addGetValue("t", "1");
 		req.addGetValue("g", "1");
 		req.addGetValue("js_type", "0");
-		req.addGetValue("js_ver", "10038");
+		req.addGetValue("js_ver", QQConstants.JSVER);
 		req.addGetValue("login_sig", getContext().getSession().getLoginSig());
+		
+		//2015-03-02 登录协议增加的参数
+		req.addGetValue("pt_uistyle", "5");
+		req.addGetValue("pt_randsalt", "0");
+		req.addGetValue("pt_vcode_v1", "0");
+		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
+		QQHttpCookie ptvfsession = httpService.getCookie("ptvfsession", QQConstants.URL_CHECK_VERIFY);
+		if(ptvfsession == null){//验证session在获取验证码阶段得到的。
+			ptvfsession = httpService.getCookie("verifysession", QQConstants.URL_CHECK_VERIFY);
+		}
+		if(ptvfsession != null)
+		{
+			 req.addGetValue("pt_verifysession_v1", ptvfsession.getValue());
+		}
 
 		req.addHeader("Referer", QQConstants.REFFER);
 		return req;

@@ -25,12 +25,16 @@
  */
 package iqq.im.util;
 
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 /**
  * QQ加密解码
@@ -116,6 +120,21 @@ public class QQEncryptor {
 		String code = byte2HexString(md5(data));
 		data = md5((code + verify.toUpperCase()).getBytes());
 		return byte2HexString(data);
+	}
+	
+	public static String encrypt2(long uin, String plain, String verify) {
+		String s = "";
+		try {
+			ScriptEngineManager mgr = new ScriptEngineManager();
+			ScriptEngine engine = mgr
+					.getEngineByMimeType("application/javascript");
+			engine.eval(IOUtils.toString(QQEncryptor.class.getResourceAsStream("mq_comm.js")));
+			Invocable inv = (Invocable) engine;
+			String byte2HexString = byte2HexString(long2bytes(uin));
+			s = (String) inv.invokeFunction("getPassword", plain, byte2HexString.toLowerCase(), verify);
+		} catch (Exception e) {
+		}
+		return s;
 	}
 
 	private static byte[] concat(byte[] bytes1, byte[] bytes2) {

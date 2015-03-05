@@ -33,12 +33,14 @@ package iqq.im.core;
 public interface QQConstants {
 	/** Constant <code>APPID="1003903"</code> */
 	public static final String APPID = "1003903";
+	/** Constant <code>JSVER="10114"</code> */
+	public static final String JSVER = "10114";
 	/** Constant <code>REFFER="http://d.web2.qq.com/proxy.html?v=20110"{trunked}</code> */
-	public static final String REFFER = "http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3";
+	public static final String REFFER = "http://d.web2.qq.com/proxy.html?v=20140612002&callback=1&id=3";
 	/** Constant <code>USER_AGENT="IQQ Client/0.1 dev"</code> */
-	public static final String USER_AGENT = "IQQ Client/0.1 dev";
+	public static final String USER_AGENT = "IQQ Client/1.2 dev";
 	/** Constant <code>URL_CHECK_VERIFY="https://ssl.ptlogin2.qq.com/check?uin={"{trunked}</code> */
-	public static final String URL_CHECK_VERIFY = "https://ssl.ptlogin2.qq.com/check?uin={0}&appid=1003903&js_ver=10038&js_type=0&login_sig={1}&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&r={2}";
+	public static final String URL_CHECK_VERIFY = "https://ssl.ptlogin2.qq.com/check?pt_tea=1&uin={0}&appid="+APPID+"&js_ver=10114&js_type=0&login_sig={1}&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&r={2}";
 	/** Constant <code>URL_GET_CAPTCHA="http://captcha.qq.com/getimage"</code> */
 	public static final String URL_GET_CAPTCHA = "http://captcha.qq.com/getimage";
 	/** Constant <code>REGXP_CHECK_VERIFY="ptui_checkVC\\('(.*?)','(.*?)','(.*?)'("{trunked}</code> */
@@ -124,7 +126,7 @@ public interface QQConstants {
 	/** Constant <code>URL_ADD_ANSWER_AND_ADD="http://s.web2.qq.com/api/answer_and_add"{trunked}</code> */
 	public static final String URL_ADD_ANSWER_AND_ADD = "http://s.web2.qq.com/api/answer_and_add2";
 	/** Constant <code>URL_LOGIN_PAGE="https://ui.ptlogin2.qq.com/cgi-bin/logi"{trunked}</code> */
-	public static final String URL_LOGIN_PAGE = "https://ui.ptlogin2.qq.com/cgi-bin/login?daid=164&target=self&style=5&mibao_css=m_webqq&appid=1003903&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&f_url=loginerroralert&strong_login=1&login_state=10&t=20130723001";
+	public static final String URL_LOGIN_PAGE = "https://ui.ptlogin2.qq.com/cgi-bin/login?daid=164&target=self&style=5&mibao_css=m_webqq&appid="+APPID+"&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&f_url=loginerroralert&strong_login=1&login_state=10&t=20140612002";
 	/** Constant <code>URL_SEARCH_GROUP_INFO="http://cgi.web2.qq.com/keycgi/qqweb/gro"{trunked}</code> */
 	public static final String URL_SEARCH_GROUP_INFO = "http://cgi.web2.qq.com/keycgi/qqweb/group/search.do";
 	/** Constant <code>REGXP_LOGIN_SIG="var g_login_sig=encodeURIComponent\\(\""{trunked}</code> */
@@ -150,4 +152,5 @@ public interface QQConstants {
 	public static final int MAX_RETRY_TIMES = 5;
 	/** Constant <code>HTTP_TIME_OUT=80000</code> */
 	public static final int HTTP_TIME_OUT = 80000;
+	
 }
