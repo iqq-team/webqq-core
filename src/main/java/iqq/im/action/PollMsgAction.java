@@ -369,18 +369,22 @@ public class PollMsgAction extends AbstractHttpAction {
 		} else {
 			if (serviceType == 0) { // 是群成员
 				QQGroup group = store.getGroupByCode(typeId);
-				for (QQUser u : group.getMembers()) {
-					if (u.getUin() == fromUin) {
-						user = u;
-						break;
+				if(group != null){	//如果刚加入一个新群，就有人发临时消息给你，由于还没有刷新账号的群列表，这里会找不到这个新群。
+					for (QQUser u : group.getMembers()) {
+						if (u.getUin() == fromUin) {
+							user = u;
+							break;
+						}
 					}
 				}
 			} else if (serviceType == 1) { // 是讨论组成员
 				QQDiscuz discuz = store.getDiscuzByDid(typeId);
-				for (QQUser u : discuz.getMembers()) {
-					if (u.getUin() == fromUin) {
-						user = u;
-						break;
+				if(discuz != null){
+					for (QQUser u : discuz.getMembers()) {
+						if (u.getUin() == fromUin) {
+							user = u;
+							break;
+						}
 					}
 				}
 			} else {
