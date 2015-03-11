@@ -392,6 +392,7 @@ public class PollMsgAction extends AbstractHttpAction {
                 QQGroup group = store.getGroupByCode(typeId);
                 if (group == null) {
                     group = new QQGroup();
+                    group.setCode(typeId);
                     // 获取群信息
                     GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
                     groupModule.getGroupInfo(group, null);
