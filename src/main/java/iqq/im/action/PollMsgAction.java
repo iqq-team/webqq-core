@@ -48,7 +48,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import iqq.im.module.DiscuzModule;
 import iqq.im.module.GroupModule;
+import iqq.im.module.UserModule;
 import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -245,6 +247,10 @@ public class PollMsgAction extends AbstractHttpAction {
                 member = new QQHalfStranger();
                 member.setUin(fromUin);
                 store.addStranger((QQStranger) member);
+
+                // 获取用户信息
+                UserModule userModule = getContext().getModule(QQModule.Type.USER);
+                userModule.getUserInfo(member, null);
             }
             msg.setFrom(member);
         }
@@ -279,6 +285,8 @@ public class PollMsgAction extends AbstractHttpAction {
             group = new QQGroup();
             group.setCode(groupCode);
             group.setGid(groupID);
+            // put to store
+            store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
         if (group.getGid() <= 0) {
@@ -295,9 +303,11 @@ public class PollMsgAction extends AbstractHttpAction {
             QQGroupMember member = new QQGroupMember();
             member.setUin(fromUin);
             msg.setFrom(member);
-            if (group != null) {
-                group.getMembers().add(member);
-            }
+            group.getMembers().add(member);
+
+            // 获取用户信息
+            UserModule userModule = getContext().getModule(QQModule.Type.USER);
+            userModule.getStrangerInfo(member, null);
         }
 
         return new QQNotifyEvent(QQNotifyEvent.Type.CHAT_MSG, msg);
@@ -325,17 +335,25 @@ public class PollMsgAction extends AbstractHttpAction {
         msg.setTo(getContext().getAccount());
         msg.setDate(new Date(pollData.getLong("time") * 1000));
 
-        if (msg.getDiscuz() != null) {
-            msg.setFrom(msg.getDiscuz().getMemberByUin(fromUin));
+        if (msg.getDiscuz() == null) {
+            QQDiscuz discuz = new QQDiscuz();
+            discuz.setDid(did);
+            store.addDiscuz(discuz);
+
+            DiscuzModule discuzModule = getContext().getModule(QQModule.Type.DISCUZ);
+            discuzModule.getDiscuzInfo(discuz, null);
         }
+        msg.setFrom(msg.getDiscuz().getMemberByUin(fromUin));
 
         if (msg.getFrom() == null) {
             QQDiscuzMember member = new QQDiscuzMember();
             member.setUin(fromUin);
             msg.setFrom(member);
-            if (msg.getDiscuz() != null) {
-                msg.getDiscuz().getMembers().add(member);
-            }
+            msg.getDiscuz().getMembers().add(member);
+
+            // 获取用户信息
+            UserModule userModule = getContext().getModule(QQModule.Type.USER);
+            userModule.getStrangerInfo(member, null);
         }
         return new QQNotifyEvent(QQNotifyEvent.Type.CHAT_MSG, msg);
     }
@@ -372,6 +390,12 @@ public class PollMsgAction extends AbstractHttpAction {
         } else {
             if (serviceType == 0) { // 是群成员
                 QQGroup group = store.getGroupByCode(typeId);
+                if (group == null) {
+                    group = new QQGroup();
+                    // 获取群信息
+                    GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
+                    groupModule.getGroupInfo(group, null);
+                }
                 for (QQUser u : group.getMembers()) {
                     if (u.getUin() == fromUin) {
                         user = u;
@@ -380,6 +404,14 @@ public class PollMsgAction extends AbstractHttpAction {
                 }
             } else if (serviceType == 1) { // 是讨论组成员
                 QQDiscuz discuz = store.getDiscuzByDid(typeId);
+                if (discuz == null) {
+                    discuz = new QQDiscuz();
+                    discuz.setDid(typeId);
+
+                    // 获取讨论组信息
+                    DiscuzModule discuzModule = getContext().getModule(QQModule.Type.DISCUZ);
+                    discuzModule.getDiscuzInfo(discuz, null);
+                }
                 for (QQUser u : discuz.getMembers()) {
                     if (u.getUin() == fromUin) {
                         user = u;
@@ -395,6 +427,10 @@ public class PollMsgAction extends AbstractHttpAction {
                 user.setUin(fromUin);
                 user.setNickname(pollData.getLong("ruin") + "");
                 store.addStranger((QQStranger) user);
+
+                // 获取用户信息
+                UserModule userModule = getContext().getModule(QQModule.Type.USER);
+                userModule.getStrangerInfo(user, null);
             }
         }
         user.setQQ(fromQQ); // 带上QQ号码
