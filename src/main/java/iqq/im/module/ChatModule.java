@@ -30,6 +30,7 @@ import java.io.OutputStream;
  * @since 2013-2-25
  */
 public class ChatModule extends AbstractModule {
+    
 	private QQActionFuture doSendMsg( QQMsg msg, QQActionListener listener) {
 		return pushHttpAction(new SendMsgAction(getContext(), listener, msg));
 	}
@@ -45,7 +46,7 @@ public class ChatModule extends AbstractModule {
 		if(msg.getType() == QQMsg.Type.SESSION_MSG) {
 			final ProcActionFuture future = new ProcActionFuture(listener, true);
 			QQStranger stranger = (QQStranger) msg.getTo();
-			if(stranger.getGroupSig() == null || stranger.getGroupSig().equals("")) {
+//			if(stranger.getGroupSig() == null || stranger.getGroupSig().equals("")) {
 				getSessionMsgSig(stranger, new QQActionListener() {
 					@Override
 					public void onActionEvent(QQActionEvent event) {
@@ -58,7 +59,7 @@ public class ChatModule extends AbstractModule {
 						}
 					}
 				});
-			}
+//			}
 			return future;
 		} else if(msg.getType() == QQMsg.Type.GROUP_MSG || msg.getType() == QQMsg.Type.DISCUZ_MSG) {
 			if(getContext().getSession().getCfaceKey() == null || getContext().getSession().getCfaceKey().equals("")) {
