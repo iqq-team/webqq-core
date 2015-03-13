@@ -232,6 +232,9 @@ public interface QQConstants {
      */
     public static final String REGXP_LOGIN_SIG = "var g_login_sig=encodeURIComponent\\(\"(.*?)\"\\);";
 
+    //好友添加请求
+  	public static final String URL_ACCEPET_BUDDY_ADD = "http://s.web2.qq.com/api/allow_and_add2";
+    
     // Email
     /**
      * Constant <code>URL_EMAIL_POLL="http://wp.mail.qq.com/poll"</code>

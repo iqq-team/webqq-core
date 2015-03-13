@@ -776,4 +776,14 @@ public class WebQQClient implements QQClient, QQContext {
 	public boolean isLogining() {
 		return getSession().getState() == QQSession.State.LOGINING;
 	}
+	
+	/**
+	 * 接受别人加你好友的请求
+	 */
+	@Override
+	public void acceptBuddyRequest(String qq, QQActionListener qqActionListener) {
+		// TODO Auto-generated method stub
+		BuddyModule mod = getModule(QQModule.Type.BUDDY);
+		mod.addBuddy(qqActionListener, qq);
+	}
 }
