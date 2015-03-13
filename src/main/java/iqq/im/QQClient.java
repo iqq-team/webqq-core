@@ -398,4 +398,11 @@ public interface QQClient {
 	 * @return a boolean.
 	 */
 	public boolean isLogining();
+	
+	/**
+	 * 接受别人加你为好友的请求
+	 * @param qq
+	 * @param qqActionListener
+	 */
+	public void acceptBuddyRequest(String qq, QQActionListener qqActionListener);
 }

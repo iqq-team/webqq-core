@@ -11,6 +11,9 @@ MANIFEST.MF
 .idea
 nb-configuration.xml
 *.versionsBackup
+.settings
+.project
+.classpath
 
 build/
 .gradle/
