@@ -25,7 +25,7 @@ public class ResourceUtils {
             if (in != null) in.close();
         }
         System.out.println("loadResourceFromServer url:" + url);
-        System.out.println(content);
+       // System.out.println(content);
         return content;
     }
 
