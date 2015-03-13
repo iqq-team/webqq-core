@@ -1,5 +1,5 @@
 window={};
-navigator={appName:"Mac OXS"};
+navigator={appName:"Mac OSX 10.10"};
 $ = window.$ || {};
 
     function hexchar2bin(str) {
@@ -1391,7 +1391,6 @@ $.RSA = function() {
 }();
 
 function getPassword(password, salt, vcode){
-// var s = $.Encryption.getEncryption(password, salt, vcode);
-var s = $.Encryption.getEncryption(password, hexchar2bin(salt), vcode);
-return s;
+    var s = $.Encryption.getEncryption(password, hexchar2bin(salt), vcode);
+    return s;
 }
