@@ -98,7 +98,7 @@ public interface QQConstants {
     /**
      * Constant <code>URL_GET_USER_FACE="http://face10.qun.qq.com/cgi/svr/face/g"{trunked}</code>
      */
-    public static final String URL_GET_USER_FACE = "http://face10.qun.qq.com/cgi/svr/face/getface";
+    public static final String URL_GET_USER_FACE = "http://face1.qun.qq.com/cgi/svr/face/getface";
     /**
      * Constant <code>URL_GET_GROUP_NAME_LIST="http://s.web2.qq.com/api/get_group_name"{trunked}</code>
      */
