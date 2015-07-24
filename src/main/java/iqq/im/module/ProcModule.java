@@ -135,6 +135,7 @@ public class ProcModule extends AbstractModule {
 					QQActionEventArgs.CheckVerifyArgs args = 
 						(QQActionEventArgs.CheckVerifyArgs) (event.getTarget());
 					account.setUin(args.uin);
+					getContext().getSession().setCapCd(args.code);
 					if (args.result == 0) {
 						doWebLogin(args.code, future);
 					} else {
