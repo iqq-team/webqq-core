@@ -270,4 +270,12 @@ public class QQSession {
 	public void setEmailAuthKey(String emailAuthKey) {
 		this.emailAuthKey = emailAuthKey;
 	}
+
+
+	/**
+	 * 20150724新增，该字段在获取验证码图片的时候获取，在提交验证码登录
+	 */
+	private String capCd;
+	public String getCapCd() {		return capCd;	}
+	public void setCapCd(String capCd) {		this.capCd = capCd;	}
 }

@@ -78,6 +78,9 @@ public class GetCaptchaImageAction extends AbstractHttpAction {
 		req.addGetValue("aid", QQConstants.APPID);
 		req.addGetValue("r", Math.random() + "");
 		req.addGetValue("uin", uin + "");
+
+		// 20150724增加
+		req.addGetValue("cap_cd", getContext().getSession().getCapCd());
 		return req;
 	}
 
