@@ -77,7 +77,7 @@ public class QRcodeLoginTest {
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-                                // 发现检查二维码状态
+                                // 继续检查二维码状态
                                 mClient.checkQRCode(this);
                                 break;
                         }
@@ -108,7 +108,7 @@ public class QRcodeLoginTest {
         sendMsg.setTo(user);                                // QQ好友UIN
         sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
         // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq.")); // 添加文本内容
+        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
         sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
         sendMsg.addContentItem(new FontItem());             // 使用默认字体
         mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
@@ -122,7 +122,7 @@ public class QRcodeLoginTest {
         sendMsg.setGroup(group);                                // QQ好友UIN
         sendMsg.setType(QQMsg.Type.GROUP_MSG);              // 发送类型为好友
         // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq.")); // 添加文本内容
+        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
         sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
         sendMsg.addContentItem(new FontItem());             // 使用默认字体
         mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
@@ -136,7 +136,7 @@ public class QRcodeLoginTest {
         sendMsg.setDiscuz(discuz);                                // QQ好友UIN
         sendMsg.setType(QQMsg.Type.DISCUZ_MSG);              // 发送类型为好友
         // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq.")); // 添加文本内容
+        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
         sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
         sendMsg.addContentItem(new FontItem());             // 使用默认字体
         mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
