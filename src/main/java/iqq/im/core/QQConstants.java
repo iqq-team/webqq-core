@@ -273,13 +273,15 @@ public interface QQConstants {
      * Constant <code>MAX_POLL_ERR_CNT=10</code>
      */
     public static final int MAX_POLL_ERR_CNT = 20;
+
     /**
      * Constant <code>MAX_RETRY_TIMES=10</code>
      */
     public static final int MAX_RETRY_TIMES = 10;
+
     /**
      * Constant <code>HTTP_TIME_OUT=80000</code>
      */
-    public static final int HTTP_TIME_OUT = 100000;
+    public static final int HTTP_TIME_OUT = 80000;
 
 }

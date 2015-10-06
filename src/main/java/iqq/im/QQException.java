@@ -177,6 +177,10 @@ public class QQException extends Exception {
          * 等待超时
          */
         WAIT_TIMEOUT,
+        /**
+         * 发送消息失败
+         */
+        SNED_MSG_ERROR
     }
 
 }

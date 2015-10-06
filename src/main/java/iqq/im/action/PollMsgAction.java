@@ -222,10 +222,22 @@ public class PollMsgAction extends AbstractHttpAction {
      */
     public QQNotifyEvent processBuddyStatusChange(JSONObject pollData)
             throws JSONException {
+        LOG.info(pollData + "");
+
         long uin = pollData.getLong("uin");
-        QQBuddy buddy = getContext().getStore().getBuddyByUin(uin);
         String status = pollData.getString("status");
         int clientType = pollData.getInt("client_type");
+        QQStore store = getContext().getStore();
+        QQBuddy buddy = store.getBuddyByUin(uin);
+        if (buddy == null) {
+            buddy = new QQBuddy();
+            buddy.setUin(uin);
+            store.addBuddy(buddy);
+
+            // 获取用户信息
+            UserModule userModule = getContext().getModule(QQModule.Type.USER);
+            userModule.getUserInfo(buddy, null);
+        }
         buddy.setStatus(QQStatus.valueOfRaw(status));
         buddy.setClientType(QQClientType.valueOfRaw(clientType));
         return new QQNotifyEvent(QQNotifyEvent.Type.BUDDY_STATUS_CHANGE, buddy);
@@ -349,6 +361,7 @@ public class PollMsgAction extends AbstractHttpAction {
         if (msg.getDiscuz() == null) {
             QQDiscuz discuz = new QQDiscuz();
             discuz.setDid(did);
+            msg.setDiscuz(discuz);
             store.addDiscuz(discuz);
 
             DiscuzModule discuzModule = getContext().getModule(QQModule.Type.DISCUZ);
