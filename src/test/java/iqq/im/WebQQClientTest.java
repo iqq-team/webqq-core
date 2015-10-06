@@ -21,7 +21,7 @@
  * File     : WebQQClientTest.java
  * Author   : solosky < solosky772@qq.com >
  * Created  : 2012-9-6
- * License  : Apache License 2.0 
+ * License  : Apache License 2.0
  */
 package iqq.im;
 
@@ -68,7 +68,7 @@ public class WebQQClientTest {
      * 程序入口
      */
     public static void main(String[] args) {
-        WebQQClientTest test = new WebQQClientTest("620831700", "password");
+        WebQQClientTest test = new WebQQClientTest("917362009", "");
         test.login();
     }
 

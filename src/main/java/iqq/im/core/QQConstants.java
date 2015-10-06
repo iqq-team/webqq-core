@@ -21,7 +21,7 @@
  * File     : QQConstants.java
  * Author   : solosky < solosky772@qq.com >
  * Created  : 2012-9-1
- * License  : Apache License 2.0 
+ * License  : Apache License 2.0
  */
 package iqq.im.core;
 
@@ -55,6 +55,14 @@ public interface QQConstants {
      * Constant <code>URL_GET_CAPTCHA="http://captcha.qq.com/getimage"</code>
      */
     public static final String URL_GET_CAPTCHA = "http://captcha.qq.com/getimage";
+    /**
+     * Constant <code>URL_GET_QRCODE="https://ssl.ptlogin2.qq.com/ptqrshow"</code>
+     */
+    public static final String URL_GET_QRCODE = "https://ssl.ptlogin2.qq.com/ptqrshow";
+    /**
+     * Constant <code>URL_CHECK_QRCODE="https://ssl.ptlogin2.qq.com/ptqrlogin"</code>
+     */
+    public static final String URL_CHECK_QRCODE = "https://ssl.ptlogin2.qq.com/ptqrlogin";
     /**
      * Constant <code>REGXP_CHECK_VERIFY="ptui_checkVC\\('(.*?)','(.*?)','(.*?)'("{trunked}</code>
      */
@@ -233,8 +241,8 @@ public interface QQConstants {
     public static final String REGXP_LOGIN_SIG = "var g_login_sig=encodeURIComponent\\(\"(.*?)\"\\);";
 
     //好友添加请求
-  	public static final String URL_ACCEPET_BUDDY_ADD = "http://s.web2.qq.com/api/allow_and_add2";
-    
+    public static final String URL_ACCEPET_BUDDY_ADD = "http://s.web2.qq.com/api/allow_and_add2";
+
     // Email
     /**
      * Constant <code>URL_EMAIL_POLL="http://wp.mail.qq.com/poll"</code>

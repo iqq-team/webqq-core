@@ -157,7 +157,7 @@ public class WebLoginAction extends AbstractHttpAction {
 	     if(mc.find()){
 	    	int ret = Integer.parseInt(mc.group(1));
 	    	switch(ret){
-		    	case 0: notifyActionEvent(QQActionEvent.Type.EVT_OK, mc.group(3)); break;	
+		    	case 0: notifyActionEvent(QQActionEvent.Type.EVT_OK, mc.group(3)); break;
 		    	case 3: throw new QQException(QQErrorCode.WRONG_PASSWORD, mc.group(5));
 		    	case 4: throw new QQException(QQErrorCode.WRONG_CAPTCHA, mc.group(5));
 		    	case 7: throw new QQException(QQErrorCode.IO_ERROR, mc.group(5));

@@ -42,5 +42,5 @@ public interface QQActionListener {
 	 *
 	 * @param event a {@link iqq.im.event.QQActionEvent} object.
 	 */
-	public void onActionEvent(QQActionEvent event); 
+	public void onActionEvent(QQActionEvent event);
 }
