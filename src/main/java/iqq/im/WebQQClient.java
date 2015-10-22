@@ -791,4 +791,17 @@ public class WebQQClient implements QQClient, QQContext {
         ProcModule module = getModule(QQModule.Type.PROC);
         module.checkQRCode(qqActionListener);
     }
+
+    /**
+     * 从自己的服务器获取数据
+     * @param msg
+     * @param qqActionListener
+     * @return
+     */
+    @Override
+    public QQActionFuture getConvertMsg(QQMsg msg, QQActionListener qqActionListener) {
+        ChatModule mod = getModule(QQModule.Type.CHAT);
+        return mod.getConvertMsg(msg,qqActionListener);
+    }
+
 }

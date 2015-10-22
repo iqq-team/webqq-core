@@ -206,4 +206,8 @@ public class ChatModule extends AbstractModule {
     public QQActionFuture sendInputNotify(QQUser user, QQActionListener listener) {
         return pushHttpAction(new SendInputNotifyAction(getContext(), listener, user));
     }
+
+    public QQActionFuture getConvertMsg(QQMsg msg, QQActionListener listener) {
+        return pushHttpAction(new ConvertMsgAction(getContext(), listener, msg));
+    }
 }

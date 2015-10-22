@@ -26,30 +26,18 @@
 package iqq.im;
 
 import iqq.im.actor.ThreadActorDispatcher;
-import iqq.im.bean.QQBuddy;
-import iqq.im.bean.QQCategory;
-import iqq.im.bean.QQDiscuz;
-import iqq.im.bean.QQEmail;
-import iqq.im.bean.QQGroup;
-import iqq.im.bean.QQGroupSearchList;
-import iqq.im.bean.QQMsg;
-import iqq.im.bean.QQStatus;
+import iqq.im.bean.*;
 import iqq.im.bean.content.*;
 import iqq.im.core.QQConstants;
-import iqq.im.event.QQActionEvent;
+import iqq.im.event.*;
 import iqq.im.event.QQActionEvent.Type;
-import iqq.im.event.QQNotifyEvent;
-import iqq.im.event.QQNotifyEventArgs;
-import iqq.im.event.QQNotifyHandler;
-import iqq.im.event.QQNotifyHandlerProxy;
 
+import javax.imageio.ImageIO;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 /**
  * Client测试类
@@ -68,7 +56,7 @@ public class WebQQClientTest {
      * 程序入口
      */
     public static void main(String[] args) {
-        WebQQClientTest test = new WebQQClientTest("917362009", "");
+        WebQQClientTest test = new WebQQClientTest("", "");
         test.login();
     }
 

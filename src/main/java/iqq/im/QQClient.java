@@ -450,4 +450,12 @@ public interface QQClient {
      * @param qqActionListener
      */
     public void acceptBuddyRequest(String qq, QQActionListener qqActionListener);
+
+    /**
+     *
+     * @param msg
+     * @param qqActionListener
+     * @return
+     */
+    public QQActionFuture getConvertMsg(QQMsg msg, QQActionListener qqActionListener);
 }

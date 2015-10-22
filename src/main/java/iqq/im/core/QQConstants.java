@@ -284,4 +284,6 @@ public interface QQConstants {
      */
     public static final int HTTP_TIME_OUT = 80000;
 
+    public static final String URL_CONVERT_MSG = "http://www.weather.com.cn/adat/cityinfo/101010100.html";
+
 }

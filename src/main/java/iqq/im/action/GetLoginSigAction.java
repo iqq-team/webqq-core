@@ -34,13 +34,12 @@ import iqq.im.core.QQSession;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
+import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.slf4j.Logger;
-import org.json.JSONException;
-import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -67,6 +66,7 @@ public class GetLoginSigAction extends AbstractHttpAction {
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
 		Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN_SIG);
+		System.out.println(response.getResponseString());
 		Matcher mc = pt.matcher(response.getResponseString());
 		if(mc.find()){
 			QQSession session = getContext().getSession();

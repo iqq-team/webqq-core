@@ -8,8 +8,12 @@ import iqq.im.bean.QQUser;
 import iqq.im.bean.content.FaceItem;
 import iqq.im.bean.content.FontItem;
 import iqq.im.bean.content.TextItem;
+import iqq.im.core.QQConstants;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQNotifyEvent;
+import iqq.im.http.XabHttpRequest;
+import iqq.im.http.XabHttpResult;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -62,6 +66,7 @@ public class QRcodeLoginTest {
                 switch (event.getType()) {
                     case EVT_OK:
                         // 扫描通过,登录成功
+                        System.out.println(mClient.getAccount());
                         mClient.beginPollMsg();
                         break;
                     case EVT_ERROR:
@@ -90,7 +95,7 @@ public class QRcodeLoginTest {
     private static void revMsg(QQMsg revMsg) {
         switch (revMsg.getType()) {
             case BUDDY_MSG:
-                sendMsg(revMsg.getFrom());
+                sendMsg(revMsg.getFrom(), revMsg);
                 break;
             case GROUP_MSG:
                 sendMsg(revMsg.getGroup());
@@ -100,18 +105,44 @@ public class QRcodeLoginTest {
         }
     }
 
-    public static void sendMsg(QQUser user) {
+    public static void sendMsg(QQUser user, QQMsg revMsg) {
         System.out.println("sendMsg " + user);
-
+        if (StringUtils.contains(revMsg.getText(), "安全退出")) {
+            mClient.logout(null);
+            return;
+        }
         // 组装QQ消息发送回去
         QQMsg sendMsg = new QQMsg();
         sendMsg.setTo(user);                                // QQ好友UIN
         sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
         // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
+//        sendMsg.addContentItem(new TextItem("不要和我说话，正在调试")); // 添加文本内容
+
+        XabHttpResult result = XabHttpRequest.getInstance().Get(QQConstants.URL_CONVERT_MSG);
+        sendMsg.addContentItem(new TextItem(result.getEOS()));
         sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
         sendMsg.addContentItem(new FontItem());             // 使用默认字体
-        mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
+        mClient.sendMsg(sendMsg, null);
+
+
+//        mClient.getConvertMsg(sendMsg, new ConvertMsgListener(sendMsg));
+    }
+
+    static class ConvertMsgListener implements QQActionListener {
+        QQMsg sendMsg;
+
+        public ConvertMsgListener(QQMsg sendMsg) {
+            this.sendMsg = sendMsg;
+        }
+
+        @Override
+        public void onActionEvent(QQActionEvent event) {
+            if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                System.out.println(event.getTarget());
+                sendMsg.addContentItem(new TextItem(event.getTarget().toString()));
+                mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
+            }
+        }
     }
 
     public static void sendMsg(QQGroup group) {

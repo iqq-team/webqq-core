@@ -27,25 +27,19 @@ package iqq.im;
 
 import iqq.im.QQException.QQErrorCode;
 import iqq.im.actor.ThreadActorDispatcher;
-import iqq.im.bean.QQBuddy;
-import iqq.im.bean.QQGroup;
-import iqq.im.bean.QQGroupMember;
 import iqq.im.bean.QQMsg;
 import iqq.im.bean.QQStatus;
-import iqq.im.core.QQModule;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQActionEvent.Type;
 import iqq.im.event.QQActionFuture;
 import iqq.im.event.QQNotifyEvent;
 import iqq.im.event.QQNotifyEventArgs;
-import iqq.im.module.ChatModule;
 
+import javax.imageio.ImageIO;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import javax.imageio.ImageIO;
 
 /**
  * 使用同步登录
@@ -64,7 +58,7 @@ public class SyncWebQQClientTest {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws QQException, IOException {
-		client = new WebQQClient("1070772010","xu1234", new QQNotifyListener() {
+		client = new WebQQClient("","", new QQNotifyListener() {
 			public void onNotifyEvent(QQNotifyEvent event) {
 				System.out.println("QQNotifyEvent: " + event.getType() +", " + event.getTarget());
 				if(event.getType() ==  QQNotifyEvent.Type.CHAT_MSG){
