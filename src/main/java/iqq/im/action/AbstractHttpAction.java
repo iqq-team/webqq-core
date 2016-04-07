@@ -38,15 +38,14 @@ import iqq.im.event.QQActionFuture;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 import iqq.im.service.HttpService;
+import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
-
-import org.json.JSONException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 public abstract class AbstractHttpAction implements HttpAction{
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractHttpAction.class);
 	private QQContext context;
@@ -72,13 +71,12 @@ public abstract class AbstractHttpAction implements HttpAction{
 	@Override
 	public void onHttpFinish(QQHttpResponse response) {
 		try {
-			LOG.debug(response.getContentType());
 			String type = response.getContentType();
 			if((type.startsWith("application/x-javascript")
 					|| type.startsWith("application/json")
 					|| type.indexOf("text") >= 0
 					) && response.getContentLength() > 0){
-				LOG.debug(response.getResponseString());
+//				LOG.debug(response.getResponseString());
 			}
 
 			if(response.getResponseCode() == QQHttpResponse.S_OK){
@@ -185,7 +183,7 @@ public abstract class AbstractHttpAction implements HttpAction{
 	 * @return a {@link iqq.im.http.QQHttpRequest} object.
 	 */
 	protected QQHttpRequest createHttpRequest(String method, String url){
-		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
+		HttpService httpService = getContext().getSerivce(QQService.Type.HTTP);
 		return httpService.createHttpRequest(method, url);
 	}
 

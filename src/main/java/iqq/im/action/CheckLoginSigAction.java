@@ -31,9 +31,8 @@ import iqq.im.core.QQContext;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
-
-import org.slf4j.Logger;
 import org.json.JSONException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -59,8 +58,6 @@ public class CheckLoginSigAction extends AbstractHttpAction{
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
-		LOG.info("checkSig result:" + response.getResponseString());
-		LOG.info("Location:" + response.getHeader("Location"));
 		notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
 	}
 	/** {@inheritDoc} */

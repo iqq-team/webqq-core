@@ -66,14 +66,18 @@ public class CheckQRCodeAction extends AbstractHttpAction {
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException {
         Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN);
         Matcher mc = pt.matcher(response.getResponseString());
-        LOG.info("WebLogin: " + response.getResponseString());
         if (mc.find()) {
             int ret = Integer.parseInt(mc.group(1));
-            switch(ret){
-                case 0: notifyActionEvent(QQActionEvent.Type.EVT_OK, mc.group(3)); break;
-                case 66: throw new QQException(QQException.QQErrorCode.QRCODE_OK, mc.group(5));
-                case 67: throw new QQException(QQException.QQErrorCode.QRCODE_AUTH, mc.group(5));
-                default: throw new QQException(QQException.QQErrorCode.INVALID_USER, mc.group(5));
+            switch (ret) {
+                case 0:
+                    notifyActionEvent(QQActionEvent.Type.EVT_OK, mc.group(3));
+                    break;
+                case 66:
+                    throw new QQException(QQException.QQErrorCode.QRCODE_OK, mc.group(5));
+                case 67:
+                    throw new QQException(QQException.QQErrorCode.QRCODE_AUTH, mc.group(5));
+                default:
+                    throw new QQException(QQException.QQErrorCode.INVALID_USER, mc.group(5));
             }
         } else {
             throw new QQException(QQException.QQErrorCode.UNEXPECTED_RESPONSE);

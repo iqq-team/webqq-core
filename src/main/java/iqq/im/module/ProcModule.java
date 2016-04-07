@@ -61,13 +61,29 @@ public class ProcModule extends AbstractModule {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    doCheckLoginSig((String) event.getTarget(), future);
+                    getVfwebqq((String) event.getTarget(), future);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(QQActionEvent.Type.EVT_ERROR, event.getTarget());
                 }
             }
         });
         return future;
+    }
+    private void getVfwebqq(final String checkSigUrl, final ProcActionFuture future) {
+        LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
+        login.getVfwebqq(new QQActionListener() {
+            @Override
+            public void onActionEvent(QQActionEvent event) {
+                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                    doCheckLoginSig(checkSigUrl, future);
+                } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                    future.notifyActionEvent(
+                            QQActionEvent.Type.EVT_ERROR,
+                            event.getTarget());
+                }
+
+            }
+        });
     }
 
     /**
@@ -199,7 +215,7 @@ public class ProcModule extends AbstractModule {
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(
                             QQActionEvent.Type.EVT_ERROR,
-                            (QQException) event.getTarget());
+                            event.getTarget());
                 }
 
             }
@@ -211,10 +227,11 @@ public class ProcModule extends AbstractModule {
         login.channelLogin(getContext().getAccount().getStatus(), new QQActionListener() {
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                    LOG.debug(event.toString());
                     future.notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(QQActionEvent.Type.EVT_ERROR,
-                            (QQException) event.getTarget());
+                            event.getTarget());
                 }
             }
         });
@@ -280,9 +297,9 @@ public class ProcModule extends AbstractModule {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                     List<QQNotifyEvent> events = (List<QQNotifyEvent>) event.getTarget();
                     for (QQNotifyEvent evt : events) {
+                        LOG.debug(evt.toString());
                         getContext().fireNotify(evt);
                     }
-
                     // 准备提交下次poll请求
                     QQSession session = getContext().getSession();
                     if (session.getState() == QQSession.State.ONLINE) {

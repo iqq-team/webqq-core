@@ -36,6 +36,7 @@ import iqq.im.http.QQHttpResponse;
 import iqq.im.module.DiscuzModule;
 import iqq.im.module.GroupModule;
 import iqq.im.module.UserModule;
+import iqq.im.service.HttpService;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,19 +76,20 @@ public class PollMsgAction extends AbstractHttpAction {
     @Override
     protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
         QQSession session = getContext().getSession();
+        HttpService httpService = getContext().getSerivce(QQService.Type.HTTP);
         JSONObject json = new JSONObject();
         json.put("clientid", session.getClientId());
         json.put("psessionid", session.getSessionId());
-        json.put("key", 0); // 暂时不知道什么用的
-        json.put("ids", new JSONArray()); // 同上
+        json.put("key", ""); // 暂时不知道什么用的
+        json.put("ptwebqq", httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN).getValue());
 
         QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_POLL_MSG);
         req.addPostValue("r", json.toString());
-        req.addPostValue("clientid", session.getClientId() + "");
-        req.addPostValue("psessionid", session.getSessionId());
         req.setReadTimeout(70 * 1000);
         req.setConnectTimeout(10 * 1000);
+
         req.addHeader("Referer", QQConstants.REFFER);
+        req.addHeader("Origin", QQConstants.Origin);
 
         return req;
     }
@@ -99,7 +101,7 @@ public class PollMsgAction extends AbstractHttpAction {
     public void onHttpFinish(QQHttpResponse response) {
         //如果返回的内容为空，认为这次pollMsg仍然成功
         if (response.getContentLength() == 0) {
-            LOG.debug("PollMsgAction: empty response!!!!");
+            System.out.println("空消息");
             notifyActionEvent(QQActionEvent.Type.EVT_OK, new ArrayList<QQNotifyEvent>());
         } else {
             super.onHttpFinish(response);
@@ -112,9 +114,11 @@ public class PollMsgAction extends AbstractHttpAction {
     @Override
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
             JSONException {
+        System.out.println("有消息");
         QQStore store = getContext().getStore();
         List<QQNotifyEvent> notifyEvents = new ArrayList<QQNotifyEvent>();
         JSONObject json = new JSONObject(response.getResponseString());
+        System.out.println(json.toString());
         int retcode = json.getInt("retcode");
         if (retcode == 0) {
             //有可能为  {"retcode":0,"result":"ok"}

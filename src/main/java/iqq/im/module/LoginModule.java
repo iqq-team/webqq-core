@@ -144,5 +144,8 @@ public class LoginModule extends AbstractModule {
     public QQActionFuture checkLoginSig(String checkUrl, QQActionListener listener) {
         return pushHttpAction(new CheckLoginSigAction(getContext(), listener, checkUrl));
     }
+    public QQActionFuture getVfwebqq(QQActionListener listener) {
+        return pushHttpAction(new GetVfwebqqAction(getContext(), listener));
+    }
 
 }

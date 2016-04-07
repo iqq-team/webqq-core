@@ -60,6 +60,7 @@ public interface HttpService extends QQService{
 	 * @return a {@link iqq.im.http.QQHttpCookie} object.
 	 */
 	public QQHttpCookie getCookie(String name, String url);
+	public String getCookie(String url);
 
 	/**
 	 *

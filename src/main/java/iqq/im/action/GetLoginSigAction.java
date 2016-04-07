@@ -65,9 +65,12 @@ public class GetLoginSigAction extends AbstractHttpAction {
 	@Override
 	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
 			JSONException {
+		LOG.info(response.getResponseMessage());
+		LOG.info(response.getResponseString());
 		Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN_SIG);
 		System.out.println(response.getResponseString());
 		Matcher mc = pt.matcher(response.getResponseString());
+		LOG.info("-----------------------------------");
 		if(mc.find()){
 			QQSession session = getContext().getSession();
 			session.setLoginSig(mc.group(1));

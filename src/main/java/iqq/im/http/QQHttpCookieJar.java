@@ -25,15 +25,15 @@
  */
 package iqq.im.http;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 保存和读取cookie
@@ -91,11 +91,11 @@ public class QQHttpCookieJar {
             			//如果新cookie的值不为空，就添加到新的cookie到列表中
             			if(cookie.getValue()!=null && cookie.getValue().length()>0) {
             				cookieContainer.add(cookie);
-            				LOG.debug("[Update Cookie] "+cookie);
+//            				LOG.debug("[Update Cookie] "+cookie);
             			}
     			}else {
     				cookieContainer.add(cookie);
-    				LOG.debug("[New Cookie] "+cookie);
+//    				LOG.debug("[New Cookie] "+cookie);
     			}
     		}
 		}

@@ -56,7 +56,7 @@ public class WebQQClientTest {
      * 程序入口
      */
     public static void main(String[] args) {
-        WebQQClientTest test = new WebQQClientTest("", "");
+        WebQQClientTest test = new WebQQClientTest("201286738", "xy89415799");
         test.login();
     }
 
@@ -215,7 +215,11 @@ public class WebQQClientTest {
                     //启动轮询时，需要获取所有好友、群成员、讨论组成员
                     //所有的逻辑完了后，启动消息轮询
                     client.beginPollMsg();
+                }else{
+                    System.out.println("******************");
+                    System.out.println(event.toString());
                 }
+
             }
         };
 
