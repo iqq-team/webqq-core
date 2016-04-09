@@ -146,6 +146,8 @@ public interface QQClient {
      */
     public QQActionFuture getUserInfo(QQUser user, QQActionListener qqActionListener);
 
+    public QQActionFuture getSelfInfo(QQActionListener qqActionListener);
+
     /**
      * <p>getUserQQ.</p>
      *
@@ -458,4 +460,6 @@ public interface QQClient {
      * @return
      */
     public QQActionFuture getConvertMsg(QQMsg msg, QQActionListener qqActionListener);
+
+
 }

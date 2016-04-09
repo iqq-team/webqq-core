@@ -88,6 +88,7 @@ public class GetUserLevelAction extends AbstractHttpAction {
 		req.addGetValue("tuin", user.getUin() + "");
 		req.addGetValue("t", DateUtils.nowTimestamp() + "");
 		req.addGetValue("vfwebqq", session.getVfwebqq());
+		req.addHeader("Referer", QQConstants.VREFFER);
 		return req;
 	}
 }

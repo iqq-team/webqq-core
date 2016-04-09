@@ -37,11 +37,10 @@ import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
 import iqq.im.util.DateUtils;
-
-import java.text.ParseException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.ParseException;
 
 /**
  *
@@ -82,7 +81,7 @@ public class GetFriendInfoAction extends AbstractHttpAction{
 		req.addGetValue("vfwebqq", session.getVfwebqq()); 
 		req.addGetValue("t", System.currentTimeMillis()/1000+"");
 
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Referer", QQConstants.VREFFER);
 		return req;
 	}
 	

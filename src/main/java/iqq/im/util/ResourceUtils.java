@@ -1,6 +1,8 @@
 package iqq.im.util;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +12,7 @@ import java.net.URL;
  * Created by Tony on 3/11/15.
  */
 public class ResourceUtils {
-
+    private static final Logger LOG = LoggerFactory.getLogger(ResourceUtils.class);
     public static String loadResource(String name) throws IOException {
         return IOUtils.toString(ClassLoader.getSystemResourceAsStream(name));
     }
@@ -24,8 +26,8 @@ public class ResourceUtils {
         } finally {
             if (in != null) in.close();
         }
-        System.out.println("loadResourceFromServer url:" + url);
-       // System.out.println(content);
+        LOG.info("loadResourceFromServer url:" + url);
+       // LOG.info(content);
         return content;
     }
 
@@ -39,7 +41,7 @@ public class ResourceUtils {
      */
     public static String loadResource(String url, String localName) throws IOException {
         try {
-            return loadResourceFromServer(url);
+            return loadResource(localName);
         } catch (IOException e) {
             System.err.println("loadResource error url:" + url + " localName:" + localName);
         }

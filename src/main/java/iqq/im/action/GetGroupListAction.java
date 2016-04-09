@@ -41,20 +41,21 @@ public class GetGroupListAction extends AbstractHttpAction {
 	/** {@inheritDoc} */
 	@Override
 	public QQHttpRequest onBuildRequest() throws QQException, JSONException {
-        HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
-        QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_GET_USER_CATEGORIES);
+        HttpService httpService = getContext().getSerivce(QQService.Type.HTTP);
+        QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN);
 		QQSession session = getContext().getSession();
         QQAccount account = getContext().getAccount();
 
 		JSONObject json = new JSONObject();
-		json.put("vfwebqq", session.getVfwebqq());
-        json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
+		json.put("vfwebqq",session.getVfwebqq());
+		json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
 
 		QQHttpRequest req = createHttpRequest("POST",
 				QQConstants.URL_GET_GROUP_NAME_LIST);
 		req.addPostValue("r", json.toString());
 
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Origin", QQConstants.SOrigin);
+		req.addHeader("Referer", QQConstants.VREFFER);
 
 		return req;
 	}
@@ -79,10 +80,12 @@ public class GetGroupListAction extends AbstractHttpAction {
 				JSONObject groupJson = groupJsonList.getJSONObject(i);
 				QQGroup group = new QQGroup();
 				group.setGin(groupJson.getLong("gid"));
+				group.setGid(groupJson.getLong("gid"));
 				group.setCode(groupJson.getLong("code"));
 				group.setFlag(groupJson.getInt("flag"));
 				group.setName(groupJson.getString("name"));
 				//添加到Store
+				LOG.debug(group.toString());
 				store.addGroup(group);
 			}
 			

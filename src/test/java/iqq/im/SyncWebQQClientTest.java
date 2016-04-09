@@ -34,6 +34,8 @@ import iqq.im.event.QQActionEvent.Type;
 import iqq.im.event.QQActionFuture;
 import iqq.im.event.QQNotifyEvent;
 import iqq.im.event.QQNotifyEventArgs;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.io.BufferedReader;
@@ -48,7 +50,7 @@ import java.io.InputStreamReader;
  * 
  */
 public class SyncWebQQClientTest {
-
+	private static final Logger LOG = LoggerFactory.getLogger(SyncWebQQClientTest.class);
 	private static QQClient client;
 
 	/**
@@ -60,21 +62,21 @@ public class SyncWebQQClientTest {
 	public static void main(String[] args) throws QQException, IOException {
 		client = new WebQQClient("","", new QQNotifyListener() {
 			public void onNotifyEvent(QQNotifyEvent event) {
-				System.out.println("QQNotifyEvent: " + event.getType() +", " + event.getTarget());
+				LOG.info("QQNotifyEvent: " + event.getType() +", " + event.getTarget());
 				if(event.getType() ==  QQNotifyEvent.Type.CHAT_MSG){
 					QQMsg msg = (QQMsg) event.getTarget();
 					try {
-						System.out.println("好友消息: " + msg.packContentList());
+						LOG.info("好友消息: " + msg.packContentList());
 					} catch (QQException e) {
 						e.printStackTrace();
 					}
 				}else if(event.getType() ==  QQNotifyEvent.Type.KICK_OFFLINE){
-					System.out.println("被踢下线: " + (String)event.getTarget());
+					LOG.info("被踢下线: " + (String)event.getTarget());
 				}else if(event.getType() == QQNotifyEvent.Type.CAPACHA_VERIFY){
 					try {
 						QQNotifyEventArgs.ImageVerify verify = (QQNotifyEventArgs.ImageVerify) event.getTarget();
 						ImageIO.write(verify.image, "png", new File("verify.png"));
-						System.out.println(verify.reason);
+						LOG.info(verify.reason);
 						System.out.print("请输入在项目根目录下verify.png图片里面的验证码:");
 						String code = new BufferedReader(new InputStreamReader(System.in)).readLine();
 						client.submitVerify(code, event);
@@ -90,11 +92,11 @@ public class SyncWebQQClientTest {
 		QQActionFuture future = client.login(QQStatus.ONLINE, null);
 		QQActionEvent event = future.waitFinalEvent();
 		if(event.getType() == Type.EVT_OK){
-			System.out.println("登录成功！！！！");
+			LOG.info("登录成功！！！！");
 			
 			event = client.getUserInfo(client.getAccount(), null).waitFinalEvent();
 			
-			System.out.println("用户信息:" + event.getType() +" - " + event.getTarget());
+			LOG.info("用户信息:" + event.getType() +" - " + event.getTarget());
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //			String line = null;
 //			while( (line = reader.readLine())!= null){
@@ -102,33 +104,33 @@ public class SyncWebQQClientTest {
 //				QQMsg msg = new QQMsg();
 //				try {
 //					QQActionEvent e = m.sendMsg(null, msg).waitFinalEvent();;
-//					System.out.println("发送消息:" + e.toString());
+//					LOG.info("发送消息:" + e.toString());
 //				} catch (Exception e) {
-//					System.out.println("错误！！！");
+//					LOG.info("错误！！！");
 //					e.printStackTrace();
 //				}
 //				
 //			}
 			
 			client.getBuddyList(null).waitFinalEvent();
-			System.out.println("Buddy count: " + client.getBuddyList().size());
+			LOG.info("Buddy count: " + client.getBuddyList().size());
 			
 //			int i = 0;
 //			for(QQBuddy buddy: client.getBuddyList()){
 //				QQActionFuture f = client.getUserQQ(buddy, null);
 //				QQActionEvent e = f.waitFinalEvent();
-//				System.out.println("# " +(i++) + " QQ: " + buddy.getNickname() +" : " + buddy.getQQ() +" ["+e.getType()+"]");
+//				LOG.info("# " +(i++) + " QQ: " + buddy.getNickname() +" : " + buddy.getQQ() +" ["+e.getType()+"]");
 //			}
 //			
 //			client.getGroupList(null).waitFinalEvent();
-//			System.out.println("Buddy count: " + client.getGroupList().size());
+//			LOG.info("Buddy count: " + client.getGroupList().size());
 //			for(QQGroup group: client.getGroupList()){
 //				client.getGroupInfo(group, null).waitFinalEvent();
-//				System.out.println("group member count:" + group.getMembers().size());
+//				LOG.info("group member count:" + group.getMembers().size());
 //				for(QQGroupMember mem: group.getMembers()){
 //					QQActionFuture f = client.getUserQQ(mem, null);
 //					QQActionEvent e = f.waitFinalEvent();
-//					System.out.println("# " +(i++) + "Group:"+group.getName()+", QQ: " + mem.getNickname() +" : " + mem.getQQ() +" ["+e.getType()+"]");
+//					LOG.info("# " +(i++) + "Group:"+group.getName()+", QQ: " + mem.getNickname() +" : " + mem.getQQ() +" ["+e.getType()+"]");
 //				}
 //			}
 			
@@ -140,7 +142,7 @@ public class SyncWebQQClientTest {
 			QQException ex = (QQException) event.getTarget();
 			if(ex.getError() == QQErrorCode.NEED_CAPTCHA){
 				//TODO ..
-				System.out.println("需要验证码！！！");
+				LOG.info("需要验证码！！！");
 			}
 		}
 	}

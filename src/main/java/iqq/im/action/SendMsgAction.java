@@ -59,14 +59,10 @@ public class SendMsgAction extends AbstractHttpAction {
         } else if (msg.getType() == QQMsg.Type.GROUP_MSG) {
             req = createHttpRequest("POST", QQConstants.URL_SEND_GROUP_MSG);
             json.put("group_uin", msg.getGroup().getGin());
-            json.put("key", session.getCfaceKey());
-            json.put("sig", session.getCfaceSig());
             json.put("face", 522);
         } else if (msg.getType() == QQMsg.Type.DISCUZ_MSG) {
             req = createHttpRequest("POST", QQConstants.URL_SEND_DISCUZ_MSG);
             json.put("did", msg.getDiscuz().getDid());
-            json.put("key", session.getCfaceKey());
-            json.put("sig", session.getCfaceSig());
             json.put("face", 522);
         } else if (msg.getType() == QQMsg.Type.SESSION_MSG) {    // 临时会话消息
             req = createHttpRequest("POST", QQConstants.URL_SEND_SESSION_MSG);
@@ -87,9 +83,10 @@ public class SendMsgAction extends AbstractHttpAction {
         req.addPostValue("r", json.toString());
         req.addPostValue("clientid", session.getClientId() + "");
         req.addPostValue("psessionid", session.getSessionId());
-        req.addHeader("Referer", QQConstants.REFFER);
 
-        System.out.println("sendMsg: " + json.toString());
+        req.addHeader("Referer", QQConstants.REFFER);
+        req.addHeader("Origin", QQConstants.Origin);
+
         return req;
     }
 
@@ -100,17 +97,13 @@ public class SendMsgAction extends AbstractHttpAction {
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
             JSONException {
         JSONObject json = new JSONObject(response.getResponseString());
-        int retcode = json.getInt("retcode");
+        int retcode = json.getInt("errCode");
         if (retcode == 0) {
-            String result = json.getString("result");
-            if (result.equals("ok")) {
                 notifyActionEvent(QQActionEvent.Type.EVT_OK, msg);
                 return;
-            }
         }
-        notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQErrorCode.UNEXPECTED_RESPONSE, json.toString()));
-
-        System.out.println("send Msg result: " + json.toString());
+        notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQErrorCode.UNEXPECTED_RESPONSE, json.getString("msg")));
+        LOG.error("send Msg result: " + json.getString("msg"));
     }
 
 }

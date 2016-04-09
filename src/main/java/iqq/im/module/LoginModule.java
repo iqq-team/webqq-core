@@ -147,5 +147,4 @@ public class LoginModule extends AbstractModule {
     public QQActionFuture getVfwebqq(QQActionListener listener) {
         return pushHttpAction(new GetVfwebqqAction(getContext(), listener));
     }
-
 }

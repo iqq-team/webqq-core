@@ -67,7 +67,8 @@ public class ConvertMsgAction extends AbstractHttpAction {
 //        req.addPostValue("psessionid", session.getSessionId());
 //        req.addHeader("Referer", QQConstants.REFFER);
 //
-//        System.out.println("sendMsg: " + json.toString());
+//        LOG.info("sendMsg: " + json.toString());
+        req.addHeader("Origin", QQConstants.Origin);
         return req;
     }
 
@@ -90,7 +91,7 @@ public class ConvertMsgAction extends AbstractHttpAction {
 //        }
 //        notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQErrorCode.UNEXPECTED_RESPONSE, json.toString()));
 
-        System.out.println("send Msg result: " + json.toString());
+        LOG.info("send Msg result: " + json.toString());
     }
 
 }

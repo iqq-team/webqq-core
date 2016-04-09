@@ -73,6 +73,7 @@ public class GetDiscuzListAction extends AbstractHttpAction{
 		req.addGetValue("psessionid", session.getSessionId());
 		req.addGetValue("vfwebqq", session.getVfwebqq());
 		req.addGetValue("t", DateUtils.nowTimestamp() + "");
+		req.addHeader("Referer", QQConstants.VREFFER);
 		return req;
 	}
 	

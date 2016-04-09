@@ -26,53 +26,53 @@
 package iqq.im.service;
 
  import iqq.im.QQException;
- import iqq.im.QQException.QQErrorCode;
- import iqq.im.core.QQConstants;
- import iqq.im.core.QQContext;
- import iqq.im.http.*;
- import org.apache.http.*;
- import org.apache.http.client.entity.UrlEncodedFormEntity;
- import org.apache.http.client.methods.HttpGet;
- import org.apache.http.client.methods.HttpPost;
- import org.apache.http.client.utils.URIUtils;
- import org.apache.http.concurrent.FutureCallback;
- import org.apache.http.conn.params.ConnRoutePNames;
- import org.apache.http.entity.mime.FormBodyPart;
- import org.apache.http.entity.mime.MultipartEntity;
- import org.apache.http.entity.mime.content.FileBody;
- import org.apache.http.entity.mime.content.StringBody;
- import org.apache.http.impl.client.DefaultRedirectStrategy;
- import org.apache.http.impl.nio.client.DefaultHttpAsyncClient;
- import org.apache.http.message.BasicNameValuePair;
- import org.apache.http.nio.ContentEncoder;
- import org.apache.http.nio.IOControl;
- import org.apache.http.nio.client.methods.AsyncByteConsumer;
- import org.apache.http.nio.conn.scheme.AsyncScheme;
- import org.apache.http.nio.conn.ssl.SSLLayeringStrategy;
- import org.apache.http.nio.protocol.BasicAsyncRequestProducer;
- import org.apache.http.nio.reactor.IOReactorException;
- import org.apache.http.params.HttpConnectionParams;
- import org.apache.http.params.HttpParams;
- import org.apache.http.params.HttpProtocolParams;
- import org.apache.http.protocol.HttpContext;
- import org.slf4j.Logger;
- import org.slf4j.LoggerFactory;
+import iqq.im.QQException.QQErrorCode;
+import iqq.im.core.QQConstants;
+import iqq.im.core.QQContext;
+import iqq.im.http.*;
+import org.apache.http.*;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIUtils;
+import org.apache.http.concurrent.FutureCallback;
+import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.entity.mime.FormBodyPart;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultRedirectStrategy;
+import org.apache.http.impl.nio.client.DefaultHttpAsyncClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.nio.ContentEncoder;
+import org.apache.http.nio.IOControl;
+import org.apache.http.nio.client.methods.AsyncByteConsumer;
+import org.apache.http.nio.conn.scheme.AsyncScheme;
+import org.apache.http.nio.conn.ssl.SSLLayeringStrategy;
+import org.apache.http.nio.protocol.BasicAsyncRequestProducer;
+import org.apache.http.nio.reactor.IOReactorException;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HttpContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
- import javax.net.ssl.SSLContext;
- import java.io.*;
- import java.net.FileNameMap;
- import java.net.URI;
- import java.net.URLConnection;
- import java.nio.ByteBuffer;
- import java.nio.charset.Charset;
- import java.util.ArrayList;
- import java.util.HashMap;
- import java.util.List;
- import java.util.Map;
- import java.util.concurrent.ExecutionException;
- import java.util.concurrent.Future;
- import java.util.concurrent.TimeUnit;
- import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLContext;
+import java.io.*;
+import java.net.FileNameMap;
+import java.net.URI;
+import java.net.URLConnection;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  *
@@ -346,6 +346,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 					httpOutStream.close();
 				} catch (IOException e) {
 					//ingore
+					e.printStackTrace();
 				}
 			}
 			if(httpListener != null){

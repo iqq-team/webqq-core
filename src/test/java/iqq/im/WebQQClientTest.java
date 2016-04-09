@@ -31,6 +31,8 @@ import iqq.im.bean.content.*;
 import iqq.im.core.QQConstants;
 import iqq.im.event.*;
 import iqq.im.event.QQActionEvent.Type;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.io.BufferedReader;
@@ -45,7 +47,7 @@ import java.util.List;
  * @author solosky
  */
 public class WebQQClientTest {
-
+    private static final Logger LOG = LoggerFactory.getLogger(WebQQClientTest.class);
     QQClient client;
 
     public WebQQClientTest(String user, String pwd) {
@@ -71,7 +73,7 @@ public class WebQQClientTest {
     public void processBuddyMsg(QQNotifyEvent event) throws QQException {
         QQMsg msg = (QQMsg) event.getTarget();
 
-        System.out.println("[消息] " + msg.getFrom().getNickname() + "说:" + msg.packContentList());
+        LOG.info("[消息] " + msg.getFrom().getNickname() + "说:" + msg.packContentList());
         System.out.print("消息内容: ");
         List<ContentItem> items = msg.getContentList();
         for (ContentItem item : items) {
@@ -83,7 +85,6 @@ public class WebQQClientTest {
                 System.out.print(" Text:" + ((TextItem) item).getContent());
             }
         }
-        System.out.println();
 
         if (msg.getType() == QQMsg.Type.BUDDY_MSG) {
             // 组装QQ消息发送回去
@@ -103,7 +104,7 @@ public class WebQQClientTest {
      */
     @QQNotifyHandler(QQNotifyEvent.Type.KICK_OFFLINE)
     protected void processKickOff(QQNotifyEvent event) {
-        System.out.println("被踢下线: " + (String) event.getTarget());
+        LOG.info("被踢下线: " + (String) event.getTarget());
     }
 
     /**
@@ -115,7 +116,7 @@ public class WebQQClientTest {
     protected void processVerify(QQNotifyEvent event) throws IOException {
         QQNotifyEventArgs.ImageVerify verify = (QQNotifyEventArgs.ImageVerify) event.getTarget();
         ImageIO.write(verify.image, "png", new File("verify.png"));
-        System.out.println(verify.reason);
+        LOG.info(verify.reason);
         System.out.print("请输入在项目根目录下verify.png图片里面的验证码:");
         String code = new BufferedReader(new InputStreamReader(System.in)).readLine();
         client.submitVerify(code, event);
@@ -127,14 +128,14 @@ public class WebQQClientTest {
     public void login() {
         final QQActionListener listener = new QQActionListener() {
             public void onActionEvent(QQActionEvent event) {
-                System.out.println("LOGIN_STATUS:" + event.getType() + ":" + event.getTarget());
+                LOG.info("LOGIN_STATUS:" + event.getType() + ":" + event.getTarget());
                 if (event.getType() == Type.EVT_OK) {
                     //到这里就算是登录成功了
 
                     //获取下用户信息
                     client.getUserInfo(client.getAccount(), new QQActionListener() {
                         public void onActionEvent(QQActionEvent event) {
-                            System.out.println("LOGIN_STATUS:" + event.getType() + ":" + event.getTarget());
+                            LOG.info("LOGIN_STATUS:" + event.getType() + ":" + event.getTarget());
                         }
                     });
 
@@ -145,18 +146,18 @@ public class WebQQClientTest {
                         @Override
                         public void onActionEvent(QQActionEvent event) {
                             // TODO Auto-generated method stub
-                            System.out.println("******** " + event.getType()
+                            LOG.info("******** " + event.getType()
                                     + " ********");
                             if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                                System.out.println("******** 好友列表  ********");
+                                LOG.info("******** 好友列表  ********");
                                 List<QQCategory> qqCategoryList = (List<QQCategory>) event
                                         .getTarget();
 
                                 for (QQCategory c : qqCategoryList) {
-                                    System.out.println("分组名称:" + c.getName());
+                                    LOG.info("分组名称:" + c.getName());
                                     List<QQBuddy> buddyList = c.getBuddyList();
                                     for (QQBuddy b : buddyList) {
-                                        System.out.println("---- QQ nick:"
+                                        LOG.info("---- QQ nick:"
                                                 + b.getNickname()
                                                 + " markname:"
                                                 + b.getMarkname() + " uin:"
@@ -167,7 +168,7 @@ public class WebQQClientTest {
 
                                 }
                             } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                                System.out.println("** 好友列表获取失败，处理重新获取");
+                                LOG.info("** 好友列表获取失败，处理重新获取");
                             }
                         }
                     });
@@ -179,10 +180,10 @@ public class WebQQClientTest {
                             if (event.getType() == Type.EVT_OK) {
                                 for (QQGroup g : client.getGroupList()) {
                                     client.getGroupInfo(g, null);
-                                    System.out.println("Group: " + g.getName());
+                                    LOG.info("Group: " + g.getName());
                                 }
                             } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                                System.out.println("** 群列表获取失败，处理重新获取");
+                                LOG.info("** 群列表获取失败，处理重新获取");
                             }
                         }
                     });
@@ -194,7 +195,7 @@ public class WebQQClientTest {
                             if (event.getType() == Type.EVT_OK) {
                                 for (QQDiscuz d : client.getDiscuzList()) {
                                     client.getDiscuzInfo(d, null);
-                                    System.out.println("Discuz: " + d.getName());
+                                    LOG.info("Discuz: " + d.getName());
                                 }
                             }
                         }
@@ -216,8 +217,8 @@ public class WebQQClientTest {
                     //所有的逻辑完了后，启动消息轮询
                     client.beginPollMsg();
                 }else{
-                    System.out.println("******************");
-                    System.out.println(event.toString());
+                    LOG.info("******************");
+                    LOG.info(event.toString());
                 }
 
             }
@@ -243,7 +244,7 @@ public class WebQQClientTest {
     public void processEmailMsg(QQNotifyEvent event) throws QQException {
         List<QQEmail> list = (List<QQEmail>) event.getTarget();
         for (QQEmail mail : list) {
-            System.out.println("邮件: " + mail.getSubject());
+            LOG.info("邮件: " + mail.getSubject());
         }
     }
 

@@ -50,19 +50,20 @@ public class GetBuddyListAction extends AbstractHttpAction {
 	public QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
 		QQAccount account = getContext().getAccount();
-		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
-		QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_GET_USER_CATEGORIES);
-		
-		JSONObject json = new JSONObject();
-		json.put("h", "hello");
-		json.put("vfwebqq", session.getVfwebqq()); // 同上
-		json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
-
+		HttpService httpService = getContext().getSerivce(QQService.Type.HTTP);
+		QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN);
 		QQHttpRequest req = createHttpRequest("POST",
 				QQConstants.URL_GET_USER_CATEGORIES);
+
+		JSONObject json = new JSONObject();
+		json.put("vfwebqq", session.getVfwebqq());
+		json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
+		LOG.debug("********** Vfwebqq: "+session.getVfwebqq());
+		LOG.debug("********** Uin: "+account.getUin());
 		req.addPostValue("r", json.toString());
 
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Origin", QQConstants.SOrigin);
+		req.addHeader("Referer", QQConstants.VREFFER);
 
 		return req;
 	}

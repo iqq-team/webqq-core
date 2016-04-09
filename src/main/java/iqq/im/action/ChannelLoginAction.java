@@ -41,10 +41,11 @@ import iqq.im.service.HttpService;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Random;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChannelLoginAction extends AbstractHttpAction {
+    private static final Logger LOG = LoggerFactory.getLogger(ChannelLoginAction.class);
     private QQStatus status;
 
     /**
@@ -67,23 +68,9 @@ public class ChannelLoginAction extends AbstractHttpAction {
         HttpService httpService = getContext().getSerivce(QQService.Type.HTTP);
         QQSession session = getContext().getSession();
         if (session.getClientId() == 0) {
-            session.setClientId(Math.abs(new Random().nextInt())); //random??
             session.setClientId(53999199);
         }
         JSONObject json = new JSONObject();
-
-//        json.put("3g_guest_id", "-9124070449272053760");
-//        json.put("sd_userid", "14591441022916581");
-//        json.put("sd_cookie_crttime", System.currentTimeMillis());
-//        json.put("_ga", "GA1.2.1614347131.1445416374");
-//        json.put("ptcz", "5a40902e4cb4b578282f49d9e9d33fabe716655583b44c32ddb0845e0fdca1be");
-//        json.put("luin", "o0089415799");
-//        json.put("lskey", "000100001b456aced5b684997c6ba8ae97455efc4435e7ef1c70ae0d6ab5d83d3803a610b009661e3d559084");
-//        json.put("ptui_loginuin", "89415799");
-//        json.put("sd_userid", "14591441022916581");
-//        json.put("RK", "tE0zh6CDcS");
-//        json.put("ts_refer", "www.baidu.com/link");
-//        json.put("ts_refer", "www.baidu.com");
         json.put("status", QQStatus.ONLINE.getValue());
         json.put("clientid", session.getClientId());
         json.put("psessionid", StringUtils.defaultString(session.getSessionId(),""));
@@ -110,11 +97,12 @@ public class ChannelLoginAction extends AbstractHttpAction {
             account.setUin(ret.getLong("uin"));
             account.setQQ(ret.getLong("uin"));
             session.setSessionId(ret.getString("psessionid"));
-            session.setVfwebqq(ret.getString("vfwebqq"));
+//            session.setVfwebqq(ret.getString("vfwebqq"));
             account.setStatus(QQStatus.valueOfRaw(ret.getString("status")));
             session.setState(QQSession.State.ONLINE);
             session.setIndex(ret.getInt("index"));
             session.setPort(ret.getInt("port"));
+            LOG.debug(session.toString());
             notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
         } else {
             notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQErrorCode.INVALID_RESPONSE));

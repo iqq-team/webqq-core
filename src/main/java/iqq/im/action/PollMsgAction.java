@@ -50,7 +50,7 @@ import java.util.List;
 
 /**
  * 轮询Poll消息
- * <p/>
+ * <p>
  * 增加更多的消息处理（群被踢、群文件共享、加好友请求）
  *
  * @author solosky
@@ -99,13 +99,14 @@ public class PollMsgAction extends AbstractHttpAction {
      */
     @Override
     public void onHttpFinish(QQHttpResponse response) {
-        //如果返回的内容为空，认为这次pollMsg仍然成功
-        if (response.getContentLength() == 0) {
-            System.out.println("空消息");
-            notifyActionEvent(QQActionEvent.Type.EVT_OK, new ArrayList<QQNotifyEvent>());
-        } else {
-            super.onHttpFinish(response);
-        }
+        super.onHttpFinish(response);
+//        //如果返回的内容为空，认为这次pollMsg仍然成功
+//        if (response.getContentLength() == 0) {
+//            LOG.info("空消息");
+//            notifyActionEvent(QQActionEvent.Type.EVT_OK, new ArrayList<QQNotifyEvent>());
+//        } else {
+//            super.onHttpFinish(response);
+//        }
     }
 
     /**
@@ -114,11 +115,9 @@ public class PollMsgAction extends AbstractHttpAction {
     @Override
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
             JSONException {
-        System.out.println("有消息");
         QQStore store = getContext().getStore();
         List<QQNotifyEvent> notifyEvents = new ArrayList<QQNotifyEvent>();
         JSONObject json = new JSONObject(response.getResponseString());
-        System.out.println(json.toString());
         int retcode = json.getInt("retcode");
         if (retcode == 0) {
             //有可能为  {"retcode":0,"result":"ok"}
@@ -258,11 +257,9 @@ public class PollMsgAction extends AbstractHttpAction {
     public QQNotifyEvent processBuddyMsg(JSONObject pollData)
             throws JSONException, QQException {
         QQStore store = getContext().getStore();
-
         long fromUin = pollData.getLong("from_uin");
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
-        msg.setId2(pollData.getLong("msg_id2"));
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.BUDDY_MSG);
         msg.setTo(getContext().getAccount());
@@ -300,35 +297,34 @@ public class PollMsgAction extends AbstractHttpAction {
         // "group_code":3439321257,"send_uin":1843694270,"seq":875,"time":1365934781,"info_seq":170125666,"content":[["font",{"size":10,"color":"3b3b3b","style":[0,0,0],"name":"\u5FAE\u8F6F\u96C5\u9ED1"}],"eeeeeeeee "]}}]}
 
         QQStore store = getContext().getStore();
+
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
-        msg.setId2(pollData.getLong("msg_id2"));
-        long fromUin = pollData.getLong("send_uin");
-        long groupCode = pollData.getLong("group_code");
-        long groupID = pollData.getLong("info_seq"); // 真实群号码
-        QQGroup group = store.getGroupByCode(groupCode);
+        long fromUin = pollData.getLong("from_uin");
+        long sendUin = pollData.getLong("send_uin");
+        QQGroup group = store.getGroupByGin(fromUin);
         if (group == null) {
             GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
             group = new QQGroup();
-            group.setCode(groupCode);
-            group.setGid(groupID);
-            // put to store
+            group.setGid(fromUin);
+            group.setGin(fromUin);
             store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
         if (group.getGid() <= 0) {
-            group.setGid(groupID);
+            group.setGid(fromUin);
+            group.setGin(fromUin);
         }
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.GROUP_MSG);
         msg.setGroup(group);
         msg.setTo(getContext().getAccount());
         msg.setDate(new Date(pollData.getLong("time") * 1000));
-        msg.setFrom(group.getMemberByUin(fromUin));
+        msg.setFrom(group.getMemberByUin(sendUin));
 
         if (msg.getFrom() == null) {
             QQGroupMember member = new QQGroupMember();
-            member.setUin(fromUin);
+            member.setUin(sendUin);
             msg.setFrom(member);
             group.getMembers().add(member);
 

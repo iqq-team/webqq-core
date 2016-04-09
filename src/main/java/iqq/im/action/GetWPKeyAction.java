@@ -11,6 +11,8 @@ import iqq.im.http.QQHttpResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 通过登录得到的sid，获取到wpkey
@@ -19,6 +21,7 @@ import org.json.JSONObject;
  * @since 2014年1月25日
  */
 public class GetWPKeyAction extends AbstractHttpAction {
+	private static final Logger LOG = LoggerFactory.getLogger(GetWPKeyAction.class);
 	private String sid = "";
 	/**
 	 * <p>Constructor for GetWPKeyAction.</p>
@@ -56,7 +59,7 @@ public class GetWPKeyAction extends AbstractHttpAction {
 		} else {
 			notifyActionEvent(QQActionEvent.Type.EVT_ERROR, QQErrorCode.UNEXPECTED_RESPONSE);
 		}
-		System.out.println("GetWPKeyAction: " + response.getResponseString());
+		LOG.info("GetWPKeyAction: " + response.getResponseString());
 	}
 
 }

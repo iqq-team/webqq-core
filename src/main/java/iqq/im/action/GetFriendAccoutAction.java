@@ -48,8 +48,7 @@ public class GetFriendAccoutAction extends AbstractHttpAction {
 		req.addGetValue("verifysession", ""); // 验证码？？
 		req.addGetValue("type", 1 + "");
 		req.addGetValue("code", "");
-
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Referer", QQConstants.VREFFER);
 		return req;
 	}
 

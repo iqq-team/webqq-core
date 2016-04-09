@@ -1,15 +1,14 @@
 package iqq.im;
 
-import com.oracle.tools.packager.Log;
+import com.xabad.tuling.JsonU;
+import com.xabad.tuling.StringU;
+import com.xabad.tuling.TulingU;
 import iqq.im.actor.ThreadActorDispatcher;
-import iqq.im.bean.QQDiscuz;
+import iqq.im.bean.QQBuddy;
+import iqq.im.bean.QQCategory;
 import iqq.im.bean.QQGroup;
 import iqq.im.bean.QQMsg;
-import iqq.im.bean.QQUser;
-import iqq.im.bean.content.ContentItem;
-import iqq.im.bean.content.FaceItem;
-import iqq.im.bean.content.FontItem;
-import iqq.im.bean.content.TextItem;
+import iqq.im.bean.content.*;
 import iqq.im.core.QQConstants;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQNotifyEvent;
@@ -17,11 +16,15 @@ import iqq.im.event.QQNotifyHandler;
 import iqq.im.event.QQNotifyHandlerProxy;
 import iqq.im.http.XabHttpRequest;
 import iqq.im.http.XabHttpResult;
-import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,157 +34,235 @@ import java.util.List;
  * Created by Tony on 10/6/15.
  */
 public class QRcodeLoginTest {
-
-    QQClient mClient = null;
+    private static final Logger LOG = LoggerFactory.getLogger(QRcodeLoginTest.class);
+    QQClient client = null;
+    List<Long> uinList = new ArrayList<Long>();
 
     public QRcodeLoginTest() {
-        mClient = new WebQQClient(new QQNotifyHandlerProxy(this), new ThreadActorDispatcher());
+        client = new WebQQClient(new QQNotifyHandlerProxy(this), new ThreadActorDispatcher());
     }
 
     public static void main(String[] args) {
         QRcodeLoginTest test = new QRcodeLoginTest();
         test.login();
     }
-    public void login(){
+
+    public void login() {
         // 获取二维码
-        mClient.getQRcode(new QQActionListener() {
+        client.getQRcode(new QQActionListener() {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                     try {
                         BufferedImage verify = (BufferedImage) event.getTarget();
                         ImageIO.write(verify, "png", new File("qrcode.png"));
-                        System.out.println("请扫描在项目根目录下qrcode.png图片");
+                        LOG.info("请扫描在项目根目录下qrcode.png图片");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    System.out.println("获取二维码失败");
+                    LOG.info("获取二维码失败" + event.getTarget());
                 }
             }
         });
-        // 检查二维码状态
-        mClient.checkQRCode(new QQActionListener() {
+        client.checkQRCode(new QQActionListener() {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 switch (event.getType()) {
                     case EVT_OK:
-                        // 扫描通过,登录成功
-                        Log.debug("扫描通过,登录成功 "+mClient.getAccount().toString());
-                        mClient.beginPollMsg();
+                        LOG.debug("SUCCESS");
+                        client.getSelfInfo(new QQActionListener() {
+                            public void onActionEvent(QQActionEvent event) {
+//                                String selfInfo = (String) event.getTarget();
+                                LOG.debug(event.getTarget().toString());
+                            }
+                        });
+                        client.getBuddyList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    LOG.info("******** 好友列表  ********");
+                                    List<QQCategory> qqCategoryList = (List<QQCategory>) event
+                                            .getTarget();
+
+                                    for (QQCategory c : qqCategoryList) {
+                                        LOG.info("分组名称:" + c.getName());
+                                        List<QQBuddy> buddyList = c.getBuddyList();
+                                        for (QQBuddy b : buddyList) {
+                                            LOG.info("---- QQ nick:"
+                                                    + b.getNickname()
+                                                    + " markname:"
+                                                    + b.getMarkname() + " uin:"
+                                                    + b.getUin() + " isVip:"
+                                                    + b.isVip() + " vip_level:"
+                                                    + b.getVipLevel());
+                                        }
+
+                                    }
+                                } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                                    LOG.info("** 好友列表获取失败，处理重新获取");
+                                }
+                            }
+                        });
+//                        // 获取群列表
+                        client.getGroupList(new QQActionListener() {
+
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    List<QQGroup> groupList = (List<QQGroup>) event.getTarget();
+                                    for (QQGroup g : groupList) {
+                                        client.getGroupInfo(g, null);
+                                        LOG.info("Group: " + g.getName());
+                                    }
+                                } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                                    LOG.info("** 群列表获取失败，处理重新获取");
+                                }
+                            }
+                        });
+//                        // 获取讨论组列表
+//                        client.getDiscuzList(new QQActionListener() {
+//
+//                            @Override
+//                            public void onActionEvent(QQActionEvent event) {
+//                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+//                                    for (QQDiscuz d : client.getDiscuzList()) {
+//                                        client.getDiscuzInfo(d, null);
+//                                        LOG.info("Discuz: " + d.getName());
+//                                    }
+//                                }
+//                            }
+//                        });
+                        client.beginPollMsg();
                         break;
                     case EVT_ERROR:
                         QQException ex = (QQException) (event.getTarget());
                         QQException.QQErrorCode code = ex.getError();
                         switch (code) {
-                            // 二维码有效,等待用户扫描
-                            // 二维码已经扫描,等用户允许登录
                             case QRCODE_OK:
-                                Log.debug("QRCODE_OK");
-                            case QRCODE_AUTH:
-                                Log.debug("QRCODE_AUTH");
+                                LOG.debug("等待扫描二维码!");
                                 try {
                                     Thread.sleep(3000);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-                                // 继续检查二维码状态
-                                mClient.checkQRCode(this);
+                                client.checkQRCode(this);
                                 break;
+                            case QRCODE_AUTH:
+                                LOG.debug("二维码已经扫描,等待验证!");
+                                try {
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                client.checkQRCode(this);
+                                break;
+                            case QRCODE_INVALID:
+                                LOG.debug("二维码已经过期!");
+                                break;
+                            default:
+                                LOG.debug("扫描二维码发生未知错误!");
                         }
+                        break;
+                    default:
                         break;
                 }
             }
         });
     }
 
-    private void revMsg(QQMsg revMsg) {
-        switch (revMsg.getType()) {
-            case BUDDY_MSG:
-                sendMsg(revMsg.getFrom(), revMsg);
-                break;
-            case GROUP_MSG:
-                sendMsg(revMsg.getGroup());
-                break;
-            case DISCUZ_MSG:
-                sendDiscuz(revMsg.getDiscuz());
-        }
-    }
-
-    public void sendMsg(QQUser user, QQMsg revMsg) {
-        Log.debug("sendMsg " + user);
-        if (StringUtils.contains(revMsg.getText(), "安全退出")) {
-            mClient.logout(null);
-            return;
-        }
-        // 组装QQ消息发送回去
-        QQMsg sendMsg = new QQMsg();
-        sendMsg.setTo(user);                                // QQ好友UIN
-        sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
-        // QQ内容
-        sendMsg.addContentItem(new TextItem("不要和我说话，正在调试")); // 添加文本内容
-
-        XabHttpResult result = XabHttpRequest.getInstance().Get(QQConstants.URL_CONVERT_MSG);
-        sendMsg.addContentItem(new TextItem(result.getEOS()));
-        sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
-        sendMsg.addContentItem(new FontItem());             // 使用默认字体
-        mClient.sendMsg(sendMsg, null);
-
-
-//        mClient.getConvertMsg(sendMsg, new ConvertMsgListener(sendMsg));
-    }
-
-    class ConvertMsgListener implements QQActionListener {
-        QQMsg sendMsg;
-
-        public ConvertMsgListener(QQMsg sendMsg) {
-            this.sendMsg = sendMsg;
-        }
-
-        @Override
-        public void onActionEvent(QQActionEvent event) {
-            if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                System.out.println(event.getTarget());
-                sendMsg.addContentItem(new TextItem(event.getTarget().toString()));
-                mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
-            }
-        }
-    }
-
-    public void sendMsg(QQGroup group) {
-        System.out.println("sendMsg " + group);
-
-        // 组装QQ消息发送回去
-        QQMsg sendMsg = new QQMsg();
-        sendMsg.setGroup(group);                                // QQ好友UIN
-        sendMsg.setType(QQMsg.Type.GROUP_MSG);              // 发送类型为好友
-        // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
-        sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
-        sendMsg.addContentItem(new FontItem());             // 使用默认字体
-        mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
-    }
-
-    public void sendDiscuz(QQDiscuz discuz) {
-        System.out.println("sendMsg " + discuz);
-
-        // 组装QQ消息发送回去
-        QQMsg sendMsg = new QQMsg();
-        sendMsg.setDiscuz(discuz);                                // QQ好友UIN
-        sendMsg.setType(QQMsg.Type.DISCUZ_MSG);              // 发送类型为好友
-        // QQ内容
-        sendMsg.addContentItem(new TextItem("hello from iqq: https://github.com/im-qq")); // 添加文本内容
-        sendMsg.addContentItem(new FaceItem(74));           // QQ id为0的表情
-        sendMsg.addContentItem(new FontItem());             // 使用默认字体
-        mClient.sendMsg(sendMsg, null);                     // 调用接口发送消息
-    }
 
     @QQNotifyHandler(QQNotifyEvent.Type.CHAT_MSG)
     public void processBuddyMsg(QQNotifyEvent event) throws QQException {
         QQMsg msg = (QQMsg) event.getTarget();
 
-        System.out.println("[消息] " + msg.getFrom().getNickname() + "说:" + msg.packContentList());
-        System.out.print("消息内容: ");
+        LOG.info("[消息] " + msg.getFrom().getNickname() + "说:" + msg.packContentList());
         List<ContentItem> items = msg.getContentList();
+
+        if (msg.getType() == QQMsg.Type.BUDDY_MSG) {
+            // 组装QQ消息发送回去
+            String content = "";
+            for (ContentItem item : items) {
+                if (item.getType() == ContentItem.Type.FACE) {
+                    System.out.print(" Face:" + ((FaceItem) item).getId());
+                } else if (item.getType() == ContentItem.Type.OFFPIC) {
+                    System.out.print(" Picture:" + ((OffPicItem) item).getFilePath());
+                } else if (item.getType() == ContentItem.Type.TEXT) {
+                    content = ((TextItem) item).getContent();
+                }
+            }
+            if (StringU.equals(content, "团长最帅")) {
+                QQMsg sendMsg = new QQMsg();
+                sendMsg.setTo(msg.getFrom());                       // QQ好友UIN
+                sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
+                // QQ内容
+                if (!uinList.contains(msg.getFrom().getUin())) {
+                    uinList.add(msg.getFrom().getUin());
+                    sendMsg.addContentItem(new TextItem("加入白名单成功."));      // 添加文本内容
+                } else {
+                    sendMsg.addContentItem(new TextItem("大哥/大姐 咱别重复加入了."));      // 添加文本内容
+                }
+                sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                client.sendMsg(sendMsg, null);                      // 调用接口发送消息
+            }
+        } else if (msg.getType() == QQMsg.Type.GROUP_MSG) {
+            if (msg.getFrom().getFlag() == 0 && !uinList.contains(msg.getFrom().getUin())) {
+                LOG.debug("不是管理员,无视.");
+                return;
+            }
+            QQMsg sendMsg = new QQMsg();
+            sendMsg.setGroup(msg.getGroup());                       // QQ好友UIN
+            sendMsg.setType(QQMsg.Type.GROUP_MSG);
+            XabHttpResult result = null;
+            try {
+                result = XabHttpRequest.getInstance().Get(QQConstants.URL_CONVERT_MSG + URLEncoder.encode(msg.getText(), "UTF-8"));
+                String baseJson = result.getEOS();
+                int code = JsonU.getInt(baseJson, "code");
+                switch (code) {
+                    case TulingU.text:
+                        sendMsg.addContentItem(new TextItem(StringU.replace(JsonU.getString(baseJson, "text"),"<br>","\r\n")));
+                        sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                        client.sendMsg(sendMsg, null);
+                        break;
+                    case TulingU.news:
+                        JSONArray array = JsonU.getJsonArray(baseJson, "list");
+                        int arrayLength = array.length();
+                        for (int i = 0; i < arrayLength; i++) {
+                            String string = array.getString(i);
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "article")));
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "detailurl")));
+                            sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                            client.sendMsg(sendMsg, null);
+
+                        }
+                        break;
+                    case TulingU.link:
+                        sendMsg.addContentItem(new TextItem("点击打开: " + JsonU.getString(baseJson, "url")));
+                        sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                        client.sendMsg(sendMsg, null);
+                        break;
+                    case TulingU.cook:
+                        JSONArray array1 = JsonU.getJsonArray(baseJson, "list");
+                        int arrayLength1 = array1.length();
+                        for (int i = 0; i < arrayLength1; i++) {
+                            String string = array1.getString(i);
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "name") + "\n"));
+                            sendMsg.addContentItem(new TextItem("材料 :" + JsonU.getString(string, "info") + "\n"));
+                            sendMsg.addContentItem(new TextItem("点击打开: "));
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "detailurl")));
+                            sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                            client.sendMsg(sendMsg, null);
+                            break;
+                        }
+                        break;
+                    default:
+                        LOG.debug("不会回答!");
+                        break;
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

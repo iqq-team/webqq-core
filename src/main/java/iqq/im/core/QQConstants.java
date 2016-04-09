@@ -50,6 +50,7 @@ public interface QQConstants {
      */
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36";
     public static final String Origin = "http://d1.web2.qq.com";
+    public static final String SOrigin = "http://s.web2.qq.com";
     /**
      * Constant <code>URL_CHECK_VERIFY="https://ssl.ptlogin2.qq.com/check?uin={"{trunked}</code>
      */
@@ -290,6 +291,7 @@ public interface QQConstants {
      */
     public static final int HTTP_TIME_OUT = 80000;
 
-    public static final String URL_CONVERT_MSG = "http://www.weather.com.cn/adat/cityinfo/101010100.html";
+    public static final String URL_CONVERT_MSG = "http://www.tuling123.com/openapi/api?key=e1b33c7eb551bb8139ca7a983c625e07&info=";
+    public static final String URL_GET_SELF_INFO = "http://s.web2.qq.com/api/get_self_info2?t="+System.currentTimeMillis();
 
 }

@@ -2,6 +2,8 @@ package iqq.im.http;
 
 import iqq.im.core.QQConstants;
 import org.apache.http.params.HttpConnectionParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.net.SocketFactory;
 import javax.net.ssl.SSLContext;
@@ -21,8 +23,9 @@ import java.security.cert.X509Certificate;
  * <p>QQSSLSocketFactory class.</p>
  */
 public class QQSSLSocketFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(QQSSLSocketFactory.class);
     static {
-        System.out.println(">>>>in MySSLSocketFactory>>");
+        LOG.info(">>>>in MySSLSocketFactory>>");
     }
 
     /**

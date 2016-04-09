@@ -270,4 +270,22 @@ public class QQSession {
 	public void setEmailAuthKey(String emailAuthKey) {
 		this.emailAuthKey = emailAuthKey;
 	}
+
+	@Override
+	public String toString() {
+		return "{" +
+				"\"clientId\":" + clientId +
+				",\"sessionId\":\"" + sessionId + '\"' +
+				",\"vfwebqq\":\"" + vfwebqq + '\"' +
+				",\"ptwebqq\":\"" + ptwebqq + '\"' +
+				",\"loginSig\":\"" + loginSig + '\"' +
+				",\"cfaceKey\":\"" + cfaceKey + '\"' +
+				",\"cfaceSig\":\"" + cfaceSig + '\"' +
+				",\"emailAuthKey\":\"" + emailAuthKey + '\"' +
+				",\"index\":" + index +
+				",\"port\":" + port +
+				",\"pollErrorCnt\":" + pollErrorCnt +
+				",\"state\":" + state +
+				'}';
+	}
 }

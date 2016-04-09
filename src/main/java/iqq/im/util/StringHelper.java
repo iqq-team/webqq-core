@@ -92,7 +92,7 @@ public class StringHelper {
 	 * 如
 	 * <pre>
 	 * String s = StringHelper.format("{0} is {1}", "apple", "fruit");
-	 * System.out.println(s);
+	 * LOG.info(s);
 	 * //输出  apple is fruit.
 	 * </pre>
 	 *

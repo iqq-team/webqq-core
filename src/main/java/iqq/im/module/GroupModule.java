@@ -26,13 +26,7 @@
 package iqq.im.module;
 
 import iqq.im.QQActionListener;
-import iqq.im.action.GetGroupAccoutAction;
-import iqq.im.action.GetGroupFaceAction;
-import iqq.im.action.GetGroupInfoAction;
-import iqq.im.action.GetGroupListAction;
-import iqq.im.action.GetGroupMemberStatusAction;
-import iqq.im.action.SearchGroupInfoAction;
-import iqq.im.action.UpdateGroupMessageFilterAction;
+import iqq.im.action.*;
 import iqq.im.bean.QQGroup;
 import iqq.im.bean.QQGroupSearchList;
 import iqq.im.event.QQActionFuture;
@@ -53,6 +47,9 @@ public class GroupModule extends AbstractModule {
 	 */
 	public QQActionFuture getGroupList(QQActionListener listener) {
 		return pushHttpAction(new GetGroupListAction(getContext(), listener));
+	}
+	public QQActionFuture getSelfInfo(QQActionListener listener) {
+		return pushHttpAction(new GetSelfInfoAction(getContext(), listener));
 	}
 	
 	/**

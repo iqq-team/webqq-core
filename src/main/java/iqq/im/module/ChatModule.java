@@ -11,7 +11,6 @@ import iqq.im.core.QQModule;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQActionFuture;
 import iqq.im.event.future.ProcActionFuture;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -76,23 +75,23 @@ public class ChatModule extends AbstractModule {
                     return future;
                 }
             }
-            if (StringUtils.isEmpty(getContext().getSession().getCfaceKey())) {
-                getCFaceSig(new QQActionListener() {
-
-                    @Override
-                    public void onActionEvent(QQActionEvent event) {
-                        if (future.isCanceled()) {
-                            return;
-                        }
-                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                            sendMsg(msg, future);
-                        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                            future.notifyActionEvent(event.getType(), event.getTarget());
-                        }
-                    }
-                });
-                return future;
-            }
+//            if (StringUtils.isEmpty(getContext().getSession().getCfaceKey())) {
+//                getCFaceSig(new QQActionListener() {
+//
+//                    @Override
+//                    public void onActionEvent(QQActionEvent event) {
+//                        if (future.isCanceled()) {
+//                            return;
+//                        }
+//                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+//                            sendMsg(msg, future);
+//                        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+//                            future.notifyActionEvent(event.getType(), event.getTarget());
+//                        }
+//                    }
+//                });
+//                return future;
+//            }
         }
 
         return doSendMsg(msg, listener);

@@ -15,6 +15,8 @@ import iqq.im.http.QQHttpResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>UpdateGroupMessageFilterAction class.</p>
@@ -24,7 +26,7 @@ import org.json.JSONObject;
  */
 public class UpdateGroupMessageFilterAction extends AbstractHttpAction {
 
-
+	private static final Logger LOG = LoggerFactory.getLogger(UpdateGroupMessageFilterAction.class);
 	/**
 	 * <p>Constructor for UpdateGroupMessageFilterAction.</p>
 	 *
@@ -60,8 +62,8 @@ public class UpdateGroupMessageFilterAction extends AbstractHttpAction {
 		itemlist.put("groupmask", groupmask);
 		req.addPostValue("itemlist", itemlist.toString());
 		req.addPostValue("vfwebqq", getContext().getSession().getVfwebqq());
-		
-		System.out.println("UpdateGroupMessageFilterAction: " + itemlist.toString() + " - " + store.getGroupList().size());
+
+		LOG.info("UpdateGroupMessageFilterAction: " + itemlist.toString() + " - " + store.getGroupList().size());
 		return req;
 	}
 

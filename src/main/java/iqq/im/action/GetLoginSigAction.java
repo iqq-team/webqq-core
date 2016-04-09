@@ -68,7 +68,7 @@ public class GetLoginSigAction extends AbstractHttpAction {
 		LOG.info(response.getResponseMessage());
 		LOG.info(response.getResponseString());
 		Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN_SIG);
-		System.out.println(response.getResponseString());
+		LOG.info(response.getResponseString());
 		Matcher mc = pt.matcher(response.getResponseString());
 		LOG.info("-----------------------------------");
 		if(mc.find()){

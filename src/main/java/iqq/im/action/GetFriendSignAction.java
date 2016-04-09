@@ -48,7 +48,7 @@ public class GetFriendSignAction extends AbstractHttpAction {
 		req.addGetValue("vfwebqq", session.getVfwebqq());
 		req.addGetValue("t", System.currentTimeMillis() / 1000 + "");
 
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Referer", QQConstants.VREFFER);
 		return req;
 	}
 

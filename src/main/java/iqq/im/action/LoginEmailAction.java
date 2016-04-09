@@ -1,11 +1,6 @@
 
 package iqq.im.action;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.json.JSONException;
-
 import iqq.im.QQActionListener;
 import iqq.im.QQException;
 import iqq.im.QQException.QQErrorCode;
@@ -14,6 +9,12 @@ import iqq.im.core.QQContext;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
+import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 登录邮箱
@@ -22,7 +23,7 @@ import iqq.im.http.QQHttpResponse;
  * @since 2014年1月24日
  */
 public class LoginEmailAction extends AbstractHttpAction {
-
+	private static final Logger LOG = LoggerFactory.getLogger(LoginEmailAction.class);
 
 	/**
 	 * <p>Constructor for LoginEmailAction.</p>
@@ -54,7 +55,7 @@ public class LoginEmailAction extends AbstractHttpAction {
         if(m.find()){
         	String sid = m.group(1);
         	notifyActionEvent(QQActionEvent.Type.EVT_OK, sid);
-        	System.out.println("LoginEmailAction***" + sid);
+        	LOG.info("LoginEmailAction***" + sid);
         }else{
         	notifyActionEvent(QQActionEvent.Type.EVT_ERROR, QQErrorCode.UNEXPECTED_RESPONSE);
         }

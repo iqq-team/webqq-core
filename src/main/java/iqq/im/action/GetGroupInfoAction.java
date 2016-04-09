@@ -34,6 +34,7 @@ import iqq.im.bean.QQGroupMember;
 import iqq.im.bean.QQStatus;
 import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
+import iqq.im.core.QQStore;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
@@ -74,30 +75,35 @@ public class GetGroupInfoAction extends AbstractHttpAction {
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
             JSONException {
         // "ginfo": {"face": 0, "memo": "想看源码的童鞋请移步项目主页: https://github.com/im-qq https://code.google.com/p/iqq/", "class": 10048, "fingermemo": "", "code": 2487563187, "createtime": 1310222898, "flag": 184550417, "level": 1, "name": "iQQ", "gid": 3632238464, "owner": 353719513,"members": [], "option": 1}
+        QQStore store = getContext().getStore();
         JSONObject json = new JSONObject(response.getResponseString());
         if (json.getInt("retcode") == 0) {
             json = json.getJSONObject("result");
             JSONObject ginfo = json.getJSONObject("ginfo");
             group.setGin(ginfo.getLong("gid")); // is gin
+            group.setGid(ginfo.getLong("gid")); // is gin
             group.setCode(ginfo.getLong("code"));
             group.setOwner(ginfo.getLong("owner"));
             group.setMemo(ginfo.getString("memo"));
             group.setLevel(ginfo.getInt("level"));
             group.setCreateTime(new Date(ginfo.getInt("createtime")));
-
             JSONArray members = ginfo.getJSONArray("members");
             for (int i = 0; i < members.length(); i++) {
                 JSONObject memjson = members.getJSONObject(i);
                 QQGroupMember member = group.getMemberByUin(memjson.getLong("muin"));
                 if (member == null) {
                     member = new QQGroupMember();
-                    group.getMembers().add(member);
                 }
                 member.setUin(memjson.getLong("muin"));
                 member.setGroup(group);
-                //memjson.getLong("mflag"); //TODO ...
+                if(member.getUin() == group.getOwner())
+                    member.setFlag(1);
+                else {
+                    member.setFlag(memjson.getInt("mflag"));
+                }
+                group.getMembers().add(member);
             }
-
+            LOG.debug("群组内人员总数: " + group.getMembers().size());
             //result/minfo
             JSONArray minfos = json.getJSONArray("minfo");
             for (int i = 0; i < minfos.length(); i++) {
@@ -109,7 +115,6 @@ public class GetGroupInfoAction extends AbstractHttpAction {
                 member.setCity(minfo.getString("city"));
                 member.setGender(minfo.getString("gender"));
             }
-
             //result/stats
             JSONArray stats = json.getJSONArray("stats");
             for (int i = 0; i < stats.length(); i++) {
@@ -126,7 +131,7 @@ public class GetGroupInfoAction extends AbstractHttpAction {
                 for (int i = 0; i < cards.length(); i++) {
                     JSONObject card = cards.getJSONObject(i);
                     QQGroupMember member = group.getMemberByUin(card.getLong("muin"));
-                    if (card != null && card.has("card") && member != null) {
+                    if (card.has("card") && member != null) {
                         member.setCard(card.getString("card"));
                     }
                 }
@@ -140,7 +145,7 @@ public class GetGroupInfoAction extends AbstractHttpAction {
                 member.setVipLevel(vipinfo.getInt("vip_level"));
                 member.setVip(vipinfo.getInt("is_vip") == 1);
             }
-
+            store.addGroup(group);
             notifyActionEvent(QQActionEvent.Type.EVT_OK, group);
         } else {
             notifyActionEvent(QQActionEvent.Type.EVT_ERROR, QQErrorCode.UNEXPECTED_RESPONSE);
@@ -156,6 +161,8 @@ public class GetGroupInfoAction extends AbstractHttpAction {
         req.addGetValue("gcode", group.getCode() + "");
         req.addGetValue("vfwebqq", getContext().getSession().getVfwebqq());
         req.addGetValue("t", System.currentTimeMillis() / 1000 + "");
+
+        req.addHeader("Referer", QQConstants.VREFFER);
         return req;
     }
 

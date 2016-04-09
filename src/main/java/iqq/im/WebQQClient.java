@@ -342,8 +342,20 @@ public class WebQQClient implements QQClient, QQContext {
      */
     @Override
     public QQActionFuture getGroupList(QQActionListener listener) {
-        GroupModule groupModule = (GroupModule) getModule(QQModule.Type.GROUP);
+        GroupModule groupModule = getModule(QQModule.Type.GROUP);
         return groupModule.getGroupList(listener);
+    }
+
+    /**
+     *
+     * @param listener a {@link iqq.im.QQActionListener} object.
+     * @return
+     * 获取自己的信息
+     */
+    @Override
+    public QQActionFuture getSelfInfo(QQActionListener listener) {
+        GroupModule groupModule = getModule(QQModule.Type.GROUP);
+        return groupModule.getSelfInfo(listener);
     }
 
     /**

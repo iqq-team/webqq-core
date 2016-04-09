@@ -61,7 +61,7 @@ public class ProcModule extends AbstractModule {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    getVfwebqq((String) event.getTarget(), future);
+                    doCheckLoginSig((String) event.getTarget(), future);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(QQActionEvent.Type.EVT_ERROR, event.getTarget());
                 }
@@ -69,13 +69,13 @@ public class ProcModule extends AbstractModule {
         });
         return future;
     }
-    private void getVfwebqq(final String checkSigUrl, final ProcActionFuture future) {
+    private void getVfwebqq(final ProcActionFuture future) {
         LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
         login.getVfwebqq(new QQActionListener() {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    doCheckLoginSig(checkSigUrl, future);
+                    doChannelLogin(future);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(
                             QQActionEvent.Type.EVT_ERROR,
@@ -198,7 +198,7 @@ public class ProcModule extends AbstractModule {
                             } else {
                                 future.notifyActionEvent(
                                         QQActionEvent.Type.EVT_ERROR,
-                                        (QQException) event.getTarget());
+                                        event.getTarget());
                             }
                         }
                     }
@@ -211,7 +211,7 @@ public class ProcModule extends AbstractModule {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    doChannelLogin(future);
+                    getVfwebqq(future);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(
                             QQActionEvent.Type.EVT_ERROR,
@@ -297,7 +297,6 @@ public class ProcModule extends AbstractModule {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                     List<QQNotifyEvent> events = (List<QQNotifyEvent>) event.getTarget();
                     for (QQNotifyEvent evt : events) {
-                        LOG.debug(evt.toString());
                         getContext().fireNotify(evt);
                     }
                     // 准备提交下次poll请求
@@ -326,8 +325,7 @@ public class ProcModule extends AbstractModule {
                         doPollMsg();
                     }
                 } else if (event.getType() == QQActionEvent.Type.EVT_RETRY) {
-                    System.err.println("Poll Retry:" + this);
-                    LOG.warn("poll msg error, retrying....", (QQException) event.getTarget());
+                    LOG.error("poll msg error, retrying....", ((QQException) event.getTarget()).getMessage());
                 }
             }
         });
