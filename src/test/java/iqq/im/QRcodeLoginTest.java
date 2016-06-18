@@ -1,5 +1,6 @@
 package iqq.im;
 
+import iqq.im.actor.SwingActorDispatcher;
 import iqq.im.actor.ThreadActorDispatcher;
 import iqq.im.bean.QQDiscuz;
 import iqq.im.bean.QQGroup;
@@ -34,7 +35,7 @@ public class QRcodeLoginTest {
                     break;
             }
         }
-    }, new ThreadActorDispatcher());
+    }, new SwingActorDispatcher());
 
     public static void main(String[] args) {
         // 获取二维码

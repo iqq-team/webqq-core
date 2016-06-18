@@ -42,11 +42,12 @@ public interface QQConstants {
     /**
      * Constant <code>REFFER="http://d.web2.qq.com/proxy.html?v=20110"{trunked}</code>
      */
-    public static final String REFFER = "http://d.web2.qq.com/proxy.html?v=20140612002&callback=1&id=3";
+    public static final String REFFER = "http://d1.web2.qq.com/proxy.html?v=20151105001&callback=1&id=2";
     /**
      * Constant <code>USER_AGENT="IQQ Client/0.1 dev"</code>
      */
-    public static final String USER_AGENT = "IQQ Client/1.2 dev";
+//    public static final String USER_AGENT = "IQQ Client/1.2 dev";
+    public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36";
     /**
      * Constant <code>URL_CHECK_VERIFY="https://ssl.ptlogin2.qq.com/check?uin={"{trunked}</code>
      */
@@ -82,7 +83,7 @@ public interface QQConstants {
     /**
      * Constant <code>URL_CHANNEL_LOGIN="http://d.web2.qq.com/channel/login2"</code>
      */
-    public static final String URL_CHANNEL_LOGIN = "http://d.web2.qq.com/channel/login2";
+    public static final String URL_CHANNEL_LOGIN = "http://d1.web2.qq.com/channel/login2";
     /**
      * Constant <code>URL_GET_FRIEND_INFO="http://s.web2.qq.com/api/get_friend_inf"{trunked}</code>
      */

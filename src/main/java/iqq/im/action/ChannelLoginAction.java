@@ -40,10 +40,13 @@ import iqq.im.http.QQHttpResponse;
 import iqq.im.service.HttpService;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
 public class ChannelLoginAction extends AbstractHttpAction {
+    private Logger logger = LoggerFactory.getLogger(ChannelLoginAction.class);
     private QQStatus status;
 
     /**
@@ -65,21 +68,17 @@ public class ChannelLoginAction extends AbstractHttpAction {
     public QQHttpRequest onBuildRequest() throws QQException, JSONException {
         HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
         QQSession session = getContext().getSession();
-        if (session.getClientId() == 0) {
-            session.setClientId(Math.abs(new Random().nextInt())); //random??
-        }
 
         JSONObject json = new JSONObject();
-        json.put("status", status.getValue());
+        json.put("status", "online");
         json.put("ptwebqq", httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN).getValue());
-        json.put("passwd_sig", "");
-        json.put("clientid", session.getClientId());
-        json.put("psessionid", session.getSessionId());
+        json.put("clientid", session.getClientId() + "");
+        json.put("psessionid", "");
 
         QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_CHANNEL_LOGIN);
         req.addPostValue("r", json.toString());
-        req.addPostValue("clientid", session.getClientId() + "");
-        req.addPostValue("psessionid", session.getSessionId());
+
+        logger.info(json.toString());
 
         req.addHeader("Referer", QQConstants.REFFER);
         return req;
@@ -90,6 +89,8 @@ public class ChannelLoginAction extends AbstractHttpAction {
      */
     @Override
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
+        logger.info(response.getResponseString());
+
         //{"retcode":0,"result":{"uin":236557647,"cip":1991953329,"index":1075,"port":51494,"status":"online","vfwebqq":"41778677efd86bae2ed575eea02349046a36f3f53298a34b97d75297ec1e67f6ee5226429daa6aa7","psessionid":"8368046764001d636f6e6e7365727665725f77656271714031302e3133332e342e31373200005b9200000549016e04004f95190e6d0000000a4052347371696a62724f6d0000002841778677efd86bae2ed575eea02349046a36f3f53298a34b97d75297ec1e67f6ee5226429daa6aa7","user_state":0,"f":0}}
         JSONObject json = new JSONObject(response.getResponseString());
         QQSession session = getContext().getSession();
@@ -110,4 +111,10 @@ public class ChannelLoginAction extends AbstractHttpAction {
         }
     }
 
+    @Override
+    protected void onHttpStatusError(QQHttpResponse response) throws QQException {
+        logger.info(response.getResponseString());
+
+        super.onHttpStatusError(response);
+    }
 }

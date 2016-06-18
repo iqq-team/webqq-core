@@ -48,7 +48,7 @@ import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 public abstract class AbstractHttpAction implements HttpAction{
-	private static final Logger LOG = LoggerFactory.getLogger(AbstractHttpAction.class);
+	private final Logger LOG = LoggerFactory.getLogger(getClass());
 	private QQContext context;
 	private QQActionListener listener;
 	private Future<QQHttpResponse> responseFuture;
