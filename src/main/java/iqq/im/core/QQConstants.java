@@ -42,7 +42,11 @@ public interface QQConstants {
     /**
      * Constant <code>REFFER="http://d.web2.qq.com/proxy.html?v=20110"{trunked}</code>
      */
-    public static final String REFFER = "http://d1.web2.qq.com/proxy.html?v=20151105001&callback=1&id=2";
+    public static final String REFFER = "http://d1.web2.qq.com/proxy.html?v=20151105001&callback=1&id=2"; /**
+
+     * Constant <code>ORIGIN="http://d1.web2.qq.com"{trunked}</code>
+     */
+    public static final String ORIGIN = "http://d1.web2.qq.com";
     /**
      * Constant <code>USER_AGENT="IQQ Client/0.1 dev"</code>
      */
@@ -99,7 +103,7 @@ public interface QQConstants {
     /**
      * Constant <code>URL_POLL_MSG="http://d.web2.qq.com/channel/poll2"</code>
      */
-    public static final String URL_POLL_MSG = "http://d.web2.qq.com/channel/poll2";
+    public static final String URL_POLL_MSG = "http://d1.web2.qq.com/channel/poll2";
     /**
      * Constant <code>URL_GET_USER_CATEGORIES="http://s.web2.qq.com/api/get_user_frien"{trunked}</code>
      */

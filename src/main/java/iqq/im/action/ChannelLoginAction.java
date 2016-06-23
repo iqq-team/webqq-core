@@ -68,19 +68,19 @@ public class ChannelLoginAction extends AbstractHttpAction {
     public QQHttpRequest onBuildRequest() throws QQException, JSONException {
         HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
         QQSession session = getContext().getSession();
-
+        String ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN).getValue();
         JSONObject json = new JSONObject();
         json.put("status", "online");
-        json.put("ptwebqq", httpService.getCookie("ptwebqq", QQConstants.URL_CHANNEL_LOGIN).getValue());
-        json.put("clientid", session.getClientId() + "");
+        json.put("ptwebqq",ptwebqq );
+        json.put("clientid", session.getClientId());
         json.put("psessionid", "");
-
+        session.setPtwebqq(ptwebqq);
         QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_CHANNEL_LOGIN);
         req.addPostValue("r", json.toString());
-
         logger.info(json.toString());
-
         req.addHeader("Referer", QQConstants.REFFER);
+        req.addHeader("Origin", QQConstants.ORIGIN);
+        req.addHeader("Connection", "Keep-Alive");
         return req;
     }
 

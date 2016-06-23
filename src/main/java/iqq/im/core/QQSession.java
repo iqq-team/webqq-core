@@ -34,7 +34,7 @@ import java.util.Random;
  * @author solosky
  */
 public class QQSession {
-    private long clientId;
+    private long clientId=53999199;
     private String sessionId;
     private String vfwebqq;
     private String ptwebqq;

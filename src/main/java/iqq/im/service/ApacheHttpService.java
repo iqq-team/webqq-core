@@ -27,7 +27,6 @@ package iqq.im.service;
 
 import iqq.im.QQException;
 import iqq.im.QQException.QQErrorCode;
-import iqq.im.action.AbstractHttpAction;
 import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
 import iqq.im.http.QQHttpCookie;
@@ -71,6 +70,7 @@ import org.apache.http.ProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIUtils;
 import org.apache.http.concurrent.FutureCallback;
 import org.apache.http.entity.mime.FormBodyPart;
@@ -239,12 +239,11 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 	        HttpConnectionParams.setTcpNoDelay(httpParams, true);
 	        HttpConnectionParams.setSocketBufferSize(httpParams, 4096);
 	        HttpProtocolParams.setVersion(httpParams, HttpVersion.HTTP_1_1);
-			
 	        asyncHttpClient.getConnectionManager()
 	        .getSchemeRegistry().register(new AsyncScheme("https", 443, new SSLLayeringStrategy(sslContext)));
-			asyncHttpClient.setRedirectStrategy(new QQDefaultRedirectStrategy());
-			asyncHttpClient.start();
 			cookieJar = new QQHttpCookieJar();
+			asyncHttpClient.setRedirectStrategy(new QQDefaultRedirectStrategy(cookieJar));
+			asyncHttpClient.start();
 		} catch (IOReactorException e) {
 			throw new QQException(QQErrorCode.INIT_ERROR, e);
 		}
@@ -282,6 +281,13 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 	}
 	
 	static class QQDefaultRedirectStrategy extends DefaultRedirectStrategy{
+
+		private QQHttpCookieJar httpCookieJar;
+
+		public QQDefaultRedirectStrategy(QQHttpCookieJar httpCookieJar) {
+			this.httpCookieJar = httpCookieJar;
+		}
+
 		@Override
 		protected URI createLocationURI(String url) throws ProtocolException {
 			//腾讯的某些URL含有 {} ，URI解析会报错，在这之前替换下
@@ -289,7 +295,21 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 			url = url.replaceAll("\\}", "%7d");
 			return super.createLocationURI(url);
 		}
-		
+
+		@Override
+		public HttpUriRequest getRedirect(HttpRequest request, HttpResponse response, HttpContext context) throws ProtocolException {
+			//302的时候也有可能有set-cookie
+			Header cookieHeaders[] =response.getHeaders("Set-Cookie");
+			if(cookieHeaders!=null && cookieHeaders.length>0){
+				List<String> cookies = new ArrayList<String>();
+				for(Header header:cookieHeaders){
+					cookies.add(header.getValue());
+				}
+				this.httpCookieJar.updateCookies(cookies);
+			}
+
+			return super.getRedirect(request, response, context);
+		}
 	}
 	
     static class QQHttpResponseConsumer extends AsyncByteConsumer<QQHttpResponse> {
