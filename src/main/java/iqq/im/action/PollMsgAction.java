@@ -304,20 +304,20 @@ public class PollMsgAction extends AbstractHttpAction {
         msg.setId2(pollData.has("msg_id2")?pollData.getLong("msg_id2"):0);
         long fromUin = pollData.getLong("send_uin");
         long groupCode = pollData.getLong("group_code");
-        long groupID = pollData.getLong("info_seq"); // 真实群号码
+//        long groupID = pollData.getLong("info_seq"); // 真实群号码
         QQGroup group = store.getGroupByCode(groupCode);
         if (group == null) {
             GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
             group = new QQGroup();
             group.setCode(groupCode);
-            group.setGid(groupID);
+//            group.setGid(groupID);
             // put to store
             store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
-        if (group.getGid() <= 0) {
+       /* if (group.getGid() <= 0) {
             group.setGid(groupID);
-        }
+        }*/
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.GROUP_MSG);
         msg.setGroup(group);

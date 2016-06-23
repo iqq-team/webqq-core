@@ -9,8 +9,10 @@ import iqq.im.bean.QQUser;
 import iqq.im.bean.content.FaceItem;
 import iqq.im.bean.content.FontItem;
 import iqq.im.bean.content.TextItem;
+import iqq.im.core.QQModule;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQNotifyEvent;
+import iqq.im.module.GroupModule;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -63,7 +65,15 @@ public class QRcodeLoginTest {
                 switch (event.getType()) {
                     case EVT_OK:
                         // 扫描通过,登录成功
-                        mClient.beginPollMsg();
+//                        mClient.beginPollMsg();
+                        QQGroup qqGroup = new QQGroup();
+                        qqGroup.setCode(1353830066);
+                        mClient.getGroupInfo(qqGroup, new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                System.out.println(event);
+                            }
+                        });
                         break;
                     case EVT_ERROR:
                         QQException ex = (QQException) (event.getTarget());
@@ -99,10 +109,11 @@ public class QRcodeLoginTest {
             case DISCUZ_MSG:
                 sendDiscuz(revMsg.getDiscuz());
         }
+        System.out.println(revMsg.getText());
     }
 
     public static void sendMsg(QQUser user) {
-        System.out.println("sendMsg " + user);
+        System.out.println("sendMsg ");
 
         // 组装QQ消息发送回去
         QQMsg sendMsg = new QQMsg();
