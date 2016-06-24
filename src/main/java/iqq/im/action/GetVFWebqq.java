@@ -55,6 +55,7 @@ public class GetVFWebqq extends AbstractHttpAction {
         if (json.getInt("retcode") == 0) {
             JSONObject ret = json.getJSONObject("result");
             session.setVfwebqq(ret.getString("vfwebqq"));
+            System.out.println("vfw:"+session.getVfwebqq());
             notifyActionEvent(QQActionEvent.Type.EVT_OK, null);
         } else {
             notifyActionEvent(QQActionEvent.Type.EVT_ERROR, new QQException(QQException.QQErrorCode.INVALID_RESPONSE));    //TODO ..

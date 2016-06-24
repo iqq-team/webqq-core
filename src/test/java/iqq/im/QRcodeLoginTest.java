@@ -1,5 +1,6 @@
 package iqq.im;
 
+import com.alibaba.fastjson.JSON;
 import iqq.im.actor.SwingActorDispatcher;
 import iqq.im.actor.ThreadActorDispatcher;
 import iqq.im.bean.QQDiscuz;
@@ -13,6 +14,7 @@ import iqq.im.core.QQModule;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQNotifyEvent;
 import iqq.im.module.GroupModule;
+import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -65,12 +67,29 @@ public class QRcodeLoginTest {
                 switch (event.getType()) {
                     case EVT_OK:
                         // 扫描通过,登录成功
+                        mClient.getBuddyList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println("加载好友列表成功");
+                                }
+                            }
+                        });
+                        mClient.getGroupList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println("加载群列表成功");
+                                }
+                            }
+                        });
 //                        mClient.beginPollMsg();
                         QQGroup qqGroup = new QQGroup();
-                        qqGroup.setCode(1353830066);
+                        qqGroup.setCode(3058601821l);
                         mClient.getGroupInfo(qqGroup, new QQActionListener() {
                             @Override
                             public void onActionEvent(QQActionEvent event) {
+
                                 System.out.println(event);
                             }
                         });

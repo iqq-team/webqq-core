@@ -157,7 +157,6 @@ public class GetGroupInfoAction extends AbstractHttpAction {
         req.addGetValue("vfwebqq", getContext().getSession().getVfwebqq());
         req.addGetValue("t", System.currentTimeMillis() / 1000 + "");
         req.addHeader("Referer",QQConstants.REFERER_S);
-        req.addHeader("Origin",QQConstants.ORIGIN_S);
         return req;
     }
 

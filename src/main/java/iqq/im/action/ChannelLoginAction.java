@@ -100,7 +100,8 @@ public class ChannelLoginAction extends AbstractHttpAction {
             account.setUin(ret.getLong("uin"));
             account.setQQ(ret.getLong("uin"));
             session.setSessionId(ret.getString("psessionid"));
-            session.setVfwebqq(ret.getString("vfwebqq"));
+//            session.setVfwebqq(ret.getString("vfwebqq"));
+//            System.out.println("channel:"+session.getVfwebqq());
             account.setStatus(QQStatus.valueOfRaw(ret.getString("status")));
             session.setState(QQSession.State.ONLINE);
             session.setIndex(ret.getInt("index"));

@@ -20,6 +20,7 @@ import iqq.im.http.QQHttpResponse;
 import iqq.im.service.HttpService;
 import iqq.im.util.QQEncryptor;
 
+import iqq.im.util.URLUtils;
 import org.slf4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,18 +52,22 @@ public class GetBuddyListAction extends AbstractHttpAction {
 		QQSession session = getContext().getSession();
 		QQAccount account = getContext().getAccount();
 		HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
-		QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_GET_USER_CATEGORIES);
+//		QQHttpCookie ptwebqq = httpService.getCookie("ptwebqq", QQConstants.URL_GET_USER_CATEGORIES);
 		
 		JSONObject json = new JSONObject();
+/*
 		json.put("h", "hello");
+*/
 		json.put("vfwebqq", session.getVfwebqq()); // 同上
-		json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
+		json.put("hash", QQEncryptor.hash(account.getUin() + "", session.getPtwebqq()));
 
-		QQHttpRequest req = createHttpRequest("POST",
-				QQConstants.URL_GET_USER_CATEGORIES);
+		QQHttpRequest req = createHttpRequest("POST",QQConstants.URL_GET_USER_CATEGORIES);
 		req.addPostValue("r", json.toString());
 
-		req.addHeader("Referer", QQConstants.REFFER);
+		req.addHeader("Referer", QQConstants.REFERER_S);
+		req.addHeader("Origin", URLUtils.getOrigin(QQConstants.URL_GET_USER_CATEGORIES));
+
+		System.out.println(json.toString());
 
 		return req;
 	}

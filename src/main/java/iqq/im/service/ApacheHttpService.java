@@ -232,7 +232,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 			SSLContext sslContext = new QQSSLSocketFactory().getSSLContext();
 			SSLContext.setDefault(sslContext);
 			asyncHttpClient = new DefaultHttpAsyncClient();
-			
+
 			HttpParams httpParams = asyncHttpClient.getParams();
 	        HttpConnectionParams.setSoTimeout(httpParams, QQConstants.HTTP_TIME_OUT);
 	        HttpConnectionParams.setConnectionTimeout(httpParams, QQConstants.HTTP_TIME_OUT);
