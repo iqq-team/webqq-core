@@ -154,9 +154,11 @@ public class GetGroupInfoAction extends AbstractHttpAction {
     protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
         QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_GROUP_INFO_EXT);
         req.addGetValue("gcode", group.getCode() + "");
-        req.addGetValue("vfwebqq", getContext().getSession().getVfwebqq());
+        req.addGetValue("vfwebqq", getContext().getAccount().getVfwebqq());
         req.addGetValue("t", System.currentTimeMillis() / 1000 + "");
         req.addHeader("Referer",QQConstants.REFERER_S);
+        System.out.println("vfwebqq session:"+getContext().getSession().getVfwebqq());
+        System.out.println("vfwebqq account:"+getContext().getAccount().getVfwebqq());
         return req;
     }
 

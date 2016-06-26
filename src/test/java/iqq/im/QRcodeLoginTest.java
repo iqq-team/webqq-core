@@ -2,7 +2,6 @@ package iqq.im;
 
 import com.alibaba.fastjson.JSON;
 import iqq.im.actor.SwingActorDispatcher;
-import iqq.im.actor.ThreadActorDispatcher;
 import iqq.im.bean.QQDiscuz;
 import iqq.im.bean.QQGroup;
 import iqq.im.bean.QQMsg;
@@ -10,11 +9,8 @@ import iqq.im.bean.QQUser;
 import iqq.im.bean.content.FaceItem;
 import iqq.im.bean.content.FontItem;
 import iqq.im.bean.content.TextItem;
-import iqq.im.core.QQModule;
 import iqq.im.event.QQActionEvent;
 import iqq.im.event.QQNotifyEvent;
-import iqq.im.module.GroupModule;
-import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -83,16 +79,25 @@ public class QRcodeLoginTest {
                                 }
                             }
                         });
-//                        mClient.beginPollMsg();
-                        QQGroup qqGroup = new QQGroup();
-                        qqGroup.setCode(3058601821l);
-                        mClient.getGroupInfo(qqGroup, new QQActionListener() {
+                        mClient.getDiscuzList(new QQActionListener() {
                             @Override
                             public void onActionEvent(QQActionEvent event) {
-
-                                System.out.println(event);
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println(JSON.toJSONString(mClient.getDiscuzList()));
+                                    System.out.println("加载讨论组列表成功");
+                                }
                             }
                         });
+                        mClient.getSelfInfo(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println(JSON.toJSONString(event.getTarget()));
+                                    System.out.println("获取个人信息成功");
+                                }
+                            }
+                        });
+                       mClient.beginPollMsg();
                         break;
                     case EVT_ERROR:
                         QQException ex = (QQException) (event.getTarget());

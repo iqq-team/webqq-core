@@ -689,6 +689,18 @@ public class WebQQClient implements QQClient, QQContext {
     }
 
     /**
+     * <p>getSelfInfo.</p>
+     *
+     * @param listener
+     * @return
+     */
+    @Override
+    public QQActionFuture getSelfInfo(QQActionListener listener) {
+        LoginModule mod = getModule(QQModule.Type.LOGIN);
+        return mod.getSelfInfo(listener);
+    }
+
+    /**
      * {@inheritDoc}
      * <p/>
      * 退出验证码输入
@@ -768,6 +780,11 @@ public class WebQQClient implements QQClient, QQContext {
         // TODO Auto-generated method stub
         BuddyModule mod = getModule(QQModule.Type.BUDDY);
         mod.addBuddy(qqActionListener, qq);
+    }
+
+    @Override
+    public void initExtendQQModel(QQModule qqModule) throws QQException {
+        qqModule.init(this);
     }
 
     /**

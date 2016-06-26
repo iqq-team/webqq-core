@@ -30,7 +30,7 @@ package iqq.im.core;
  *
  * @author solosky
  */
-public interface QQConstants {
+public class QQConstants {
     /**
      * Constant <code>APPID="1003903"</code>
      */
@@ -273,6 +273,12 @@ public interface QQConstants {
      * Constant <code>URL_MARK_EMAIL="http://mail.qq.com/cgi-bin/mail_mgr"</code>
      */
     public static final String URL_MARK_EMAIL = "http://mail.qq.com/cgi-bin/mail_mgr";
+
+    /**
+     * self info Constant <code>URL_GET_SELF_INFO="http://mail.qq.com/cgi-bin/mail_mgr"</code>
+     */
+    public static final  String URL_GET_SELF_INFO = "http://s.web2.qq.com/api/get_self_info2";
+
     /**
      * Constant <code>REGXP_EMAIL_AUTH="ptui_auth_CB\\('(.*?)','(.*?)'\\)"</code>
      */

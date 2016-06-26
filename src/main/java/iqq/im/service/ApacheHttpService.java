@@ -73,6 +73,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIUtils;
 import org.apache.http.concurrent.FutureCallback;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.FormBodyPart;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
@@ -177,6 +178,9 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 						list.add(new BasicNameValuePair(key, value));
 					}
 					httppost.setEntity(new UrlEncodedFormEntity(list, request.getCharset()));
+				}else if(request.getPostBody()!=null){
+					request.addHeader("Content-Type", "application/json; charset=utf-8");
+					httppost.setEntity(new StringEntity(request.getPostBody(),"UTF-8"));
 				}
 				Map<String, String> headerMap = request.getHeaderMap();
 				for(String key: headerMap.keySet()){

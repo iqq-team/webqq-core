@@ -74,7 +74,7 @@ public abstract class AbstractHttpAction implements HttpAction{
 		try {
 			LOG.debug(response.getContentType());
 			String type = response.getContentType();
-			if((type.startsWith("application/x-javascript")
+			if(type!=null && (type.startsWith("application/x-javascript")
 					|| type.startsWith("application/json")
 					|| type.indexOf("text") >= 0
 					) && response.getContentLength() > 0){

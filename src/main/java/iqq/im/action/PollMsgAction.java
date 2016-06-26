@@ -304,15 +304,15 @@ public class PollMsgAction extends AbstractHttpAction {
         msg.setId2(pollData.has("msg_id2")?pollData.getLong("msg_id2"):0);
         long fromUin = pollData.getLong("send_uin");
         long groupCode = pollData.getLong("group_code");
-//        long groupID = pollData.getLong("info_seq"); // 真实群号码
-        QQGroup group = store.getGroupByCode(groupCode);
+//      long groupID = pollData.getLong("info_seq"); // 真实群号码
+        QQGroup group = store.getGroupByGin(groupCode);
         if (group == null) {
             GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
             group = new QQGroup();
             group.setCode(groupCode);
 //            group.setGid(groupID);
             // put to store
-            store.addGroup(group);
+//            store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
        /* if (group.getGid() <= 0) {

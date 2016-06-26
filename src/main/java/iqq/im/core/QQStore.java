@@ -26,13 +26,7 @@
 package iqq.im.core;
 
 import iqq.im.QQException;
-import iqq.im.bean.QQBuddy;
-import iqq.im.bean.QQCategory;
-import iqq.im.bean.QQDiscuz;
-import iqq.im.bean.QQGroup;
-import iqq.im.bean.QQStatus;
-import iqq.im.bean.QQStranger;
-import iqq.im.bean.QQUser;
+import iqq.im.bean.*;
 import iqq.im.bean.content.ContentItem;
 
 import java.util.ArrayList;
@@ -377,4 +371,5 @@ public class QQStore implements QQLifeCycle {
 		}
 		return user;
 	}
+
 }
