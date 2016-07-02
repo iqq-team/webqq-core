@@ -26,6 +26,8 @@
 package iqq.im.core;
 
 
+import iqq.im.bean.QQAccount;
+
 import java.util.Random;
 
 /**
@@ -34,7 +36,7 @@ import java.util.Random;
  * @author solosky
  */
 public class QQSession {
-    private long clientId;
+    private long clientId=53999199;
     private String sessionId;
     private String vfwebqq;
     private String ptwebqq;
@@ -46,6 +48,15 @@ public class QQSession {
     private int port;            // 禁用群时需要
     private int pollErrorCnt;
     private volatile State state;
+    private String psessionid;
+
+    public String getPsessionid() {
+        return psessionid;
+    }
+
+    public void setPsessionid(String psessionid) {
+        this.psessionid = psessionid;
+    }
 
     public enum State {
         OFFLINE,

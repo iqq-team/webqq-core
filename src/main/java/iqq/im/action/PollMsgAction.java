@@ -78,9 +78,9 @@ public class PollMsgAction extends AbstractHttpAction {
         JSONObject json = new JSONObject();
         json.put("clientid", session.getClientId());
         json.put("psessionid", session.getSessionId());
-        json.put("key", 0); // 暂时不知道什么用的
-        json.put("ids", new JSONArray()); // 同上
-
+        json.put("key", ""); // 暂时不知道什么用的
+//        json.put("ids", new JSONArray()); // 同上
+        json.put("ptwebqq", session.getPtwebqq());
         QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_POLL_MSG);
         req.addPostValue("r", json.toString());
         req.addPostValue("clientid", session.getClientId() + "");
@@ -88,7 +88,7 @@ public class PollMsgAction extends AbstractHttpAction {
         req.setReadTimeout(70 * 1000);
         req.setConnectTimeout(10 * 1000);
         req.addHeader("Referer", QQConstants.REFFER);
-
+        req.addHeader("Origin", QQConstants.ORIGIN);
         return req;
     }
 
@@ -98,12 +98,14 @@ public class PollMsgAction extends AbstractHttpAction {
     @Override
     public void onHttpFinish(QQHttpResponse response) {
         //如果返回的内容为空，认为这次pollMsg仍然成功
-        if (response.getContentLength() == 0) {
-            LOG.debug("PollMsgAction: empty response!!!!");
+       /* if (response.getContentLength() == 0) {
+            LOG.info("PollMsgAction: empty response!!!! "+response.getResponseString());
             notifyActionEvent(QQActionEvent.Type.EVT_OK, new ArrayList<QQNotifyEvent>());
         } else {
             super.onHttpFinish(response);
-        }
+        }*/
+        super.onHttpFinish(response);
+
     }
 
     /**
@@ -115,6 +117,7 @@ public class PollMsgAction extends AbstractHttpAction {
         QQStore store = getContext().getStore();
         List<QQNotifyEvent> notifyEvents = new ArrayList<QQNotifyEvent>();
         JSONObject json = new JSONObject(response.getResponseString());
+        LOG.info(json.toString());
         int retcode = json.getInt("retcode");
         if (retcode == 0) {
             //有可能为  {"retcode":0,"result":"ok"}
@@ -258,7 +261,7 @@ public class PollMsgAction extends AbstractHttpAction {
         long fromUin = pollData.getLong("from_uin");
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
-        msg.setId2(pollData.getLong("msg_id2"));
+        msg.setId2(pollData.has("msg_id2") ? pollData.getLong("msg_id2") : 0);
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.BUDDY_MSG);
         msg.setTo(getContext().getAccount());
@@ -298,23 +301,23 @@ public class PollMsgAction extends AbstractHttpAction {
         QQStore store = getContext().getStore();
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
-        msg.setId2(pollData.getLong("msg_id2"));
+        msg.setId2(pollData.has("msg_id2")?pollData.getLong("msg_id2"):0);
         long fromUin = pollData.getLong("send_uin");
         long groupCode = pollData.getLong("group_code");
-        long groupID = pollData.getLong("info_seq"); // 真实群号码
-        QQGroup group = store.getGroupByCode(groupCode);
+//      long groupID = pollData.getLong("info_seq"); // 真实群号码
+        QQGroup group = store.getGroupByGin(groupCode);
         if (group == null) {
             GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
             group = new QQGroup();
             group.setCode(groupCode);
-            group.setGid(groupID);
+//            group.setGid(groupID);
             // put to store
-            store.addGroup(group);
+//            store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
-        if (group.getGid() <= 0) {
+       /* if (group.getGid() <= 0) {
             group.setGid(groupID);
-        }
+        }*/
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.GROUP_MSG);
         msg.setGroup(group);

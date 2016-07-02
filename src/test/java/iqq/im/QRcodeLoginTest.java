@@ -1,7 +1,7 @@
 package iqq.im;
 
+import com.alibaba.fastjson.JSON;
 import iqq.im.actor.SwingActorDispatcher;
-import iqq.im.actor.ThreadActorDispatcher;
 import iqq.im.bean.QQDiscuz;
 import iqq.im.bean.QQGroup;
 import iqq.im.bean.QQMsg;
@@ -63,7 +63,41 @@ public class QRcodeLoginTest {
                 switch (event.getType()) {
                     case EVT_OK:
                         // 扫描通过,登录成功
-                        mClient.beginPollMsg();
+                        mClient.getBuddyList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println("加载好友列表成功");
+                                }
+                            }
+                        });
+                        mClient.getGroupList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println("加载群列表成功");
+                                }
+                            }
+                        });
+                        mClient.getDiscuzList(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println(JSON.toJSONString(mClient.getDiscuzList()));
+                                    System.out.println("加载讨论组列表成功");
+                                }
+                            }
+                        });
+                        mClient.getSelfInfo(new QQActionListener() {
+                            @Override
+                            public void onActionEvent(QQActionEvent event) {
+                                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                                    System.out.println(JSON.toJSONString(event.getTarget()));
+                                    System.out.println("获取个人信息成功");
+                                }
+                            }
+                        });
+                       mClient.beginPollMsg();
                         break;
                     case EVT_ERROR:
                         QQException ex = (QQException) (event.getTarget());
@@ -99,10 +133,11 @@ public class QRcodeLoginTest {
             case DISCUZ_MSG:
                 sendDiscuz(revMsg.getDiscuz());
         }
+        System.out.println(revMsg.getText());
     }
 
     public static void sendMsg(QQUser user) {
-        System.out.println("sendMsg " + user);
+        System.out.println("sendMsg ");
 
         // 组装QQ消息发送回去
         QQMsg sendMsg = new QQMsg();

@@ -87,6 +87,7 @@ public class QQHttpCookieJar {
     			QQHttpCookie oldCookie = this.getCookie(cookie.getName(), null);
     			//如果有之前相同名字的Cookie,删除之前的cookie
     			if(oldCookie!=null) {
+						LOG.debug("[remove Cookie] "+oldCookie);
     					cookieContainer.remove(oldCookie);
             			//如果新cookie的值不为空，就添加到新的cookie到列表中
             			if(cookie.getValue()!=null && cookie.getValue().length()>0) {

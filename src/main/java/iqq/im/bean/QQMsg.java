@@ -319,7 +319,10 @@ public class QQMsg implements Serializable{
 		}
 		return null;
 	}
-	
+
+	public void clearContentItems(){
+		contentList.clear();
+	}
 	/**
 	 * <p>getText.</p>
 	 *

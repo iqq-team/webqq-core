@@ -67,6 +67,11 @@ public class QQHttpRequest
 	 * 请求的值集合
 	 */
 	private Map<String, String> postMap;
+
+	/**
+	 * body 请求
+	 */
+	private String postBody;
 	
 	/***
 	 * Post的文件列表
@@ -421,5 +426,12 @@ public class QQHttpRequest
 	public void setReadTimeout(int readTimeout) {
 		this.readTimeout = readTimeout;
 	}
-	
+
+	public String getPostBody() {
+		return postBody;
+	}
+
+	public void setPostBody(String postBody) {
+		this.postBody = postBody;
+	}
 }

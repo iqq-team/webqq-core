@@ -195,13 +195,29 @@ public class ProcModule extends AbstractModule {
             @Override
             public void onActionEvent(QQActionEvent event) {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    doChannelLogin(future);
+                    doGetVFWebqq(future);
                 } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
                     future.notifyActionEvent(
                             QQActionEvent.Type.EVT_ERROR,
                             (QQException) event.getTarget());
                 }
 
+            }
+        });
+    }
+
+    private void doGetVFWebqq(final ProcActionFuture future){
+        LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
+        login.getVFWebqq(new QQActionListener() {
+            @Override
+            public void onActionEvent(QQActionEvent event) {
+                if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                    doChannelLogin(future);
+                } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                    future.notifyActionEvent(
+                            QQActionEvent.Type.EVT_ERROR,
+                            (QQException) event.getTarget());
+                }
             }
         });
     }
@@ -274,6 +290,7 @@ public class ProcModule extends AbstractModule {
      */
     public void doPollMsg() {
         final LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
+        LOG.info("polling....");
         login.pollMsg(new QQActionListener() {
             public void onActionEvent(QQActionEvent event) {
                 // 回调通知事件函数

@@ -33,9 +33,17 @@ package iqq.im.bean;
  */
 public class QQAccount extends QQUser {
 	private static final long serialVersionUID = 1L;
-	
+
+
+
+	@Deprecated
 	private String password;
 	private String username;
+
+	/**
+	 * 这个可能跟登录的vfwebqq不太一样
+	 */
+	private String vfwebqq;
 
 	/**
 	 * <p>Getter for the field <code>password</code>.</p>
@@ -71,5 +79,13 @@ public class QQAccount extends QQUser {
 	 */
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getVfwebqq() {
+		return vfwebqq;
+	}
+
+	public void setVfwebqq(String vfwebqq) {
+		this.vfwebqq = vfwebqq;
 	}
 }

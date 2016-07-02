@@ -36,6 +36,7 @@ public class ChatModule extends AbstractModule {
      * @return a {@link iqq.im.event.QQActionFuture} object.
      */
     public QQActionFuture sendMsg(final QQMsg msg, QQActionListener listener) {
+
         if (msg.getType() == QQMsg.Type.SESSION_MSG) {
             final ProcActionFuture future = new ProcActionFuture(listener, true);
             QQStranger stranger = (QQStranger) msg.getTo();
@@ -59,40 +60,31 @@ public class ChatModule extends AbstractModule {
             final ProcActionFuture future = new ProcActionFuture(listener, true);
             if (msg.getType() == QQMsg.Type.GROUP_MSG) {
                 if (msg.getGroup().getGin() == 0) {
-                    GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
-                    groupModule.getGroupInfo(msg.getGroup(), new QQActionListener() {
-                        @Override
-                        public void onActionEvent(QQActionEvent event) {
-                            if (future.isCanceled()) {
-                                return;
-                            }
-                            if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                                sendMsg(msg, future);
-                            } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                                future.notifyActionEvent(event.getType(), event.getTarget());
-                            }
-                        }
-                    });
+                    msg.setGroup(getContext().getStore().getGroupByCode(msg.getGroup().getCode()));
+                    if(msg==null){
+                        //update group list
+//                        sendMsg(msg, future);
+                    }
                     return future;
                 }
             }
-            if (StringUtils.isEmpty(getContext().getSession().getCfaceKey())) {
-                getCFaceSig(new QQActionListener() {
-
-                    @Override
-                    public void onActionEvent(QQActionEvent event) {
-                        if (future.isCanceled()) {
-                            return;
-                        }
-                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                            sendMsg(msg, future);
-                        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                            future.notifyActionEvent(event.getType(), event.getTarget());
-                        }
-                    }
-                });
-                return future;
-            }
+//            if (StringUtils.isEmpty(getContext().getSession().getCfaceKey())) {
+//                getCFaceSig(new QQActionListener() {
+//
+//                    @Override
+//                    public void onActionEvent(QQActionEvent event) {
+//                        if (future.isCanceled()) {
+//                            return;
+//                        }
+//                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+//                            sendMsg(msg, future);
+//                        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+//                            future.notifyActionEvent(event.getType(), event.getTarget());
+//                        }
+//                    }
+//                });
+//                return future;
+//            }
         }
 
         return doSendMsg(msg, listener);

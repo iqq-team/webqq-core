@@ -78,6 +78,7 @@ public class GetGroupListAction extends AbstractHttpAction {
 			for (int i = 0; i < groupJsonList.length(); i++) {
 				JSONObject groupJson = groupJsonList.getJSONObject(i);
 				QQGroup group = new QQGroup();
+				group.setGid(groupJson.getLong("gid"));
 				group.setGin(groupJson.getLong("gid"));
 				group.setCode(groupJson.getLong("code"));
 				group.setFlag(groupJson.getInt("flag"));

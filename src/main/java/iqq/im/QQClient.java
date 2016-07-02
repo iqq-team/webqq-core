@@ -36,6 +36,8 @@ import iqq.im.bean.QQStranger;
 import iqq.im.bean.QQUser;
 import iqq.im.bean.content.CFaceItem;
 import iqq.im.bean.content.OffPicItem;
+import iqq.im.core.QQContext;
+import iqq.im.core.QQModule;
 import iqq.im.event.QQActionFuture;
 import iqq.im.event.QQNotifyEvent;
 import iqq.im.service.HttpService.ProxyType;
@@ -352,6 +354,18 @@ public interface QQClient {
      */
     public QQActionFuture searchGroupGetList(QQGroupSearchList resultList, QQActionListener listener);
 
+
+    /**
+     *
+     * <p>getSelfInfo.</p>
+     * @param listener
+     * @return
+     */
+    public QQActionFuture getSelfInfo( QQActionListener listener);
+
+
+
+
     /**
      * <p>submitVerify.</p>
      *
@@ -450,4 +464,8 @@ public interface QQClient {
      * @param qqActionListener
      */
     public void acceptBuddyRequest(String qq, QQActionListener qqActionListener);
+
+    public void initExtendQQModel(QQModule qqModule) throws QQException;
+
+
 }

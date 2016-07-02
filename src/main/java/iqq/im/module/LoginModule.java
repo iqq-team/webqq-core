@@ -144,5 +144,18 @@ public class LoginModule extends AbstractModule {
     public QQActionFuture checkLoginSig(String checkUrl, QQActionListener listener) {
         return pushHttpAction(new CheckLoginSigAction(getContext(), listener, checkUrl));
     }
+    /**
+     * <p>checkLoginSig.</p>
+     *
+     * @param listener a {@link iqq.im.QQActionListener} object.
+     * @return a {@link iqq.im.event.QQActionFuture} object.
+     */
+    public QQActionFuture getVFWebqq( QQActionListener listener) {
+        return pushHttpAction(new GetVFWebqq(getContext(), listener));
+    }
 
+
+    public QQActionFuture getSelfInfo(QQActionListener listener) {
+        return pushHttpAction(new GetSelfInfoAction(getContext(), listener));
+    }
 }
