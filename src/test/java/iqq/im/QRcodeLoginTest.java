@@ -176,7 +176,7 @@ public class QRcodeLoginTest {
     public void processBuddyMsg(QQNotifyEvent event) throws QQException {
         QQMsg msg = (QQMsg) event.getTarget();
 
-        LOG.info("[消息] " + msg.getFrom().getNickname() + "说:" + msg.packContentList());
+        LOG.info("[消息] " + msg.getFrom().getNickname() + "说:" + msg.getText());
         List<ContentItem> items = msg.getContentList();
 
         if (msg.getType() == QQMsg.Type.BUDDY_MSG) {
@@ -191,22 +191,76 @@ public class QRcodeLoginTest {
                     content = ((TextItem) item).getContent();
                 }
             }
-            if (StringU.equals(content, "团长最帅")) {
-                QQMsg sendMsg = new QQMsg();
-                sendMsg.setTo(msg.getFrom());                       // QQ好友UIN
-                sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
-                // QQ内容
-                if (!uinList.contains(msg.getFrom().getUin())) {
-                    uinList.add(msg.getFrom().getUin());
-                    sendMsg.addContentItem(new TextItem("加入白名单成功."));      // 添加文本内容
-                } else {
-                    sendMsg.addContentItem(new TextItem("大哥/大姐 咱别重复加入了."));      // 添加文本内容
+            QQMsg sendMsg = new QQMsg();
+            sendMsg.setTo(msg.getFrom());                       // QQ好友UIN
+            sendMsg.setType(QQMsg.Type.BUDDY_MSG);
+            XabHttpResult result = null;
+            try {
+                result = XabHttpRequest.getInstance().Get(QQConstants.URL_CONVERT_MSG + URLEncoder.encode(content, "UTF-8"));
+                String baseJson = result.getEOS();
+                int code = JsonU.getInt(baseJson, "code");
+                switch (code) {
+                    case TulingU.text:
+                        sendMsg.addContentItem(new TextItem(StringU.replace(JsonU.getString(baseJson, "text"),"<br>","\r\n")));
+                        sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                        client.sendMsg(sendMsg, null);
+                        break;
+                    case TulingU.news:
+                        JSONArray array = JsonU.getJsonArray(baseJson, "list");
+                        int arrayLength = array.length();
+                        for (int i = 0; i < arrayLength; i++) {
+                            String string = array.getString(i);
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "article")));
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "detailurl")));
+                            sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                            client.sendMsg(sendMsg, null);
+
+                        }
+                        break;
+                    case TulingU.link:
+                        sendMsg.addContentItem(new TextItem("点击打开: " + JsonU.getString(baseJson, "url")));
+                        sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                        client.sendMsg(sendMsg, null);
+                        break;
+                    case TulingU.cook:
+                        JSONArray array1 = JsonU.getJsonArray(baseJson, "list");
+                        int arrayLength1 = array1.length();
+                        for (int i = 0; i < arrayLength1; i++) {
+                            String string = array1.getString(i);
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "name") + "\n"));
+                            sendMsg.addContentItem(new TextItem("材料 :" + JsonU.getString(string, "info") + "\n"));
+                            sendMsg.addContentItem(new TextItem("点击打开: "));
+                            sendMsg.addContentItem(new TextItem(JsonU.getString(string, "detailurl")));
+                            sendMsg.addContentItem(new FontItem());             // 使用默认字体
+                            client.sendMsg(sendMsg, null);
+                            break;
+                        }
+                        break;
+                    default:
+                        LOG.debug("不会回答!");
+                        break;
+
                 }
-                sendMsg.addContentItem(new FontItem());             // 使用默认字体
-                client.sendMsg(sendMsg, null);                      // 调用接口发送消息
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+
+//            if (StringU.equals(content, "团长最帅")) {
+//                QQMsg sendMsg = new QQMsg();
+//                sendMsg.setTo(msg.getFrom());                       // QQ好友UIN
+//                sendMsg.setType(QQMsg.Type.BUDDY_MSG);              // 发送类型为好友
+//                // QQ内容
+//                if (!uinList.contains(msg.getFrom().getUin())) {
+//                    uinList.add(msg.getFrom().getUin());
+//                    sendMsg.addContentItem(new TextItem("加入白名单成功."));      // 添加文本内容
+//                } else {
+//                    sendMsg.addContentItem(new TextItem("大哥/大姐 咱别重复加入了."));      // 添加文本内容
+//                }
+//                sendMsg.addContentItem(new FontItem());             // 使用默认字体
+//                client.sendMsg(sendMsg, null);                      // 调用接口发送消息
+//            }
         } else if (msg.getType() == QQMsg.Type.GROUP_MSG) {
-            if (msg.getFrom().getFlag() == 0 && !uinList.contains(msg.getFrom().getUin())) {
+            if (!uinList.contains(msg.getFrom().getUin())) {
                 LOG.debug("不是管理员,无视.");
                 return;
             }

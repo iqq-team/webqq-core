@@ -36,7 +36,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIUtils;
 import org.apache.http.concurrent.FutureCallback;
-import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.entity.mime.FormBodyPart;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
@@ -164,9 +163,9 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 				QQHttpPostRequestProducer producer = new QQHttpPostRequestProducer(httphost, httppost, listener);
 				QQHttpResponseConsumer  consumer = new QQHttpResponseConsumer(request,listener, cookieJar);
 				QQHttpResponseCallback callback = new QQHttpResponseCallback(listener);
-				HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
-				asyncHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
-						proxy);
+//				HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+//				asyncHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
+//						proxy);
 				Future<QQHttpResponse> future = asyncHttpClient.execute( producer, consumer, callback);
 				return new ProxyFuture(future, consumer, producer);
 				
@@ -187,9 +186,9 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 				if(request.getConnectTimeout() > 0){
 					HttpConnectionParams.setConnectionTimeout(httpget.getParams(),request.getConnectTimeout());
 				}
-				HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
-				asyncHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
-						proxy);
+//				HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+//				asyncHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
+//						proxy);
 				return asyncHttpClient.execute(new QQHttpGetRequestProducer(httphost, httpget), 
 						new QQHttpResponseConsumer(request, listener, cookieJar), 
 						new QQHttpResponseCallback(listener));
