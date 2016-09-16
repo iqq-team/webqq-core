@@ -25,16 +25,16 @@ Maven
 第三方仓库
 ```
 <repository>
-    <id>wener</id>
-    <url>http://hi.wener.me/maven-repository</url>
+    <id>webqq-core github</id>
+    <url>https://raw.githubusercontent.com/xcr1234/webqq-core/master/mvn-repo-snapshot</url>
 </repository>
 ```
 
-目前可用的版本只有 1.0
+目前可用的版本1.2-SNAPSHOT
 ```
 <dependency>
     <groupId>iqq.im</groupId>
     <artifactId>webqq-core</artifactId>
-    <version>1.0</version>
+    <version>1.2-SNAPSHOT</version>
 </dependency>
 ```
