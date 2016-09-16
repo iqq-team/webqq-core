@@ -23,10 +23,21 @@ Tips
 Maven
 -----
 第三方仓库
+
+github服务器：
 ```
 <repository>
     <id>webqq-core github</id>
     <url>https://raw.githubusercontent.com/xcr1234/webqq-core/master/mvn-repo-snapshot</url>
+</repository>
+```
+
+建议访问国内服务器:
+
+```
+<repository>
+    <id>webqq-core coding</id>
+    <url>https://coding.net/u/xcr_abcd/p/webqq-core/git/raw/master/mvn-repo-snapshot</url>
 </repository>
 ```
 
