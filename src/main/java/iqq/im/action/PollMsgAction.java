@@ -203,7 +203,13 @@ public class PollMsgAction extends AbstractHttpAction {
             notifyActionEvent(QQActionEvent.Type.EVT_ERROR, ex);
             return;
             //notifyEvents.add(new QQNotifyEvent(QQNotifyEvent.Type.NEED_REAUTH, null));
-        } else {
+        }else if(retcode == 103){
+            //账号异常，需要人工登录。
+            getContext().getSession().setState(QQSession.State.OFFLINE);
+            QQException ex = new QQException(QQException.QQErrorCode.USER_ERROR);
+            notifyActionEvent(QQActionEvent.Type.EVT_ERROR,ex);
+            return;
+        }else {
 
             LOG.error("**Reply retcode to author**");
             LOG.error("***************************");

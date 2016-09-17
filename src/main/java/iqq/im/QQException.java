@@ -180,7 +180,11 @@ public class QQException extends Exception {
         /**
          * 发送消息失败
          */
-        SNED_MSG_ERROR
+        SNED_MSG_ERROR,
+        /**
+         * 账号登录状态异常
+         */
+        USER_ERROR
     }
 
 }
