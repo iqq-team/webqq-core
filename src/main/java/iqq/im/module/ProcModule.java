@@ -320,7 +320,13 @@ public class ProcModule extends AbstractModule {
                     } else if (code == QQErrorCode.IO_ERROR || code == QQErrorCode.IO_TIMEOUT) {
                         //粗线了IO异常，直接报网络错误
                         getContext().fireNotify(new QQNotifyEvent(QQNotifyEvent.Type.NET_ERROR, ex));
-                    } else {
+                    } else if(code==QQErrorCode.USER_ERROR){
+                        //用户错误
+                        RuntimeException e = new RuntimeException("用户状态异常103：需要手动登录webQQ扫码登录，随便发送一条消息然后退出该账号。");
+                        LOG.error("103用户状态异常。需要手动登录webQQ扫码登录，随便发送一条消息然后退出该账号。",e);
+                        getContext().fireNotify(new QQNotifyEvent(QQNotifyEvent.Type.UNKNOWN_ERROR,e));
+
+                    } else{
                         LOG.warn("poll msg unexpected error, ignore it ...", ex);
                         relogin();
                         doPollMsg();

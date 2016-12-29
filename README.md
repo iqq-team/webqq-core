@@ -23,18 +23,29 @@ Tips
 Maven
 -----
 第三方仓库
+
+github服务器：
 ```
 <repository>
-    <id>wener</id>
-    <url>http://hi.wener.me/maven-repository</url>
+    <id>webqq-core github</id>
+    <url>https://raw.githubusercontent.com/xcr1234/webqq-core/master/mvn-repo-snapshot</url>
 </repository>
 ```
 
-目前可用的版本只有 1.0
+建议访问国内服务器:
+
+```
+<repository>
+    <id>webqq-core coding</id>
+    <url>https://coding.net/u/xcr_abcd/p/webqq-core/git/raw/master/mvn-repo-snapshot</url>
+</repository>
+```
+
+目前可用的版本1.2-SNAPSHOT
 ```
 <dependency>
     <groupId>iqq.im</groupId>
     <artifactId>webqq-core</artifactId>
-    <version>1.0</version>
+    <version>1.2-SNAPSHOT</version>
 </dependency>
 ```
