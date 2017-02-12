@@ -793,9 +793,9 @@ public class WebQQClient implements QQClient, QQContext {
      * @param qqActionListener
      */
     @Override
-    public void getQRcode(QQActionListener qqActionListener) {
+    public QQActionFuture getQRCode(QQActionListener qqActionListener) {
         LoginModule login = getModule(QQModule.Type.LOGIN);
-        login.getQRCode(qqActionListener);
+        return login.getQRCode(qqActionListener);
     }
 
     /**
@@ -804,8 +804,8 @@ public class WebQQClient implements QQClient, QQContext {
      * @param qqActionListener
      */
     @Override
-    public void checkQRCode(QQActionListener qqActionListener) {
+    public QQActionFuture checkQRCode(QQActionListener qqActionListener) {
         ProcModule module = getModule(QQModule.Type.PROC);
-        module.checkQRCode(qqActionListener);
+        return module.checkQRCode(qqActionListener);
     }
 }

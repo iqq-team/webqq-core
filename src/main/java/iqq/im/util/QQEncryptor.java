@@ -41,6 +41,21 @@ public class QQEncryptor {
     public static void main(String[] args) {
         System.out.println(QQEncryptor.hash("912536370","5d4c090f4a91cf44083ce8e274345e44e523c21341b41cf135f15b3b8cfc1329"));
     }
+
+    /**
+     * 登录时QRCode扫描ptqrtoken
+     *
+     * @param str
+     * @return
+     */
+    public static long hash33(String str) {
+        long hash = 0;
+        for (int i = 0, length = str.length(); i < length; i++) {
+            hash += (hash<<5)+str.charAt(i);
+        }
+        return 2147483647&hash;
+    }
+
     /**
      * 登录邮箱时用到的，auth_token
      *

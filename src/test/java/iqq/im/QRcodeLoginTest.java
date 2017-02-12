@@ -10,6 +10,7 @@ import iqq.im.bean.content.FaceItem;
 import iqq.im.bean.content.FontItem;
 import iqq.im.bean.content.TextItem;
 import iqq.im.event.QQActionEvent;
+import iqq.im.event.QQActionFuture;
 import iqq.im.event.QQNotifyEvent;
 
 import javax.imageio.ImageIO;
@@ -37,24 +38,21 @@ public class QRcodeLoginTest {
         }
     }, new SwingActorDispatcher());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // 获取二维码
-        mClient.getQRcode(new QQActionListener() {
-            @Override
-            public void onActionEvent(QQActionEvent event) {
-                if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                    try {
-                        BufferedImage verify = (BufferedImage) event.getTarget();
-                        ImageIO.write(verify, "png", new File("qrcode.png"));
-                        System.out.println("请扫描在项目根目录下qrcode.png图片");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    System.out.println("获取二维码失败");
-                }
+        QQActionFuture future = mClient.getQRCode(null);
+        QQActionEvent event = future.waitFinalEvent();
+        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+            try {
+                BufferedImage verify = (BufferedImage) event.getTarget();
+                ImageIO.write(verify, "png", new File("qrcode.png"));
+                System.out.println("请扫描在项目根目录下qrcode.png图片");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        });
+        } else if(event.getType() == QQActionEvent.Type.EVT_ERROR) {
+            System.out.println("获取二维码失败");
+        }
         // 检查二维码状态
         mClient.checkQRCode(new QQActionListener() {
             @Override

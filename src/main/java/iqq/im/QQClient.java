@@ -58,9 +58,9 @@ public interface QQClient {
      */
     public void destroy();
 
-    public void getQRcode(QQActionListener qqActionListener);
+    public QQActionFuture getQRCode(QQActionListener qqActionListener);
 
-    public void checkQRCode(QQActionListener qqActionListener);
+    public QQActionFuture checkQRCode(QQActionListener qqActionListener);
 
     /**
      * <p>login.</p>

@@ -4,9 +4,12 @@ import iqq.im.QQActionListener;
 import iqq.im.QQException;
 import iqq.im.core.QQConstants;
 import iqq.im.core.QQContext;
+import iqq.im.core.QQService;
 import iqq.im.event.QQActionEvent;
 import iqq.im.http.QQHttpRequest;
 import iqq.im.http.QQHttpResponse;
+import iqq.im.service.HttpService;
+import iqq.im.util.QQEncryptor;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +38,11 @@ public class CheckQRCodeAction extends AbstractHttpAction {
      */
     @Override
     protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
+        HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
+        String ptqrtoken = httpService.getCookie("qrsig", QQConstants.URL_CHECK_QRCODE).getValue();
+
         QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_CHECK_QRCODE);
+        req.addGetValue("ptqrtoken", QQEncryptor.hash33(ptqrtoken) + "");
         req.addGetValue("webqq_type", "10");
         req.addGetValue("remember_uin", "1");
         req.addGetValue("login2qq", "1");
@@ -48,12 +55,12 @@ public class CheckQRCodeAction extends AbstractHttpAction {
         req.addGetValue("pttype", "1");
         req.addGetValue("dumy", "");
         req.addGetValue("fp", "loginerroralert");
-        req.addGetValue("action", "0-0-205298");
+        req.addGetValue("action", "0-0-46090");
         req.addGetValue("mibao_css", "m_webqq");
         req.addGetValue("t", "1");
         req.addGetValue("g", "1");
         req.addGetValue("js_type", "0");
-        req.addGetValue("js_ver", "10153");
+        req.addGetValue("js_ver", "10194");
         req.addGetValue("login_sig", "");
         req.addGetValue("pt_randsalt", "0");
         return req;
@@ -64,10 +71,10 @@ public class CheckQRCodeAction extends AbstractHttpAction {
      */
     @Override
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException {
+        LOG.info("CheckQRCode: " + response.getHeaders());
+        LOG.info("CheckQRCode: " + response.getResponseString());
         Pattern pt = Pattern.compile(QQConstants.REGXP_LOGIN);
         Matcher mc = pt.matcher(response.getResponseString());
-        LOG.info("WebLogin: " + response.getHeaders());
-        LOG.info("WebLogin: " + response.getResponseString());
         if (mc.find()) {
             int ret = Integer.parseInt(mc.group(1));
             switch(ret){
