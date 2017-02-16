@@ -38,6 +38,16 @@ import iqq.im.event.QQActionFuture;
 public class LoginModule extends AbstractModule {
 
     /**
+     * <p>init login</p>
+     *
+     * @param listener
+     * @return
+     */
+    public QQActionFuture initLogin(QQActionListener listener) {
+        return pushHttpAction(new InitLogin(getContext(), listener));
+    }
+
+    /**
      * <p>get QRCode</p>
      *
      * @param listener a {@link iqq.im.QQActionListener} object.

@@ -418,16 +418,14 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 		private QQHttpListener httpListener;
 		private volatile boolean isCanceled;
 		
-		public QQHttpPostRequestProducer(HttpHost target,
-				HttpEntityEnclosingRequest request, QQHttpListener listener)
+		public QQHttpPostRequestProducer(HttpHost target, HttpEntityEnclosingRequest request, QQHttpListener listener)
 				throws IOException {
 			super(target, request);
 			HttpEntity entity = request.getEntity();
 			// TODO 暂时把所有的请求先读入内存，在存在大文件的时候可能OutOfMemory,以后重写一个基于MultiPartInputStream来优化
 			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
 			entity.writeTo(byteOutStream);
-			httpInStream = new ByteArrayInputStream(
-					byteOutStream.toByteArray());
+			httpInStream = new ByteArrayInputStream(byteOutStream.toByteArray());
 
 			byteOutStream.close();
 			contentLength = entity.getContentLength();

@@ -48,6 +48,8 @@ import java.util.List;
 public class ProcModule extends AbstractModule {
     private static final Logger LOG = LoggerFactory.getLogger(ProcModule.class);
 
+    private boolean isLoginInit = false;
+
     /**
      * <p>check qrcode</p>
      *
@@ -57,6 +59,14 @@ public class ProcModule extends AbstractModule {
     public QQActionFuture checkQRCode(final QQActionListener listener) {
         final ProcActionFuture future = new ProcActionFuture(listener, true);
         LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
+        if (!isLoginInit) {
+            try {
+                login.initLogin(null).waitFinalEvent();
+                isLoginInit = true;
+            } catch (Exception e) {
+                LOG.error("initLogin", e);
+            }
+        }
         login.checkQRCode(new QQActionListener() {
             @Override
             public void onActionEvent(QQActionEvent event) {

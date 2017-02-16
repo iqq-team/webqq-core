@@ -46,7 +46,6 @@ public class QQConstants {
     public static final String REFERER_S = "http://s.web2.qq.com/proxy.html?v=20130916001&callback=1&id=1";
 
     /**
-
      * Constant <code>ORIGIN="http://d1.web2.qq.com"{trunked}</code>
      */
     public static final String ORIGIN = "http://d1.web2.qq.com";
@@ -56,6 +55,7 @@ public class QQConstants {
      */
 //    public static final String USER_AGENT = "IQQ Client/1.2 dev";
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36";
+    public static final String URL_LOGIN_INIT = "https://ui.ptlogin2.qq.com/cgi-bin/login?daid=164&target=self&style=16&mibao_css=m_webqq&appid=501004106&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html&f_url=loginerroralert&strong_login=1&login_state=10&t=20131024001";
     /**
      * Constant <code>URL_CHECK_VERIFY="https://ssl.ptlogin2.qq.com/check?uin={"{trunked}</code>
      */
@@ -277,7 +277,7 @@ public class QQConstants {
     /**
      * self info Constant <code>URL_GET_SELF_INFO="http://mail.qq.com/cgi-bin/mail_mgr"</code>
      */
-    public static final  String URL_GET_SELF_INFO = "http://s.web2.qq.com/api/get_self_info2";
+    public static final String URL_GET_SELF_INFO = "http://s.web2.qq.com/api/get_self_info2";
 
     /**
      * Constant <code>REGXP_EMAIL_AUTH="ptui_auth_CB\\('(.*?)','(.*?)'\\)"</code>

@@ -23,7 +23,7 @@ import java.io.File;
  * <p/>
  * Created by Tony on 10/6/15.
  */
-public class QRcodeLoginTest {
+public class QRCodeLoginTest {
 
     static QQClient mClient = new WebQQClient(new QQNotifyListener() {
         @Override
@@ -66,6 +66,7 @@ public class QRcodeLoginTest {
                             public void onActionEvent(QQActionEvent event) {
                                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                                     System.out.println("加载好友列表成功");
+                                    System.out.println(JSON.toJSONString(mClient.getBuddyList()));
                                 }
                             }
                         });
@@ -74,6 +75,7 @@ public class QRcodeLoginTest {
                             public void onActionEvent(QQActionEvent event) {
                                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                                     System.out.println("加载群列表成功");
+                                    System.out.println(JSON.toJSONString(mClient.getGroupList()));
                                 }
                             }
                         });
@@ -81,8 +83,8 @@ public class QRcodeLoginTest {
                             @Override
                             public void onActionEvent(QQActionEvent event) {
                                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                                    System.out.println(JSON.toJSONString(mClient.getDiscuzList()));
                                     System.out.println("加载讨论组列表成功");
+                                    System.out.println(JSON.toJSONString(mClient.getDiscuzList()));
                                 }
                             }
                         });
@@ -90,8 +92,8 @@ public class QRcodeLoginTest {
                             @Override
                             public void onActionEvent(QQActionEvent event) {
                                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                                    System.out.println(JSON.toJSONString(event.getTarget()));
                                     System.out.println("获取个人信息成功");
+                                    System.out.println(JSON.toJSONString(event.getTarget()));
                                 }
                             }
                         });
@@ -123,13 +125,13 @@ public class QRcodeLoginTest {
     private static void revMsg(QQMsg revMsg) {
         switch (revMsg.getType()) {
             case BUDDY_MSG:
-                sendMsg(revMsg.getFrom());
+                // sendMsg(revMsg.getFrom());
                 break;
             case GROUP_MSG:
-                sendMsg(revMsg.getGroup());
+                // sendMsg(revMsg.getGroup());
                 break;
             case DISCUZ_MSG:
-                sendDiscuz(revMsg.getDiscuz());
+                // sendDiscuz(revMsg.getDiscuz());
         }
         System.out.println(revMsg.getText());
     }
