@@ -298,39 +298,31 @@ public class PollMsgAction extends AbstractHttpAction {
      * @throws org.json.JSONException if any.
      * @throws iqq.im.QQException     if any.
      */
-    public QQNotifyEvent processGroupMsg(JSONObject pollData)
-            throws JSONException, QQException {
-        // {"retcode":0,"result":[{"poll_type":"group_message",
-        // "value":{"msg_id":6175,"from_uin":3924684389,"to_uin":1070772010,"msg_id2":992858,"msg_type":43,"reply_ip":176621921,
-        // "group_code":3439321257,"send_uin":1843694270,"seq":875,"time":1365934781,"info_seq":170125666,"content":[["font",{"size":10,"color":"3b3b3b","style":[0,0,0],"name":"\u5FAE\u8F6F\u96C5\u9ED1"}],"eeeeeeeee "]}}]}
-
+    public QQNotifyEvent processGroupMsg(JSONObject pollData) throws JSONException, QQException {
+        LOG.info(pollData.toString());
         QQStore store = getContext().getStore();
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
         msg.setId2(pollData.has("msg_id2")?pollData.getLong("msg_id2"):0);
         long fromUin = pollData.getLong("send_uin");
+        long groupUin = pollData.getLong("from_uin");
         long groupCode = pollData.getLong("group_code");
-//      long groupID = pollData.getLong("info_seq"); // 真实群号码
         QQGroup group = store.getGroupByGin(groupCode);
         if (group == null) {
             GroupModule groupModule = getContext().getModule(QQModule.Type.GROUP);
             group = new QQGroup();
+            group.setGin(groupUin);
             group.setCode(groupCode);
-//            group.setGid(groupID);
             // put to store
-//            store.addGroup(group);
+            store.addGroup(group);
             groupModule.getGroupInfo(group, null);
         }
-       /* if (group.getGid() <= 0) {
-            group.setGid(groupID);
-        }*/
         msg.parseContentList(pollData.getJSONArray("content").toString());
         msg.setType(QQMsg.Type.GROUP_MSG);
         msg.setGroup(group);
         msg.setTo(getContext().getAccount());
         msg.setDate(new Date(pollData.getLong("time") * 1000));
         msg.setFrom(group.getMemberByUin(fromUin));
-
         if (msg.getFrom() == null) {
             QQGroupMember member = new QQGroupMember();
             member.setUin(fromUin);

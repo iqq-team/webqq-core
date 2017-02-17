@@ -39,24 +39,18 @@ public class GetFriendAccoutAction extends AbstractHttpAction {
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
-		// tuin=4245757755&verifysession=&type=1&code=&vfwebqq=**&t=1361631644492
-		QQHttpRequest req = createHttpRequest("GET",
-				QQConstants.URL_GET_USER_ACCOUNT);
+		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_USER_ACCOUNT);
 		req.addGetValue("tuin", buddy.getUin() + "");
+		req.addGetValue("type", 1 + "");
 		req.addGetValue("vfwebqq", session.getVfwebqq());
 		req.addGetValue("t", System.currentTimeMillis() / 1000 + "");
-		req.addGetValue("verifysession", ""); // 验证码？？
-		req.addGetValue("type", 1 + "");
-		req.addGetValue("code", "");
-
 		req.addHeader("Referer", QQConstants.REFFER);
 		return req;
 	}
 
 	/** {@inheritDoc} */
 	@Override
-	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
-			JSONException {
+	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
 		JSONObject json = new JSONObject(response.getResponseString());
 		if (json.getInt("retcode") == 0) {
 			JSONObject obj = json.getJSONObject("result");

@@ -353,7 +353,7 @@ public class QQGroup implements Serializable {
      */
     @Override
     public String toString() {
-        return "QQGroup [gid=" + gid + ", code=" + code + ", name=" + name + "]";
+        return "QQGroup [gid=" + gid + ", gin=" + gin + ", code=" + code + ", name=" + name + "]";
     }
 
 

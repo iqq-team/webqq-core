@@ -50,8 +50,7 @@ public class GetGroupListAction extends AbstractHttpAction {
 		json.put("vfwebqq", session.getVfwebqq());
         json.put("hash", QQEncryptor.hash(account.getUin() + "", ptwebqq.getValue()));
 
-		QQHttpRequest req = createHttpRequest("POST",
-				QQConstants.URL_GET_GROUP_NAME_LIST);
+		QQHttpRequest req = createHttpRequest("POST", QQConstants.URL_GET_GROUP_NAME_LIST);
 		req.addPostValue("r", json.toString());
 
 		req.addHeader("Referer", QQConstants.REFFER);
@@ -61,10 +60,8 @@ public class GetGroupListAction extends AbstractHttpAction {
 
 	/** {@inheritDoc} */
 	@Override
-	protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
-			JSONException {
-		// {"retcode":0,"result":{"gmasklist":[{"gid":1000,"mask":0},{"gid":1638195794,"mask":0},{"gid":321105219,"mask":0}],
-		// "gnamelist":[{"flag":16777217,"name":"iQQ","gid":1638195794,"code":2357062609},{"flag":1048577,"name":"iQQ核心开发区","gid":321105219,"code":640215156}],"gmarklist":[]}}
+	protected void onHttpStatusOK(QQHttpResponse response) throws QQException, JSONException {
+		LOG.info(response.getResponseString());
 		QQStore store = getContext().getStore();
 		JSONObject json = new JSONObject(response.getResponseString());
 		
@@ -81,7 +78,6 @@ public class GetGroupListAction extends AbstractHttpAction {
 				group.setGid(groupJson.getLong("gid"));
 				group.setGin(groupJson.getLong("gid"));
 				group.setCode(groupJson.getLong("code"));
-				group.setFlag(groupJson.getInt("flag"));
 				group.setName(groupJson.getString("name"));
 				//添加到Store
 				store.addGroup(group);

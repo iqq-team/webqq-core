@@ -50,7 +50,7 @@ public class QRCodeLoginTest {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if(event.getType() == QQActionEvent.Type.EVT_ERROR) {
+        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
             System.out.println("获取二维码失败");
         }
         // 检查二维码状态
@@ -76,6 +76,8 @@ public class QRCodeLoginTest {
                                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                                     System.out.println("加载群列表成功");
                                     System.out.println(JSON.toJSONString(mClient.getGroupList()));
+                                } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                                    System.out.println("加载群列表失败");
                                 }
                             }
                         });
@@ -97,7 +99,8 @@ public class QRCodeLoginTest {
                                 }
                             }
                         });
-                       mClient.beginPollMsg();
+
+                        mClient.beginPollMsg();
                         break;
                     case EVT_ERROR:
                         QQException ex = (QQException) (event.getTarget());
@@ -125,13 +128,37 @@ public class QRCodeLoginTest {
     private static void revMsg(QQMsg revMsg) {
         switch (revMsg.getType()) {
             case BUDDY_MSG:
-                // sendMsg(revMsg.getFrom());
+                sendMsg(revMsg.getFrom());
+//                mClient.getUserQQ(revMsg.getFrom(), new QQActionListener() {
+//                    @Override
+//                    public void onActionEvent(QQActionEvent event) {
+//                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+//                            System.out.println(event.getTarget());
+//                            QQUser user = (QQUser)event.getTarget();
+//                            if (user.getQQ() == 79492103) {
+//                                sendMsg(user);
+//                            }
+//                        }
+//                    }
+//                });
                 break;
             case GROUP_MSG:
-                // sendMsg(revMsg.getGroup());
+                sendMsg(revMsg.getGroup());
+//                mClient.getGroupGid(revMsg.getGroup(), new QQActionListener() {
+//                    @Override
+//                    public void onActionEvent(QQActionEvent event) {
+//                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+//                            System.out.println(event.getTarget());
+//                            QQGroup group = (QQGroup)event.getTarget();
+//                            if (group.getGid() == 523519805) {
+//                                sendMsg(group);
+//                            }
+//                        }
+//                    }
+//                });
                 break;
             case DISCUZ_MSG:
-                // sendDiscuz(revMsg.getDiscuz());
+                sendDiscuz(revMsg.getDiscuz());
         }
         System.out.println(revMsg.getText());
     }
