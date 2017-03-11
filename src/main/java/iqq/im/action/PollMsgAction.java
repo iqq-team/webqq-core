@@ -96,22 +96,6 @@ public class PollMsgAction extends AbstractHttpAction {
      * {@inheritDoc}
      */
     @Override
-    public void onHttpFinish(QQHttpResponse response) {
-        //如果返回的内容为空，认为这次pollMsg仍然成功
-       /* if (response.getContentLength() == 0) {
-            LOG.info("PollMsgAction: empty response!!!! "+response.getResponseString());
-            notifyActionEvent(QQActionEvent.Type.EVT_OK, new ArrayList<QQNotifyEvent>());
-        } else {
-            super.onHttpFinish(response);
-        }*/
-        super.onHttpFinish(response);
-
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected void onHttpStatusOK(QQHttpResponse response) throws QQException,
             JSONException {
         QQStore store = getContext().getStore();

@@ -216,7 +216,7 @@ public class ProcModule extends AbstractModule {
         });
     }
 
-    private void doGetVFWebqq(final ProcActionFuture future){
+    private void doGetVFWebqq(final ProcActionFuture future) {
         LoginModule login = getContext().getModule(QQModule.Type.LOGIN);
         login.getVFWebqq(new QQActionListener() {
             @Override
@@ -307,7 +307,11 @@ public class ProcModule extends AbstractModule {
                 if (event.getType() == QQActionEvent.Type.EVT_OK) {
                     List<QQNotifyEvent> events = (List<QQNotifyEvent>) event.getTarget();
                     for (QQNotifyEvent evt : events) {
-                        getContext().fireNotify(evt);
+                        try {
+                            getContext().fireNotify(evt);
+                        } catch (Exception ex) {
+                            LOG.warn("fireNotify error ...", ex);
+                        }
                     }
 
                     // 准备提交下次poll请求
@@ -330,19 +334,17 @@ public class ProcModule extends AbstractModule {
                     } else if (code == QQErrorCode.IO_ERROR || code == QQErrorCode.IO_TIMEOUT) {
                         //粗线了IO异常，直接报网络错误
                         getContext().fireNotify(new QQNotifyEvent(QQNotifyEvent.Type.NET_ERROR, ex));
-                    } else if(code==QQErrorCode.USER_ERROR){
+                    } else if (code == QQErrorCode.USER_ERROR) {
                         //用户错误
                         RuntimeException e = new RuntimeException("用户状态异常103：需要手动登录webQQ扫码登录，随便发送一条消息然后退出该账号。");
-                        LOG.error("103用户状态异常。需要手动登录webQQ扫码登录，随便发送一条消息然后退出该账号。",e);
-                        getContext().fireNotify(new QQNotifyEvent(QQNotifyEvent.Type.UNKNOWN_ERROR,e));
-
-                    } else{
+                        LOG.error("103用户状态异常。需要手动登录webQQ扫码登录，随便发送一条消息然后退出该账号。", e);
+                        getContext().fireNotify(new QQNotifyEvent(QQNotifyEvent.Type.UNKNOWN_ERROR, e));
+                    } else {
                         LOG.warn("poll msg unexpected error, ignore it ...", ex);
                         relogin();
                         doPollMsg();
                     }
                 } else if (event.getType() == QQActionEvent.Type.EVT_RETRY) {
-                    System.err.println("Poll Retry:" + this);
                     LOG.warn("poll msg error, retrying....", (QQException) event.getTarget());
                 }
             }

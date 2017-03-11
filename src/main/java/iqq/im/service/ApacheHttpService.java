@@ -380,7 +380,7 @@ public class ApacheHttpService extends AbstractService implements HttpService{
 				try {
 					httpOutStream.close();
 				} catch (IOException e) {
-					//ingore
+					// ignore
 				}
 			}
 			if(httpListener != null){
