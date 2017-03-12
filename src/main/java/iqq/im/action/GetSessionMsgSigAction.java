@@ -46,8 +46,7 @@ public class GetSessionMsgSigAction extends AbstractHttpAction {
 	@Override
 	protected QQHttpRequest onBuildRequest() throws QQException, JSONException {
 		QQSession session = getContext().getSession();
-		QQHttpRequest req = createHttpRequest("GET",
-				QQConstants.URL_GET_SESSION_MSG_SIG);
+		QQHttpRequest req = createHttpRequest("GET", QQConstants.URL_GET_SESSION_MSG_SIG);
 		if(user instanceof QQGroupMember) {
 			QQGroupMember mb = (QQGroupMember) user;
 			mb.setServiceType(0);
@@ -75,7 +74,6 @@ public class GetSessionMsgSigAction extends AbstractHttpAction {
 		// {"retcode":0,"result":{"type":0,"value":"sig","flags":{"text":1,"pic":1,"file":1,"audio":1,"video":1}}}
 		JSONObject json = new JSONObject(response.getResponseString());
 		int retcode = json.getInt("retcode");
-
 		if (retcode == 0) {
 			JSONObject result = json.getJSONObject("result");
 			if (result.has("value")) {

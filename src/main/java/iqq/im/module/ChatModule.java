@@ -36,36 +36,35 @@ public class ChatModule extends AbstractModule {
      * @return a {@link iqq.im.event.QQActionFuture} object.
      */
     public QQActionFuture sendMsg(final QQMsg msg, QQActionListener listener) {
-
         if (msg.getType() == QQMsg.Type.SESSION_MSG) {
             final ProcActionFuture future = new ProcActionFuture(listener, true);
             QQStranger stranger = (QQStranger) msg.getTo();
-//            if (StringUtils.isEmpty(stranger.getGroupSig())) {
-            getSessionMsgSig(stranger, new QQActionListener() {
-                @Override
-                public void onActionEvent(QQActionEvent event) {
-                    if (future.isCanceled()) {
-                        return;
+            if (StringUtils.isEmpty(stranger.getGroupSig())) {
+                getSessionMsgSig(stranger, new QQActionListener() {
+                    @Override
+                    public void onActionEvent(QQActionEvent event) {
+                        if (future.isCanceled()) {
+                            return;
+                        }
+                        if (event.getType() == QQActionEvent.Type.EVT_OK) {
+                            doSendMsg(msg, future);
+                        } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
+                            future.notifyActionEvent(event.getType(), event.getTarget());
+                        }
                     }
-                    if (event.getType() == QQActionEvent.Type.EVT_OK) {
-                        doSendMsg(msg, future);
-                    } else if (event.getType() == QQActionEvent.Type.EVT_ERROR) {
-                        future.notifyActionEvent(event.getType(), event.getTarget());
-                    }
-                }
-            });
-//            }
-            return future;
+                });
+                return future;
+            }
         } else if (msg.getType() == QQMsg.Type.GROUP_MSG || msg.getType() == QQMsg.Type.DISCUZ_MSG) {
-            final ProcActionFuture future = new ProcActionFuture(listener, true);
+//            final ProcActionFuture future = new ProcActionFuture(listener, true);
             if (msg.getType() == QQMsg.Type.GROUP_MSG) {
                 if (msg.getGroup().getGin() == 0) {
                     msg.setGroup(getContext().getStore().getGroupByCode(msg.getGroup().getCode()));
-                    if(msg==null){
-                        //update group list
+//                    if (msg == null) {
+//                        update group list
 //                        sendMsg(msg, future);
-                    }
-                    return future;
+//                    }
+//                    return future;
                 }
             }
 //            if (StringUtils.isEmpty(getContext().getSession().getCfaceKey())) {
