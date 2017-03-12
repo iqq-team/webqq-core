@@ -36,6 +36,8 @@ import iqq.im.http.QQHttpResponse;
 import iqq.im.module.DiscuzModule;
 import iqq.im.module.GroupModule;
 import iqq.im.module.UserModule;
+import iqq.im.service.HttpService;
+import iqq.im.http.QQHttpCookie;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -170,13 +172,16 @@ public class PollMsgAction extends AbstractHttpAction {
         } else if (retcode == 102) {
             // 接连正常，没有消息到达 {"retcode":102,"errmsg":""}
             // 继续进行下一个消息请求
-
         } else if (retcode == 110 || retcode == 109) { // 客户端主动退出
             getContext().getSession().setState(QQSession.State.OFFLINE);
         } else if (retcode == 116) {
             // 需要更新Ptwebqq值，暂时不知道干嘛用的
             // {"retcode":116,"p":"2c0d8375e6c09f2af3ce60c6e081bdf4db271a14d0d85060"}
-            // if (a.retcode === 116) alloy.portal.setPtwebqq(a.p)
+            HttpService httpService = (HttpService) getContext().getSerivce(QQService.Type.HTTP);
+            QQHttpCookie cookie = httpService.getCookie("ptwebqq", "qq.com");
+            if (cookie != null) {
+                cookie.setValue(json.getString("p"));
+            }
             getContext().getSession().setPtwebqq(json.getString("p"));
         } else if (retcode == 121 || retcode == 120 || retcode == 100) {    // 121,120 : ReLinkFailure		100 : NotReLogin
             // 服务器需求重新认证
@@ -186,21 +191,18 @@ public class PollMsgAction extends AbstractHttpAction {
             QQException ex = new QQException(QQException.QQErrorCode.INVALID_LOGIN_AUTH);
             notifyActionEvent(QQActionEvent.Type.EVT_ERROR, ex);
             return;
-            //notifyEvents.add(new QQNotifyEvent(QQNotifyEvent.Type.NEED_REAUTH, null));
-        }else if(retcode == 103){
-            //账号异常，需要人工登录。
+        } else if (retcode == 103) {
+            // 账号异常，需要人工登录。
             getContext().getSession().setState(QQSession.State.OFFLINE);
             QQException ex = new QQException(QQException.QQErrorCode.USER_ERROR);
-            notifyActionEvent(QQActionEvent.Type.EVT_ERROR,ex);
+            notifyActionEvent(QQActionEvent.Type.EVT_ERROR, ex);
             return;
-        }else {
-
+        } else {
             LOG.error("**Reply retcode to author**");
             LOG.error("***************************");
             LOG.error("Unknown retcode: " + retcode);
             LOG.error("***************************");
             // 返回错误，核心遇到未知retcode
-            // getContext().getSession().setState(QQSession.State.ERROR);
             notifyEvents.add(new QQNotifyEvent(QQNotifyEvent.Type.UNKNOWN_ERROR, json));
         }
         notifyActionEvent(QQActionEvent.Type.EVT_OK, notifyEvents);
@@ -213,8 +215,7 @@ public class PollMsgAction extends AbstractHttpAction {
      * @return a {@link iqq.im.event.QQNotifyEvent} object.
      * @throws org.json.JSONException if any.
      */
-    public QQNotifyEvent processBuddyStatusChange(JSONObject pollData)
-            throws JSONException {
+    public QQNotifyEvent processBuddyStatusChange(JSONObject pollData) throws JSONException {
         LOG.info(pollData + "");
 
         long uin = pollData.getLong("uin");
@@ -244,8 +245,7 @@ public class PollMsgAction extends AbstractHttpAction {
      * @throws org.json.JSONException if any.
      * @throws iqq.im.QQException     if any.
      */
-    public QQNotifyEvent processBuddyMsg(JSONObject pollData)
-            throws JSONException, QQException {
+    public QQNotifyEvent processBuddyMsg(JSONObject pollData) throws JSONException, QQException {
         QQStore store = getContext().getStore();
 
         long fromUin = pollData.getLong("from_uin");
@@ -287,7 +287,7 @@ public class PollMsgAction extends AbstractHttpAction {
         QQStore store = getContext().getStore();
         QQMsg msg = new QQMsg();
         msg.setId(pollData.getLong("msg_id"));
-        msg.setId2(pollData.has("msg_id2")?pollData.getLong("msg_id2"):0);
+        msg.setId2(pollData.has("msg_id2") ? pollData.getLong("msg_id2") : 0);
         long fromUin = pollData.getLong("send_uin");
         long groupUin = pollData.getLong("from_uin");
         long groupCode = pollData.getLong("group_code");

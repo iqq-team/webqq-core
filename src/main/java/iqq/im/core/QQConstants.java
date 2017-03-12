@@ -297,6 +297,6 @@ public class QQConstants {
     /**
      * Constant <code>HTTP_TIME_OUT=80000</code>
      */
-    public static final int HTTP_TIME_OUT = 80000;
+    public static final int HTTP_TIME_OUT = 120000;
 
 }
